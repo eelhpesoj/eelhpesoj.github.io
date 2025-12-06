@@ -33,7 +33,7 @@ copyright_url          : "https://eelhpesoj.github.io"
 comments:
   provider             : "utterances"
   utterances:
-    repo                : "eelhpesoj/eelhpesoj.github.io"
+    repo                : "https://github.com/eelhpesoj/eelhpesoj.github.io"
     issue_term         : "pathname"
     label              : "💬 comment"
     theme              : "github-light"
@@ -72,7 +72,7 @@ social:
   type                 : "Person"
   name                 : "Joseph Lee"
   links:
-    - "https://github.com/leeyose"
+    - "https://github.com/eelhpesoj/eelhpesoj.github.io"
     # 필요하면 LinkedIn, Blog 등 추가
 
 # ==========================
@@ -263,5 +263,5 @@ defaults:
       author_profile : true
       read_time    : true
       comments     : true
-      share        : true
+      share        : #true
       related      : true

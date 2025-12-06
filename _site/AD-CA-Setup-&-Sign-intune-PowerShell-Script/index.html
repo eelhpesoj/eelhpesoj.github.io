@@ -1,0 +1,850 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Ad ca setup &amp; sign intune powershell script - Joseph Lee Blog</title>
+<meta name="description" content="0. Overview One of my clients has decided to change their PowerShell execution policy to AllSigned. As a result, any PowerShell scripts executed through Intune are now required to be digitally signed, and script signature validation must be enforced at runtime.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="Ad ca setup &amp; sign intune powershell script">
+<meta property="og:url" content="http://localhost:4000/AD-CA-Setup-&-Sign-intune-PowerShell-Script/">
+
+
+  <meta property="og:description" content="0. Overview One of my clients has decided to change their PowerShell execution policy to AllSigned. As a result, any PowerShell scripts executed through Intune are now required to be digitally signed, and script signature validation must be enforced at runtime.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-06-21T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/AD-CA-Setup-&-Sign-intune-PowerShell-Script/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Ad ca setup & sign intune powershell script</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Ad ca setup &amp; sign intune powershell script">
+    <meta itemprop="description" content="0. OverviewOne of my clients has decided to change their PowerShell execution policy to AllSigned.As a result, any PowerShell scripts executed through Intune are now required to be digitally signed, and script signature validation must be enforced at runtime.">
+    <meta itemprop="datePublished" content="2025-06-21T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/AD-CA-Setup-&-Sign-intune-PowerShell-Script/" itemprop="url">Ad ca setup &amp; sign intune powershell script
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#0-overview">0. Overview</a></li><li><a href="#1-ad-ca-configuration">1. AD CA Configuration</a><ul><li><a href="#1-install-ca-feature">1. Install CA feature</a></li><li><a href="#2-create-the-code-signing-certificate-template">2. Create the code signing certificate template</a></li><li><a href="#3-adding-to-the-certificate-templates">3. Adding to the Certificate Templates</a></li></ul></li><li><a href="#2-from-ad-dc-request-certificate">2. From AD DC, Request Certificate</a></li><li><a href="#3-signing-the-script">3. Signing the script</a><ul><li><a href="#1-signing">1. Signing</a></li><li><a href="#2-validating">2. Validating</a></li></ul></li><li><a href="#3-deploying-the-certificate-with-gpo">3. Deploying the Certificate with GPO</a><ul><li><a href="#1-current-powershell-policy">1. Current PowerShell Policy</a></li><li><a href="#2-if-not-signed-script">2. if not signed script..</a></li><li><a href="#3-if-signed-script-but-the-certificate-is-not-installed-in-the-device">3. if signed script but the certificate is not installed in the device..</a></li><li><a href="#4-create-gpo">4. Create GPO</a><ul><li><a href="#before-create-gpo-we-need-to-export-the-certificate">Before create GPO, we need to export the certificate</a></li><li><a href="#create-gpotrusted-root-certificate-authorities--trusted-publishers">Create GPO(Trusted Root Certificate Authorities &amp; Trusted Publishers!!)</a></li></ul></li><li><a href="#5-validating">5. Validating</a></li></ul></li><li><a href="#4-intune-configuration">4. Intune Configuration</a></li><li><a href="#5-result">5. Result</a></li><li><a href="#6-ref">6. Ref)</a></li><li><a href="#7-note">7. Note</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="0-overview">0. Overview</h1>
+<p>One of my clients has decided to change their PowerShell execution policy to AllSigned.
+As a result, any PowerShell scripts executed through Intune are now required to be digitally signed, and script signature validation must be enforced at runtime.</p>
+
+<p>We initially considered signing the scripts with a public certificate, but due to the associated cost and the short renewal cycle, we decided instead to deploy an internal Active Directory Certificate Authority (AD CA) to handle the code signing ourselves.</p>
+
+<ul>
+  <li>
+    <p>ref) https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5#powershell-execution-policies
+<img src="https://velog.velcdn.com/images/leeyosebi/post/27f0a547-a172-4972-8ddd-2b4cf84d7e0a/image.png" alt="" /></p>
+  </li>
+  <li>ref) https://www.digicert.com/blog/tls-certificate-lifetimes-will-officially-reduce-to-47-days
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4ff73a60-a9f0-42e4-a4c9-4d9a3107a1e9/image.png" alt="" /></li>
+  <li>ref) ‘Enforce script signature check’ from Intune
+<img src="https://velog.velcdn.com/images/leeyosebi/post/18105e4f-c6df-4cf5-ab9d-1410ddc79c22/image.png" alt="" /></li>
+</ul>
+
+<h1 id="1-ad-ca-configuration">1. AD CA Configuration</h1>
+
+<h2 id="1-install-ca-feature">1. Install CA feature</h2>
+<p>Check Active directory Certificate Services
+<img src="https://velog.velcdn.com/images/leeyosebi/post/90fd44fa-424c-482f-8e7a-7cec77314b11/image.png" alt="" />
+Check ‘Certificate Authority’ and ‘Certificate Authority Web Enrollment’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b2a80983-f3fa-4716-850b-35d439741b76/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2a2c783a-d253-4af2-9052-c512007ad51a/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e3a3d7e9-d9fe-48d2-88f0-9523bf127637/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/96965f7e-7839-4ee9-8563-33145d0c22c0/image.png" alt="" />
+Check ‘Certificate Authority’ and ‘Certification Authority Web Enrollment’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b36437a1-8522-455d-bc67-c6ee4a848457/image.png" alt="" />
+Make sure to select Enterprise CA!!
+<img src="https://velog.velcdn.com/images/leeyosebi/post/df161956-e5ca-4592-bd77-f1ab736aa1d8/image.png" alt="" />
+Click Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7001dbe9-d546-4f86-9b1c-2f8c3e688388/image.png" alt="" />
+Set CN of CA
+<img src="https://velog.velcdn.com/images/leeyosebi/post/8127601a-fed2-4258-b127-7a19a3a44947/image.png" alt="" />
+Select the validity period of the CA.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b2f7246c-e243-46bf-8733-0a0624432e7d/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4fd0f753-16e7-4925-90d0-834e3ba3cf30/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ce679add-fc39-4446-9504-9163845e2f44/image.png" alt="" />
+It’s finished and close the window.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e98823f9-06c8-46c8-b9ea-ca03bfabc073/image.png" alt="" /></p>
+
+<h2 id="2-create-the-code-signing-certificate-template">2. Create the code signing certificate template</h2>
+<p>Once the installation has finished successfully, go servermanager &gt; Tools &gt; Certificate Authority.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a9fbd7da-b8d5-49c2-ac7b-cc36cf244945/image.png" alt="" />
+Go Certificate Template &gt; Manage under the CN of the CA drop down list.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0cf697fc-7361-40b5-8090-2143c38a3df1/image.png" alt="" />
+And Code Signing &gt; (Right Click) Duplicate Template. Well, you can use this template directly but you can create your own template with duplicate from this one.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3cbc709a-32c2-41b9-8304-40dc6fd13df1/image.png" alt="" />
+In General tab, set Template name and the validity of the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6d7b88b7-654b-41ff-99fd-b774ce12b23f/image.png" alt="" />
+In Request Handling tab, select the options.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9994e2af-c05e-49a8-a126-59b152ee2b08/image.png" alt="" />
+In Subject Name, Select CN as Subject name format.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e88e81e0-4e57-4300-b0d9-ddf62f9b6344/image.png" alt="" />
+In Security tab, I allow read and write permissions to Authenticated Users. 
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2b2ec432-ec4e-4e5a-866d-48e76824d027/image.png" alt="" />
+Lastly, In Cryptography tab, I just let them as default. Click ‘Apply’ and ‘OK’ for save.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0974fbb9-1770-4fde-a975-d8aa02607d4f/image.png" alt="" />
+So here is the our customed certificate for the Code Signing.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b6edd4ec-d502-406e-8fed-cda347386136/image.png" alt="" /></p>
+
+<h2 id="3-adding-to-the-certificate-templates">3. Adding to the Certificate Templates</h2>
+
+<p>Now we have created the customed template, we have to issue the template to issue.
+Go Certificate Template &gt; (Right Click) New &gt; Certificate Template to Issue.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e2b9bc17-0cf4-4664-9448-c66f6fb815ec/image.png" alt="" />
+Find the ‘ForIntune’ from the list and click ‘OK’ to add the Certificate Templates.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9740bc08-31eb-4271-ada1-c69670aee9c7/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7dcf335f-2729-4c32-9e50-680c0c6f7965/image.png" alt="" /></p>
+
+<h1 id="2-from-ad-dc-request-certificate">2. From AD DC, Request Certificate</h1>
+<p>Go to AD DC, and add snap in certificate with Current User. Go (Right Click) Personal &gt; All Tasks &gt; Request new Certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0497accf-2451-40e7-aabb-8da5a4d451a6/image.png" alt="" />
+Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/46cce8e2-8349-4380-9209-adef896f801b/image.png" alt="" />
+Select ‘ForIntune’ and Click ‘Enroll’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9c9c179f-6b37-4771-97b0-f64b1bf95481/image.png" alt="" />
+Certificate installation Enrollment has been succeed from AD CA.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0242eec6-d57d-49f1-9369-1fee522d55ca/image.png" alt="" />
+So, we got a new directory under the ‘Personal’ and the Cod Signing certificate as well.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/191b1098-080c-47d6-848d-96826da3c6f6/image.png" alt="" />
+I just add friendly name to the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2197d933-9924-4177-ad89-c91d8e0814db/image.png" alt="" /></p>
+
+<h1 id="3-signing-the-script">3. Signing the script</h1>
+<h2 id="1-signing">1. Signing</h2>
+<p>Now let’s sign the script. First of all, we must identify the script. Use this command.
+‘Cert:\CurrentUser\My” is the path in the command where we issed the certificate under the personal.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-ChildItem <span class="s2">"Cert:</span><span class="se">\C</span><span class="s2">urrentUser</span><span class="se">\M</span><span class="s2">y"</span> | fl
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/38b26147-2677-409d-a926-164b89b81acd/image.png" alt="" /></p>
+
+<p>Assign the certificate to a variable. Refer following command.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$certificate</span> <span class="o">=</span> Get-ChildItem <span class="s2">"Cert:</span><span class="se">\C</span><span class="s2">urrentUser</span><span class="se">\M</span><span class="s2">y"</span> | Where-Object <span class="o">{</span><span class="nv">$_</span>.Thumbprint <span class="nt">-eq</span> <span class="s2">"Thumbprint"</span><span class="o">}</span>
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/f2d57e5a-bcf7-4772-ad98-4617e3d343ef/image.png" alt="" /></p>
+
+<p>We are ready to go. Execute following command to sign the PowerShell script.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-AuthenticodeSignature <span class="nt">-FilePath</span> <span class="s2">"C:</span><span class="se">\I</span><span class="s2">ntunePowerShell</span><span class="se">\C</span><span class="s2">ustomCompliance.ps1 -Certificate </span><span class="nv">$certificate</span><span class="s2">
+</span></code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/00f6cee6-e5dc-4197-90eb-b399caa5f6d5/image.png" alt="" /></p>
+
+<h2 id="2-validating">2. Validating</h2>
+<p>Once the script is signed, you will see the signature information as a commented section within the script.
+The script will only run if this information and the certificate details on the device match exactly. If even a single character in the script is modified, it must be signed again.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e420d746-ba63-46a8-97b1-3a5b2f9185c3/image.png" alt="" /></p>
+
+<h1 id="3-deploying-the-certificate-with-gpo">3. Deploying the Certificate with GPO</h1>
+<h2 id="1-current-powershell-policy">1. Current PowerShell Policy</h2>
+<p>From Group policy, MachinePolicy is Allsign which means only allow to execute digitally signed script.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/dd0d583a-04a4-4b03-8441-0f0a6c64515c/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/66405586-16a0-4053-b4f6-153cc9a62719/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3008b71d-b38b-473d-ad84-108001ac5dea/image.png" alt="" /></p>
+
+<p>ref) https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.5
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b6dbf72a-b56c-491a-ac40-23ec1084251c/image.png" alt="" /></p>
+
+<h2 id="2-if-not-signed-script">2. if not signed script..</h2>
+<p>So at the moment, if the script is not digitally signed, it can’t be executed.
+Here is the test.ps1 which is not signed.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/56b6ec4f-351d-48bf-b09f-1e96e6f571c9/image.png" alt="" /></p>
+
+<p>If I execute the test.ps1 in the AD joined device used user cake1, the execution is blocked.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/eef869f8-0de0-4630-8c44-dd2b4048c857/image.png" alt="" /></p>
+
+<h2 id="3-if-signed-script-but-the-certificate-is-not-installed-in-the-device">3. if signed script but the certificate is not installed in the device..</h2>
+<p>The script is signed but the device can’t identify the signature in the script. This is why we have to install the certificate to the devices. From intune, we selected that we will run the script as a system context which means automatically executed without any prompt. Let’s deployment the certificate from AD GPO.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/5ba9e474-3a8c-421f-8631-1053d57f84bb/image.png" alt="" /></p>
+
+<h2 id="4-create-gpo">4. Create GPO</h2>
+<h3 id="before-create-gpo-we-need-to-export-the-certificate">Before create GPO, we need to export the certificate</h3>
+<p>From mmc, export the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9bedd705-e6bc-4cb9-b62e-46ba5484f37e/image.png" alt="" />
+Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/567164ea-25f7-4a0d-b9ed-6a9ba37f1ab6/image.png" alt="" />
+Select export PK or not. Next.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/af0db212-0b2b-403b-bb94-abbaf6412400/image.png" alt="" />
+Select the options you want. Next.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f4925058-a481-4e22-aa56-7ea3dc47655e/image.png" alt="" />
+Select the security principals. Next.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b95319c6-831f-49a2-94b7-0f9834a9f881/image.png" alt="" />
+Browse and select where you want to export.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/30be9744-c4bc-4336-8b56-bb77c382fbf2/image.png" alt="" />
+Finish.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/63f2047d-ba22-4327-8529-a4f7d7c73698/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5ad40b16-df7b-4d68-b78a-0a8ae62e0bd7/image.png" alt="" />
+This is it.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/428c6f8c-d4a3-4bef-9203-f877601c75fe/image.png" alt="" /></p>
+
+<h3 id="create-gpotrusted-root-certificate-authorities--trusted-publishers">Create GPO(Trusted Root Certificate Authorities &amp; Trusted Publishers!!)</h3>
+<p>So, we will create a new Group Policy Object to deploy our certificate.
+(Right Click)Group Policy Objects &gt; New
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7a031b40-7c26-40c8-85c1-d3e0699e798e/image.png" alt="" />
+Give it a name.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/490eef54-7937-4880-94c4-23b6bcac6168/image.png" alt="" />
+Right click and edit.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/94db8ccb-7ef3-4f3d-893e-0fe244f22e1c/image.png" alt="" />
+Go to the ‘Public Key Policies’ and import the certificate.
+YOU SHOULD DO THE SAME PROCESS TO <strong>TRUSTED PUBLISHERS!!!!</strong>
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5c596a42-2e0a-4369-8d66-6d955fbefba7/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3b5198e6-1009-4e7e-8586-358db4cbb449/image.png" alt="" />
+Browse the location where we export the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c895be81-ecb2-4342-a4f5-fb7e5b4210d1/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2c42092c-439b-45c3-b3d7-c217e11a3dc8/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f7d94731-f2a2-434c-961d-2c7adcafc4f6/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b287f1c3-ab2f-49e4-b79f-c043cb9efd41/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5cd24d1e-f42d-40e5-9ad6-6f8e337125d2/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5cc1a6d3-8176-42c9-8b9e-912e2db9be02/image.png" alt="" />
+The certificate is imported to the GPO.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/572241ac-b63e-4755-989c-7388d7a9ad99/image.png" alt="" />
+Link the GPO to the OU where the domain joined devices exist.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2fa96ab0-694e-46b4-87e5-be7d1deb5662/image.png" alt="" />
+Click OK.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/cb460522-2acd-44bb-8e91-b22c2d17dc1d/image.png" alt="" /></p>
+
+<h2 id="5-validating">5. Validating</h2>
+<p>Moving on one of the domain joined devices. Run cmd as administrator and execute the command ‘gpupdate /force’ or you can take some time, the certificate will be installed automatically.</p>
+
+<p>Trusted Root Certification Authorities and Trusted Publishers.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/edf591f2-57bb-42d7-9ecc-d4e979e66f65/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/874b49bc-5130-4890-8d2f-18d517b65b4d/image.png" alt="" />
+After that, the script will be executed very well without any prompt.
+So, we are good to go to move on Intune for the last step.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b829affa-0e57-45b5-ae93-04f8d6f9ba7c/image.png" alt="" /></p>
+
+<h1 id="4-intune-configuration">4. Intune Configuration</h1>
+<p>All you have to do in intune is update the script and select ‘Yes’ to ‘Enforce script signature check’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/29392b40-37e4-41a1-a573-31989b98e972/image.png" alt="" /></p>
+
+<h1 id="5-result">5. Result</h1>
+<p>Here is the result. Only domain joined device which is CAKE1PC is marked as ‘Compliant’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6cfaa229-5bc5-43cc-858b-87b126990a56/image.png" alt="" />
+Let’s check in azure portal. The CAKE1PC is Compliant which means the signed intune script is well executed.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b094712c-d6fd-4601-9f84-a30a40772260/image.png" alt="" />
+But the other devices which is not domain joined PC and only registered in intune so that the device is not installed certificate from the GPO.</p>
+
+<p>We configured Intune to allow scripts to run only if they are signed. However, when the signed script was executed on the device, it failed to run properly because the required certificate was not installed on the device. As a result, the script couldn’t return JSON data, which led Intune to throw the following error.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/e095bd7f-8017-4d5c-9c39-a0eca0adb604/image.png" alt="" /></p>
+
+<h1 id="6-ref">6. Ref)</h1>
+<p>If you are planning to implement CA to your production environment, It’s highly recommaneded to select the 3-tier certificate authorities. Please refer following document.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/0f2e748e-a9eb-4328-a424-84114a87b07d/image.png" alt="" />
+https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786436(v=ws.11)#ca-hierarchy-options</p>
+
+<h1 id="7-note">7. Note</h1>
+
+<p>In this post, I select web enrollment but it’s not recommended. Please check the following link.</p>
+
+<p>https://support.microsoft.com/en-us/topic/kb5005413-mitigating-ntlm-relay-attacks-on-active-directory-certificate-services-ad-cs-3612b773-4043-4aa9-b23d-b87910cd3429</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-06-21T00:00:00+09:00">June 21, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Create-and-Publish-PowerShell-Module/" class="pagination--pager" title="Create and publish powershell module">Previous</a>
+    
+    
+      <a href="/Pfsense-set-up-&-NAT-Reflection/" class="pagination--pager" title="Pfsense set up &amp; nat reflection">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

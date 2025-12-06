@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>[java] number guessing game with package - Joseph Lee Blog</title>
+<meta name="description" content="Source Code https://github.com/leeyosebi/veryFirst">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="[java] number guessing game with package">
+<meta property="og:url" content="http://localhost:4000/JAVA-Number-Guessing-Game-with-Package/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="Source Code https://github.com/leeyosebi/veryFirst">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-06-25T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/JAVA-Number-Guessing-Game-with-Package/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">[java] number guessing game with package</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="[java] number guessing game with package">
+    <meta itemprop="description" content="Source Codehttps://github.com/leeyosebi/veryFirst">
+    <meta itemprop="datePublished" content="2024-06-25T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/JAVA-Number-Guessing-Game-with-Package/" itemprop="url">[java] number guessing game with package
 </a>
           </h1>
           
@@ -306,7 +306,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          less than 1 minute read
         
       </span>
     
@@ -321,47 +321,55 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#source-code">Source Code</a></li><li><a href="#how-to-make-the-package">How to make the Package</a><ul><li><a href="#1compileclass-file-creation">1.Compile(.class file creation)</a></li><li><a href="#2-check-if-its-working">2. Check if it’s working</a></li><li><a href="#3-create-txt-in-the-source-directory">3. Create TXT in the source directory</a></li><li><a href="#4-create-jar-file-using-all-the-class-files">4. Create .jar file using all the class files</a></li><li><a href="#5-execute-the-jar-file-to-check-its-working">5. Execute the .jar file to check it’s working</a></li><li><a href="#6-create-dmg-fileinstallation-package-file">6. Create .dmg file(Installation package file)</a></li><li><a href="#-whole-command">#. Whole Command</a></li></ul></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
+        <h1 id="source-code">Source Code</h1>
+<p>https://github.com/leeyosebi/veryFirst</p>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<h1 id="how-to-make-the-package">How to make the Package</h1>
+<p>First up, you need to change directory where the source exsist.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1af8c5be-c54b-4c2d-9a19-62a593111f86/image.png" alt="" /></p>
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<h2 id="1compileclass-file-creation">1.Compile(.class file creation)</h2>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
-
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
-
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
-
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac NumberGuessingGame.java
 </code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/155ffdef-2738-4f0e-a30a-f8336436f987/image.png" alt="" /></p>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<h2 id="2-check-if-its-working">2. Check if it’s working</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java NumberGuessingGame
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/c9950181-97ac-42b8-ab8f-c458f5856a59/image.png" alt="" /></p>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+<h2 id="3-create-txt-in-the-source-directory">3. Create TXT in the source directory</h2>
+<p>You should add a blank line</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Main-Class: NumberGuessingGame
+ 
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/cf5c96cc-ab45-410a-94a9-f7614b9fc7f6/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3e972803-4d86-4016-929c-9de8eae22a2d/image.png" alt="" /></p>
 
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<h2 id="4-create-jar-file-using-all-the-class-files">4. Create .jar file using all the class files</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jar cfm NumberGuessingGame.jar manifest.txt <span class="k">*</span>.class
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/f39dd3ae-9591-4d37-ab92-88708ad215b1/image.png" alt="" /></p>
+
+<h2 id="5-execute-the-jar-file-to-check-its-working">5. Execute the .jar file to check it’s working</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> NumberGuessingGame.jar
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/024d68e1-3051-4f4b-9349-4c5c48859de0/image.png" alt="" /></p>
+
+<h2 id="6-create-dmg-fileinstallation-package-file">6. Create .dmg file(Installation package file)</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jpackage <span class="nt">--name</span> NumberGuessingGame <span class="nt">--input</span> <span class="nb">.</span> <span class="nt">--main-jar</span> NumberGuessingGame.jar <span class="nt">--main-class</span> NumberGuessingGame
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/a230b662-8ac4-422c-9955-d44616e702a0/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/85bd6380-1c23-433c-aceb-8188391d8c87/image.png" alt="" /></p>
+
+<h2 id="-whole-command">#. Whole Command</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/279c05f9-aa6d-4467-bca6-82d7767bef81/image.png" alt="" /></p>
+
 
         
       </section>
@@ -373,7 +381,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-25T00:00:00+09:00">June 25, 2024</time></p>
 
       </footer>
 
@@ -382,10 +390,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/User-Hard-Match(AD-AAD)/" class="pagination--pager" title="User hard match(ad → aad)">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Intune-Scripts-and-remediations-Deleting-user-folder/" class="pagination--pager" title="[intune] scripts and remediations  deleting user folder">Next</a>
     
   </nav>
 
@@ -462,6 +470,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +575,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +584,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

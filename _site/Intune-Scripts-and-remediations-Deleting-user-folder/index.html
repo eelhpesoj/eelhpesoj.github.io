@@ -1,0 +1,739 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[intune] scripts and remediations  deleting user folder - Joseph Lee Blog</title>
+<meta name="description" content="Summary This task is intended to delete the user folder from the public PC, and the login account is a public account as well.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="[intune] scripts and remediations  deleting user folder">
+<meta property="og:url" content="http://localhost:4000/Intune-Scripts-and-remediations-Deleting-user-folder/">
+
+
+  <meta property="og:description" content="Summary This task is intended to delete the user folder from the public PC, and the login account is a public account as well.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-07-19T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/Intune-Scripts-and-remediations-Deleting-user-folder/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">[intune] scripts and remediations  deleting user folder</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[intune] scripts and remediations  deleting user folder">
+    <meta itemprop="description" content="SummaryThis task is intended to delete the user folder from the public PC, and the login account is a public account as well.">
+    <meta itemprop="datePublished" content="2024-07-19T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/Intune-Scripts-and-remediations-Deleting-user-folder/" itemprop="url">[intune] scripts and remediations  deleting user folder
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#summary">Summary</a></li><li><a href="#prerequisite">Prerequisite</a></li><li><a href="#process">Process</a><ul><li><a href="#1-create-remediations">1. Create Remediations</a></li><li><a href="#2-set-name-properly">2. Set name properly</a></li><li><a href="#3-upload-the-detection-scripts-and-remediation-scripts">3. Upload the Detection scripts and Remediation scripts</a><ul><li><a href="#-detection-script">[ Detection script]</a></li><li><a href="#-remediation-script">[ Remediation script]</a></li></ul></li><li><a href="#6-assign-group">6. Assign Group</a></li><li><a href="#7-scheduling">7. Scheduling</a></li><li><a href="#8-checking-the-devices-status">8. Checking the Devices status</a></li><li><a href="#notice">Notice</a></li><li><a href="#reference">Reference</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="summary">Summary</h1>
+<p>This task is intended to delete the user folder from the public PC, and the login account is a public account as well.</p>
+
+<h1 id="prerequisite">Prerequisite</h1>
+<p>You should turn on the Windows license verification in the intune.microsoft.com
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2447f10c-f221-4f56-b6ab-aed78fe4956d/image.png" alt="" /></p>
+
+<p>Ref)
+https://learn.microsoft.com/en-us/mem/intune/protect/data-enable-windows-data#manage-windows-data-configurations</p>
+
+<h1 id="process">Process</h1>
+<h2 id="1-create-remediations">1. Create Remediations</h2>
+<p>Go ‘intune.microsoft.com’ &gt; Devices &gt; Scripts and remediations
+<img src="https://velog.velcdn.com/images/leeyosebi/post/15926a0a-06b6-46ff-9f44-e0f08b2ef447/image.png" alt="" /></p>
+
+<h2 id="2-set-name-properly">2. Set name properly</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/d45e48be-55b4-46e1-bc8f-8758a90c49b6/image.png" alt="" /></p>
+
+<h2 id="3-upload-the-detection-scripts-and-remediation-scripts">3. Upload the Detection scripts and Remediation scripts</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/f2fb24ca-ca76-401c-9ab7-b20d26df7e5c/image.png" alt="" /></p>
+
+<h3 id="-detection-script">[ Detection script]</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Detection script</span>
+<span class="nv">$usersDirectory</span> <span class="o">=</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">Users"</span>
+<span class="nv">$specificUserFolders</span> <span class="o">=</span> @<span class="o">(</span><span class="s2">"cakeTest"</span>, <span class="s2">"Public"</span><span class="o">)</span>
+
+<span class="c"># Get a list of all user folders under C:\Users</span>
+<span class="nv">$userFolders</span> <span class="o">=</span> Get-ChildItem <span class="nt">-Path</span> <span class="nv">$usersDirectory</span> | Where-Object <span class="o">{</span> <span class="nv">$_</span>.PSIsContainer <span class="o">}</span>
+
+<span class="c"># Exclude the specific user folders</span>
+<span class="nv">$userFoldersToDelete</span> <span class="o">=</span> <span class="nv">$userFolders</span> | Where-Object <span class="o">{</span> <span class="nv">$specificUserFolders</span> <span class="nt">-notcontains</span> <span class="nv">$_</span>.Name <span class="o">}</span> | Select-Object <span class="nt">-ExpandProperty</span> Name
+
+<span class="c"># Print the list of user folders to be deleted</span>
+Write-Host <span class="s2">"User profiles to be deleted:"</span> <span class="nv">$userFoldersToDelete</span> <span class="nt">-ForegroundColor</span> Red
+
+<span class="c"># Check if there are any user folders to be deleted and set exit code accordingly</span>
+<span class="k">if</span> <span class="o">(</span><span class="nv">$userFoldersToDelete</span>.Count <span class="nt">-gt</span> 0<span class="o">)</span> <span class="o">{</span>
+    Exit 1
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    Exit 0
+<span class="o">}</span>
+</code></pre></div></div>
+<p>If you excute the ‘Remediation script’, you should throw the exit code as ‘1’.</p>
+
+<h3 id="-remediation-script">[ Remediation script]</h3>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Detection script</span>
+<span class="nv">$usersDirectory</span> <span class="o">=</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">Users"</span>
+<span class="nv">$specificUserFolders</span> <span class="o">=</span> @<span class="o">(</span><span class="s2">"cakeTest"</span>, <span class="s2">"Public"</span><span class="o">)</span>
+
+<span class="c"># Get a list of all user folders under C:\Users</span>
+<span class="nv">$userFolders</span> <span class="o">=</span> Get-ChildItem <span class="nt">-Path</span> <span class="nv">$usersDirectory</span> | Where-Object <span class="o">{</span> <span class="nv">$_</span>.PSIsContainer <span class="o">}</span>
+
+<span class="c"># Exclude the specific user folders</span>
+<span class="nv">$userFoldersToDelete</span> <span class="o">=</span> <span class="nv">$userFolders</span> | Where-Object <span class="o">{</span> <span class="nv">$specificUserFolders</span> <span class="nt">-notcontains</span> <span class="nv">$_</span>.Name <span class="o">}</span> | Select-Object <span class="nt">-ExpandProperty</span> Name
+
+<span class="c"># Print the list of user folders to be deleted</span>
+Write-Host <span class="s2">"User profiles to be deleted:"</span> <span class="nv">$userFoldersToDelete</span> <span class="nt">-ForegroundColor</span> Red
+
+<span class="c"># Remediation script</span>
+<span class="k">function </span>Delete-UserProfiles <span class="o">{</span>
+    param <span class="o">(</span>
+        <span class="o">[</span>ValidateNotNullOrEmpty<span class="o">()]</span>
+        <span class="o">[</span>string[]]<span class="nv">$userFolders</span>,
+
+        <span class="o">[</span>ValidateNotNullOrEmpty<span class="o">()]</span>
+        <span class="o">[</span>string]<span class="nv">$directory</span>
+    <span class="o">)</span>
+    foreach <span class="o">(</span><span class="nv">$userFolder</span> <span class="k">in</span> <span class="nv">$userFolders</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nv">$userFolderPath</span> <span class="o">=</span> Join-Path <span class="nv">$directory</span> <span class="nv">$userFolder</span>
+        try <span class="o">{</span>
+            Remove-Item <span class="nt">-Path</span> <span class="nv">$userFolderPath</span> <span class="nt">-Recurse</span> <span class="nt">-Force</span>
+            Write-Host <span class="s2">"User profile folder deleted: </span><span class="nv">$userFolderPath</span><span class="s2">"</span>
+        <span class="o">}</span> catch <span class="o">{</span>
+            Write-Host <span class="s2">"Error deleting user profile folder </span><span class="k">${</span><span class="nv">userFolderPath</span><span class="k">}</span><span class="s2">: </span><span class="si">$(</span><span class="nv">$_</span>.Exception.Message<span class="si">)</span><span class="s2">"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c"># Call the remediation function</span>
+Delete-UserProfiles <span class="nt">-userFolders</span> <span class="nv">$userFoldersToDelete</span> <span class="nt">-directory</span> <span class="nv">$usersDirectory</span>
+
+<span class="c"># Print a success message</span>
+Write-Host <span class="s2">"User profiles under C:</span><span class="se">\\</span><span class="s2">Users (except for the specific user folders) have been deleted."</span> <span class="nt">-ForegroundColor</span> Red
+</code></pre></div></div>
+
+<h2 id="6-assign-group">6. Assign Group</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2399aaf3-b618-4077-a3b0-6e5aacc88518/image.png" alt="" /></p>
+
+<h2 id="7-scheduling">7. Scheduling</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/ede637d2-3131-415e-b780-6b901920e09e/image.png" alt="" /></p>
+
+<h2 id="8-checking-the-devices-status">8. Checking the Devices status</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/b3904ba9-7ede-42b1-881f-ddce509ee4fc/image.png" alt="" /></p>
+
+<h2 id="notice">Notice</h2>
+<p>Once you delete the user folder and log on again with the user account, you will encounter this error message. You can click the ‘Close’ button to continue, and you will log on to this computer with a temporary user profile. This happens because even though you deleted the user folder, the Windows OS still remembers your account. To fix this or to restore the default user profile, some registry modifications are required.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/24d5994e-008e-45c7-81a3-45ca84ad2c9f/image.png" alt="" /></p>
+
+<h2 id="reference">Reference</h2>
+<p>https://learn.microsoft.com/en-us/mem/intune/fundamentals/remediations#prerequisites
+https://scloud.work/user-profile-clean-up-intune/</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-07-19T00:00:00+09:00">July 19, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/JAVA-Number-Guessing-Game-with-Package/" class="pagination--pager" title="[java] number guessing game with package">Previous</a>
+    
+    
+      <a href="/Trouble-Shooting-Exchange-Hybrid-Centralized/" class="pagination--pager" title="[trouble shooting] exchange hybrid centralized">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

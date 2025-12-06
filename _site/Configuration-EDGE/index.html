@@ -1,0 +1,820 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Configuration edge - Joseph Lee Blog</title>
+<meta name="description" content="Summary Configuration Edge Server. In this document, we will go without Edge subscription.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="Configuration edge">
+<meta property="og:url" content="http://localhost:4000/Configuration-EDGE/">
+
+
+  <meta property="og:description" content="Summary Configuration Edge Server. In this document, we will go without Edge subscription.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-05-02T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/Configuration-EDGE/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Configuration edge</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Configuration edge">
+    <meta itemprop="description" content="SummaryConfiguration Edge Server.In this document, we will go without Edge subscription.">
+    <meta itemprop="datePublished" content="2024-05-02T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/Configuration-EDGE/" itemprop="url">Configuration edge
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#summary">Summary</a></li><li><a href="#overall-design">Overall Design</a></li><li><a href="#procedure">Procedure</a><ul><li><a href="#1-edge-server-preparation">1. Edge Server preparation</a><ul><li><a href="#1-changing-hostname">1. Changing hostname</a></li><li><a href="#2-proceeding-installation">2. Proceeding installation</a></li><li><a href="#3-changing-queue-directoryoptional">3. Changing queue directory(Optional)</a></li><li><a href="#4-changing-log-directoryoptional">4. Changing Log directory(Optional)</a></li><li><a href="#6-binding-public-certificate-on-the-smtp-service">6. Binding Public Certificate on the SMTP Service</a></li></ul></li><li><a href="#2-set-up-inbound-flow-on-edge">2. Set up Inbound flow on Edge</a><ul><li><a href="#1-accepted-domain">1. Accepted Domain</a></li><li><a href="#2-send-connector">2. Send Connector</a></li></ul></li><li><a href="#3-set-up-outbound-flow-on-edge">3. Set up Outbound flow on Edge</a><ul><li><a href="#1-create-send-connector-on-the-exchange-server-sideexchange--edge">1. Create Send Connector on the Exchange server side(Exchange → Edge)</a></li><li><a href="#2-create-receive-connector-on-the-edge-server-sideexchange--edge">2. Create Receive Connector on the Edge server side(Exchange → Edge)</a></li><li><a href="#3-create-send-connector-on-the-edge-server-sideedge--external">3. Create Send Connector on the Edge server side(Edge → External)</a></li></ul></li><li><a href="#4-check-the-meesage-header-if-its-working-or-not">4. Check the meesage header if it’s working or not</a><ul><li><a href="#1-whtpqsuperuserwhtpqcom--leeyosebinavercom">1. whtpqsuperuser@whtpq.com → leeyosebi@naver.com</a></li><li><a href="#2-leeyosebinavercom--whtpqsuperuserwhtpqcom">2. leeyosebi@naver.com → whtpqsuperuser@whtpq.com</a></li></ul></li></ul></li><li><a href="#reference">Reference</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="summary">Summary</h1>
+<p>Configuration Edge Server.
+In this document, we will go without Edge subscription.</p>
+
+<hr />
+<h1 id="overall-design">Overall Design</h1>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/556c95c1-37f9-4282-8ddd-00433fcdfd3e/image.png" alt="" /></p>
+
+<p>The public IP address is not displayed in the document.</p>
+
+<h1 id="procedure">Procedure</h1>
+<h2 id="1-edge-server-preparation">1. Edge Server preparation</h2>
+<h3 id="1-changing-hostname">1. Changing hostname</h3>
+<ol>
+  <li>Change host name
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a6168d77-dee8-4b18-a487-95f5af3faf56/image.png" alt="" /></li>
+  <li>Click ‘More’ and add domain suffix
+<img src="https://velog.velcdn.com/images/leeyosebi/post/785dd441-ff48-44c5-8589-88b62db738f8/image.png" alt="" /></li>
+  <li>Click ‘OK’ and restart
+<img src="https://velog.velcdn.com/images/leeyosebi/post/32ed25c4-ce29-4815-8796-fe36f3e076cc/image.png" alt="" />
+    <h3 id="2-proceeding-installation">2. Proceeding installation</h3>
+  </li>
+  <li>Check Edge Transport role when you proceed installation
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c68a5d85-2f42-45e9-a999-2d6a6e0c3817/image.png" alt="" /></li>
+  <li>The prerequisite is ‘<strong>.NET Framework 4.8</strong>’ and 
+‘<strong>Visual C++ 2012 Redistributable Package</strong>’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/73d8d8b0-18da-4cee-bb57-d7e2a31ee795/image.png" alt="" /></li>
+  <li>Click install
+<img src="https://velog.velcdn.com/images/leeyosebi/post/61e9ef79-3e45-45cf-be93-c80165d3f87a/image.png" alt="" /></li>
+  <li>Set up progress
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3632bd33-365a-4d5f-bcaa-aa36e78f91f2/image.png" alt="" />
+When the set up completed, you can check these two application are recented added
+<img src="https://velog.velcdn.com/images/leeyosebi/post/da68b2f5-99b5-4678-8cad-f0bc06cb1629/image.png" alt="" /></li>
+</ol>
+
+<h3 id="3-changing-queue-directoryoptional">3. Changing queue directory(Optional)</h3>
+<ol>
+  <li>
+    <p>Stop ‘<strong>Microsoft Exchange Transport</strong>’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/313f71e0-0e76-4a0e-b4be-c6b126352556/image.png" alt="" /></p>
+  </li>
+  <li>Open this file using this command on the ‘run’
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Notepad %ExchangeInstallPath%Bin\EdgeTransport.exe.config 
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/b801d4ec-e41f-4907-9aa7-db85d264b7c4/image.png" alt="" /></p>
+  </li>
+  <li>Change ‘<strong>QueueDatabasePath</strong>’, ‘<strong>QueueDatabaseLoggingPath</strong>’
+I recommend seperate this path as other drive.</li>
+</ol>
+
+<p>3.1 Create new disk if you need.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b3e78eec-e294-434d-83cf-0e4858e6404b/image.png" alt="" />
+3.2 Enter the amount of space to shrink in MB
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3e7e4135-18fe-4676-bdfe-7077368585ff/image.png" alt="" />
+3.3 After shrink, allocate <strong>New Simple Volume</strong>
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e3ae6ab4-f724-4567-ae67-08b1b1e8d060/image.png" alt="" />
+3.4 Assign drive letter properly
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4595a332-fd7f-4760-8410-054746e79b2c/image.png" alt="" />
+3.5 The new volum has been created
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7fde36a3-aae4-45e0-8628-c6d12cc38697/image.png" alt="" /></p>
+<ol>
+  <li>Set the both path as ‘<strong>D:\Queue\QueueDB</strong>’
+As-Is
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9d4564a0-203d-4b23-9e91-1cfec0af89df/image.png" alt="" />
+To-Be
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0e28953f-ad33-46f8-a04f-19e98d877cae/image.png" alt="" /></li>
+  <li>Start ‘<strong>Microsoft Exchange Transport</strong>’ again
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2f60425f-0d7d-4ef9-b0d6-1f186a837952/image.png" alt="" /></li>
+  <li>The Queue DB location has changed
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6f9d7194-5049-441d-b611-50ac0a0f51f8/image.png" alt="" /></li>
+</ol>
+
+<h3 id="4-changing-log-directoryoptional">4. Changing Log directory(Optional)</h3>
+<ol>
+  <li>Changing log directory
+```shell
+#Exchange 메일 송수신 Log 위치 변경 
+$path= “D:\ExchangeLogs”</li>
+</ol>
+
+<p>#Transport Service
+Get-Transportservice|Set-TransportService -ConnectivityLogPath “$path\edge\Connectivity” -MessageTrackingLogPath “$path\MessageTracking” -IrmLogPath “$path\IRMLogs” -ActiveUserStatisticsLogPath “$path\edge\ActiveUsersStats” -ServerStatisticsLogPath “$path\edge\ServerStats” -ReceiveProtocolLogPath “$path\edge\ProtocolLog\SmtpReceive” -RoutingTableLogPath “$path\edge\Routing”-SendProtocolLogPath “$path\edge\ProtocolLog\SmtpSend” -QueueLogPath “$path\edge\QueueViewer” -WlmLogPath “$path\edge\WLM” -PipelineTracingPath “$path\edge\PipelineTracing” -AgentLogPath “$path\edge\AgentLog” -DNSLogEnabled $true -DnsLogPath “$path\edge\DNSLog”</p>
+
+<p>#암시적 송신 커넥터 로그 활성화
+Get-TransportService|Set-TransportService -IntraOrgConnectorProtocolLoggingLevel Verbose</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>In the shell
+![](https://velog.velcdn.com/images/leeyosebi/post/c427cf72-5058-4908-a9fa-fbdbc17a8c12/image.png)
+2. After execute the command, you can check the '**ExchangeLogs**' in the 'D:\'
+![](https://velog.velcdn.com/images/leeyosebi/post/9dd90abf-ab90-4236-ad42-655adfdcb153/image.png)
+
+
+### 5. Specify the internal SMTP servers
+```shell
+Set-TransportConfig -InternalSMTPServers @{Add="&lt;ip address1&gt;","&lt;ip address2&gt;"...}
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/4cc23bae-21d2-40dc-8981-86290eb3e92c/image.png" alt="" /></p>
+
+<h3 id="6-binding-public-certificate-on-the-smtp-service">6. Binding Public Certificate on the SMTP Service</h3>
+<p>If you use public ssl certificate, you should bind the certificate on the SMTP service. Use following command on the Exchange management shell.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enable-ExchangeCertificate <span class="nt">-Thumbprint</span> &lt;Thumbprint&gt; <span class="nt">-Services</span> SMTP
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/5cf4f651-f871-4924-9938-1542aa22b2b4/image.png" alt="" /></p>
+
+<h2 id="2-set-up-inbound-flow-on-edge">2. Set up Inbound flow on Edge</h2>
+<p>Before we start though, we will configure ‘<strong>External → Edge → Exchange</strong>’</p>
+<h3 id="1-accepted-domain">1. Accepted Domain</h3>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-AcceptedDomain <span class="nt">-Name</span> whtpq.com <span class="nt">-DomainName</span> whtpq.com
+</code></pre></div></div>
+<dl>
+  <dt><img src="https://velog.velcdn.com/images/leeyosebi/post/b8888b46-1766-4403-ab1c-21165f52e683/image.png" alt="" /></dt>
+  <dt>Now, the EDGE can receive from external mails regarding to ‘<strong>whtpq.com</strong>’ domain</dt>
+  <dd>Exteranl → Edge
+    <h3 id="2-send-connector">2. Send Connector</h3>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-SendConnector <span class="nt">-Name</span> <span class="s2">"To whtpq.com"</span> <span class="nt">-AddressSpaces</span> whtpq.com <span class="nt">-SmartHosts</span> 10.10.4.41
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/7ba7a96a-e5b6-44c6-a9ee-58ed1057d366/image.png" alt="" />
+Now, the EDGE can send mails to the whtpq.com Exchange server(10.10.4.41)</p>
+  </dd>
+  <dd>External → Edge → Exchange</dd>
+</dl>
+
+<h2 id="3-set-up-outbound-flow-on-edge">3. Set up Outbound flow on Edge</h2>
+<p>We will configure this flow:
+Exchange → Edge → External</p>
+<h3 id="1-create-send-connector-on-the-exchange-server-sideexchange--edge">1. Create Send Connector on the Exchange server side(Exchange → Edge)</h3>
+<ol>
+  <li>Set the name and the type would be ‘Custom’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/cd0f5fdf-8cd2-4df3-b76a-a1ff12a742e7/image.png" alt="" /></li>
+  <li>Route mail through smart hosts(edge, 10.10.4.44)
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b4ea0e79-39e6-40c9-9a95-40e1060bfc3f/image.png" alt="" /></li>
+  <li>None for authentication
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c20f1868-2c67-4b28-b70f-421c25f220b9/image.png" alt="" /></li>
+  <li>Set the domain as *
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4cf4236c-0df2-4dc1-8d82-1e37bd98108e/image.png" alt="" /></li>
+  <li>Add source server
+<img src="https://velog.velcdn.com/images/leeyosebi/post/dc46c2f6-742b-4d08-867b-af3cc18ec6f1/image.png" alt="" /></li>
+  <li>Disable other connector which route to the internet directly
+<img src="https://velog.velcdn.com/images/leeyosebi/post/37e7722e-26f6-4489-8b64-1ec9c8fe6e8f/image.png" alt="" />
+    <h3 id="2-create-receive-connector-on-the-edge-server-sideexchange--edge">2. Create Receive Connector on the Edge server side(Exchange → Edge)</h3>
+  </li>
+  <li>New receive connector
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-ReceiveConnector <span class="nt">-Name</span> <span class="s2">"From whtpq.com"</span> <span class="nt">-Bindings</span> 0.0.0.0:25  <span class="nt">-RemoteIPRanges</span> 10.10.4.41-10.10.4.42 
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/dba66d5a-f6e3-448e-b540-653d14ce17cb/image.png" alt="" /></p>
+  </li>
+  <li>Add permission to the new receive connector
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-ReceiveConnector <span class="nt">-Identity</span> <span class="s2">"whtpqEDGE</span><span class="se">\F</span><span class="s2">rom whtpq.com"</span>|Add-ADPermission <span class="nt">-User</span> <span class="s2">"NT AUTHORITY</span><span class="se">\A</span><span class="s2">NONYMOUS LOGON"</span> <span class="nt">-ExtendedRights</span> <span class="s2">"Ms-Exch-SMTP-Accept-Any-Recipient"</span>
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/52f0f8ff-cfef-4020-b9dc-b69ab5bc9f6b/image.png" alt="" /></p>
+    <h3 id="3-create-send-connector-on-the-edge-server-sideedge--external">3. Create Send Connector on the Edge server side(Edge → External)</h3>
+  </li>
+  <li>New send connector
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-SendConnector <span class="nt">-Name</span> <span class="s2">"To External"</span> <span class="nt">-Internet</span> <span class="nt">-AddressSpaces</span> <span class="k">*</span>
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/e018983c-020c-42a6-9761-1ae1a833d62b/image.png" alt="" /></p>
+  </li>
+  <li>Logging send/receive connector(Oprional)
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-ReceiveConnector|Set-ReceiveConnector <span class="nt">-ProtocolLoggingLevel</span> Verbose
+Get-SendConnector|Set-SendConnector <span class="nt">-ProtocolLoggingLevel</span> Verbose
+</code></pre></div>    </div>
+    <h2 id="4-check-the-meesage-header-if-its-working-or-not">4. Check the meesage header if it’s working or not</h2>
+    <h3 id="1-whtpqsuperuserwhtpqcom--leeyosebinavercom">1. whtpqsuperuser@whtpq.com → leeyosebi@naver.com</h3>
+  </li>
+  <li>MessageTrackingLog
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ac03d524-a74d-4453-964a-be825dfc60a0/image.png" alt="" /></li>
+  <li>Queue
+<img src="https://velog.velcdn.com/images/leeyosebi/post/26238cc5-8d71-4d44-87e6-11d5b5501291/image.png" alt="" /></li>
+  <li>Message Header
+<img src="https://velog.velcdn.com/images/leeyosebi/post/11d18e23-5250-44e3-bf92-55eaa306a562/image.png" alt="" /></li>
+</ol>
+
+<h3 id="2-leeyosebinavercom--whtpqsuperuserwhtpqcom">2. leeyosebi@naver.com → whtpqsuperuser@whtpq.com</h3>
+<ol>
+  <li></li>
+</ol>
+
+<h1 id="reference">Reference</h1>
+<ul>
+  <li>https://learn.microsoft.com/en-us/exchange/architecture/edge-transport-servers/edge-transport-servers?view=exchserver-2019</li>
+  <li>https://learn.microsoft.com/en-us/exchange/mail-flow/queues/relocate-queue-database?view=exchserver-2019</li>
+  <li>https://learn.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/antispam-on-mailbox-servers?view=exchserver-2019#step-3-specify-the-internal-smtp-servers-in-your-organization</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-05-02T00:00:00+09:00">May 2, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Configuration-DAG/" class="pagination--pager" title="Configuration dag">Previous</a>
+    
+    
+      <a href="/User-Hard-Match(AD-AAD)/" class="pagination--pager" title="User hard match(ad → aad)">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

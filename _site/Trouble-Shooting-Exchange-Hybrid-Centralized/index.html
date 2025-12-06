@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>[trouble shooting] exchange hybrid centralized - Joseph Lee Blog</title>
+<meta name="description" content="Issue">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="[trouble shooting] exchange hybrid centralized">
+<meta property="og:url" content="http://localhost:4000/Trouble-Shooting-Exchange-Hybrid-Centralized/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="Issue">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-08-04T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/Trouble-Shooting-Exchange-Hybrid-Centralized/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">[trouble shooting] exchange hybrid centralized</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="[trouble shooting] exchange hybrid centralized">
+    <meta itemprop="description" content="Issue">
+    <meta itemprop="datePublished" content="2024-08-04T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/Trouble-Shooting-Exchange-Hybrid-Centralized/" itemprop="url">[trouble shooting] exchange hybrid centralized
 </a>
           </h1>
           
@@ -321,47 +321,59 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#issue">Issue</a></li><li><a href="#solution">Solution</a></li><li><a href="#reference">Reference</a></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
+        <h1 id="issue">Issue</h1>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<p>In the client’s environment, multiple branches were using Exchange Hybrid within a single tenant,** with all Exchange environments centralized.**</p>
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<p>We planned to deploy another branch’s Exchange Hybrid in this environment. The centralized configuration involves setting the MX record (port 25 communication) to point to the on-premises Exchange server so that all mail flow is handled by the on-premises Exchange server instead of EXO.</p>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+<p>Typically, the MX record is set to point to a spam filter device in front of the on-premises Exchange server to avoid exposing the Exchange server directly to the internet.</p>
 
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
+<p>However, in this branch’s case, there was no spam filter device, so we designed the architecture to set the MX record to EXO to somewhat protect the on-premises Exchange server.</p>
 
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
+<p>In this process, there was no need to stick to a centralized configuration, so we deployed without considering it when running HCW.</p>
 
+<p>However, during this process, the Connector did not work properly. Although it met the conditions, it did not function as expected.</p>
+
+<p>After almost 8 hours of troubleshooting, we finally redeployed HCW with a centralized configuration and only set the MX record to EXO for mail testing. This time, the Connector worked properly.</p>
+
+<p>It seems that if the Exchange hybrid is initially configured with a centralized configuration, all subsequently deployed Exchange Hybrids must also be configured centrally.</p>
+
+<p>Although it should have been obvious that the Connector would work, we could have opened a case with Microsoft or complained, but understanding it this way helps maintain peace of mind.</p>
+
+<h1 id="solution">Solution</h1>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'Problematic Configuration'</span>
+<span class="o">[</span>Internet]
+→ <span class="o">[</span>MX Record <span class="o">(</span>EXO<span class="o">)]</span> 
+→ <span class="o">[</span>On-Premises Exchange Server <span class="o">(</span>Branch<span class="o">)]</span>
+
+<span class="s1">'Corrected Configuration'</span>
+<span class="o">[</span>Internet] 
+→ <span class="o">[</span>MX Record <span class="o">(</span>EXO<span class="o">)]</span> 
+→ <span class="o">[</span>Centralized On-Premises Exchange Server] 
+→ <span class="o">[</span>Branch On-Premises Exchange Server]
 </code></pre></div></div>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<h1 id="reference">Reference</h1>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
-
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<ol>
+  <li>
+    <p>centralized mail transport enabled
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ca1c5bd9-4436-40d3-bb3c-752a4ccfb2c0/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>centralized mail transport disabled (default configuration)
+<img src="https://velog.velcdn.com/images/leeyosebi/post/66caafaa-bc7d-484b-86d9-c2af73b4cd8d/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Document:
+https://learn.microsoft.com/en-us/exchange/transport-routing</p>
+  </li>
+</ol>
 
         
       </section>
@@ -373,7 +385,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-04T00:00:00+09:00">August 4, 2024</time></p>
 
       </footer>
 
@@ -382,10 +394,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Intune-Scripts-and-remediations-Deleting-user-folder/" class="pagination--pager" title="[intune] scripts and remediations  deleting user folder">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Manual-SCP-Setup-Detail/" class="pagination--pager" title="Manual scp setup detail">Next</a>
     
   </nav>
 
@@ -462,6 +474,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +579,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +588,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

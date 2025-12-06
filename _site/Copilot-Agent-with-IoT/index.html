@@ -1,0 +1,794 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Copilot agent with iot - Joseph Lee Blog</title>
+<meta name="description" content="Overview I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent. I think MS really wants to get a chance of the copilot from this Hackerthon. As I am a engineer in a partner company of Microsoft, this is a good chance to take account into copilot’s potential.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="Copilot agent with iot">
+<meta property="og:url" content="http://localhost:4000/Copilot-Agent-with-IoT/">
+
+
+  <meta property="og:description" content="Overview I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent. I think MS really wants to get a chance of the copilot from this Hackerthon. As I am a engineer in a partner company of Microsoft, this is a good chance to take account into copilot’s potential.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-08-31T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/Copilot-Agent-with-IoT/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Copilot agent with iot</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Copilot agent with iot">
+    <meta itemprop="description" content="OverviewI have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.I think MS really wants to get a chance of the copilot from this Hackerthon. As I am a engineer in a partner company of Microsoft, this is a good chance to take account into copilot’s potential.">
+    <meta itemprop="datePublished" content="2025-08-31T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/Copilot-Agent-with-IoT/" itemprop="url">Copilot agent with iot
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#overview">Overview</a></li><li><a href="#1-bulb-controlyeelight">1. Bulb control(Yeelight)</a><ul><li><a href="#1-prerequisite">1. Prerequisite</a></li><li><a href="#2-discover-the-bulb-and-control-using-python-module">2. Discover the Bulb and control using python module</a></li></ul></li><li><a href="#import-module">Import module</a></li><li><a href="#discover-bulbs">Discover bulbs</a><ul><li><a href="#3-connect-with-tcp-socket-and-control-with-json">3. Connect with TCP socket and control with JSON</a></li></ul></li><li><a href="#2-hub-server-configuration">2. Hub server configuration</a></li><li><a href="#3-prepare-azure-fn-and-copilot-studio">3. Prepare Azure fn and Copilot studio</a></li><li><a href="#result">Result</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="overview">Overview</h1>
+<p>I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
+I think MS really wants to get a chance of the copilot from this Hackerthon. As I am a engineer in a partner company of Microsoft, this is a good chance to take account into copilot’s potential.</p>
+
+<p>So, I was looking for collegues. Because this Hackerthon required team of three to register.
+And while brainstorming, we thought it might be interesting to control company facilities such as lights and air conditioning with Copilot.</p>
+
+<p>Here is the architecture:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/35ed10c3-661b-4bda-ae11-c5bf4c6465ac/image.png" alt="" />
+From the previews I set up, in this post I’m only presenting the light bulb.</p>
+
+<h1 id="1-bulb-controlyeelight">1. Bulb control(Yeelight)</h1>
+<h2 id="1-prerequisite">1. Prerequisite</h2>
+<ul>
+  <li>Connect the bulb with your mobile application and turn LAN control on</li>
+  <li>Use the same LAN when you are using device for control</li>
+</ul>
+
+<h2 id="2-discover-the-bulb-and-control-using-python-module">2. Discover the Bulb and control using python module</h2>
+<p>Yeelight Python documentation:
+https://yeelight.readthedocs.io/en/latest/</p>
+
+<ul>
+  <li>You can use this command to discover any IoT bulbs in your LAN. You can specify the Bulb’s IP address.
+```python
+    <h1 id="import-module">Import module</h1>
+    <p>from yeelight import discover_bulbs, Bulb</p>
+  </li>
+</ul>
+
+<h1 id="discover-bulbs">Discover bulbs</h1>
+<p>bulbs = discover_bulbs()</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- Turn on/off based on the bulb's status from its property.
+```python
+# Get properties
+bulb = Bulb("ip: x.x.x.x, port: 55443")
+properties = bulb.get_properties()
+ 
+# Light status
+getLightStatus = properties["power"]
+ 
+# Light on/off
+if getLightStatus == 'on':
+    bulb.turn_off(5)
+ 
+elif getLightStatus == 'off':
+    bulb.turn_on(5)
+    bulb.set_brightness(100)
+
+</code></pre></div></div>
+
+<h2 id="3-connect-with-tcp-socket-and-control-with-json">3. Connect with TCP socket and control with JSON</h2>
+<p>Based on the document below, you can control with its IP address using TCP socket connection.</p>
+
+<p>Yeelight specification:
+https://www.yeelight.com/download/Yeelight_Inter-Operation_Spec.pdf</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet &lt;Bulb<span class="s1">'s IP address&gt; 55443
+
+# After the telnet connection established,
+# Send JSON data that includes command and its parameter
+{"id":1,"method":"set_power","params":["on","smooth",500]}
+{"id":1,"method":"set_power","params":["off","smooth",500]}
+{"id":1,"method":"toggle","params":[]}
+</span></code></pre></div></div>
+
+<p>If you are using PowerShell, for your reference:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>param<span class="o">(</span><span class="nv">$Request</span>, <span class="nv">$TriggerMetadata</span><span class="o">)</span>
+ 
+<span class="c"># Bulb IP &amp; Port</span>
+<span class="nv">$ip</span> <span class="o">=</span> <span class="s2">"x.x.x.x"</span>
+<span class="nv">$port</span> <span class="o">=</span> 55443
+ 
+<span class="c"># JSON data</span>
+<span class="nv">$jsonCmdlet</span> <span class="o">=</span> <span class="s1">'{ "id": 1, "method": "set_power", "params": ["on", "smooth", 500] }'</span> + <span class="s2">"</span><span class="sb">`</span>r<span class="sb">`</span><span class="s2">n"</span>
+ 
+try <span class="o">{</span>
+    <span class="c"># TCP Connection</span>
+    <span class="nv">$client</span> <span class="o">=</span> New-Object System.Net.Sockets.TcpClient
+    <span class="nv">$client</span>.Connect<span class="o">(</span><span class="nv">$ip</span>, <span class="nv">$port</span><span class="o">)</span>
+ 
+    <span class="c"># Network stream</span>
+    <span class="nv">$stream</span> <span class="o">=</span> <span class="nv">$client</span>.GetStream<span class="o">()</span>
+ 
+    <span class="c"># Send command</span>
+    <span class="nv">$buffer</span> <span class="o">=</span> <span class="o">[</span>System.Text.Encoding]::ASCII.GetBytes<span class="o">(</span><span class="nv">$jsonCmdlet</span><span class="o">)</span>
+    <span class="nv">$stream</span>.Write<span class="o">(</span><span class="nv">$buffer</span>, 0, <span class="nv">$buffer</span>.Length<span class="o">)</span>
+ 
+    <span class="c"># Response from bulb</span>
+    <span class="nv">$reader</span> <span class="o">=</span> New-Object System.IO.StreamReader<span class="o">(</span><span class="nv">$stream</span><span class="o">)</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$reader</span>.ReadLine<span class="o">()</span>
+ 
+    <span class="c"># Close connections</span>
+    <span class="nv">$reader</span>.Close<span class="o">()</span>
+    <span class="nv">$stream</span>.Close<span class="o">()</span>
+    <span class="nv">$client</span>.Close<span class="o">()</span>
+ 
+    <span class="c"># Return HTTP response</span>
+    Push-OutputBinding <span class="nt">-Name</span> Response <span class="nt">-Value</span> <span class="o">([</span>HttpResponseContext]@<span class="o">{</span>
+        StatusCode <span class="o">=</span> 200
+        Body       <span class="o">=</span> <span class="s2">"Response from Yeelight: </span><span class="nv">$response</span><span class="s2">"</span>
+    <span class="o">})</span>
+<span class="o">}</span>
+catch <span class="o">{</span>
+    Push-OutputBinding <span class="nt">-Name</span> Response <span class="nt">-Value</span> <span class="o">([</span>HttpResponseContext]@<span class="o">{</span>
+        StatusCode <span class="o">=</span> 500
+        Body       <span class="o">=</span> <span class="s2">"Error: </span><span class="si">$(</span><span class="nv">$_</span>.Exception.Message<span class="si">)</span><span class="s2">"</span>
+    <span class="o">})</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="2-hub-server-configuration">2. Hub server configuration</h1>
+<p>I just validate and get a proof that we can control the bulb from the outside of the office.
+But we need to set up hub server. Because the office network can not make 2.4GHz Wi-Fi that are used to IoT. So the traffic hub server recieved can be transmitted to Bulb IP address.
+The hub server is running the mac OS, the configuration is like:</p>
+
+<p>You can identify the connected IPs provided from this hub server network(2.4GHz)</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arp <span class="nt">-a</span>
+</code></pre></div></div>
+
+<p>And then open pf.conf file using VIM.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/pf.conf
+<span class="nb">sudo </span>vi pf.conf
+</code></pre></div></div>
+<p>Edit the file.(Press ‘i’ for edit(insert mode) and Press ‘Esc’ and enter :wq)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 1) Option
+set skip on lo0
+
+# 2) Normalisation
+scrub in all
+
+# 3) Translate
+rdr pass on en7 inet proto tcp from any to (en7) port 9878 -&gt; 192.168.2.3 port 55443
+
+# 4) Filtering
+block in all
+pass out all keep state
+pass in on en7 proto tcp to (en7) port 9878 keep state
+
+</code></pre></div></div>
+<p>After checking and apply the new pf.conf file, execute the following command for each line:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pfctl <span class="nt">-nf</span> /ect/pf.conf
+<span class="nb">sudo </span>pfctl <span class="nt">-f</span> /ect/pf.conf
+<span class="nb">sudo </span>pfctl <span class="nt">-e</span>
+</code></pre></div></div>
+
+<h1 id="3-prepare-azure-fn-and-copilot-studio">3. Prepare Azure fn and Copilot studio</h1>
+<p>Create the azure fn and upload the powershell script aboave.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e05fe348-d927-47d5-997f-efffd82d9a07/image.png" alt="" />
+And go to copilot studio and call the azure fn powershell script when the keyword input from the agent’s prompt.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/bfec0ef6-9a93-4c89-971e-59772a9c6a92/image.png" alt="" /></p>
+
+<h1 id="result">Result</h1>
+<p>You can check if the prompt works. See my linked in post.
+https://www.linkedin.com/posts/joseph-lee-870660260_%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-iot-%EC%9E%A5%EB%B9%84%EB%93%A4%EC%9D%84-%EC%A0%9C%EC%96%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EC%95%88%EC%9D%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A4%91%EC%9E%85%EB%8B%88%EB%8B%A4-activity-7367912344322002944-t3Gv?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAEArMtQBdLNrlmK8q6Pj3csifHuOJc_7yyo</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-08-31T00:00:00+09:00">August 31, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Quantum-cryptography-Communication-RSA-QKD/" class="pagination--pager" title="Quantum cryptography communication  rsa → qkd?">Previous</a>
+    
+    
+      <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" class="pagination--pager" title="[exchange hybrid] ews → dedicated hybrid app">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

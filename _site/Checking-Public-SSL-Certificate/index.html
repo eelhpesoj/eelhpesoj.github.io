@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>Checking public ssl certificate - Joseph Lee Blog</title>
+<meta name="description" content="Overview Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not. To do this, I suggest the two options below. In this post, I will use my exchange server certificate issued to “mail.cake.run.place”">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="Checking public ssl certificate">
+<meta property="og:url" content="http://localhost:4000/Checking-Public-SSL-Certificate/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="Overview Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not. To do this, I suggest the two options below. In this post, I will use my exchange server certificate issued to “mail.cake.run.place”">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2025-11-15T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/Checking-Public-SSL-Certificate/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">Checking public ssl certificate</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="Checking public ssl certificate">
+    <meta itemprop="description" content="OverviewMost of the cases, we need to check the ssl stream if the connection is funtioning properly or not.To do this, I suggest the two options below.In this post, I will use my exchange server certificate issued to “mail.cake.run.place”">
+    <meta itemprop="datePublished" content="2025-11-15T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/Checking-Public-SSL-Certificate/" itemprop="url">Checking public ssl certificate
 </a>
           </h1>
           
@@ -321,47 +321,115 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#overview">Overview</a></li><li><a href="#0-index">0. Index</a></li><li><a href="#1-using-browser">1. Using browser</a><ul><li><a href="#11-chrome">1.1 Chrome</a></li><li><a href="#12-edge">1.2 Edge</a></li></ul></li><li><a href="#2-using-command">2. Using command</a><ul><li><a href="#21-curl">2.1 Curl</a></li><li><a href="#22-openssl">2.2 OpenSSL</a></li><li><a href="#23-powershell">2.3 PowerShell</a></li></ul></li><li><a href="#result">Result</a></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
+        <h1 id="overview">Overview</h1>
+<p>Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In this post, I will use my exchange server certificate issued to “mail.cake.run.place”</p>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<h1 id="0-index">0. Index</h1>
+<ol>
+  <li>Using browser
+1.1. Chrome
+1.2 Edge</li>
+  <li>Using command
+2.1 Curl
+2.2 OpenSSL
+2.3 PowerShell</li>
+</ol>
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<h1 id="1-using-browser">1. Using browser</h1>
+<h2 id="11-chrome">1.1 Chrome</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2f2f5e16-121e-4de6-bfef-0f199b22b943/image.png" alt="" /></p>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/9f4367e0-d2eb-4ac2-99fd-27c0ab136e0b/image.png" alt="" /></p>
 
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2808e04e-34a6-4a80-b025-91a633de2860/image.png" alt="" /></p>
 
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
+<h2 id="12-edge">1.2 Edge</h2>
 
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/5d8cb3f1-2ae7-415f-ae63-92021630ac62/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/92a840bd-98e9-405e-93ec-ea6b8b157199/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/d8e0aaec-84ab-4a14-bf02-67968173b32e/image.png" alt="" /></p>
+
+<h1 id="2-using-command">2. Using command</h1>
+<h2 id="21-curl">2.1 Curl</h2>
+<p>Just simply execute this command from the terminal.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-v</span> https://mail.cake.run.place
+</code></pre></div></div>
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f958e431-a437-418f-921b-df99355f72a5/image.png" alt="" /></p>
+
+<h2 id="22-openssl">2.2 OpenSSL</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl s_client <span class="nt">-connect</span> mail.cake.run.place:443 &lt;/dev/null 2&gt;/dev/null <span class="se">\</span>
+  | openssl x509 <span class="nt">-noout</span> <span class="nt">-subject</span> <span class="nt">-issuer</span> <span class="nt">-dates</span> <span class="nt">-fingerprint</span>
 </code></pre></div></div>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/824e6d88-b6ba-4389-a8ec-bd87300324fa/image.png" alt="" /></p>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+<h2 id="23-powershell">2.3 PowerShell</h2>
 
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
+<ol>
+  <li>More simple way</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$request</span> <span class="o">=</span> <span class="o">[</span>System.Net.HttpWebRequest]::Create<span class="o">(</span><span class="s2">"https://mail.cake.run.place"</span><span class="o">)</span>
+<span class="nv">$request</span>.GetResponse<span class="o">()</span>
+<span class="nv">$request</span>.ServicePoint.Certificate.Issuer
+</code></pre></div></div>
+
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1b726dc8-e043-4d61-a9bd-942bc15b0d4b/image.png" alt="" /></p>
+
 <ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
+  <li>Ref: Requirements for AIP
+https://learn.microsoft.com/en-us/purview/rights-management-requirements#firewalls-and-network-infrastructure</li>
+  <li>Ref: HttpWebRequest Class
+https://learn.microsoft.com/en-us/dotnet/api/system.net.httpwebrequest?view=net-9.0</li>
 </ul>
+
+<ol>
+  <li>More Classic way</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$url</span> <span class="o">=</span> <span class="s2">"mail.cake.run.place"</span>
+<span class="nv">$port</span> <span class="o">=</span> 443
+
+<span class="nv">$tcp</span> <span class="o">=</span> <span class="o">[</span>System.Net.Sockets.TcpClient]::new<span class="o">(</span><span class="nv">$url</span>,<span class="nv">$port</span><span class="o">)</span>
+<span class="nv">$ssl</span> <span class="o">=</span> <span class="o">[</span>System.Net.Security.SslStream]::new<span class="o">(</span><span class="nv">$tcp</span>.GetStream<span class="o">()</span>, <span class="nv">$false</span>, <span class="o">({</span><span class="nv">$true</span><span class="o">}))</span>
+<span class="nv">$ssl</span>.AuthenticateAsClient<span class="o">(</span><span class="nv">$url</span><span class="o">)</span>
+
+<span class="nv">$cert</span> <span class="o">=</span> <span class="o">[</span>System.Security.Cryptography.X509Certificates.X509Certificate2]::new<span class="o">(</span><span class="nv">$ssl</span>.RemoteCertificate<span class="o">)</span>
+<span class="nv">$cert</span> | fl
+
+<span class="nv">$tcp</span>.Close<span class="o">()</span>
+<span class="nv">$ssl</span>.Close<span class="o">()</span>
+</code></pre></div></div>
+
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f2b311ab-92ed-40ad-bddb-3a24589977f3/image.png" alt="" /></p>
+
+<ul>
+  <li>Ref: TcpClient Class
+https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient?view=net-9.0</li>
+  <li>Ref: SslStream Class
+https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream?view=net-9.0</li>
+  <li>Ref:SslStream.AuthenticateAsClient Method
+https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream.authenticateasclient?view=net-8.0</li>
+  <li>Ref: X509Certificate2 Class
+https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2?view=net-9.0</li>
+</ul>
+
+<h1 id="result">Result</h1>
+<p>For the AIP or entra id hybrid joined devices, you should bypass some urls from the ssl inspection. Or you might struggle to troubleshoot to resolve it.
+I hope you guys can debug using the options I suggest in this post.</p>
 
         
       </section>
@@ -373,7 +441,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-11-15T00:00:00+09:00">November 15, 2025</time></p>
 
       </footer>
 
@@ -382,10 +450,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" class="pagination--pager" title="[exchange hybrid] ews → dedicated hybrid app">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" class="pagination--pager" title="Event id 1074 on winsvr 2022 standard evaluation">Next</a>
     
   </nav>
 
@@ -462,7 +530,7 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
 </a>
       
     </h2>
@@ -487,10 +555,11 @@ In this case, they need reverse proxy. I wi...</p>
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Overview
-Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
-To do this, I suggest the two options below.
-In ...</p>
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
   </article>
 </div>
 

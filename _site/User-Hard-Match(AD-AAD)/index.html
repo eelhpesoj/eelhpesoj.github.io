@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>User hard match(ad → aad) - Joseph Lee Blog</title>
+<meta name="description" content="Summary The reason why this task was necessary">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="User hard match(ad → aad)">
+<meta property="og:url" content="http://localhost:4000/User-Hard-Match(AD-AAD)/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="Summary The reason why this task was necessary">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-06-12T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/User-Hard-Match(AD-AAD)/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">User hard match(ad → aad)</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="User hard match(ad → aad)">
+    <meta itemprop="description" content="SummaryThe reason why this task was necessary">
+    <meta itemprop="datePublished" content="2024-06-12T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/User-Hard-Match(AD-AAD)/" itemprop="url">User hard match(ad → aad)
 </a>
           </h1>
           
@@ -321,47 +321,83 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#summary">Summary</a><ul><li><a href="#the-reason-why-this-task-was-necessary">The reason why this task was necessary</a></li></ul></li><li><a href="#prerequisite-knowledge-of-the-task">Prerequisite knowledge of the task</a><ul><li><a href="#immutableid-and-objectguid">ImmutableId and objectGUID</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#process-of-the-task">Process of the Task</a></li><li><a href="#the-viewpoint-of-the-enduser">The viewpoint of the enduser</a></li><li><a href="#reference">Reference</a></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
+        <h1 id="summary">Summary</h1>
+<h2 id="the-reason-why-this-task-was-necessary">The reason why this task was necessary</h2>
+
+<p>One of the clients was using the AAD model initially but later configured AADC and then structured the Hybrid model.</p>
+
+<p>Consequently, there arose a situation where all the information from the existing AAD accounts needed to be hard-matched with AD accounts.</p>
+
+<p>This document covers the method for accomplishing that.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/51447968-4a92-4b86-8a2e-2c8284fbff20/image.png" alt="" /></p>
+
+<h1 id="prerequisite-knowledge-of-the-task">Prerequisite knowledge of the task</h1>
+
+<h2 id="immutableid-and-objectguid">ImmutableId and objectGUID</h2>
+<p>The basic concept is add on-prem user’s objectGUID to the AAD user’s ImmutableId.</p>
+
+<p>AAD user basically don’t have ImmutableId.
+But directory sync enabled user have ImmutableId which equals to the objectGUID.</p>
+
+<p>In short,</p>
+
 <ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
+  <li>AAD User
+  ImmutableId = None Exist</li>
+  <li>DirSyncEnabled User(Sync from on-prem AD)
+  ImmutableId = objectGUID</li>
 </ul>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<h2 id="example">Example</h2>
+<p>The account, whtpqUser01@whtpq.com is only exsisting on the AAD.</p>
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<p>The other account, whtpqUser04@whtpq.com is synced from on-prem AD server.</p>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/47b42640-60e8-4b4a-99e7-1f0062a213b9/image.png" alt="" /></p>
 
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
+<p>And if you convert from the objectGUID to the ImmutableId, you can identified it is identical.</p>
 
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/268974f4-bc50-4e14-bb86-8746eea178e8/image.png" alt="" /></p>
 
+<p>Let’s see if it is true to use the code below.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$whtpqUser04ObjectGUID</span> <span class="o">=</span> <span class="s2">"af90df93-3e95-4dcc-af6a-3f3c2da8b965"</span>
+<span class="nv">$immutableID</span> <span class="o">=</span> <span class="o">[</span>Convert]::ToBase64String<span class="o">([</span>guid]::New<span class="o">(</span><span class="nv">$whtpqUser04ObjectGUID</span><span class="o">)</span>.ToByteArray<span class="o">())</span>
+<span class="c"># Print the ImmutableID</span>
+Write-Host <span class="s2">"ImmutableID:"</span> <span class="nv">$immutableID</span>
 </code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2d33f3e7-5de4-4a0e-8e3a-f9ad215dcc65/image.png" alt="" />
+The converted objectGUID equal to ImmutableId when we checked earlier using Get-MsolUser command.</p>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<h1 id="process-of-the-task">Process of the Task</h1>
+<ol>
+  <li>Get the list of the on-prem users and it’s objectGUID</li>
+  <li>Convert objectGUID to ImmutableId and save it</li>
+  <li>Pause AADC Sync cycle</li>
+  <li>Connect-MsolService</li>
+  <li>Match users between AAD user and on-prem User using this code
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-MsolUser <span class="nt">-UserPrincipalName</span> whtpquser01@whtpq.com <span class="nt">-ImmutableId</span> k9+Qr5U+zE2vaj88Lai5ZQ<span class="o">==</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Start AADC sync cycle</li>
+</ol>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+<p>In this case, whtpqUser04’s immutableId will be added to whtpqUser01.
+And I can say the whtpqUser01 will be merged to the whtpquser04.</p>
 
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<p>All the data whtpqUser01 owned will be migrated to the whtpqUser04 including mail, ondrive and something like that.</p>
+
+<h1 id="the-viewpoint-of-the-enduser">The viewpoint of the enduser</h1>
+<p>I was trying to show the difference between whtpqUser01 and whtpqUser04. But in the real scenario, The user of the whtpqUser01 and whtpqUser04 accounts are the same person.
+Therefore, there is a less chances regarding the change of the UPN.
+If so, all the endusers have to do is just logout and login.</p>
+
+<h1 id="reference">Reference</h1>
+<p>https://blog.limcm.kr/202
+https://www.easy365manager.com/how-to-convert-immutableid-to-objectguid-and-back/</p>
 
         
       </section>
@@ -373,7 +409,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-06-12T00:00:00+09:00">June 12, 2024</time></p>
 
       </footer>
 
@@ -382,10 +418,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Configuration-EDGE/" class="pagination--pager" title="Configuration edge">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/JAVA-Number-Guessing-Game-with-Package/" class="pagination--pager" title="[java] number guessing game with package">Next</a>
     
   </nav>
 
@@ -462,6 +498,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +603,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +612,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

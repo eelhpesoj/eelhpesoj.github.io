@@ -1,40 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-06T16:46:56+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">JosephLee Blog</title><subtitle>Engineering Blog by Joseph Lee</subtitle><author><name>Joseph Lee</name></author><entry><title type="html">Event id 1074 on winsvr 2022 standard evaluation</title><link href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="alternate" type="text/html" title="Event id 1074 on winsvr 2022 standard evaluation" /><published>2025-12-06T00:00:00+09:00</published><updated>2025-12-06T00:00:00+09:00</updated><id>http://localhost:4000/Event%20ID%201074%20on%20WinSvr%202022%20Standard%20Evaluation</id><content type="html" xml:base="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/"><![CDATA[<p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
-
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
-
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
-
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
-
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
-
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
-
-</code></pre></div></div>
-
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
-
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
-
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Related post: https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr]]></summary></entry><entry><title type="html">Iis arr configuration with exsvr</title><link href="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/" rel="alternate" type="text/html" title="Iis arr configuration with exsvr" /><published>2025-12-06T00:00:00+09:00</published><updated>2025-12-06T00:00:00+09:00</updated><id>http://localhost:4000/IIS%20ARR%20Configuration%20with%20ExSvr</id><content type="html" xml:base="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/"><![CDATA[<h1 id="overview">Overview</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-07T01:02:55+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Joseph Lee Blog</title><subtitle>Engineering Blog by Joseph Lee</subtitle><author><name>Joseph Lee</name></author><entry><title type="html">Iis arr configuration with exsvr</title><link href="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/" rel="alternate" type="text/html" title="Iis arr configuration with exsvr" /><published>2025-12-06T00:00:00+09:00</published><updated>2025-12-06T00:00:00+09:00</updated><id>http://localhost:4000/IIS%20ARR%20Configuration%20with%20ExSvr</id><content type="html" xml:base="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/"><![CDATA[<h1 id="overview">Overview</h1>
 <p>For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
 In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server.
 So, here is the a diagram which shows you the architecture of the LAB for this post.</p>
@@ -155,4 +119,1082 @@ This is quite tricky if you address this kind of LB.</p>
 
 <h1 id="result">Result</h1>
 <p>This is so customisable so it’s too difficult to handle…
-Good luck.</p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Overview For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25. In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server. So, here is the a diagram which shows you the architecture of the LAB for this post.]]></summary></entry></feed>
+Good luck.</p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Overview For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25. In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server. So, here is the a diagram which shows you the architecture of the LAB for this post.]]></summary></entry><entry><title type="html">Event id 1074 on winsvr 2022 standard evaluation</title><link href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="alternate" type="text/html" title="Event id 1074 on winsvr 2022 standard evaluation" /><published>2025-12-06T00:00:00+09:00</published><updated>2025-12-06T00:00:00+09:00</updated><id>http://localhost:4000/Event%20ID%201074%20on%20WinSvr%202022%20Standard%20Evaluation</id><content type="html" xml:base="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/"><![CDATA[<p>Related post:</p>
+<ul>
+  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
+</ul>
+
+<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+
+<p>Mail service is unavailable:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+
+<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+
+<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
+
+<p>Error message:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
+ Reason Code: 0x80000000
+ Shutdown Type: shutdown
+ Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
+
+</code></pre></div></div>
+
+<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
+I’ve never seen this before..</p>
+
+<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+
+<p>In result, I found this is the originally architecture of the OS.
+Referrence:</p>
+<ul>
+  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
+  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
+</ul>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Related post: https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr]]></summary></entry><entry><title type="html">Checking public ssl certificate</title><link href="http://localhost:4000/Checking-Public-SSL-Certificate/" rel="alternate" type="text/html" title="Checking public ssl certificate" /><published>2025-11-15T00:00:00+09:00</published><updated>2025-11-15T00:00:00+09:00</updated><id>http://localhost:4000/Checking%20Public%20SSL%20Certificate</id><content type="html" xml:base="http://localhost:4000/Checking-Public-SSL-Certificate/"><![CDATA[<h1 id="overview">Overview</h1>
+<p>Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In this post, I will use my exchange server certificate issued to “mail.cake.run.place”</p>
+
+<h1 id="0-index">0. Index</h1>
+<ol>
+  <li>Using browser
+1.1. Chrome
+1.2 Edge</li>
+  <li>Using command
+2.1 Curl
+2.2 OpenSSL
+2.3 PowerShell</li>
+</ol>
+
+<h1 id="1-using-browser">1. Using browser</h1>
+<h2 id="11-chrome">1.1 Chrome</h2>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2f2f5e16-121e-4de6-bfef-0f199b22b943/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/9f4367e0-d2eb-4ac2-99fd-27c0ab136e0b/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2808e04e-34a6-4a80-b025-91a633de2860/image.png" alt="" /></p>
+
+<h2 id="12-edge">1.2 Edge</h2>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/5d8cb3f1-2ae7-415f-ae63-92021630ac62/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/92a840bd-98e9-405e-93ec-ea6b8b157199/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/d8e0aaec-84ab-4a14-bf02-67968173b32e/image.png" alt="" /></p>
+
+<h1 id="2-using-command">2. Using command</h1>
+<h2 id="21-curl">2.1 Curl</h2>
+<p>Just simply execute this command from the terminal.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-v</span> https://mail.cake.run.place
+</code></pre></div></div>
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f958e431-a437-418f-921b-df99355f72a5/image.png" alt="" /></p>
+
+<h2 id="22-openssl">2.2 OpenSSL</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl s_client <span class="nt">-connect</span> mail.cake.run.place:443 &lt;/dev/null 2&gt;/dev/null <span class="se">\</span>
+  | openssl x509 <span class="nt">-noout</span> <span class="nt">-subject</span> <span class="nt">-issuer</span> <span class="nt">-dates</span> <span class="nt">-fingerprint</span>
+</code></pre></div></div>
+
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/824e6d88-b6ba-4389-a8ec-bd87300324fa/image.png" alt="" /></p>
+
+<h2 id="23-powershell">2.3 PowerShell</h2>
+
+<ol>
+  <li>More simple way</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$request</span> <span class="o">=</span> <span class="o">[</span>System.Net.HttpWebRequest]::Create<span class="o">(</span><span class="s2">"https://mail.cake.run.place"</span><span class="o">)</span>
+<span class="nv">$request</span>.GetResponse<span class="o">()</span>
+<span class="nv">$request</span>.ServicePoint.Certificate.Issuer
+</code></pre></div></div>
+
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1b726dc8-e043-4d61-a9bd-942bc15b0d4b/image.png" alt="" /></p>
+
+<ul>
+  <li>Ref: Requirements for AIP
+https://learn.microsoft.com/en-us/purview/rights-management-requirements#firewalls-and-network-infrastructure</li>
+  <li>Ref: HttpWebRequest Class
+https://learn.microsoft.com/en-us/dotnet/api/system.net.httpwebrequest?view=net-9.0</li>
+</ul>
+
+<ol>
+  <li>More Classic way</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$url</span> <span class="o">=</span> <span class="s2">"mail.cake.run.place"</span>
+<span class="nv">$port</span> <span class="o">=</span> 443
+
+<span class="nv">$tcp</span> <span class="o">=</span> <span class="o">[</span>System.Net.Sockets.TcpClient]::new<span class="o">(</span><span class="nv">$url</span>,<span class="nv">$port</span><span class="o">)</span>
+<span class="nv">$ssl</span> <span class="o">=</span> <span class="o">[</span>System.Net.Security.SslStream]::new<span class="o">(</span><span class="nv">$tcp</span>.GetStream<span class="o">()</span>, <span class="nv">$false</span>, <span class="o">({</span><span class="nv">$true</span><span class="o">}))</span>
+<span class="nv">$ssl</span>.AuthenticateAsClient<span class="o">(</span><span class="nv">$url</span><span class="o">)</span>
+
+<span class="nv">$cert</span> <span class="o">=</span> <span class="o">[</span>System.Security.Cryptography.X509Certificates.X509Certificate2]::new<span class="o">(</span><span class="nv">$ssl</span>.RemoteCertificate<span class="o">)</span>
+<span class="nv">$cert</span> | fl
+
+<span class="nv">$tcp</span>.Close<span class="o">()</span>
+<span class="nv">$ssl</span>.Close<span class="o">()</span>
+</code></pre></div></div>
+
+<p>e.g.,
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f2b311ab-92ed-40ad-bddb-3a24589977f3/image.png" alt="" /></p>
+
+<ul>
+  <li>Ref: TcpClient Class
+https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient?view=net-9.0</li>
+  <li>Ref: SslStream Class
+https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream?view=net-9.0</li>
+  <li>Ref:SslStream.AuthenticateAsClient Method
+https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream.authenticateasclient?view=net-8.0</li>
+  <li>Ref: X509Certificate2 Class
+https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2?view=net-9.0</li>
+</ul>
+
+<h1 id="result">Result</h1>
+<p>For the AIP or entra id hybrid joined devices, you should bypass some urls from the ssl inspection. Or you might struggle to troubleshoot to resolve it.
+I hope you guys can debug using the options I suggest in this post.</p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Overview Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not. To do this, I suggest the two options below. In this post, I will use my exchange server certificate issued to “mail.cake.run.place”]]></summary></entry><entry><title type="html">[exchange hybrid] ews → dedicated hybrid app</title><link href="http://localhost:4000/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="alternate" type="text/html" title="[exchange hybrid] ews → dedicated hybrid app" /><published>2025-09-18T00:00:00+09:00</published><updated>2025-09-18T00:00:00+09:00</updated><id>http://localhost:4000/%5BExchange%20Hybrid%5D%20EWS%20%E2%86%92%20Dedicated%20Hybrid%20app</id><content type="html" xml:base="http://localhost:4000/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/"><![CDATA[<h1 id="overview">Overview</h1>
+<p>Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two documents from Microsoft.</p>
+
+<ul>
+  <li>Refer1:
+https://learn.microsoft.com/en-us/exchange/hybrid-deployment/deploy-dedicated-hybrid-app#service-principal-clean-up-mode</li>
+  <li>Refer2:
+https://techcommunity.microsoft.com/blog/exchange/dedicated-hybrid-app-temporary-enforcements-new-hcw-and-possible-hybrid-function/4440682</li>
+</ul>
+
+<p>First up first, take a look at the prerequisites</p>
+<ol>
+  <li>Classic Full or Modern Full hybrid configuration needed</li>
+  <li>Exchange server version required as shown in the table
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4724fb2e-d607-4c26-b546-78f354b87c04/image.png" alt="" /></li>
+</ol>
+
+<h1 id="0-index">0. Index</h1>
+<ol>
+  <li>HU</li>
+  <li>Run HCW to create Dedicated hybrid app</li>
+  <li>Cleanup the Service Principal Cleanup Mode</li>
+  <li>Setting override</li>
+  <li>Verify application</li>
+  <li>NOTICE!</li>
+</ol>
+
+<h1 id="1-hu">1. HU</h1>
+<ol>
+  <li>
+    <p>Check the Exchange version
+<img src="https://velog.velcdn.com/images/leeyosebi/post/fde8500b-c818-4d7d-aa9d-5aec0418d7be/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Update if you need. If you have already CU15, Click the link below to update with the April 2025 HU</p>
+    <ul>
+      <li>https://support.microsoft.com/en-us/topic/hotfix-update-for-exchange-server-2019-cu15-april-18-2025-kb5050672-b46af510-ede4-4eab-b2ba-940d2f00e04d
+<img src="https://velog.velcdn.com/images/leeyosebi/post/95cb6053-ce7b-4be1-8d72-234f06c4965a/image.png" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>Download:
+https://www.microsoft.com/en-us/download/details.aspx?id=108144</li>
+</ul>
+
+<h1 id="2-run-hcw-to-create-dedicated-hybrid-app">2. Run HCW to create Dedicated hybrid app</h1>
+
+<ol>
+  <li>Click the link below to install and run HCW(Hybrid Configuration Wizard) on your Exchange server.
+    <ul>
+      <li>https://aka.ms/hybridwizard</li>
+    </ul>
+  </li>
+  <li>
+    <p>Configure whatever you want but make sure to consent with the grant administrative prevelidge.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c8a926bc-14b1-45c8-8c96-81af36d77a1a/image.png" alt="" /></p>
+  </li>
+  <li>After configuration completed, go to your enterprise application from the Entra ID to check if the application created successfully.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/8da06e82-551d-47ba-8f6c-9ce82d006e1b/image.png" alt="" /></li>
+</ol>
+
+<h1 id="3-cleanup-the-service-principal-cleanup-mode">3. Cleanup the Service Principal Cleanup Mode</h1>
+
+<ol>
+  <li>Go to here and download the script
+    <ul>
+      <li>https://microsoft.github.io/CSS-Exchange/Hybrid/ConfigureExchangeHybridApplication/
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ea30dc96-eb33-4ac5-bf58-ea22a26f710a/image.png" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>Download Script:
+https://github.com/microsoft/CSS-Exchange/releases/latest/download/ConfigureExchangeHybridApplication.ps1</li>
+</ul>
+
+<ol>
+  <li>To cleanup the certificate from the 1st party service principal keycredentials, execute this from your EMS(Exchange Management Shell)
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.<span class="se">\C</span>onfigureExchangeHybridApplication.ps1 <span class="nt">-ResetFirstPartyServicePrincipalKeyCredentials</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Result will be like:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/183ed5a7-b04b-4887-bd52-ca39650923b2/image.png" alt="" /></li>
+</ol>
+
+<h1 id="4-setting-override">4. Setting override</h1>
+<p>To enable dedicated hybrid app feature, execute this:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/eb9415c3-757d-44ed-9240-56280c1a054f/image.png" alt="" /></p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-SettingOverride <span class="nt">-Name</span> <span class="s2">"EnableExchangeHybrid3PAppFeature"</span> <span class="nt">-Component</span> <span class="s2">"Global"</span> <span class="nt">-Section</span> <span class="s2">"ExchangeOnpremAsThirdPartyAppId"</span> <span class="nt">-Parameters</span> @<span class="o">(</span><span class="s2">"Enabled=true"</span><span class="o">)</span> <span class="nt">-Reason</span> <span class="s2">"Enable dedicated Exchange hybrid app feature"</span>
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/e774bed0-d99c-4e48-a40f-fd06f7863c5f/image.png" alt="" /></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-ExchangeDiagnosticInfo <span class="nt">-Process</span> Microsoft.Exchange.Directory.TopologyService <span class="nt">-Component</span> VariantConfiguration <span class="nt">-Argument</span> Refresh | fl
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/0cc454b2-1a14-4c0f-842a-abcc71b9faa4/image.png" alt="" /></p>
+
+<h1 id="5-verify-application">5. Verify application</h1>
+
+<h2 id="application-properties">Application properties</h2>
+<ol>
+  <li>
+    <p>From Entra ID &gt; App registration &gt; Certificates &amp; Secrets, you can see the OAuth certificate which obviously from the Exchange server
+<img src="https://velog.velcdn.com/images/leeyosebi/post/fc5c23ec-ca6d-4808-b8bb-e3fdbe81932a/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Granted to use Office 365 Exchange Online which just as we configured from HCW
+<img src="https://velog.velcdn.com/images/leeyosebi/post/645da288-2eb1-40b9-8f36-0414479188d5/image.png" alt="" /></p>
+  </li>
+</ol>
+
+<h2 id="application-logs">Application logs</h2>
+<ol>
+  <li>
+    <p>Create a new schedule from onboard mailbox(Cake01@cake.run.place)
+<img src="https://velog.velcdn.com/images/leeyosebi/post/52f43024-4de6-4dfe-83d9-3c1739551d20/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Query the schedule from on-premises mailbox(Cake02@cake.run.place)
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b81e10eb-8a50-4356-97b0-b1b367affb16/image.png" alt="" />
+I just retrive the cake01’s schedule arround 20:20.</p>
+  </li>
+  <li>
+    <p>Let’s see the logs. Go ‘Entra ID &gt; Signin logs &gt; Service Principal’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4a0e77bd-0343-45b2-98af-d739e14db905/image.png" alt="" />
+It shown as ‘2025-09-18T11:16:52Z’ and it is ‘2025-09-18 20:16:52 (KST)’</p>
+  </li>
+  <li>
+    <p>Logs</p>
+    <ul>
+      <li>The Dedicated hybrid app was trying to access to Exchange online
+<img src="https://velog.velcdn.com/images/leeyosebi/post/091f77e4-2e0f-4721-84eb-fb403381054d/image.png" alt="" /></li>
+      <li>From the exchange server IP address is shown
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6d80c9cf-5d8b-4bb1-8248-c1bf97ffaecb/image.png" alt="" /></li>
+    </ul>
+  </li>
+</ol>
+
+<p>So, the configuration looks good.</p>
+
+<h1 id="6-notice">6. NOTICE!</h1>
+<p>You need to uncheck ‘Oauth, Intra Organisation Connector and Organisation Relationship’ from now on.. if not, you have to do all of this procedure again from the start..
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0ce1129e-488f-488f-8058-d119a4eae84c/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f3add643-ea37-4653-b44b-733226d4d283/image.png" alt="" /></p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Overview Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two documents from Microsoft.]]></summary></entry><entry><title type="html">Copilot agent with iot</title><link href="http://localhost:4000/Copilot-Agent-with-IoT/" rel="alternate" type="text/html" title="Copilot agent with iot" /><published>2025-08-31T00:00:00+09:00</published><updated>2025-08-31T00:00:00+09:00</updated><id>http://localhost:4000/Copilot%20Agent%20with%20IoT</id><content type="html" xml:base="http://localhost:4000/Copilot-Agent-with-IoT/"><![CDATA[<h1 id="overview">Overview</h1>
+<p>I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
+I think MS really wants to get a chance of the copilot from this Hackerthon. As I am a engineer in a partner company of Microsoft, this is a good chance to take account into copilot’s potential.</p>
+
+<p>So, I was looking for collegues. Because this Hackerthon required team of three to register.
+And while brainstorming, we thought it might be interesting to control company facilities such as lights and air conditioning with Copilot.</p>
+
+<p>Here is the architecture:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/35ed10c3-661b-4bda-ae11-c5bf4c6465ac/image.png" alt="" />
+From the previews I set up, in this post I’m only presenting the light bulb.</p>
+
+<h1 id="1-bulb-controlyeelight">1. Bulb control(Yeelight)</h1>
+<h2 id="1-prerequisite">1. Prerequisite</h2>
+<ul>
+  <li>Connect the bulb with your mobile application and turn LAN control on</li>
+  <li>Use the same LAN when you are using device for control</li>
+</ul>
+
+<h2 id="2-discover-the-bulb-and-control-using-python-module">2. Discover the Bulb and control using python module</h2>
+<p>Yeelight Python documentation:
+https://yeelight.readthedocs.io/en/latest/</p>
+
+<ul>
+  <li>You can use this command to discover any IoT bulbs in your LAN. You can specify the Bulb’s IP address.
+```python
+    <h1 id="import-module">Import module</h1>
+    <p>from yeelight import discover_bulbs, Bulb</p>
+  </li>
+</ul>
+
+<h1 id="discover-bulbs">Discover bulbs</h1>
+<p>bulbs = discover_bulbs()</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+- Turn on/off based on the bulb's status from its property.
+```python
+# Get properties
+bulb = Bulb("ip: x.x.x.x, port: 55443")
+properties = bulb.get_properties()
+ 
+# Light status
+getLightStatus = properties["power"]
+ 
+# Light on/off
+if getLightStatus == 'on':
+    bulb.turn_off(5)
+ 
+elif getLightStatus == 'off':
+    bulb.turn_on(5)
+    bulb.set_brightness(100)
+
+</code></pre></div></div>
+
+<h2 id="3-connect-with-tcp-socket-and-control-with-json">3. Connect with TCP socket and control with JSON</h2>
+<p>Based on the document below, you can control with its IP address using TCP socket connection.</p>
+
+<p>Yeelight specification:
+https://www.yeelight.com/download/Yeelight_Inter-Operation_Spec.pdf</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>telnet &lt;Bulb<span class="s1">'s IP address&gt; 55443
+
+# After the telnet connection established,
+# Send JSON data that includes command and its parameter
+{"id":1,"method":"set_power","params":["on","smooth",500]}
+{"id":1,"method":"set_power","params":["off","smooth",500]}
+{"id":1,"method":"toggle","params":[]}
+</span></code></pre></div></div>
+
+<p>If you are using PowerShell, for your reference:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>param<span class="o">(</span><span class="nv">$Request</span>, <span class="nv">$TriggerMetadata</span><span class="o">)</span>
+ 
+<span class="c"># Bulb IP &amp; Port</span>
+<span class="nv">$ip</span> <span class="o">=</span> <span class="s2">"x.x.x.x"</span>
+<span class="nv">$port</span> <span class="o">=</span> 55443
+ 
+<span class="c"># JSON data</span>
+<span class="nv">$jsonCmdlet</span> <span class="o">=</span> <span class="s1">'{ "id": 1, "method": "set_power", "params": ["on", "smooth", 500] }'</span> + <span class="s2">"</span><span class="sb">`</span>r<span class="sb">`</span><span class="s2">n"</span>
+ 
+try <span class="o">{</span>
+    <span class="c"># TCP Connection</span>
+    <span class="nv">$client</span> <span class="o">=</span> New-Object System.Net.Sockets.TcpClient
+    <span class="nv">$client</span>.Connect<span class="o">(</span><span class="nv">$ip</span>, <span class="nv">$port</span><span class="o">)</span>
+ 
+    <span class="c"># Network stream</span>
+    <span class="nv">$stream</span> <span class="o">=</span> <span class="nv">$client</span>.GetStream<span class="o">()</span>
+ 
+    <span class="c"># Send command</span>
+    <span class="nv">$buffer</span> <span class="o">=</span> <span class="o">[</span>System.Text.Encoding]::ASCII.GetBytes<span class="o">(</span><span class="nv">$jsonCmdlet</span><span class="o">)</span>
+    <span class="nv">$stream</span>.Write<span class="o">(</span><span class="nv">$buffer</span>, 0, <span class="nv">$buffer</span>.Length<span class="o">)</span>
+ 
+    <span class="c"># Response from bulb</span>
+    <span class="nv">$reader</span> <span class="o">=</span> New-Object System.IO.StreamReader<span class="o">(</span><span class="nv">$stream</span><span class="o">)</span>
+    <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$reader</span>.ReadLine<span class="o">()</span>
+ 
+    <span class="c"># Close connections</span>
+    <span class="nv">$reader</span>.Close<span class="o">()</span>
+    <span class="nv">$stream</span>.Close<span class="o">()</span>
+    <span class="nv">$client</span>.Close<span class="o">()</span>
+ 
+    <span class="c"># Return HTTP response</span>
+    Push-OutputBinding <span class="nt">-Name</span> Response <span class="nt">-Value</span> <span class="o">([</span>HttpResponseContext]@<span class="o">{</span>
+        StatusCode <span class="o">=</span> 200
+        Body       <span class="o">=</span> <span class="s2">"Response from Yeelight: </span><span class="nv">$response</span><span class="s2">"</span>
+    <span class="o">})</span>
+<span class="o">}</span>
+catch <span class="o">{</span>
+    Push-OutputBinding <span class="nt">-Name</span> Response <span class="nt">-Value</span> <span class="o">([</span>HttpResponseContext]@<span class="o">{</span>
+        StatusCode <span class="o">=</span> 500
+        Body       <span class="o">=</span> <span class="s2">"Error: </span><span class="si">$(</span><span class="nv">$_</span>.Exception.Message<span class="si">)</span><span class="s2">"</span>
+    <span class="o">})</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="2-hub-server-configuration">2. Hub server configuration</h1>
+<p>I just validate and get a proof that we can control the bulb from the outside of the office.
+But we need to set up hub server. Because the office network can not make 2.4GHz Wi-Fi that are used to IoT. So the traffic hub server recieved can be transmitted to Bulb IP address.
+The hub server is running the mac OS, the configuration is like:</p>
+
+<p>You can identify the connected IPs provided from this hub server network(2.4GHz)</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arp <span class="nt">-a</span>
+</code></pre></div></div>
+
+<p>And then open pf.conf file using VIM.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/pf.conf
+<span class="nb">sudo </span>vi pf.conf
+</code></pre></div></div>
+<p>Edit the file.(Press ‘i’ for edit(insert mode) and Press ‘Esc’ and enter :wq)</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 1) Option
+set skip on lo0
+
+# 2) Normalisation
+scrub in all
+
+# 3) Translate
+rdr pass on en7 inet proto tcp from any to (en7) port 9878 -&gt; 192.168.2.3 port 55443
+
+# 4) Filtering
+block in all
+pass out all keep state
+pass in on en7 proto tcp to (en7) port 9878 keep state
+
+</code></pre></div></div>
+<p>After checking and apply the new pf.conf file, execute the following command for each line:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pfctl <span class="nt">-nf</span> /ect/pf.conf
+<span class="nb">sudo </span>pfctl <span class="nt">-f</span> /ect/pf.conf
+<span class="nb">sudo </span>pfctl <span class="nt">-e</span>
+</code></pre></div></div>
+
+<h1 id="3-prepare-azure-fn-and-copilot-studio">3. Prepare Azure fn and Copilot studio</h1>
+<p>Create the azure fn and upload the powershell script aboave.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e05fe348-d927-47d5-997f-efffd82d9a07/image.png" alt="" />
+And go to copilot studio and call the azure fn powershell script when the keyword input from the agent’s prompt.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/bfec0ef6-9a93-4c89-971e-59772a9c6a92/image.png" alt="" /></p>
+
+<h1 id="result">Result</h1>
+<p>You can check if the prompt works. See my linked in post.
+https://www.linkedin.com/posts/joseph-lee-870660260_%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-iot-%EC%9E%A5%EB%B9%84%EB%93%A4%EC%9D%84-%EC%A0%9C%EC%96%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EC%95%88%EC%9D%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A4%91%EC%9E%85%EB%8B%88%EB%8B%A4-activity-7367912344322002944-t3Gv?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAEArMtQBdLNrlmK8q6Pj3csifHuOJc_7yyo</p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[Overview I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent. I think MS really wants to get a chance of the copilot from this Hackerthon. As I am a engineer in a partner company of Microsoft, this is a good chance to take account into copilot’s potential.]]></summary></entry><entry><title type="html">Quantum cryptography communication rsa → qkd?</title><link href="http://localhost:4000/Quantum-cryptography-Communication-RSA-QKD/" rel="alternate" type="text/html" title="Quantum cryptography communication rsa → qkd?" /><published>2025-07-06T00:00:00+09:00</published><updated>2025-07-06T00:00:00+09:00</updated><id>http://localhost:4000/Quantum%20cryptography%20Communication-%20RSA%20%E2%86%92%20QKD</id><content type="html" xml:base="http://localhost:4000/Quantum-cryptography-Communication-RSA-QKD/"><![CDATA[<h1 id="0-summary">0. Summary</h1>
+<p>I think the most trending keywords in the IT industry right now are AI and quantum computing.
+Obviously, AI feels much closer to us today—there are many LLM services, and multi-cloud platforms (MCPs) make them more extensible.
+Multimodal AI is even enabling machines to better recognize and understand the world around us.</p>
+
+<p>But we should also start preparing for the age of quantum computers.
+That era is approaching fast, and it will bring massive changes.</p>
+
+<p>In this post, I’ll take a look at how SSL communication could change once quantum computing becomes more widespread.</p>
+
+<h1 id="1-current-cummunication---rsa">1. Current Cummunication - RSA</h1>
+<p>Current SSL communication is based on asymmetric cryptography using SSL certificates.
+Let’s briefly dive in to understand the cryptographic algorithms behind it. At this point, I will focus on the algorithms.</p>
+
+<h2 id="generating-publicprivate-key">Generating Public/Private Key</h2>
+<p>The keys need to be generated when we’re establishing the scure channel. and in most cases, RSA is commonly using.</p>
+
+<p>To do this, we need two prime numbers.</p>
+
+<blockquote>
+  <p>$p, q$</p>
+</blockquote>
+
+<p>And Multiply them together and assign the result to a variable called N.</p>
+
+<blockquote>
+  <p>$n = pq$</p>
+</blockquote>
+
+<p>And Then we plug the value of N into Euler’s totient function</p>
+
+<blockquote>
+  <p>$\phi(n) = (p-1)(q-1)$</p>
+</blockquote>
+
+<h2 id="the-public-encryption-key-e-is-chosen">The public encryption key ‘e’ is chosen</h2>
+
+<p>The public encryption key ‘e’ is chosen in the range of:
+‘e’ should be coprime number</p>
+
+<blockquote>
+  <p>$0 &lt; e &lt; \phi(n)$
+$gcd(e,\phi(n)) =1$</p>
+</blockquote>
+
+<p>In most of the cases, $e=65537$</p>
+
+<h2 id="the-private-decryption-key-d-is-set-by-euclid-algorithm">The private decryption key ‘d’ is set by Euclid Algorithm</h2>
+<p>‘d’ should be prime number</p>
+
+<blockquote>
+  <p>$d \equiv e^{-1} \mod \phi(n)$
+= $e \cdot d \equiv 1 \mod \phi(n)$</p>
+</blockquote>
+
+<h1 id="2-encryptiondecryption">2. Encryption/Decryption</h1>
+
+<h2 id="encryption">Encryption</h2>
+<blockquote>
+  <p>$C = M^e \mod n$</p>
+</blockquote>
+
+<p>Note: Since $M &lt; n$, the message must be either numerically encoded or divided into blocks.</p>
+
+<h2 id="decryption">Decryption</h2>
+<p>We can decrypt $C$ using $(d, n)$</p>
+<blockquote>
+  <p>$M = C^d \mod n$</p>
+</blockquote>
+
+<h1 id="3-quantum-computer-can-be-threat">3. Quantum Computer can be threat</h1>
+
+<p>So far, we have examined traditional encryption methods. Currently, RSA uses a 2048-bit key, which means the key length is approximately 2 to the power of 2048.</p>
+
+<p>For classical computers, attempting to break such a key is virtually impossible and would take thousands of years. However, quantum computers operate using qubit-based computations. If qubit technology continues to advance, it is believed that quantum computers could decrypt RSA-encrypted data in just a few minutes.</p>
+
+<p>This is possible due to the phenomenon of quantum superposition, which allows quantum systems to perform computations much faster than classical systems.</p>
+
+<h1 id="4-new-encryption-using-quantum">4. New Encryption using Quantum</h1>
+
+<p>Currently, communication is carried out using the RSA → AES model. In simple terms, this means using asymmetric encryption (based on mathematical algorithms) to securely exchange a symmetric key, which is then used for encrypted communication.</p>
+
+<p>However, as quantum computing technology advances, RSA-based mathematical encryption could be decrypted within minutes. For this reason, communication models are expected to shift toward QKD → AES in the future.</p>
+
+<p>Ultimately, the goal is to securely transmit the session key, and this can be achieved through quantum key distribution (QKD), which is theoretically immune to eavesdropping.</p>
+
+<p>Quantum communication leverages the principle of quantum superposition. Two endpoints compare their measurement methods and results to establish a secure channel, and then use symmetric encryption to generate a session key. Since this topic is quite extensive, I will cover it in more detail later.</p>
+
+<p>That said, a major drawback is that quantum communication does not rely on traditional electrical signals—it uses photons. This means a separate, physically built photonic network is required, which incurs significant cost.</p>
+
+<p>Moreover, if an attacker attempts to observe the quantum particles in transit, the channel is immediately discarded. While this is a major security advantage, it opens the door for denial-of-service (DoS) style attacks, where an adversary continually disrupts communication. As a result, we may still need to rely on traditional SSL-based communication in conjunction with quantum channels, through techniques like channel redundancy or failover. It will be interesting to see how the cybersecurity industry addresses these challenges in the coming years.</p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[0. Summary I think the most trending keywords in the IT industry right now are AI and quantum computing. Obviously, AI feels much closer to us today—there are many LLM services, and multi-cloud platforms (MCPs) make them more extensible. Multimodal AI is even enabling machines to better recognize and understand the world around us.]]></summary></entry><entry><title type="html">Pfsense set up &amp;amp; nat reflection</title><link href="http://localhost:4000/Pfsense-set-up-&-NAT-Reflection/" rel="alternate" type="text/html" title="Pfsense set up &amp;amp; nat reflection" /><published>2025-07-03T00:00:00+09:00</published><updated>2025-07-03T00:00:00+09:00</updated><id>http://localhost:4000/Pfsense%20set%20up%20&amp;%20NAT%20Reflection</id><content type="html" xml:base="http://localhost:4000/Pfsense-set-up-&amp;-NAT-Reflection/"><![CDATA[<h1 id="0-summary">0. Summary</h1>
+<p>I’m currently planning to test Azure VPN configuration.
+To do so, I’m setting up my own pfSense environment.
+In this post, I’ll walk you through the pfSense installation process and briefly share my on-premises network setup.
+In the next post, I’ll go over the Azure VPN configuration I applied.</p>
+
+<h2 id="architecture">Architecture</h2>
+<p>For now, I’ve set up the environment as shown in the architecture below.
+The configuration might change as I proceed with the Azure VPN setup, but this is the initial setup for now.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/157ce5fc-03ea-4f8a-bb15-b7735939203e/image.png" alt="" /></p>
+
+<h1 id="1-on-premises-pfsense-and-switches">1. On-premises Pfsense and switches</h1>
+
+<h2 id="1-prerequsites">1. Prerequsites</h2>
+<p>Based on the Pfsense article, we are getting started.
+Ref) https://docs.netgate.com/pfsense/en/latest/recipes/virtualize-hyper-v.html</p>
+
+<p>Ensure that the virtual machine for the Pfsense have to unchecked the Secure Boot.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f281864e-caec-4188-b3c0-b2f4b49f0c4a/image.png" alt="" /></p>
+
+<h2 id="2-installation-pfsense">2. Installation Pfsense</h2>
+<p>Ref)https://www.youtube.com/watch?v=wUD1ZjPb4kw</p>
+
+<p>Select 1 to proceed the installation
+<img src="https://velog.velcdn.com/images/leeyosebi/post/47b67a42-f16c-4cf7-8f94-ca564356263e/image.png" alt="" />
+Loading..
+<img src="https://velog.velcdn.com/images/leeyosebi/post/84b3e675-16fc-474e-81bd-b4f30fcf7b47/image.png" alt="" /></p>
+
+<p>Hit Enter to Accept
+<img src="https://velog.velcdn.com/images/leeyosebi/post/00fb5c75-4445-46cb-8d0f-1fd1f2477c10/image.png" alt="" /></p>
+
+<p>Select Install pfSense
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5142a57f-ace2-4b43-af82-a3ef41262d01/image.png" alt="" /></p>
+
+<p>Select Auto(ZFS) Guided Root-on-ZFS
+<img src="https://velog.velcdn.com/images/leeyosebi/post/90280244-1754-4f55-8317-90bdb9943a6d/image.png" alt="" /></p>
+
+<p>Select Install Proceed with Installation
+<img src="https://velog.velcdn.com/images/leeyosebi/post/46907c57-48ed-40d9-9d35-4df1c28e4204/image.png" alt="" /></p>
+
+<p>Select Stripe
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e55bc8df-2736-428d-b4f7-f783bcf1093f/image.png" alt="" /></p>
+
+<p>Hit ‘Space’ key to select the disk
+<img src="https://velog.velcdn.com/images/leeyosebi/post/00b5f60a-7f39-4d69-ae40-dda3a258c01d/image.png" alt="" /></p>
+
+<p>In this step, it says it’s the last chance. After this step, all of the content in the disk will be destroyed.
+We will proceed to ‘YES’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a9e631f7-027e-49ff-9790-d1f4b2a70bfe/image.png" alt="" /></p>
+
+<p>The installation is in progress
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1624775a-8de4-4360-8c5d-f4fc3fea10db/image.png" alt="" /></p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/955d167a-1e12-4def-ba53-660198138338/image.png" alt="" /></p>
+
+<p>Hit enter to reboot
+<img src="https://velog.velcdn.com/images/leeyosebi/post/8c2c4010-5e75-4554-8cbb-f8ff25724086/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/29f0b0b8-6878-47ae-b4db-b2076c4bf7b6/image.png" alt="" />
+Enter VLANs ‘N’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6a095255-5915-473b-bca5-9c2df9012f10/image.png" alt="" /></p>
+
+<p>Enter WAN interface name for ‘hn0’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e9aeae92-463f-4ccb-836e-6e620aa6eb2d/image.png" alt="" />
+Enter LAN interface name for ‘hn1’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/079fe828-94d6-4b43-862a-f0fef6face6f/image.png" alt="" />
+Enter ‘y’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/62543719-5bb1-43af-a699-007a65dafab6/image.png" alt="" />
+Wait for a moment
+<img src="https://velog.velcdn.com/images/leeyosebi/post/85bb7a45-9994-41c3-915b-aa48195f3950/image.png" alt="" /></p>
+
+<p>So, here we are, the basic setup has done
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f7e6e1ee-f8a5-4d55-9c7e-e74d96c447bc/image.png" alt="" /></p>
+
+<h2 id="3-configure-wanlan-ip-address">3. Configure WAN/LAN IP address</h2>
+<p>At this phase, I will skip the configuration of the set each interfaces(WAN/LAN) IP address.
+It’s not hard to configure at all.
+You can process enter an option with ‘2) Set interface(s) IP address’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5b8f31f2-1812-4b1c-b30b-c1df868b6287/image.png" alt="" />
+Anyway,this pfsense ip address is as following
+<strong>WAN(hn0): 192.168.75.1</strong>
+<strong>LAN(hn1): 10.1.1.1</strong>
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e53e0340-78d0-4876-8506-fb07d8e095da/image.png" alt="" /></p>
+
+<h2 id="4-webconfigurator-access">4. WebConfigurator access</h2>
+<p>If you try to access 10.1.1.1 from other computer which has the same network interface(hn1 from the pfsense), you might encounter this web page hosting by pfsense server.
+This is the web GUI control panel of pfsense.</p>
+
+<p>The default account is:
+<strong>ID: admin</strong>
+<strong>PW: pfsense</strong>
+Please change the password..
+<img src="https://velog.velcdn.com/images/leeyosebi/post/426b3251-a19c-47d6-90cc-090324ef18eb/image.png" alt="" />
+I loged in from 10.1.1.2
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d2f87f45-0fdc-4dcf-b121-2919e068537a/image.png" alt="" /></p>
+
+<p>From pfsense console, you can check the login log.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/69206248-4baf-4832-9b51-2fe31d735ce3/image.png" alt="" /></p>
+
+<h2 id="5-nat-reflection-to-publish-webconfigurator-to-the-internetnot-recommanded">5. NAT Reflection to publish WebConfigurator to the internet(Not recommanded)</h2>
+<p>You can publish this web configurator to the internet whenever modify your private network. To do this, we have to enable NAT reflection(or NAT LOOP).</p>
+
+<h3 id="from-up-stream-pfsense">From up stream pfsense:</h3>
+<p>Obviously, you have to make the internet trafic from up stream pfsense to down stream pfsense.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3e24882c-bb99-4875-9f21-e3b10d16e009/image.png" alt="" /></p>
+
+<h3 id="from-down-stream-pfsense">From down stream pfsense:</h3>
+<p>So at this moment, it’s quite tricky when you are first.
+The NAT reflection needed.</p>
+
+<p>You might need to disable HTTP_REFERER enforcement check first.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/398aff96-c9e9-4785-9cfe-0de3c929ccb6/image.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Change webConfigurator TCP Port(System / Advanced / Admin Access)
+<img src="https://velog.velcdn.com/images/leeyosebi/post/73583eb1-ace1-4085-bdc6-41cb9fe1840f/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Port Forwarding
+Both of Dest and NAT should be WAN address(192.168.75.1/24).
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2ea3bba8-25c4-4412-8cc1-4fdc2baa58bd/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>NAT Reflection (System / Advanced / Firewall &amp; NAT)
+<img src="https://velog.velcdn.com/images/leeyosebi/post/68148184-daae-4c4f-b576-c8e7af88bfaa/image.png" alt="" /></p>
+  </li>
+</ul>
+
+<p>So, let’s try to connect from internet.
+We got the down stream pfsense web configurator.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/dae3b84f-1486-4d25-8a34-d666e9d4d9cb/image.png" alt="" /></p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[0. Summary I’m currently planning to test Azure VPN configuration. To do so, I’m setting up my own pfSense environment. In this post, I’ll walk you through the pfSense installation process and briefly share my on-premises network setup. In the next post, I’ll go over the Azure VPN configuration I applied.]]></summary></entry><entry><title type="html">Ad ca setup &amp;amp; sign intune powershell script</title><link href="http://localhost:4000/AD-CA-Setup-&-Sign-intune-PowerShell-Script/" rel="alternate" type="text/html" title="Ad ca setup &amp;amp; sign intune powershell script" /><published>2025-06-21T00:00:00+09:00</published><updated>2025-06-21T00:00:00+09:00</updated><id>http://localhost:4000/AD%20CA%20Setup%20&amp;%20Sign%20intune%20PowerShell%20Script</id><content type="html" xml:base="http://localhost:4000/AD-CA-Setup-&amp;-Sign-intune-PowerShell-Script/"><![CDATA[<h1 id="0-overview">0. Overview</h1>
+<p>One of my clients has decided to change their PowerShell execution policy to AllSigned.
+As a result, any PowerShell scripts executed through Intune are now required to be digitally signed, and script signature validation must be enforced at runtime.</p>
+
+<p>We initially considered signing the scripts with a public certificate, but due to the associated cost and the short renewal cycle, we decided instead to deploy an internal Active Directory Certificate Authority (AD CA) to handle the code signing ourselves.</p>
+
+<ul>
+  <li>
+    <p>ref) https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.5#powershell-execution-policies
+<img src="https://velog.velcdn.com/images/leeyosebi/post/27f0a547-a172-4972-8ddd-2b4cf84d7e0a/image.png" alt="" /></p>
+  </li>
+  <li>ref) https://www.digicert.com/blog/tls-certificate-lifetimes-will-officially-reduce-to-47-days
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4ff73a60-a9f0-42e4-a4c9-4d9a3107a1e9/image.png" alt="" /></li>
+  <li>ref) ‘Enforce script signature check’ from Intune
+<img src="https://velog.velcdn.com/images/leeyosebi/post/18105e4f-c6df-4cf5-ab9d-1410ddc79c22/image.png" alt="" /></li>
+</ul>
+
+<h1 id="1-ad-ca-configuration">1. AD CA Configuration</h1>
+
+<h2 id="1-install-ca-feature">1. Install CA feature</h2>
+<p>Check Active directory Certificate Services
+<img src="https://velog.velcdn.com/images/leeyosebi/post/90fd44fa-424c-482f-8e7a-7cec77314b11/image.png" alt="" />
+Check ‘Certificate Authority’ and ‘Certificate Authority Web Enrollment’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b2a80983-f3fa-4716-850b-35d439741b76/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2a2c783a-d253-4af2-9052-c512007ad51a/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e3a3d7e9-d9fe-48d2-88f0-9523bf127637/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/96965f7e-7839-4ee9-8563-33145d0c22c0/image.png" alt="" />
+Check ‘Certificate Authority’ and ‘Certification Authority Web Enrollment’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b36437a1-8522-455d-bc67-c6ee4a848457/image.png" alt="" />
+Make sure to select Enterprise CA!!
+<img src="https://velog.velcdn.com/images/leeyosebi/post/df161956-e5ca-4592-bd77-f1ab736aa1d8/image.png" alt="" />
+Click Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7001dbe9-d546-4f86-9b1c-2f8c3e688388/image.png" alt="" />
+Set CN of CA
+<img src="https://velog.velcdn.com/images/leeyosebi/post/8127601a-fed2-4258-b127-7a19a3a44947/image.png" alt="" />
+Select the validity period of the CA.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b2f7246c-e243-46bf-8733-0a0624432e7d/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4fd0f753-16e7-4925-90d0-834e3ba3cf30/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ce679add-fc39-4446-9504-9163845e2f44/image.png" alt="" />
+It’s finished and close the window.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e98823f9-06c8-46c8-b9ea-ca03bfabc073/image.png" alt="" /></p>
+
+<h2 id="2-create-the-code-signing-certificate-template">2. Create the code signing certificate template</h2>
+<p>Once the installation has finished successfully, go servermanager &gt; Tools &gt; Certificate Authority.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a9fbd7da-b8d5-49c2-ac7b-cc36cf244945/image.png" alt="" />
+Go Certificate Template &gt; Manage under the CN of the CA drop down list.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0cf697fc-7361-40b5-8090-2143c38a3df1/image.png" alt="" />
+And Code Signing &gt; (Right Click) Duplicate Template. Well, you can use this template directly but you can create your own template with duplicate from this one.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3cbc709a-32c2-41b9-8304-40dc6fd13df1/image.png" alt="" />
+In General tab, set Template name and the validity of the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6d7b88b7-654b-41ff-99fd-b774ce12b23f/image.png" alt="" />
+In Request Handling tab, select the options.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9994e2af-c05e-49a8-a126-59b152ee2b08/image.png" alt="" />
+In Subject Name, Select CN as Subject name format.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e88e81e0-4e57-4300-b0d9-ddf62f9b6344/image.png" alt="" />
+In Security tab, I allow read and write permissions to Authenticated Users. 
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2b2ec432-ec4e-4e5a-866d-48e76824d027/image.png" alt="" />
+Lastly, In Cryptography tab, I just let them as default. Click ‘Apply’ and ‘OK’ for save.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0974fbb9-1770-4fde-a975-d8aa02607d4f/image.png" alt="" />
+So here is the our customed certificate for the Code Signing.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b6edd4ec-d502-406e-8fed-cda347386136/image.png" alt="" /></p>
+
+<h2 id="3-adding-to-the-certificate-templates">3. Adding to the Certificate Templates</h2>
+
+<p>Now we have created the customed template, we have to issue the template to issue.
+Go Certificate Template &gt; (Right Click) New &gt; Certificate Template to Issue.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e2b9bc17-0cf4-4664-9448-c66f6fb815ec/image.png" alt="" />
+Find the ‘ForIntune’ from the list and click ‘OK’ to add the Certificate Templates.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9740bc08-31eb-4271-ada1-c69670aee9c7/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7dcf335f-2729-4c32-9e50-680c0c6f7965/image.png" alt="" /></p>
+
+<h1 id="2-from-ad-dc-request-certificate">2. From AD DC, Request Certificate</h1>
+<p>Go to AD DC, and add snap in certificate with Current User. Go (Right Click) Personal &gt; All Tasks &gt; Request new Certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0497accf-2451-40e7-aabb-8da5a4d451a6/image.png" alt="" />
+Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/46cce8e2-8349-4380-9209-adef896f801b/image.png" alt="" />
+Select ‘ForIntune’ and Click ‘Enroll’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9c9c179f-6b37-4771-97b0-f64b1bf95481/image.png" alt="" />
+Certificate installation Enrollment has been succeed from AD CA.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0242eec6-d57d-49f1-9369-1fee522d55ca/image.png" alt="" />
+So, we got a new directory under the ‘Personal’ and the Cod Signing certificate as well.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/191b1098-080c-47d6-848d-96826da3c6f6/image.png" alt="" />
+I just add friendly name to the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2197d933-9924-4177-ad89-c91d8e0814db/image.png" alt="" /></p>
+
+<h1 id="3-signing-the-script">3. Signing the script</h1>
+<h2 id="1-signing">1. Signing</h2>
+<p>Now let’s sign the script. First of all, we must identify the script. Use this command.
+‘Cert:\CurrentUser\My” is the path in the command where we issed the certificate under the personal.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-ChildItem <span class="s2">"Cert:</span><span class="se">\C</span><span class="s2">urrentUser</span><span class="se">\M</span><span class="s2">y"</span> | fl
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/38b26147-2677-409d-a926-164b89b81acd/image.png" alt="" /></p>
+
+<p>Assign the certificate to a variable. Refer following command.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$certificate</span> <span class="o">=</span> Get-ChildItem <span class="s2">"Cert:</span><span class="se">\C</span><span class="s2">urrentUser</span><span class="se">\M</span><span class="s2">y"</span> | Where-Object <span class="o">{</span><span class="nv">$_</span>.Thumbprint <span class="nt">-eq</span> <span class="s2">"Thumbprint"</span><span class="o">}</span>
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/f2d57e5a-bcf7-4772-ad98-4617e3d343ef/image.png" alt="" /></p>
+
+<p>We are ready to go. Execute following command to sign the PowerShell script.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-AuthenticodeSignature <span class="nt">-FilePath</span> <span class="s2">"C:</span><span class="se">\I</span><span class="s2">ntunePowerShell</span><span class="se">\C</span><span class="s2">ustomCompliance.ps1 -Certificate </span><span class="nv">$certificate</span><span class="s2">
+</span></code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/00f6cee6-e5dc-4197-90eb-b399caa5f6d5/image.png" alt="" /></p>
+
+<h2 id="2-validating">2. Validating</h2>
+<p>Once the script is signed, you will see the signature information as a commented section within the script.
+The script will only run if this information and the certificate details on the device match exactly. If even a single character in the script is modified, it must be signed again.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e420d746-ba63-46a8-97b1-3a5b2f9185c3/image.png" alt="" /></p>
+
+<h1 id="3-deploying-the-certificate-with-gpo">3. Deploying the Certificate with GPO</h1>
+<h2 id="1-current-powershell-policy">1. Current PowerShell Policy</h2>
+<p>From Group policy, MachinePolicy is Allsign which means only allow to execute digitally signed script.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/dd0d583a-04a4-4b03-8441-0f0a6c64515c/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/66405586-16a0-4053-b4f6-153cc9a62719/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3008b71d-b38b-473d-ad84-108001ac5dea/image.png" alt="" /></p>
+
+<p>ref) https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.5
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b6dbf72a-b56c-491a-ac40-23ec1084251c/image.png" alt="" /></p>
+
+<h2 id="2-if-not-signed-script">2. if not signed script..</h2>
+<p>So at the moment, if the script is not digitally signed, it can’t be executed.
+Here is the test.ps1 which is not signed.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/56b6ec4f-351d-48bf-b09f-1e96e6f571c9/image.png" alt="" /></p>
+
+<p>If I execute the test.ps1 in the AD joined device used user cake1, the execution is blocked.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/eef869f8-0de0-4630-8c44-dd2b4048c857/image.png" alt="" /></p>
+
+<h2 id="3-if-signed-script-but-the-certificate-is-not-installed-in-the-device">3. if signed script but the certificate is not installed in the device..</h2>
+<p>The script is signed but the device can’t identify the signature in the script. This is why we have to install the certificate to the devices. From intune, we selected that we will run the script as a system context which means automatically executed without any prompt. Let’s deployment the certificate from AD GPO.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/5ba9e474-3a8c-421f-8631-1053d57f84bb/image.png" alt="" /></p>
+
+<h2 id="4-create-gpo">4. Create GPO</h2>
+<h3 id="before-create-gpo-we-need-to-export-the-certificate">Before create GPO, we need to export the certificate</h3>
+<p>From mmc, export the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9bedd705-e6bc-4cb9-b62e-46ba5484f37e/image.png" alt="" />
+Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/567164ea-25f7-4a0d-b9ed-6a9ba37f1ab6/image.png" alt="" />
+Select export PK or not. Next.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/af0db212-0b2b-403b-bb94-abbaf6412400/image.png" alt="" />
+Select the options you want. Next.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f4925058-a481-4e22-aa56-7ea3dc47655e/image.png" alt="" />
+Select the security principals. Next.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b95319c6-831f-49a2-94b7-0f9834a9f881/image.png" alt="" />
+Browse and select where you want to export.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/30be9744-c4bc-4336-8b56-bb77c382fbf2/image.png" alt="" />
+Finish.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/63f2047d-ba22-4327-8529-a4f7d7c73698/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5ad40b16-df7b-4d68-b78a-0a8ae62e0bd7/image.png" alt="" />
+This is it.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/428c6f8c-d4a3-4bef-9203-f877601c75fe/image.png" alt="" /></p>
+
+<h3 id="create-gpotrusted-root-certificate-authorities--trusted-publishers">Create GPO(Trusted Root Certificate Authorities &amp; Trusted Publishers!!)</h3>
+<p>So, we will create a new Group Policy Object to deploy our certificate.
+(Right Click)Group Policy Objects &gt; New
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7a031b40-7c26-40c8-85c1-d3e0699e798e/image.png" alt="" />
+Give it a name.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/490eef54-7937-4880-94c4-23b6bcac6168/image.png" alt="" />
+Right click and edit.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/94db8ccb-7ef3-4f3d-893e-0fe244f22e1c/image.png" alt="" />
+Go to the ‘Public Key Policies’ and import the certificate.
+YOU SHOULD DO THE SAME PROCESS TO <strong>TRUSTED PUBLISHERS!!!!</strong>
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5c596a42-2e0a-4369-8d66-6d955fbefba7/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3b5198e6-1009-4e7e-8586-358db4cbb449/image.png" alt="" />
+Browse the location where we export the certificate.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c895be81-ecb2-4342-a4f5-fb7e5b4210d1/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2c42092c-439b-45c3-b3d7-c217e11a3dc8/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f7d94731-f2a2-434c-961d-2c7adcafc4f6/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b287f1c3-ab2f-49e4-b79f-c043cb9efd41/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5cd24d1e-f42d-40e5-9ad6-6f8e337125d2/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5cc1a6d3-8176-42c9-8b9e-912e2db9be02/image.png" alt="" />
+The certificate is imported to the GPO.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/572241ac-b63e-4755-989c-7388d7a9ad99/image.png" alt="" />
+Link the GPO to the OU where the domain joined devices exist.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2fa96ab0-694e-46b4-87e5-be7d1deb5662/image.png" alt="" />
+Click OK.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/cb460522-2acd-44bb-8e91-b22c2d17dc1d/image.png" alt="" /></p>
+
+<h2 id="5-validating">5. Validating</h2>
+<p>Moving on one of the domain joined devices. Run cmd as administrator and execute the command ‘gpupdate /force’ or you can take some time, the certificate will be installed automatically.</p>
+
+<p>Trusted Root Certification Authorities and Trusted Publishers.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/edf591f2-57bb-42d7-9ecc-d4e979e66f65/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/874b49bc-5130-4890-8d2f-18d517b65b4d/image.png" alt="" />
+After that, the script will be executed very well without any prompt.
+So, we are good to go to move on Intune for the last step.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b829affa-0e57-45b5-ae93-04f8d6f9ba7c/image.png" alt="" /></p>
+
+<h1 id="4-intune-configuration">4. Intune Configuration</h1>
+<p>All you have to do in intune is update the script and select ‘Yes’ to ‘Enforce script signature check’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/29392b40-37e4-41a1-a573-31989b98e972/image.png" alt="" /></p>
+
+<h1 id="5-result">5. Result</h1>
+<p>Here is the result. Only domain joined device which is CAKE1PC is marked as ‘Compliant’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6cfaa229-5bc5-43cc-858b-87b126990a56/image.png" alt="" />
+Let’s check in azure portal. The CAKE1PC is Compliant which means the signed intune script is well executed.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b094712c-d6fd-4601-9f84-a30a40772260/image.png" alt="" />
+But the other devices which is not domain joined PC and only registered in intune so that the device is not installed certificate from the GPO.</p>
+
+<p>We configured Intune to allow scripts to run only if they are signed. However, when the signed script was executed on the device, it failed to run properly because the required certificate was not installed on the device. As a result, the script couldn’t return JSON data, which led Intune to throw the following error.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/e095bd7f-8017-4d5c-9c39-a0eca0adb604/image.png" alt="" /></p>
+
+<h1 id="6-ref">6. Ref)</h1>
+<p>If you are planning to implement CA to your production environment, It’s highly recommaneded to select the 3-tier certificate authorities. Please refer following document.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/0f2e748e-a9eb-4328-a424-84114a87b07d/image.png" alt="" />
+https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786436(v=ws.11)#ca-hierarchy-options</p>
+
+<h1 id="7-note">7. Note</h1>
+
+<p>In this post, I select web enrollment but it’s not recommended. Please check the following link.</p>
+
+<p>https://support.microsoft.com/en-us/topic/kb5005413-mitigating-ntlm-relay-attacks-on-active-directory-certificate-services-ad-cs-3612b773-4043-4aa9-b23d-b87910cd3429</p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[0. Overview One of my clients has decided to change their PowerShell execution policy to AllSigned. As a result, any PowerShell scripts executed through Intune are now required to be digitally signed, and script signature validation must be enforced at runtime.]]></summary></entry><entry><title type="html">Create and publish powershell module</title><link href="http://localhost:4000/Create-and-Publish-PowerShell-Module/" rel="alternate" type="text/html" title="Create and publish powershell module" /><published>2025-04-08T00:00:00+09:00</published><updated>2025-04-08T00:00:00+09:00</updated><id>http://localhost:4000/Create%20and%20Publish%20PowerShell%20Module</id><content type="html" xml:base="http://localhost:4000/Create-and-Publish-PowerShell-Module/"><![CDATA[<h1 id="0-overview">0. Overview</h1>
+<p>In this post, I will create my own custom powershell module and publish to PSGallery.
+It’s really easy. Let’s find out.</p>
+
+<h1 id="1-create-function">1. Create function</h1>
+<p>Obviously, we need to create module.
+I just created a simple function like below.
+And ensure that the extension should be <strong>.psm1</strong> when you save this ps1 file.
+As you can see, it’s for the used for module.</p>
+
+<p>Quick description the function below:
+Check the tenant’s expiration date with admin account.
+Because of the Graph module is not provide the created date, I think it’s reasonable to check the admin account which is bulit in account when the demo tenant is created.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>Test-DemoTenantValid <span class="o">{</span>
+ 
+    Connect-MgGraph <span class="nt">-Scopes</span> <span class="s2">"User.Read.All"</span>
+ 
+    <span class="nv">$adminUser</span> <span class="o">=</span> Get-MgUser <span class="nt">-All</span> <span class="nt">-Property</span> DisplayName, UserPrincipalName, CreatedDateTime |
+        Where-Object <span class="o">{</span> <span class="nv">$_</span>.DisplayName <span class="nt">-eq</span> <span class="s2">"MOD Administrator"</span> <span class="o">}</span> |
+        Select-Object <span class="nt">-First</span> 1 DisplayName, UserPrincipalName, CreatedDateTime
+ 
+    <span class="nv">$TenantCreatedDateTime</span> <span class="o">=</span> <span class="nv">$adminUser</span>.CreatedDateTime
+    <span class="nv">$TenantIsValidUntil</span> <span class="o">=</span> <span class="nv">$TenantCreatedDateTime</span>.AddDays<span class="o">(</span>90<span class="o">)</span>
+    <span class="nv">$today</span> <span class="o">=</span> Get-Date
+ 
+    <span class="k">if</span> <span class="o">(</span><span class="nv">$today</span> <span class="nt">-gt</span> <span class="nv">$TenantIsValidUntil</span><span class="o">)</span> <span class="o">{</span>
+        Write-Host <span class="s2">"Your tenant is expired. It was valid until </span><span class="nv">$TenantIsValidUntil</span><span class="s2">"</span> <span class="nt">-ForegroundColor</span> Red
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+        Write-Host <span class="s2">"Your tenant is still valid. It is valid until </span><span class="nv">$TenantIsValidUntil</span><span class="s2">"</span> <span class="nt">-ForegroundColor</span> Green
+    <span class="o">}</span>
+<span class="o">}</span>
+ 
+</code></pre></div></div>
+
+<h1 id="2-create-api-key">2. Create API Key</h1>
+<p>To publish this module file to PSGallery, you need to sign in https://www.powershellgallery.com/ and create your secret API Key.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/04582bd4-0a7d-439c-835b-065b6fd70716/image.png" alt="" />
+Move to Publish &gt; Click here.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/91499fb3-b809-4f74-9cef-cc422b6b44e2/image.png" alt="" />
+Click Create
+<img src="https://velog.velcdn.com/images/leeyosebi/post/562b726e-0355-4f89-9785-138e29e68ffc/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d31076a8-644b-4960-ad3c-5efb4f3067ea/image.png" alt="" />
+Make sure to remember your key. If you forgot the key, it’s totally fine. You can Regenerate the key.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/eb0c1249-83b3-4983-88a2-69345c5269f7/image.png" alt="" /></p>
+<h1 id="3-publish-module">3. Publish Module</h1>
+<p>Now we are all set to publish the module.
+Oh make sure that the module should be in the directory.
+And you need to make module manifest first
+Use this cmdlet below which is excatlly the same as on the PSGallery&gt;Publish.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Execute 1</span>
+New-ModuleManifest <span class="nt">-Path</span> <span class="s2">".</span><span class="se">\D</span><span class="s2">emoTenantIsValid</span><span class="se">\D</span><span class="s2">emoTenantIsValid.psd1"</span> <span class="sb">`</span>
+    <span class="nt">-RootModule</span> <span class="s2">"DemoTenantIsValid.psm1"</span> <span class="sb">`</span>
+    <span class="nt">-ModuleVersion</span> <span class="s2">"1.0.0"</span> <span class="sb">`</span>
+    <span class="nt">-Author</span> <span class="s2">"Joseph"</span> <span class="sb">`</span>
+    <span class="nt">-Description</span> <span class="s2">"first version."</span>
+
+<span class="c"># Execute 2    </span>
+Publish-Module <span class="nt">-Path</span> &lt;filePath&gt; <span class="nt">-NugetAPIKey</span> &lt;Your API Key&gt;
+</code></pre></div></div>
+<p>Your directory and files would be like this:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/053e5497-a1be-45ec-a679-7c7661c5999b/image.png" alt="" /></p>
+
+<p>And here is my example when I execute the ‘Execute 2’:
+(I highly recommend to user PowerShell7)</p>
+
+<p>The module has been uploaded to the gallery.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7b4a1e03-b6e1-4122-9a21-a96d499dad56/image.png" alt="" />
+After that, the package ID is displayed on my packages.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7cd1830e-c65f-4f4c-8436-ad6d4ad78215/image.png" alt="" /></p>
+
+<p>And also can searched on the public modules.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a28f6688-a500-4747-8736-bb74c55fd371/image.png" alt="" /></p>
+
+<h1 id="4-install-module-and-use">4. Install Module and Use</h1>
+<p>Now that we publish to the public PowerShell Gallery, let’s test to install module in other computers.</p>
+
+<p>Open new powershell session and execute this command below.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Install-Module -Name DemoTenantIsValid
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/f9414583-5795-4a6f-8ae8-1b103ae195cf/image.png" alt="" /></p>
+
+<p>Good the module has found in the PSGallery. Click ‘Yes to All’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/cd423635-8ff6-44e1-bb49-760f48d84716/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/bdfb673c-08f3-4935-b67a-4d2643dc487f/image.png" alt="" /></p>
+
+<p>Once the module installed, you can check the module location on your local device with following command.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-Module <span class="nt">-ListAvailable</span> <span class="nt">-Name</span> DemoTenantIsValid | Select-Object ModuleBase
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/cf669583-0c97-44df-87bd-b043a8d4ec1b/image.png" alt="" /></p>
+
+<p>and the funtion that I made is displayed and can be used.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a0b48973-71b9-4342-8256-511371e2a59a/image.png" alt="" /></p>
+
+<p>The function works. It trys to connect mggraph which I put in the function.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b3c78464-f233-443d-8ffa-e27d9421281f/image.png" alt="" /></p>
+
+<p>Once you success to log in, it says your tenant is valid or not.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4af98b85-c6a1-4736-af34-8efc943f220a/image.png" alt="" /></p>
+
+<h1 id="5-ref">5. Ref</h1>
+<ul>
+  <li>https://learn.microsoft.com/en-us/powershell/gallery/how-to/publishing-packages/publishing-a-package?view=powershellget-3.x</li>
+  <li>https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/09-functions?view=powershell-7.5</li>
+  <li>https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/new-modulemanifest?view=powershell-7.5</li>
+</ul>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[0. Overview In this post, I will create my own custom powershell module and publish to PSGallery. It’s really easy. Let’s find out.]]></summary></entry><entry><title type="html">Multiple domain support for federating with microsoft entra id</title><link href="http://localhost:4000/Multiple-Domain-Support-for-Federating-with-Microsoft-Entra-ID/" rel="alternate" type="text/html" title="Multiple domain support for federating with microsoft entra id" /><published>2025-03-26T00:00:00+09:00</published><updated>2025-03-26T00:00:00+09:00</updated><id>http://localhost:4000/Multiple%20Domain%20Support%20for%20Federating%20with%20Microsoft%20Entra%20ID</id><content type="html" xml:base="http://localhost:4000/Multiple-Domain-Support-for-Federating-with-Microsoft-Entra-ID/"><![CDATA[<h1 id="0-index">0. Index</h1>
+
+<p>When configuring a hybrid environment, the authentication method for users is also set up through AADC. However, only one authentication method (PHS, PTA, or ADFS) can be selected per forest.</p>
+
+<p>Now, my customer has configured ADFS authentication to allow their headquarters employees to access the M365 environment. However, their branch employees are also in the same forest, and they need access to M365 as well. Since they are in the same forest, they must also authenticate via ADFS.</p>
+
+<p>Is this possible? Let’s find out.</p>
+
+<h1 id="1-lab-configuration">1. LAB Configuration</h1>
+<p>First up first, I have two domains here.</p>
+<ul>
+  <li>thecake.kro.kr(Federated)</li>
+  <li>hotcake.kro.kr</li>
+</ul>
+
+<p>The users whose upn suffix is thecake.kro.kr and hotcake.kro.kr is in the DC(the cake.kro.local). And I synced @thecake.kro.kr users with ADFS authentication in AADC.</p>
+
+<p>And I’m gonna deploy @hotcake.kro.kr users to current ADFS authentication process.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/7bdd0a06-fee7-4224-8212-17a0d9af2eba/image.png" alt="" /></p>
+
+<h1 id="2-enable--supportmultipledomain">2. Enable -SupportMultipleDomain</h1>
+<p>First, go to your ADFS server. And execute the commands below.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Connect-MsolService
+Set-MsolADFSContext <span class="nt">-Computer</span> <span class="s2">"thecakeadfs.thecake.kro.local"</span>
+Update-MsolFederatedDomain <span class="nt">-DomainName</span> thecake.kro.kr <span class="nt">-SupportMultipleDomain</span>
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/d72129c8-e4df-407a-88f9-dcd0df10ba02/image.png" alt="" /></p>
+
+<h1 id="3-enrollment-custom-domain-name">3. Enrollment Custom Domain Name</h1>
+<p>Go to your tenant. Enroll and verify your new Top-Level Domain.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c60ba582-cad5-4dba-9dbe-ea90be49ab72/image.png" alt="" /></p>
+
+<h1 id="4-deployment-second-top-level-domain-with-entra-id-connect">4. Deployment Second Top-Level Domain with Entra ID Connect</h1>
+<p>Go to your AADC and federate your new doamin.
+Click ‘Manage federation’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c66332be-e37e-4510-8b10-58ac370b615c/image.png" alt="" />
+Click ‘Federate Microsoft Entra ID domain’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7caa414f-b126-4e97-8586-03d14c27f09e/image.png" alt="" />
+To federate your new domain, you should be identified tenant administrator and ADFS server administrator.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6ad3be70-6d41-4ef6-a1f3-55994b015823/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1ad26f03-e284-44f8-b62c-33a48438ade5/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/afa18f49-a46e-40d3-a4e3-00851aacaa39/image.png" alt="" />
+Now, select your new domain that will be federated. If the domain is not visible, you should go tenant and make your new domain verified.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2f7044e9-9aaa-4447-9284-7cbc127a2635/image.png" alt="" />
+Click ‘Next’ to update ADFS relying party trust.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c3277ea6-b7f4-4f37-a16b-5c03c7f08cd2/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2713d9cc-e676-4f22-9447-0f411edca29c/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b4ca2ed5-480b-4a1d-8489-7e80c200609d/image.png" alt="" /></p>
+
+<p>Just let AADC do the work. Once it successfully deployed, you will see the original domain and your new domain displayed with check icon on the Federated collumn.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5bec3da6-44c2-408c-9cf9-cf04c7df4df8/image.png" alt="" />
+And also, you can check</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MsolDomain
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/ee295ee8-5242-43d0-8c23-cc2a577c892e/image.png" alt="" />
+Also use</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MsolDomainFederationSettings <span class="nt">-DomainName</span> thecake.kro.kr<span class="s1">'
+</span></code></pre></div></div>
+<p>Note the IssuerUri.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/790bcb6a-1880-4c0a-b395-4ca4fa4ac5ae/image.png" alt="" />
+Use</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-MsolDomainFederationSettings <span class="nt">-DomainName</span> hotcake.kro.kr<span class="s1">'
+</span></code></pre></div></div>
+<p>The IssuerUri is different from Original Domain. But the other URL that used for the ADFS authentication is the same.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/50810448-e7dc-4a68-ae77-dd2f88286c68/image.png" alt="" /></p>
+
+<h1 id="5-hotcakekrokr-user-sync">5. ‘@hotcake.kro.kr’ user sync</h1>
+<p>Okay, we are good to go for the @hotcake.kro.kr users to sync M365 environment.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0679f5ab-4eed-466d-9a08-49822701bd9a/image.png" alt="" /></p>
+
+<h1 id="6-validation">6. Validation</h1>
+<p>After synchronisation, both domain users redirected to the ADFS server.
+@thecake.kro.kr users.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/50d0d3c8-ae30-426c-9825-febef77dda4c/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/49372d62-3db7-47d1-aff2-afa91dff9968/image.png" alt="" />
+@hotcake.kro.kr users.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e08e3bb7-ba25-44f2-8412-9e2099828dc1/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b7b71cac-492e-40ef-948c-1d85d010281e/image.png" alt="" /></p>
+
+<p>Obviously, they are success in authentication so that they can use M365 services.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a7b416ac-2238-4550-92f4-7a045a49fd70/image.png" alt="" /></p>
+
+<h1 id="7-ref">7. Ref</h1>
+<p>Following documents are exactly refering the same content execept the Module.
+First one uses MSOnline and second one uses Graph. But graph module and its command in the document has been deprecated.</p>
+<ul>
+  <li>https://docs.azure.cn/en-us/entra/identity/hybrid/connect/how-to-connect-install-multiple-domains</li>
+  <li>https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-multiple-domains</li>
+  <li>https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-multiple-domains</li>
+</ul>
+
+<h1 id="8-issue-msonline-module-retirement">8. Issue: MSOnline Module Retirement</h1>
+<p>However, MSOnline module also will be retirement soon.
+I have no idea what’s going on this add new Top-Level domain scenario..
+https://techcommunity.microsoft.com/blog/microsoft-entra-blog/action-required-msonline-and-azuread-powershell-retirement—2025-info-and-resou/4364991</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/62ae3adf-f8c0-4001-bfdb-913f1d7aba82/image.png" alt="" /></p>]]></content><author><name>Joseph Lee</name></author><summary type="html"><![CDATA[0. Index]]></summary></entry></feed>

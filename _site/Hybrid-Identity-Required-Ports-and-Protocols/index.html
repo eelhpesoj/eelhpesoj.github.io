@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>Hybrid identity required ports and protocols - Joseph Lee Blog</title>
+<meta name="description" content="Summary When you are planning to implementing a hybrid identity solution, remember that this following ports and protocols are required. In this post, I will cover the prerequisite of the Microsoft Entra Connect(Formerly known as Azure ad connect) and On-premises AD.">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="Hybrid identity required ports and protocols">
+<meta property="og:url" content="http://localhost:4000/Hybrid-Identity-Required-Ports-and-Protocols/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="Summary When you are planning to implementing a hybrid identity solution, remember that this following ports and protocols are required. In this post, I will cover the prerequisite of the Microsoft Entra Connect(Formerly known as Azure ad connect) and On-premises AD.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-02-02T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/Hybrid-Identity-Required-Ports-and-Protocols/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">Hybrid identity required ports and protocols</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="Hybrid identity required ports and protocols">
+    <meta itemprop="description" content="SummaryWhen you are planning to implementing a hybrid identity solution, remember that this following ports and protocols are required.In this post, I will cover the prerequisite of the Microsoft Entra Connect(Formerly known as Azure ad connect) and On-premises AD.">
+    <meta itemprop="datePublished" content="2024-02-02T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/Hybrid-Identity-Required-Ports-and-Protocols/" itemprop="url">Hybrid identity required ports and protocols
 </a>
           </h1>
           
@@ -306,7 +306,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          less than 1 minute read
         
       </span>
     
@@ -321,47 +321,44 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#summary">Summary</a></li><li><a href="#1-overview">1. Overview</a></li><li><a href="#2-microsoft-entra-connect-and-on-premises-ad">2. Microsoft Entra Connect and On-premises AD</a></li><li><a href="#3-if-you-dont-allow-those-ports-and-protocols">3. If you don’t allow those ports and protocols..</a></li><li><a href="#reference">Reference</a></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
+        <h3 id="summary">Summary</h3>
+<p>When you are planning to implementing a hybrid identity solution, remember that this following ports and protocols are required.
+In this post, I will cover the prerequisite of the Microsoft Entra Connect(Formerly known as Azure ad connect) and On-premises AD.</p>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<hr />
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<h3 id="1-overview">1. Overview</h3>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/ba76ffdb-ee2f-4c73-abc3-5c2d7b97fa33/image.png" alt="" /></p>
 
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
+<p>This is the overal design but note that ‘On-premises Active Directory and Azure AD Connect Server’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/70ee2913-a3e2-4e59-bd6b-890c2326bebf/image.png" alt="" /></p>
 
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
+<h3 id="2-microsoft-entra-connect-and-on-premises-ad">2. Microsoft Entra Connect and On-premises AD</h3>
+<p>This section describes the ports and protocols that are required for communication between the Microsoft Entra Connect server and on-premises AD.</p>
 
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/6c9afb07-3631-42c3-b471-f039e233c965/image.png" alt="" /></p>
+
+<h3 id="3-if-you-dont-allow-those-ports-and-protocols">3. If you don’t allow those ports and protocols..</h3>
+<p>You will encounter following issues.
+Example:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c4dfeeaf-2314-4503-969f-fe521d3c1ae9/image.png" alt="" />
+389 Ports error.</p>
+
+<p>Test with this powershell on the Microsoft Entra Connect server</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test-Netconnection <span class="s1">'Forest name'</span> <span class="nt">-Port</span> 389
+</code></pre></div></div>
+<p>If the AD has not opened port 53, you need to use IP address.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Test-Netconnection <span class="s1">'IP address'</span> <span class="nt">-Port</span> 389
 </code></pre></div></div>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
-
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
-
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<h3 id="reference">Reference</h3>
+<p>https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-ports</p>
 
         
       </section>
@@ -373,7 +370,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-02-02T00:00:00+09:00">February 2, 2024</time></p>
 
       </footer>
 
@@ -382,10 +379,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Configure-Microsoft-Entra-hybrid-join/" class="pagination--pager" title="Configure microsoft entra hybrid join">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Enabling-Sensitivity-Labels(AIP)-for-Groups-&-Sites/" class="pagination--pager" title="Enabling sensitivity labels(aip) for groups &amp; sites">Next</a>
     
   </nav>
 
@@ -462,6 +459,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +564,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +573,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

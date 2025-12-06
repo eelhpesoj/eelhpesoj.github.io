@@ -1,0 +1,781 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Manual exchange hybrid configuration - Joseph Lee Blog</title>
+<meta name="description" content="0. Summary This document contains the manual for Exchange Hybrid Configuration in environments where the Hybrid Configuration Wizard (HCW) cannot be run.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="Manual exchange hybrid configuration">
+<meta property="og:url" content="http://localhost:4000/Manual-Exchange-Hybrid-Configuration/">
+
+
+  <meta property="og:description" content="0. Summary This document contains the manual for Exchange Hybrid Configuration in environments where the Hybrid Configuration Wizard (HCW) cannot be run.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-01-22T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/Manual-Exchange-Hybrid-Configuration/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Manual exchange hybrid configuration</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Manual exchange hybrid configuration">
+    <meta itemprop="description" content="0. SummaryThis document contains the manual for Exchange Hybrid Configuration in environments where the Hybrid Configuration Wizard (HCW) cannot be run.">
+    <meta itemprop="datePublished" content="2025-01-22T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/Manual-Exchange-Hybrid-Configuration/" itemprop="url">Manual exchange hybrid configuration
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#0-summary">0. Summary</a></li><li><a href="#1-hcw-log-location">1. HCW log location</a></li><li><a href="#2-filter-the-log-to-include-only-entries-containing-cmdlet">2. Filter the log to include only entries containing ‘cmdlet’</a></li><li><a href="#3-powershell-commands">3. PowerShell Commands</a></li><li><a href="#validation">Validation</a></li><li><a href="#mail-test">Mail Test</a></li><li><a href="#you-should-match-certificate-name">You should match Certificate name</a><ul><li><a href="#exo-inbound-connector-name">EXO Inbound connector name!</a></li></ul></li><li><a href="#after-all">After all..</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="0-summary">0. Summary</h1>
+<p>This document contains the manual for Exchange Hybrid Configuration in environments where the Hybrid Configuration Wizard (HCW) cannot be run.</p>
+
+<h1 id="1-hcw-log-location">1. HCW log location</h1>
+<p>First up first, we need to take a look the whole HCW log so that we can check which commands are needed.</p>
+
+<p>The log location is:
+%UserProfile%\AppData\Roaming\microsoft\Exchange Hybrid Configuration</p>
+
+<p>And open the text document.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/e3a3bb47-4e56-4589-ba3f-a20501fc996b/image.png" alt="" /></p>
+
+<p>https://learn.microsoft.com/en-us/exchange/hybrid-configuration-wizard#hybrid-deployment-configuration-changes</p>
+
+<h1 id="2-filter-the-log-to-include-only-entries-containing-cmdlet">2. Filter the log to include only entries containing ‘cmdlet’</h1>
+<p>Filter the log to show entries containing ‘cmdlet’.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7cc74a93-973a-4f44-83ec-6babee7c199e/image.png" alt="" /></p>
+
+<p>And separate it as Session=OnPremises and Session=tenant
+<img src="https://velog.velcdn.com/images/leeyosebi/post/f3b17a23-9605-416e-bd81-f5b1001bd84c/image.png" alt="" /></p>
+
+<p>So that’s all. You are good to go.
+Edit the following commands properly.</p>
+
+<h1 id="3-powershell-commands">3. PowerShell Commands</h1>
+<p>Organized the PowerShell commands in sequential order.
+I create a random guid here. 
+The guid is actually configured automatically by the HCW. But in this manual configuration I just assigned temporary.
+https://github.com/leeyosebi/Powershell/blob/master/ExchangeServer/Exchange%20Hybrid.ps1</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Exchange Hybrid</span>
+
+<span class="c">#[Exchange Server]</span>
+
+Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn
+
+    <span class="c"># 0. Preparing Certname</span>
+        <span class="c">#cert</span>
+        <span class="c">#Get Thumbprint</span>
+        <span class="nv">$Thumbp</span> <span class="o">=</span> Get-ExchangeCertificate | Where-Object<span class="o">{</span><span class="nv">$_</span>.subject <span class="nt">-like</span> <span class="s2">"*cakeparty.kro.kr*"</span><span class="o">}</span>
+        <span class="nv">$Thumbp</span>.thumbprint
+
+        <span class="c">#Set TLS CertName</span>
+        <span class="nv">$TLSCert</span> <span class="o">=</span> Get-ExchangeCertificate <span class="nt">-Thumbprint</span> <span class="nv">$Thumbp</span>.thumbprint
+        <span class="nv">$TLSCertName</span> <span class="o">=</span> <span class="s2">"&lt;I&gt;</span><span class="si">$(</span><span class="nv">$TLSCert</span>.Issuer<span class="si">)</span><span class="s2">&lt;S&gt;</span><span class="si">$(</span><span class="nv">$TLSCert</span>.Subject<span class="si">)</span><span class="s2">"</span>
+
+    <span class="c"># 1. Start Hybrid</span>
+    New-HybridConfiguration
+    Set-HybridConfiguration <span class="nt">-ClientAccessServers</span> <span class="nv">$null</span> <span class="nt">-ExternalIPAddresses</span> <span class="nv">$null</span> <span class="nt">-Domains</span> <span class="s1">'cakeparty.kro.kr'</span> <span class="nt">-OnPremisesSmartHost</span> <span class="s1">'mail.cakeparty.kro.kr'</span> <span class="nt">-TLSCertificateName</span> <span class="nv">$TLSCertName</span> <span class="nt">-SendingTransportServers</span> CAKEPARTYEX01 <span class="nt">-ReceivingTransportServers</span> CAKEPARTYEX01 <span class="nt">-EdgeTransportServers</span> <span class="nv">$null</span> <span class="nt">-Features</span> FreeBusy,MoveMailbox,Mailtips,MessageTracking,OwaRedirection,OnlineArchive,SecureMail,CentralizedTransport,Photos
+
+    <span class="c"># 2. Remote Domain</span>
+    New-RemoteDomain <span class="nt">-Name</span> <span class="s1">'Hybrid Domain - M365x66243491.mail.onmicrosoft.com'</span> <span class="nt">-DomainName</span> <span class="s1">'M365x66243491.mail.onmicrosoft.com'</span>
+    Set-RemoteDomain <span class="nt">-TargetDeliveryDomain</span>: <span class="nv">$true</span> <span class="nt">-Identity</span> <span class="s1">'Hybrid Domain - M365x66243491.mail.onmicrosoft.com'</span>
+    New-RemoteDomain <span class="nt">-Name</span> <span class="s1">'Hybrid Domain - M365x66243491.onmicrosoft.com'</span> <span class="nt">-DomainName</span> <span class="s1">'M365x66243491.onmicrosoft.com'</span>
+    Set-RemoteDomain <span class="nt">-TrustedMailInboundEnabled</span>: <span class="nv">$true</span> <span class="nt">-Identity</span> <span class="s1">'Hybrid Domain - M365x66243491.onmicrosoft.com'</span>
+    
+    <span class="c"># 3. Accepted Domain &amp; Email Addresses Policy </span>
+    New-AcceptedDomain <span class="nt">-DomainName</span> <span class="s1">'M365x66243491.mail.onmicrosoft.com'</span> <span class="nt">-Name</span> <span class="s1">'M365x66243491.mail.onmicrosoft.com'</span>
+    Set-EmailAddressPolicy <span class="nt">-Identity</span> <span class="s1">'Default Policy'</span> <span class="nt">-ForceUpgrade</span>: <span class="nv">$true</span> <span class="nt">-EnabledEmailAddressTemplates</span> <span class="s1">'smtp:@cakeparty.kro.local'</span>,<span class="s1">'SMTP:%m@cakeparty.kro.kr'</span>,<span class="s1">'smtp:%m@M365x66243491.mail.onmicrosoft.com'</span>
+    Update-EmailAddressPolicy <span class="nt">-Identity</span> <span class="s1">'Default Policy'</span> <span class="nt">-UpdateSecondaryAddressesOnly</span>: <span class="nv">$true</span>
+
+    <span class="c"># 4. OrganisationRelationship</span>
+    New-OrganizationRelationship <span class="nt">-Name</span> <span class="s1">'On-premises to O365 eeebbbe0-5bab-442c-bdd6-24c37abf9f20'</span> <span class="nt">-TargetApplicationUri</span> <span class="nv">$null</span> <span class="nt">-TargetAutodiscoverEpr</span> <span class="nv">$null</span> <span class="nt">-Enabled</span>: <span class="nv">$true</span> <span class="nt">-DomainNames</span> <span class="s1">'M365x66243491.mail.onmicrosoft.com'</span>
+    Set-OrganizationRelationship <span class="nt">-MailboxMoveEnabled</span>: <span class="nv">$true</span> <span class="nt">-FreeBusyAccessEnabled</span>: <span class="nv">$true</span> <span class="nt">-FreeBusyAccessLevel</span> LimitedDetails <span class="nt">-ArchiveAccessEnabled</span>: <span class="nv">$true</span> <span class="nt">-MailTipsAccessEnabled</span>: <span class="nv">$true</span> <span class="nt">-MailTipsAccessLevel</span> All <span class="nt">-DeliveryReportEnabled</span>: <span class="nv">$true</span> <span class="nt">-PhotosEnabled</span>: <span class="nv">$true</span> <span class="nt">-TargetOwaURL</span> <span class="s1">'https://outlook.office.com/mail'</span> <span class="nt">-Identity</span> <span class="s1">'On-premises to O365 eeebbbe0-5bab-442c-bdd6-24c37abf9f20'</span>
+    
+    <span class="c"># 5. Add AvailabilityAddressSpace</span>
+    Add-AvailabilityAddressSpace <span class="nt">-ForestName</span> <span class="s1">'M365x66243491.mail.onmicrosoft.com'</span> <span class="nt">-AccessMethod</span> InternalProxy <span class="nt">-UseServiceAccount</span>: <span class="nv">$true</span> <span class="nt">-ProxyUrl</span> <span class="s1">'https://cakepartyex01.jose.run.local/EWS/Exchange.asmx'</span>
+
+    <span class="c"># 6. Connector Set up</span>
+    Set-HybridConfiguration <span class="nt">-ClientAccessServers</span> <span class="nv">$null</span> <span class="nt">-ExternalIPAddresses</span> <span class="nv">$null</span>
+    New-SendConnector <span class="nt">-Name</span> <span class="s1">'Outbound to Office 365 - eeebbbe0-5bab-442c-bdd6-24c37abf9f20'</span> <span class="nt">-AddressSpaces</span> <span class="s1">'smtp:M365x66243491.mail.onmicrosoft.com;1'</span> <span class="nt">-DNSRoutingEnabled</span>: <span class="nv">$true</span> <span class="nt">-ErrorPolicies</span> Default <span class="nt">-Fqdn</span> <span class="s1">'cakeparty.kro.kr'</span> <span class="nt">-RequireTLS</span>: <span class="nv">$true</span> <span class="nt">-IgnoreSTARTTLS</span>: <span class="nv">$false</span> <span class="nt">-SourceTransportServers</span> CAKEPARTYEX01 <span class="nt">-SmartHosts</span> <span class="nv">$null</span> <span class="nt">-TLSAuthLevel</span> DomainValidation <span class="nt">-DomainSecureEnabled</span>: <span class="nv">$false</span> <span class="nt">-TLSDomain</span> <span class="s1">'mail.protection.outlook.com'</span> <span class="nt">-CloudServicesMailEnabled</span>: <span class="nv">$true</span> <span class="nt">-TLSCertificateName</span> <span class="nv">$TLSCertName</span>
+    Set-ReceiveConnector <span class="nt">-AuthMechanism</span> <span class="s1">'Tls, Integrated, BasicAuth, BasicAuthRequireTLS, ExchangeServer'</span> <span class="nt">-Bindings</span> <span class="s1">'[::]:25'</span>,<span class="s1">'0.0.0.0:25'</span> <span class="nt">-Fqdn</span> <span class="s1">'CAKEPARTYEX01.CAKEPARTY.KRO.LOCAL'</span> <span class="nt">-PermissionGroups</span> <span class="s1">'AnonymousUsers, ExchangeServers, ExchangeLegacyServers'</span> <span class="nt">-RemoteIPRanges</span> <span class="s1">'::-ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff'</span>,<span class="s1">'0.0.0.0-255.255.255.255'</span> <span class="nt">-RequireTLS</span>: <span class="nv">$false</span> <span class="nt">-TLSDomainCapabilities</span> <span class="s1">'mail.protection.outlook.com:AcceptCloudServicesMail'</span> <span class="nt">-TLSCertificateName</span> <span class="nv">$TLSCertName</span> <span class="nt">-TransportRole</span> FrontendTransport <span class="nt">-Identity</span> <span class="s1">'CAKEPARTYEX01\Default Frontend CAKEPARTYEX01'</span>
+    New-IntraOrganizationConnector <span class="nt">-Name</span> <span class="s1">'HybridIOC - eeebbbe0-5bab-442c-bdd6-24c37abf9f20'</span> <span class="nt">-DiscoveryEndpoint</span> <span class="s1">'https://autodiscover-s.outlook.com/autodiscover/autodiscover.svc'</span> <span class="nt">-TargetAddressDomains</span> <span class="s1">'M365x66243491.mail.onmicrosoft.com'</span> <span class="nt">-Enabled</span>: <span class="nv">$true</span>
+    Set-PartnerApplication <span class="nt">-Identity</span> <span class="s1">'Exchange Online'</span> <span class="nt">-Enabled</span>: <span class="nv">$true</span>
+   
+    <span class="c"># 7. AuthServer set up</span>
+    New-AuthServer <span class="nt">-Name</span> <span class="s1">'ACS - eeebbbe0-5bab-442c-bdd6-24c37abf9f20'</span> <span class="nt">-AuthMetadataUrl</span> <span class="s1">'https://accounts.accesscontrol.windows.net/637ce511-f6a0-47ed-a892-6efb7b9b688a/metadata/json/1'</span> <span class="nt">-DomainName</span> <span class="s1">'CAKEPARTY.KRO.KR'</span>,<span class="s1">'M365x66243491.mail.onmicrosoft.com'</span> <span class="c">#Tenant GUID</span>
+    New-AuthServer <span class="nt">-Name</span> <span class="s1">'EvoSts - eeebbbe0-5bab-442c-bdd6-24c37abf9f20'</span> <span class="nt">-AuthMetadataUrl</span> <span class="s1">'https://login.windows.net/M365x66243491.onmicrosoft.com/federationmetadata/2007-06/federationmetadata.xml'</span> <span class="nt">-Type</span> AzureAD
+
+
+<span class="c"># [Exchange Online]</span>
+    <span class="c"># 1. OrganisationRelationShip</span>
+    New-OrganizationRelationship <span class="nt">-Name</span> <span class="s1">'O365 to On-premises - 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-TargetApplicationUri</span> <span class="nv">$null</span> <span class="nt">-TargetAutodiscoverEpr</span> <span class="nv">$null</span> <span class="nt">-Enabled</span>: <span class="nv">$true</span> <span class="nt">-DomainNames</span> <span class="s1">'CAKEPARTY.KRO.KR'</span>
+    Set-OrganizationRelationship <span class="nt">-FreeBusyAccessEnabled</span>: <span class="nv">$true</span> <span class="nt">-FreeBusyAccessLevel</span> LimitedDetails <span class="nt">-TargetSharingEpr</span> <span class="nv">$null</span> <span class="nt">-MailTipsAccessEnabled</span>: <span class="nv">$true</span> <span class="nt">-MailTipsAccessLevel</span> All <span class="nt">-DeliveryReportEnabled</span>: <span class="nv">$true</span> <span class="nt">-PhotosEnabled</span>: <span class="nv">$true</span> <span class="nt">-TargetOwaURL</span> <span class="s1">'https://mail.cakeparty.kro.kr/owa'</span> <span class="nt">-Identity</span> <span class="s1">'O365 to On-premises - ManualHybrid'</span>
+
+    <span class="c"># 2. Connectors</span>
+    New-InboundConnector <span class="nt">-Name</span> <span class="s1">'Inbound from 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-CloudServicesMailEnabled</span>: <span class="nv">$true</span> <span class="nt">-ConnectorSource</span> HybridWizard <span class="nt">-ConnectorType</span> OnPremises <span class="nt">-RequireTLS</span>: <span class="nv">$true</span> <span class="nt">-SenderDomains</span> <span class="s1">'*'</span> <span class="nt">-SenderIPAddresses</span> <span class="nv">$null</span> <span class="nt">-RestrictDomainsToIPAddresses</span>: <span class="nv">$false</span> <span class="nt">-TLSSenderCertificateName</span> <span class="s1">'cakeparty.kro.kr'</span> <span class="nt">-AssociatedAcceptedDomains</span> <span class="nv">$null</span>
+    New-OutboundConnector <span class="nt">-Name</span> <span class="s1">'Outbound to 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-RecipientDomains</span> <span class="s1">'*'</span> <span class="nt">-SmartHosts</span> <span class="s1">'mail.cakeparty.kro.kr'</span> <span class="nt">-ConnectorSource</span> HybridWizard <span class="nt">-ConnectorType</span> OnPremises <span class="nt">-TLSSettings</span> DomainValidation <span class="nt">-TLSDomain</span> <span class="s1">'cakeparty.kro.kr'</span> <span class="nt">-CloudServicesMailEnabled</span>: <span class="nv">$true</span> <span class="nt">-RouteAllMessagesViaOnPremises</span>: <span class="nv">$true</span> <span class="nt">-UseMxRecord</span>: <span class="nv">$false</span> <span class="nt">-IsTransportRuleScoped</span>: <span class="nv">$false</span>
+
+    <span class="c"># 3. Onpremisesorganization</span>
+    New-OnPremisesOrganization <span class="nt">-HybridDomains</span> <span class="s1">'CAKEPARTY.KRO.KR'</span> <span class="nt">-InboundConnector</span> <span class="s1">'Inbound from 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-OutboundConnector</span> <span class="s1">'Outbound to 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-OrganizationRelationship</span> <span class="s1">'O365 to On-premises - 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-OrganizationName</span> <span class="s1">'First Organization'</span> <span class="nt">-Name</span> <span class="s1">'3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-OrganizationGuid</span> <span class="s1">'3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span>
+    New-IntraOrganizationConnector <span class="nt">-Name</span> <span class="s1">'HybridIOC - 3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-DiscoveryEndpoint</span> <span class="s1">'https://mail.cakeparty.kro.kr/autodiscover/autodiscover.svc'</span> <span class="nt">-TargetAddressDomains</span> <span class="s1">'CAKEPARTY.KRO.KR'</span> <span class="nt">-Enabled</span>: <span class="nv">$true</span>
+    
+    <span class="c"># Migration Endpoint</span>
+    Test-MigrationServerAvailability <span class="nt">-ExchangeRemoteMove</span>: <span class="nv">$true</span> <span class="nt">-RemoteServer</span> <span class="s1">'mail.cakeparty.kro.kr'</span> <span class="nt">-Credentials</span> <span class="o">(</span>Get-Credential <span class="nt">-UserName</span> CAKEPARTY<span class="se">\c</span>akepartysuper<span class="o">)</span>
+    New-MigrationEndpoint <span class="nt">-Name</span> <span class="s1">'[CAKEPARTY]Hybrid Migration Endpoint - EWS (Default Web Site)'</span> <span class="nt">-ExchangeRemoteMove</span>: <span class="nv">$true</span> <span class="nt">-RemoteServer</span> <span class="s1">'mail.cakeparty.kro.kr'</span> <span class="nt">-Credentials</span> <span class="o">(</span>Get-Credential <span class="nt">-UserName</span> CAKEPARTY<span class="se">\c</span>akepartysuper<span class="o">)</span>
+    Set-OnPremisesOrganization <span class="nt">-Identity</span> <span class="s1">'3f8e7a2d-1b45-4c89-a0d7-6f5b2e1c9a8d'</span> <span class="nt">-Comment</span> <span class="s1">'Weird String'</span>
+</code></pre></div></div>
+
+<h1 id="validation">Validation</h1>
+<ol>
+  <li>Migration batches are working
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3f2afba8-3133-46a4-8d95-df95cef387e9/image.png" alt="" /></li>
+  <li>ECP
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7b5eb044-3dcf-4781-96fd-276e91175c96/image.png" alt="" /></li>
+  <li>Login
+<img src="https://velog.velcdn.com/images/leeyosebi/post/dd0bb1d3-1d65-419a-8a18-edb5bd7dcb64/image.png" alt="" /></li>
+</ol>
+
+<h1 id="mail-test">Mail Test</h1>
+<ol>
+  <li>
+    <p>Internet → Exchange server(Centralised) → EXO(Onboarded mail box)
+Exchange server has been recieved and send to the external
+<img src="https://velog.velcdn.com/images/leeyosebi/post/310f37f6-d307-4ee3-9f93-b6428124949b/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d18eab7d-b2f3-461c-86bb-07cf5b54d146/image.png" alt="" />
+Because of the Hybrid Centralised configuration, all emails are routed through the exchange server. Following message header indicates that the internet mail is routed by the exchange server.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c298ce89-038a-4ca7-92b7-33d239c8b1fe/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>EXO → Exchange server
+<img src="https://velog.velcdn.com/images/leeyosebi/post/87e97450-7304-4381-b834-a1d0d11240f8/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c224013a-6db8-4b69-9044-199c156f655b/image.png" alt="" /></p>
+  </li>
+</ol>
+
+<h1 id="you-should-match-certificate-name">You should match Certificate name</h1>
+<h2 id="exo-inbound-connector-name">EXO Inbound connector name!</h2>
+<p>At the very first, the mail actually caught in the loop at the between Exchange server and Exchange online.
+I just checked and compare the configuration with the other exchange hybrid centralised server which has been configured with HCW(Hybrid configuration Wizard). But there is no difference!
+Well, I’ve been searching on it. I feel it’s a authenticating issues because the connection and the route is working.
+So I take a look at the exchange online connectors, and I found the certificate name is different with the CN.
+Actually, I just thought it might be working. As far as wilcard certificate concerned, there is no issues whatever I enter ‘cakeparty.kro.kr’ or ‘*.cakeparty.kro.kr’.
+But as you can see below, it should be exactly same as the CN.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/67cf4acc-6144-4b5d-8081-365f500e0444/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/abed0112-4c31-4079-983d-de0b9fbe0919/image.png" alt="" /></p>
+
+<h1 id="after-all">After all..</h1>
+<p>So this is it!
+But in the end, Microsoft recommands to execute the HCW.
+They are not recommands these manual configuration.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/eb57a7ad-73bc-416b-9b15-11e0380089b8/image.jpeg" alt="" /></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-01-22T00:00:00+09:00">January 22, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Exchange-Hybrid-Deployment-Prerequisites(EWS,-Autodiscover)/" class="pagination--pager" title="Exchange hybrid deployment prerequisites(ews, autodiscover)">Previous</a>
+    
+    
+      <a href="/Authentication-Authorization/" class="pagination--pager" title="Authentication:authorization">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

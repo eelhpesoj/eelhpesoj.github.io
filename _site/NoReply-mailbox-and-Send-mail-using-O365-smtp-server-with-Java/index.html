@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>Noreply mailbox and send mail using o365 smtp server with java - Joseph Lee Blog</title>
+<meta name="description" content="0. Summary Regarding Exchange online, I was intriguied to see how mail has been sent from any other systems. So, imagine that you are a developer and you have to integrate and implement function with a exchange online mailbox.">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="Noreply mailbox and send mail using o365 smtp server with java">
+<meta property="og:url" content="http://localhost:4000/NoReply-mailbox-and-Send-mail-using-O365-smtp-server-with-Java/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="0. Summary Regarding Exchange online, I was intriguied to see how mail has been sent from any other systems. So, imagine that you are a developer and you have to integrate and implement function with a exchange online mailbox.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-11-07T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/NoReply-mailbox-and-Send-mail-using-O365-smtp-server-with-Java/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">Noreply mailbox and send mail using o365 smtp server with java</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="Noreply mailbox and send mail using o365 smtp server with java">
+    <meta itemprop="description" content="0. SummaryRegarding Exchange online, I was intriguied to see how mail has been sent from any other systems.So, imagine that you are a developer and you have to integrate and implement function with a exchange online mailbox.">
+    <meta itemprop="datePublished" content="2024-11-07T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/NoReply-mailbox-and-Send-mail-using-O365-smtp-server-with-Java/" itemprop="url">Noreply mailbox and send mail using o365 smtp server with java
 </a>
           </h1>
           
@@ -321,47 +321,71 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#0-summary">0. Summary</a></li><li><a href="#1-create-noreply-mailboxshared-mailbox">1. Create NoReply mailbox(Shared mailbox)</a></li><li><a href="#2-enable-smtp-authentication">2. Enable SMTP Authentication</a></li><li><a href="#3-coding-with-java">3. Coding with Java</a><ul><li><a href="#-import-jar-package-first">* import jar package first!</a></li></ul></li><li><a href="#4-result">4. Result</a></li><li><a href="#5-ms-documentation">5. MS Documentation</a></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
+        <h1 id="0-summary">0. Summary</h1>
+<p>Regarding Exchange online, I was intriguied to see how mail has been sent from any other systems.
+So, imagine that you are a developer and you have to integrate and implement function with a exchange online mailbox.</p>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<p>Here is my breif solutions.</p>
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<h1 id="1-create-noreply-mailboxshared-mailbox">1. Create NoReply mailbox(Shared mailbox)</h1>
+<p>First of all, you need to configure NoReply Mailbox from the Exchange online. Let me skip the procedure and replace the explanation with the following link.</p>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+<p>https://www.codetwo.com/admins-blog/no-reply-mailbox-in-microsoft-365/</p>
 
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
+<h1 id="2-enable-smtp-authentication">2. Enable SMTP Authentication</h1>
+<p>And you need to enable SMTP Authentication for the shared mailbox.
+Please refer the MS Documentation which is how to set up this feature globally or for each mailbox.</p>
 
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
+<p>https://learn.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission</p>
 
-</code></pre></div></div>
+<p>For example:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b3a8a1fd-1cb7-4f3c-a6d6-bb43cf10cd26/image.png" alt="" /></p>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<h1 id="3-coding-with-java">3. Coding with Java</h1>
+<p>After enable SMTP Authentication for the mailbox,
+You are almost there. Make your own code for a sending message through using O365 SMTP server.
+Please take a look at my code from the following github URL.</p>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+<p>https://github.com/leeyosebi/SendEmailO365Java</p>
 
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/f540f3a6-3789-49ec-9e61-e42c57c302fa/image.png" alt="" /></p>
+
+<h2 id="-import-jar-package-first">* import jar package first!</h2>
+<p>You might struggle for the import java mail package which is required for send a email.
+There are several ways to import a required modules and packages but I just download the .jar files and import manually.</p>
+
+<ol>
+  <li>File &gt; Porject Structure
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d378650d-331f-472c-8e88-30bc51c21e35/image.png" alt="" /></li>
+  <li>Modules &gt; Dependencies &gt; Add
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c0fe568d-9a3c-4bff-a490-ca348f0813a3/image.png" alt="" /></li>
+  <li>Click ‘1 JARs or Directories’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/eb0bca2c-28da-4cef-85c2-1cf824159f64/image.png" alt="" /></li>
+  <li>Select the required .jar files and Open
+<img src="https://velog.velcdn.com/images/leeyosebi/post/037b2f31-da0b-42f9-88e0-1188e48b4f31/image.png" alt="" /></li>
+</ol>
+
+<p>Now, You can import required module.</p>
+
+<h1 id="4-result">4. Result</h1>
+<p>It successfully works. Let’s find the message logs on the EXO first.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0ccc628d-339e-4dfc-aedc-faa03bafa346/image.png" alt="" /></p>
+
+<ol>
+  <li>It says Delievered.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b1619733-4341-4241-a455-c01b16c20d6d/image.png" alt="" /></li>
+  <li>The messages are found on the shared mailbox as well. Even I didn’t enter the mailbox.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/75abbc46-1490-46c8-aad5-f6d0f8230ef4/image.png" alt="" /></li>
+  <li>The message are found on the recepient mailbox. The sender, subject and body content are exact same as the code we made.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9e2fa3c3-1e5c-486c-a342-230d3dabf30b/image.png" alt="" /></li>
+</ol>
+
+<h1 id="5-ms-documentation">5. MS Documentation</h1>
+<p>https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365</p>
 
         
       </section>
@@ -373,7 +397,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-11-07T00:00:00+09:00">November 7, 2024</time></p>
 
       </footer>
 
@@ -382,10 +406,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Intune-Screen-saver-auto-deployment/" class="pagination--pager" title="[intune] screen saver auto deployment">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Add-PSSnapin-Microsoft.Exchange.Management.PowerShell.SnapIn/" class="pagination--pager" title="Add Pssnapin microsoft.exchange.management.powershell.snapin">Next</a>
     
   </nav>
 
@@ -462,6 +486,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +591,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +600,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

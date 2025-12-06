@@ -1,0 +1,783 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[study] adfs 2   configuration - Joseph Lee Blog</title>
+<meta name="description" content="요약 ADFS 서버를 간단히 구성해보기(내용 많음 주의)">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="[study] adfs 2   configuration">
+<meta property="og:url" content="http://localhost:4000/STUDY-ADFS-2-Configuration/">
+
+
+  <meta property="og:description" content="요약 ADFS 서버를 간단히 구성해보기(내용 많음 주의)">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2024-01-21T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/STUDY-ADFS-2-Configuration/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">[study] adfs 2   configuration</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[study] adfs 2   configuration">
+    <meta itemprop="description" content="요약ADFS 서버를 간단히 구성해보기(내용 많음 주의)">
+    <meta itemprop="datePublished" content="2024-01-21T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/STUDY-ADFS-2-Configuration/" itemprop="url">[study] adfs 2   configuration
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#요약">요약</a></li><li><a href="#1-overview">1. Overview</a></li><li><a href="#2-setup-and-configuration">2. Setup and Configuration</a><ul><li><a href="#1-issuing-certificate-ad-ca">1. Issuing Certificate: AD CA</a></li><li><a href="#2-enroll-certificate">2. Enroll Certificate</a></li><li><a href="#3-adfs-server-setup">3. ADFS Server setup</a></li><li><a href="#4-service-url-configuration">4. Service URL Configuration</a></li><li><a href="#5-authentication-method-configuration">5. Authentication method Configuration</a></li></ul></li><li><a href="#3-other-feature">3. Other Feature</a><ul><li><a href="#서비스-명-변경하기">서비스 명 변경하기</a></li></ul></li><li><a href="#4-참고자료">4. 참고자료</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h3 id="요약">요약</h3>
+<p>ADFS 서버를 간단히 구성해보기(내용 많음 주의)</p>
+
+<hr />
+
+<h3 id="1-overview">1. Overview</h3>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2f86cbf6-5a60-40ea-8f21-8b8d54902ac7/image.png" alt="" />
+먼저,Lab 환경이므로 AD의 CA(Certificate Authority) 기능을 통해 Internal SSL Certificate(or Private SSL Certificate)을 발급 받고 ADFS 서버에 등록한다.
+Production environment에서는 반드시 Public SSL Certificate을 사용해야한다.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/fb0f506f-d7d2-490b-8470-d46eac8fd9f0/image.png" alt="" />
+ADFS 서버에 인증서가 설치되고 나면 ADFS에서 사용되는 endpoints 중 Idinitiatedsignonpage URL을 활성화 시켜주어, Application 단에서 User Authentication이 정상적으로 작동하는지 확인한다.</p>
+
+<h3 id="2-setup-and-configuration">2. Setup and Configuration</h3>
+<h4 id="1-issuing-certificate-ad-ca">1. Issuing Certificate: AD CA</h4>
+<ol>
+  <li>우선 AD에 CA 기능을 추가해준다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b923eea1-223e-4825-b009-7d42e0835bb4/image.png" alt="" /></li>
+  <li>설치 완료 후 CA 실행
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9caf1d55-e755-4114-9d6a-a842007aa7bf/image.png" alt="" /></li>
+  <li>Right click on ‘Template’ -&gt; Click ‘Manage’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/300e4e1d-a527-4e63-af79-a375b8b64db9/image.png" alt="" /></li>
+  <li>Right click on ‘Computer’ -&gt; Click ‘Duplicate’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/8bd18fa3-5fff-4016-8cf7-6008297e485f/image.png" alt="" /></li>
+  <li>General Tab에서 이름 설정 -&gt; Check ‘Publish certificate in Active Directory’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/55bd59b7-ba24-4ce0-802d-1f23787146cd/image.png" alt="" /></li>
+  <li>Request Handling Tab -&gt; Check ‘Allow private key to be exported’ 
+<img src="https://velog.velcdn.com/images/leeyosebi/post/53bcdc8b-f50e-4047-acb3-66ea1eb26bc8/image.png" alt="" /></li>
+  <li>Secutiry Tab에서 Click ‘Add’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6a6840fd-15dc-4278-8a36-296b232cbe2c/image.png" alt="" /></li>
+  <li>Click ‘Object Types’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a20b48ad-5275-4e65-b82e-4ebc8930176f/image.png" alt="" /></li>
+  <li>Check ‘Computers’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b42405bb-c40f-44d5-b3ca-d0a090ed1057/image.png" alt="" /></li>
+  <li>ADFS 서버 역할을 할 PC의 hostname을 찾아 선택해준다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/efeab2bb-405d-4f02-bf81-030a7a09356a/image.png" alt="" /></li>
+  <li>‘Group or user names’리스트에 ADFS 서버가 입력되었는지 확인하고 하단에 Permission을 적당히 부여한다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/015ebf37-ef32-4123-b37c-9bace3fca6b5/image.png" alt="" /></li>
+  <li>‘Build from this Active Directory information에서 ‘Subject name format’을 Common name으로 설정해준다. 그리고 하단에 DNS name으로 AD에서 조회가 가능하도록 설정해준다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/86268753-ffb7-450d-8487-22074dbeb583/image.png" alt="" /></li>
+</ol>
+
+<p>이 외에 Template에서 다른 부분은 설정하지 않고 넘어간다.</p>
+
+<ol>
+  <li>Certificate Template Consoles 에서 CA로 넘어와서,
+Right click on ‘Certificate Templates’ -&gt; New -&gt; Click ‘Certificate Templates to Issue’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4a3e275c-98a3-45d0-bfd3-9149ad5d8a7c/image.png" alt="" /></li>
+  <li>방금 생성한 Template을 선택하고 CA에 추가해준다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2f28cfe0-a74b-406a-9c95-0d759bfdb3cf/image.png" alt="" /></li>
+</ol>
+
+<h4 id="2-enroll-certificate">2. Enroll Certificate</h4>
+<ol>
+  <li>Open Run -&gt; enter ‘mmc’ -&gt; File -&gt; ‘Add snap in’ -&gt; Certificate -&gt; Computer account -&gt; Local computer -&gt; finish
+<img src="https://velog.velcdn.com/images/leeyosebi/post/49fc86ef-81f1-4570-b1b0-7c530b8be1cd/image.png" alt="" /></li>
+  <li>Right click on ‘Personal’ -&gt; All Tasks -&gt; Click ‘Request New Certificate’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/70c945f6-45d5-4aed-8a1a-5480814d32a6/image.png" alt="" /></li>
+  <li>Next를 클릭하다 보면 AD CA에서 ADFS 서버에 할당한 Certificate을 확인할 수 있다. Check 후 Enroll.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5522777e-3152-45d5-ad27-29cdb411b1e8/image.png" alt="" /></li>
+</ol>
+
+<h4 id="3-adfs-server-setup">3. ADFS Server setup</h4>
+<ol>
+  <li>해당 Farm에 첫번째 ADFS 서버가 되니 Next
+<img src="https://velog.velcdn.com/images/leeyosebi/post/78e1a40a-556d-42c7-90e9-5f3020d06f7c/image.png" alt="" /></li>
+  <li>AD의 administrator permission(Credential) 입력
+<img src="https://velog.velcdn.com/images/leeyosebi/post/dfc190ea-f2ef-4895-b1cf-e9565178a472/image.png" alt="" /></li>
+  <li>SSL Certificate 선택, 서버 이름 확인, 마지막으로 로그인 페이지에 표시될 서비스 이름 입력
+<img src="https://velog.velcdn.com/images/leeyosebi/post/cf7151de-3ed9-4e83-b31c-7c9d55d0a3d4/image.png" alt="" /></li>
+  <li>ADFS에서 사용할 서비스 계정을 AD에서 생성하고 입력
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5437d369-f3b1-49c6-ad83-d4ed290e5a84/image.png" alt="" /></li>
+  <li>사용하는 DB가 따로 없으면 ‘Next’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e68c7bf2-3229-4286-95ad-db545ebb8f1c/image.png" alt="" /></li>
+</ol>
+
+<p>이후 설정은 따로 없기 때문에 Next 및 Install로 설정을 진행한다.</p>
+
+<h4 id="4-service-url-configuration">4. Service URL Configuration</h4>
+<ol>
+  <li>Open Powershell as administrator and Type jusk like this:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9fd7a399-afe9-4664-903a-0c4660d06fa6/image.png" alt="" />
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-AdfsEndpoint
+</code></pre></div>    </div>
+  </li>
+  <li>FullUrl 확인
+<img src="https://velog.velcdn.com/images/leeyosebi/post/8b841b3a-b92a-4e1a-b6d8-8cb9b3c9e398/image.png" alt="" />
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 1번에서 표시된 URL의 속성 중, FullUrl 속성만을 클립보드에 복사한다.</span>
+Get-AdfsEndpoint | Select FullUrl | Clip
+</code></pre></div>    </div>
+  </li>
+  <li>메모장에 붙여 넣으면 다음과 같이 나온다. 이중 두번째 URL 주목. ADFS 서비스 이름이다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0765e760-9a45-473e-bbd1-c65b44e62948/image.png" alt="" /></li>
+  <li>브라우저에서 아래 링크로 접속해본다.
+https:// adfs.conceptswork.com/adfs/ls/idpinitiatedsignon.aspx</li>
+  <li>
+    <p>아마 화면이 이렇게 나올텐데 에러코드를 보면 리소스 사용 불가하다고 나온다.
+“The resource you are trying to access is not available”
+이는 서버 OS 2016 버전에서 ADFS를 설치할 경우, 기본적으로 EnableIdpInitiatedSignonPage가 False이기 때문이다. Powershell로 켜줘야 한다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/73b056a0-d45f-4615-862c-8057c0330037/image.png" alt="" /></p>
+  </li>
+  <li>우선 진짜인지 확인해본다
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Get-AdfsProperties
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/8735462c-dd96-4882-bbd0-b948f0be978b/image.png" alt="" /></p>
+  </li>
+  <li>True로 바꿔준다
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-AdfsProperties <span class="nt">-EnableIdpInitiatedSignonPage</span> <span class="nv">$True</span>
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/ef97ad99-9262-4864-9d3d-28f3bfc4598e/image.png" alt="" /></p>
+  </li>
+</ol>
+
+<h4 id="5-authentication-method-configuration">5. Authentication method Configuration</h4>
+<ol>
+  <li>‘https:// adfs.conceptswork.com/adfs/ls/idpinitiatedsignon.aspx’ 이 페이지를 다시 Refresh하면, 이제는 서비스가 활성화 되어 Sign in 버튼이 보일것이다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c6ac5d7d-a546-43d6-a80d-60b0cf8116ea/image.png" alt="" /></li>
+  <li>하지만 Window OS에서 제공하는 AD Authentication prompt가 표시된다. 우리는 Web Application을 통해 From based Authentication을 사용하려고 하니, ADFS서버에서 특정 값을 변경해준다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a78a2664-daf9-42cb-a085-8d3f131f4a92/image.png" alt="" /></li>
+  <li>ADFS 관리자에서 Service -&gt; Authentication Methods -&gt; Primary Authentication Methods -&gt; External -&gt; Click ‘Edit’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7905b956-ca1d-41c2-aa0f-9bd09ee5acd5/image.png" alt="" /></li>
+  <li>Uncheck ‘Windows Authentication’ -&gt; Apply
+<img src="https://velog.velcdn.com/images/leeyosebi/post/29f52533-2a22-4b47-9b85-eac8152d537b/image.png" alt="" /></li>
+  <li>다시 ‘https:// adfs.conceptswork.com/adfs/ls/idpinitiatedsignon.aspx’ 이 페이지에 돌아와서 Sign in 버튼을 클릭하면 로그인 Form이 표시될 것이다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/04ced557-f5d1-45be-8c0d-fb70353eca8f/image.png" alt="" /></li>
+  <li>정상 로그인 되었다는 표시가 뜨면 성공이다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4fddc1ad-0af5-4f4f-a6fc-f5ef9fdd631b/image.png" alt="" /></li>
+</ol>
+
+<h3 id="3-other-feature">3. Other Feature</h3>
+<h4 id="서비스-명-변경하기">서비스 명 변경하기</h4>
+<ol>
+  <li>ADFS 관리자에서 Right click on ‘ADFS’ -&gt; Click ‘Edit Federation Service Properties’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/40d4a710-9431-47a9-ac2c-4c10381a07e3/image.png" alt="" /></li>
+  <li>Federation Service display name을 변경하고 적용하면
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b386094a-4bc7-4da9-81f6-3fbb7661ccd8/image.png" alt="" /></li>
+  <li>서비스 URL을 Refresh하면 서비스 명이 변경되어 표시된다.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2bc733a8-4582-4714-93a1-a157f40ef994/image.png" alt="" /></li>
+</ol>
+
+<h3 id="4-참고자료">4. 참고자료</h3>
+<ul>
+  <li>https://www.youtube.com/watch?v=9eq3IeDAkvA&amp;list=PL8wOlV8Hv3o9uHl0XFfI6_katp6BXNVjb&amp;index=3</li>
+  <li>ADFS 배포 관련
+https://blog.limcm.kr/73</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-01-21T00:00:00+09:00">January 21, 2024</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/STUDY-ADFS-1-Architecture/" class="pagination--pager" title="[study] adfs 1   architecture">Previous</a>
+    
+    
+      <a href="/Mailbox-permissions-and-capabilities-NOT-supported-in-hybrid-environments/" class="pagination--pager" title="Mailbox permissions and capabilities not supported in hybrid environments">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>Create aadc sync rules - Joseph Lee Blog</title>
+<meta name="description" content="Summary In the case of integration for global branches, preferred data location and usage location should be configured to optimise their services.">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="Create aadc sync rules">
+<meta property="og:url" content="http://localhost:4000/Create-AADC-Sync-rules/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="Summary In the case of integration for global branches, preferred data location and usage location should be configured to optimise their services.">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-08-14T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/Create-AADC-Sync-rules/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">Create aadc sync rules</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="Create aadc sync rules">
+    <meta itemprop="description" content="SummaryIn the case of integration for global branches, preferred data location and usage location should be configured to optimise their services.">
+    <meta itemprop="datePublished" content="2024-08-14T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/Create-AADC-Sync-rules/" itemprop="url">Create aadc sync rules
 </a>
           </h1>
           
@@ -306,7 +306,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          less than 1 minute read
         
       </span>
     
@@ -321,47 +321,63 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#summary">Summary</a></li><li><a href="#1-ref">1. Ref</a></li><li><a href="#2-preparation">2. Preparation</a></li><li><a href="#3-create-rule">3. Create Rule</a><ul><li><a href="#inbound">Inbound</a></li><li><a href="#outbound">Outbound</a></li></ul></li><li><a href="#4-sync-enabled">4. Sync Enabled</a></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
+        <h1 id="summary">Summary</h1>
+<p>In the case of integration for global branches, preferred data location and usage location should be configured to optimise their services.</p>
+
+<p>However, regarding the functional level of the DC, there is no value in the user properites.
+To go through this, we can use msCloudExtensionAttribue.</p>
+
+<h1 id="1-ref">1. Ref</h1>
+<p>https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-sync-feature-preferreddatalocation</p>
+
+<h1 id="2-preparation">2. Preparation</h1>
 <ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
+  <li>Enroll DC to the AADC application and Add Directory extensions
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d01df777-444d-4705-b502-573b23198cf5/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/351fc936-90c4-4028-a1bb-7b009cfcb5b2/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/4824bd6f-1bcd-42c1-acd4-00ba14cda76a/image.png" alt="" /></li>
 </ul>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
-
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
-
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
-
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
-
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
-
+<h1 id="3-create-rule">3. Create Rule</h1>
+<p><strong>You should stop the sync cyle before proceed the task below</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-ADSyncScheduler <span class="nt">-SyncCycleEnabled</span> <span class="nv">$false</span>
 </code></pre></div></div>
+<h2 id="inbound">Inbound</h2>
+<ol>
+  <li>Run Synchronisation Rules Editor
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c31d2d58-03a0-4d23-9034-84e5fad4a95b/image.png" alt="" /></li>
+  <li>Add New rule
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9079dada-1b92-4719-a29b-e38bbd8845bd/image.png" alt="" /></li>
+  <li>Set value
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2449ac7c-423e-4b8a-a9d5-95ccd11ab55f/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e5be9fec-a6f6-4685-9381-278daa7b42df/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/29ac7d97-c552-4787-8e6a-37369071be78/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/9a6e040f-a07d-481c-b087-4e055d138389/image.png" alt="" /></li>
+</ol>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<p>So you just do the same job on the usage location.</p>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+<h2 id="outbound">Outbound</h2>
+<p><strong>[Note]</strong>
+You don’t need to create out bound rule for each Domain. But you have to create it as many as the attribues.</p>
+<ol>
+  <li>Change direction to Outbound
+<img src="https://velog.velcdn.com/images/leeyosebi/post/89827e91-5e34-4977-bd74-9a331ff1afb6/image.png" alt="" /></li>
+  <li>Set value as:
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d5da3f54-227f-4fcb-887c-fbba1ddb6d90/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d29186d6-bd89-4abb-96fc-35698e8b3ed8/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/787dc90f-de24-496c-8b1c-29b2affc8d82/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/58f74e4e-31ec-4555-a396-33be47cf4651/image.png" alt="" /></li>
+</ol>
 
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<h1 id="4-sync-enabled">4. Sync Enabled</h1>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-ADSyncScheduler <span class="nt">-SyncCycleEnabled</span> <span class="nv">$True</span>
+Start-ADSyncCyle <span class="nt">-PolicyType</span> Initial
+</code></pre></div></div>
 
         
       </section>
@@ -373,7 +389,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-14T00:00:00+09:00">August 14, 2024</time></p>
 
       </footer>
 
@@ -382,10 +398,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Manual-SCP-Setup-Detail/" class="pagination--pager" title="Manual scp setup detail">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Intune-Screen-saver-auto-deployment/" class="pagination--pager" title="[intune] screen saver auto deployment">Next</a>
     
   </nav>
 
@@ -462,6 +478,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +583,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +592,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

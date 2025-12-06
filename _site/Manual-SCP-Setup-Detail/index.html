@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Event id 1074 on winsvr 2022 standard evaluation - Joseph Lee Blog</title>
-<meta name="description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
+<!-- begin _includes/seo.html --><title>Manual scp setup detail - Joseph Lee Blog</title>
+<meta name="description" content="To give you more specific details of:">
 
 
   <meta name="author" content="Joseph Lee">
@@ -23,30 +23,30 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Joseph Lee Blog">
-<meta property="og:title" content="Event id 1074 on winsvr 2022 standard evaluation">
-<meta property="og:url" content="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+<meta property="og:title" content="Manual scp setup detail">
+<meta property="og:url" content="http://localhost:4000/Manual-SCP-Setup-Detail/">
 
 
-  <meta property="og:description" content="Related post:    https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-
-
-
-
-
-
-
-  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+  <meta property="og:description" content="To give you more specific details of:">
 
 
 
 
 
-  
+
+
+  <meta property="article:published_time" content="2024-08-13T00:00:00+09:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/">
+
+<link rel="canonical" href="http://localhost:4000/Manual-SCP-Setup-Detail/">
 
 
 
@@ -149,7 +149,7 @@
         <span class="sep">/</span>
       
       
-        <li class="current">Event id 1074 on winsvr 2022 standard evaluation</li>
+        <li class="current">Manual scp setup detail</li>
       
     
   </ol>
@@ -280,16 +280,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Event id 1074 on winsvr 2022 standard evaluation">
-    <meta itemprop="description" content="Related post:  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr">
-    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    <meta itemprop="headline" content="Manual scp setup detail">
+    <meta itemprop="description" content="To give you more specific details of:">
+    <meta itemprop="datePublished" content="2024-08-13T00:00:00+09:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" itemprop="url">Event id 1074 on winsvr 2022 standard evaluation
+            <a href="http://localhost:4000/Manual-SCP-Setup-Detail/" itemprop="url">Manual scp setup detail
 </a>
           </h1>
           
@@ -321,47 +321,104 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#1-scp-configuration-maunally">1. SCP configuration maunally</a><ul><li><a href="#1-create-new-container">1. Create new container</a></li><li><a href="#2-create-service-connection-point">2. Create Service Connection Point</a></li><li><a href="#check-using-powershell">Check using Powershell</a></li></ul></li><li><a href="#2-intune-auto-enrollment">2. Intune Auto Enrollment</a><ul><li><a href="#1-preparation">1. Preparation</a></li><li><a href="#2-create-gpo">2. Create GPO</a></li><li><a href="#client-side">Client side</a></li></ul></li></ul>
             </nav>
           </aside>
         
-        <p>Related post:</p>
-<ul>
-  <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
-</ul>
+        <p>To give you more specific details of:</p>
 
-<p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
+<p>https://velog.io/@leeyosebi/Manual-SCP-Setup</p>
 
-<p>Mail service is unavailable:
-<img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
+<h1 id="1-scp-configuration-maunally">1. SCP configuration maunally</h1>
+<h2 id="1-create-new-container">1. Create new container</h2>
+<ol>
+  <li>Run ADSI Edit
+<img src="https://velog.velcdn.com/images/leeyosebi/post/20b28f3c-c073-45c0-9922-bf8a4a060d67/image.png" alt="" /></li>
+  <li>Connect to configuration
+<img src="https://velog.velcdn.com/images/leeyosebi/post/374efef9-3ccd-49cd-be0c-79b14f075e31/image.png" alt="" /></li>
+  <li>Create New object under the Services
+<img src="https://velog.velcdn.com/images/leeyosebi/post/868aba27-bee5-465c-ba70-f91948540f87/image.png" alt="" /></li>
+  <li>The class should be ‘container’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/20480536-49e3-4160-9e5f-be938ff8d3cf/image.png" alt="" /></li>
+  <li>Set value as ‘Device Registration Configuration’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1506cf22-8e53-4a2e-bef7-c981e6bc796b/image.png" alt="" /></li>
+  <li>Click Finish
+<img src="https://velog.velcdn.com/images/leeyosebi/post/db2a08b5-e2a4-407e-b50c-7a4e8576ca60/image.png" alt="" />
+    <h2 id="2-create-service-connection-point">2. Create Service Connection Point</h2>
+  </li>
+  <li>Create new object under the ‘Device Registration Configuration’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/7cfece7b-6abf-49c6-bff6-05929fa1c21e/image.png" alt="" /></li>
+  <li>The class should be ‘serviceConnectionPoint’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/50ab5941-299b-4bff-ac56-af1291e8b7c2/image.png" alt="" /></li>
+  <li>Set value as ‘62a0ff2e-97b9-4513-943f-0d221bd30080’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ff629b78-6d05-4219-81dd-c6d95655f5c8/image.png" alt="" /></li>
+  <li>Set more attributes
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e0c5f8a6-85c3-4f19-b6ae-4e92419403bb/image.png" alt="" /></li>
+  <li>Configure just like this
+<img src="https://velog.velcdn.com/images/leeyosebi/post/716e214d-c1f8-4663-b06e-a0f3f770e953/image.png" alt="" />
+<strong>[note]</strong>
+azureADName is the domain name enrolled to your tenant.
+azureADId is the tenant GUID.</li>
+  <li>Click ‘Finish’
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3b196c44-a695-4fc5-a2ab-0aa3d89c6fe0/image.png" alt="" /></li>
+</ol>
 
-<p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
-
-<p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
-
-<p>Error message:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The process C:\Windows\system32\wlms\wlms.exe (ALLDC01) has initiated the shutdown of computer ALLDC01 on behalf of user NT AUTHORITY\SYSTEM for the following reason: Other (Planned)
- Reason Code: 0x80000000
- Shutdown Type: shutdown
- Comment: The license period for this installation of Windows has expired. The operating system is shutting down.
-
+<h2 id="check-using-powershell">Check using Powershell</h2>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ConfigurationPartition</span> <span class="o">=</span> <span class="o">(</span>Get-ADRootDSE<span class="o">)</span>.configurationNamingContext
+<span class="nv">$scp</span> <span class="o">=</span> New-Object System.DirectoryServices.DirectoryEntry
+<span class="nv">$scp</span>.Path <span class="o">=</span> <span class="s2">"LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,</span><span class="nv">$ConfigurationPartition</span><span class="s2">"</span>
+<span class="nv">$scp</span>.Keywords
 </code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/460ade81-5722-4b84-8e1f-2396d6035188/image.png" alt="" /></p>
 
-<p>Obviously, the message says the system has been shutdown this computer in the system context(NT AUTHORITY\SYSTEM) because of its OS license.
-I’ve never seen this before..</p>
+<h1 id="2-intune-auto-enrollment">2. Intune Auto Enrollment</h1>
+<p>If you deploy service connection point, you might also need to enroll the devices to the Intune automatically.
+So the steps below is to make GPO and link it to the device OU to enroll the devices into Intune using user credential.</p>
 
-<p>Well, I have set this up with this ISO. It’s Standard Evaluation.
-<img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
+<h2 id="1-preparation">1. Preparation</h2>
+<ol>
+  <li>Download the latest admx
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c149ab2e-155f-4478-bae5-be70c9c5f1f6/image.png" alt="" /></li>
+  <li>Install it
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0dbb5513-728c-46bf-b559-961d598f5b02/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5c275f07-3406-443a-8cb1-de595b875c8d/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/54686442-1a35-4dc2-acb7-d45e98c32281/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b686e263-e1ce-4f24-bf7a-e01ac63e2b23/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/1263fc17-bf82-4be4-bf5b-d22f7511c42a/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/26158c8e-6d42-4d67-824f-aa9735a2b23c/image.png" alt="" /></li>
+  <li>Go to the following path and copy all items right here.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Program Files (x86)\Microsoft Group Policy\Windows 11 October 2023 Update (23H2)\PolicyDefinitions
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/5988a4c3-b3d1-401e-a3c2-bd0df66f1146/image.png" alt="" /></p>
+  </li>
+  <li>Go to the following path and pate here.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Windows\SYSVOL\sysvol\cake.run.local\Policies\PolicyDefinitions
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/3fc40423-c370-49f1-888d-b2248b5e5991/image.png" alt="" /></p>
+  </li>
+</ol>
 
-<p>In result, I found this is the originally architecture of the OS.
-Referrence:</p>
-<ul>
-  <li>https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022</li>
-  <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
-<img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
-</ul>
+<h2 id="2-create-gpo">2. Create GPO</h2>
+<ol>
+  <li>Run Group Policy Management and create new GPO.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e79b2430-3da5-4efd-a8d4-885584255b84/image.png" alt="" /></li>
+  <li>Edit it.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/d69b56c6-d61a-4778-9a2d-79b5e4718572/image.png" alt="" /></li>
+  <li>Got to the following path and configure ‘Enable automatic MDM enrollment using default Azure AD credentials’
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Computer Configuration &gt; policies &gt; administrative templates &gt; Windows components &gt; MDM
+</code></pre></div>    </div>
+    <p><img src="https://velog.velcdn.com/images/leeyosebi/post/8e12a1d5-98cf-4d3d-923e-360c34c8c8a8/image.png" alt="" /></p>
+  </li>
+  <li>Configure just like this
+<img src="https://velog.velcdn.com/images/leeyosebi/post/41dbc52d-8920-4d8c-9dd9-0dd4113c4bcd/image.png" alt="" />
+    <h2 id="client-side">Client side</h2>
+    <p>Client might need to execute the command:</p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpupdate /force
+gpresult /r
+</code></pre></div>    </div>
+    <p>And also restart their device as well.</p>
+  </li>
+</ol>
 
         
       </section>
@@ -373,7 +430,7 @@ Referrence:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2024-08-13T00:00:00+09:00">August 13, 2024</time></p>
 
       </footer>
 
@@ -382,10 +439,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/Trouble-Shooting-Exchange-Hybrid-Centralized/" class="pagination--pager" title="[trouble shooting] exchange hybrid centralized">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="/Create-AADC-Sync-rules/" class="pagination--pager" title="Create aadc sync rules">Next</a>
     
   </nav>
 
@@ -462,6 +519,50 @@ In this case, they need reverse proxy. I wi...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
         <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
 </a>
       
@@ -523,7 +624,7 @@ In ...</p>
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -532,48 +633,6 @@ In ...</p>
 
     <p class="archive__item-excerpt" itemprop="description">Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
-  </article>
-</div>
-
-    
-      
-      
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/Copilot-Agent-with-IoT/" rel="permalink">Copilot agent with iot
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          3 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">Overview
-I have deciede to apply for a hackathon from Microsoft Korea. The main theme is copilot agent.
-I think MS really wants to get a chance of the copilo...</p>
   </article>
 </div>
 

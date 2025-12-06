@@ -94,7 +94,8 @@ author:
   avatar         : "favicon/favicon-96x96.png"
   bio            : "A full-stack engineering mindset"
   location       : "Seoul, Korea"
-  email          :
+  email          : #"leeyosebi@gmail.com"
+
   links:
     - label      : "GitHub"
       icon       : "fab fa-fw fa-github"
@@ -103,6 +104,14 @@ author:
     - label      : "LinkedIn"
       icon       : "fab fa-fw fa-linkedin"
       url        : "https://www.linkedin.com/in/joseph-lee-870660260/"
+
+    - label      : "Contact Me: Joseph Lee"
+      icon       : "fas fa-fw fa-envelope"
+      url        : "mailto:leeyosebi@gmail.com"
+
+    - label      : "Request Us: engineering team"
+      icon       : "fas fa-fw fa-envelope"
+      url        : "mailto:dobineer@gmail.com"
 
     # 필요하면 Email, X, LinkedIn 등 추가
 

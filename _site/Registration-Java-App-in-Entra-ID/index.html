@@ -1,0 +1,794 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Registration java app in entra id - Joseph Lee Blog</title>
+<meta name="description" content="0. Introduction I’ve recently become curious about Entra ID’s app registration and authentication system. Basically, a service queries an identity provider (IdP) to verify a person’s identity. For example, it’s similar to how we prove our nationality when going through immigration in another country. We present our passport, which is a document issued by the Republic of Korea, acting as an IdP, to authenticate our identity.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Joseph Lee Blog">
+<meta property="og:title" content="Registration java app in entra id">
+<meta property="og:url" content="http://localhost:4000/Registration-Java-App-in-Entra-ID/">
+
+
+  <meta property="og:description" content="0. Introduction I’ve recently become curious about Entra ID’s app registration and authentication system. Basically, a service queries an identity provider (IdP) to verify a person’s identity. For example, it’s similar to how we prove our nationality when going through immigration in another country. We present our passport, which is a document issued by the Republic of Korea, acting as an IdP, to authenticate our identity.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-03-02T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/Registration-Java-App-in-Entra-ID/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Joseph Lee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          Joseph Lee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Registration java app in entra id</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>A full-stack engineering mindset</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+          
+            <li><a href="mailto:leeyosebi@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Contact Me: Joseph Lee</span></a></li>
+          
+        
+          
+            <li><a href="mailto:dobineer@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span class="label">Request Us: engineering team</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Registration java app in entra id">
+    <meta itemprop="description" content="0. IntroductionI’ve recently become curious about Entra ID’s app registration and authentication system. Basically, a service queries an identity provider (IdP) to verify a person’s identity. For example, it’s similar to how we prove our nationality when going through immigration in another country. We present our passport, which is a document issued by the Republic of Korea, acting as an IdP, to authenticate our identity.">
+    <meta itemprop="datePublished" content="2025-03-02T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/Registration-Java-App-in-Entra-ID/" itemprop="url">Registration java app in entra id
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#0-introduction">0. Introduction</a></li><li><a href="#1-1-develop-app-appcakerunplace">1-1. Develop App: app.cake.run.place</a></li><li><a href="#1-2-hosting">1-2. Hosting</a></li><li><a href="#2-setup-entra-id-side">2. SetUp Entra ID side</a></li><li><a href="#3-production">3. Production</a></li><li><a href="#4-conclusion">4. Conclusion</a></li><li><a href="#github">Github</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h1 id="0-introduction">0. Introduction</h1>
+<p>I’ve recently become curious about Entra ID’s app registration and authentication system. Basically, a service queries an identity provider (IdP) to verify a person’s identity. For example, it’s similar to how we prove our nationality when going through immigration in another country. We present our passport, which is a document issued by the Republic of Korea, acting as an IdP, to authenticate our identity.</p>
+
+<p>In this post, I will demonstrate how to register a simple Java app with the Entra ID tenant and perform authentication.</p>
+
+<h1 id="1-1-develop-app-appcakerunplace">1-1. Develop App: app.cake.run.place</h1>
+
+<p>I’ll start by creating the app’s logo. I just enlarged an emoji.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/bf63433a-5e69-42b0-94f7-06c4f8dedb51/image.png" alt="" /></p>
+
+<p>In Entra ID, you create a custom app. If you go to the “Quick Start” tab of app registration, you’ll see that there are many SDKs available for developing apps in various languages.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/069967dc-8c91-47f2-9b0b-080dfacbb024/image.png" alt="" /></p>
+
+<p>I’m somewhat familiar with Java, so I downloaded the SDK and tested it using IntelliJ. One thing to be particularly careful about is changing the app’s client ID (the identifier assigned to my app in Entra ID), the tenant ID, and the client secret ID in the <code class="language-plaintext highlighter-rouge">application.properties</code> file under the <code class="language-plaintext highlighter-rouge">src</code> directory. These values are used by my app to send requests to the IdP, which is Entra ID.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">logging</span><span class="o">.</span><span class="na">level</span><span class="o">.</span><span class="na">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.*=</span><span class="no">DEBUG</span>
+
+<span class="n">server</span><span class="o">.</span><span class="na">port</span><span class="o">=</span><span class="mi">443</span>
+<span class="n">server</span><span class="o">.</span><span class="na">ssl</span><span class="o">.</span><span class="na">enabled</span><span class="o">=</span><span class="kc">true</span>
+<span class="n">server</span><span class="o">.</span><span class="na">address</span><span class="o">=</span><span class="n">localhost</span>
+<span class="n">homePage</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//${server.address}:${server.port}</span>
+<span class="n">server</span><span class="o">.</span><span class="na">http</span><span class="o">.</span><span class="na">port</span><span class="o">=</span><span class="mi">80</span>
+<span class="n">security</span><span class="o">.</span><span class="na">require</span><span class="o">-</span><span class="n">ssl</span><span class="o">=</span><span class="kc">true</span>
+
+<span class="n">ssoServiceUrl</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//login.microsoftonline.com/eb7e08b5-829e-4167-83db-38255426634f</span>
+<span class="n">endSessionEndpoint</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//login.microsoftonline.com/eb7e08b5-829e-4167-83db-38255426634f/oauth2/v2.0/logout</span>
+
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">client</span><span class="o">-</span><span class="n">id</span><span class="o">=&lt;</span><span class="no">YOUR_CLIENT_ID</span><span class="o">&gt;</span>
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">client</span><span class="o">-</span><span class="n">secret</span><span class="o">=&lt;</span><span class="no">YOUR_CLIENT_SECRET</span><span class="o">&gt;</span>
+
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">scope</span><span class="o">=</span><span class="n">openid</span> <span class="n">profile</span>
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">authentication</span><span class="o">-</span><span class="n">scheme</span><span class="o">=</span><span class="n">header</span>
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">client</span><span class="o">-</span><span class="n">authentication</span><span class="o">-</span><span class="n">scheme</span><span class="o">=</span><span class="n">form</span>
+
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">issuer</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//login.microsoftonline.com/eb7e08b5-829e-4167-83db-38255426634f/v2.0</span>
+
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">access</span><span class="o">-</span><span class="n">token</span><span class="o">-</span><span class="n">uri</span><span class="o">=</span><span class="err">$</span><span class="o">{</span><span class="n">ssoServiceUrl</span><span class="o">}/</span><span class="n">oauth2</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">token</span>
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">user</span><span class="o">-</span><span class="n">authorization</span><span class="o">-</span><span class="n">uri</span><span class="o">=</span><span class="err">$</span><span class="o">{</span><span class="n">ssoServiceUrl</span><span class="o">}/</span><span class="n">oauth2</span><span class="o">/</span><span class="n">v2</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">authorize</span>
+<span class="n">security</span><span class="o">.</span><span class="na">oauth2</span><span class="o">.</span><span class="na">resource</span><span class="o">.</span><span class="na">user</span><span class="o">-</span><span class="n">info</span><span class="o">-</span><span class="n">uri</span><span class="o">=</span><span class="nl">https:</span><span class="c1">//graph.microsoft.com/oidc/userinfo</span>
+
+<span class="n">server</span><span class="o">.</span><span class="na">servlet</span><span class="o">.</span><span class="na">session</span><span class="o">.</span><span class="na">cookie</span><span class="o">.</span><span class="na">secure</span><span class="o">=</span><span class="kc">true</span>
+<span class="n">server</span><span class="o">.</span><span class="na">ssl</span><span class="o">.</span><span class="na">key</span><span class="o">-</span><span class="n">store</span><span class="o">=</span><span class="nl">classpath:</span><span class="n">keystore</span><span class="o">/</span><span class="n">cakekeystore</span><span class="o">.</span><span class="na">p12</span>
+<span class="n">server</span><span class="o">.</span><span class="na">ssl</span><span class="o">.</span><span class="na">key</span><span class="o">-</span><span class="n">store</span><span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="n">password</span>
+<span class="n">server</span><span class="o">.</span><span class="na">ssl</span><span class="o">.</span><span class="na">key</span><span class="o">-</span><span class="n">store</span><span class="o">-</span><span class="n">type</span><span class="o">=</span><span class="no">PKCS12</span>
+<span class="n">server</span><span class="o">.</span><span class="na">ssl</span><span class="o">.</span><span class="na">key</span><span class="o">-</span><span class="n">alias</span><span class="o">=</span><span class="n">cakekey</span>
+</code></pre></div></div>
+
+<p>It works well in local.</p>
+
+<h1 id="1-2-hosting">1-2. Hosting</h1>
+<p>I transfer the .jar file to the Ubuntu server I’ve prepared in advance using SSH and SCP commands.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>administrator@administrators-MacBook-Pro spring-security-web-app % mvn clean package
+<span class="o">[</span>INFO] Scanning <span class="k">for </span>projects...
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">------------</span>&lt; com.microsoft.azure:spring-security-web-app <span class="o">&gt;</span><span class="nt">-------------</span>
+<span class="o">[</span>INFO] Building spring-security-web-app 0.0.1-SNAPSHOT
+<span class="o">[</span>INFO]   from pom.xml
+<span class="o">[</span>INFO] <span class="nt">--------------------------------</span><span class="o">[</span> jar <span class="o">]</span><span class="nt">---------------------------------</span>
+<span class="o">[</span>WARNING] 1 problem was encountered <span class="k">while </span>building the effective model <span class="k">for </span>org.javassist:javassist:jar:3.20.0-GA during dependency collection step <span class="k">for </span>project <span class="o">(</span>use <span class="nt">-X</span> to see details<span class="o">)</span>
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> clean:3.1.0:clean <span class="o">(</span>default-clean<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] Deleting /Users/administrator/Desktop/appCake2/spring-security-web-app/target
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> resources:3.2.0:resources <span class="o">(</span>default-resources<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] Using <span class="s1">'UTF-8'</span> encoding to copy filtered resources.
+<span class="o">[</span>INFO] Using <span class="s1">'UTF-8'</span> encoding to copy filtered properties files.
+<span class="o">[</span>INFO] Copying 1 resource
+<span class="o">[</span>INFO] Copying 3 resources
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> compiler:3.8.1:compile <span class="o">(</span>default-compile<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] Changes detected - recompiling the module!
+<span class="o">[</span>INFO] Compiling 3 <span class="nb">source </span>files to /Users/administrator/Desktop/appCake2/spring-security-web-app/target/classes
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> resources:3.2.0:testResources <span class="o">(</span>default-testResources<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] Using <span class="s1">'UTF-8'</span> encoding to copy filtered resources.
+<span class="o">[</span>INFO] Using <span class="s1">'UTF-8'</span> encoding to copy filtered properties files.
+<span class="o">[</span>INFO] skip non existing resourceDirectory /Users/administrator/Desktop/appCake2/spring-security-web-app/src/test/resources
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> compiler:3.8.1:testCompile <span class="o">(</span>default-testCompile<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] No sources to compile
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> surefire:2.22.2:test <span class="o">(</span>default-test<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] No tests to run.
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> jar:3.2.0:jar <span class="o">(</span>default-jar<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] Building jar: /Users/administrator/Desktop/appCake2/spring-security-web-app/target/spring-security-web-app-0.0.1-SNAPSHOT.jar
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> spring-boot:2.4.2:repackage <span class="o">(</span>repackage<span class="o">)</span> @ spring-security-web-app <span class="nt">---</span>
+<span class="o">[</span>INFO] Replacing main artifact with repackaged archive
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] BUILD SUCCESS
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] Total <span class="nb">time</span>:  1.917 s
+<span class="o">[</span>INFO] Finished at: 2025-03-02T18:19:47+09:00
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+administrator@administrators-MacBook-Pro spring-security-web-app % <span class="nb">ls
+</span>README.md	pom.xml		src		target
+administrator@administrators-MacBook-Pro spring-security-web-app % target
+zsh: <span class="nb">command </span>not found: target
+administrator@administrators-MacBook-Pro spring-security-web-app % <span class="nb">cd </span>target
+administrator@administrators-MacBook-Pro target % <span class="nb">ls
+</span>classes
+generated-sources
+maven-archiver
+maven-status
+spring-security-web-app-0.0.1-SNAPSHOT.jar
+spring-security-web-app-0.0.1-SNAPSHOT.jar.original
+administrator@administrators-MacBook-Pro target % scp <span class="nt">-P</span> 7463 spring-security-web-app-0.0.1-SNAPSHOT.jar administrator@61.74.157.74:/home/administrator/CakeApp
+</code></pre></div></div>
+<p>I navigate to the directory where the .jar file is located on the Ubuntu server and run the Spring server with the following command.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>java <span class="nt">-jar</span> &lt;yourFileName&gt;.jar
+</code></pre></div></div>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/a2ea0ec6-5bcf-408c-a149-32d05fa47f9c/image.png" alt="" /></p>
+
+<h1 id="2-setup-entra-id-side">2. SetUp Entra ID side</h1>
+<p>When my app requests authentication from Entra ID, a login page will be displayed to the user. After Entra ID identifies the user, it must send a signal to my app indicating that the authentication was successful, so I can provide the service. The redirect URL is where this signal is received.</p>
+
+<p>I’ll set up the following URLs. These URLs are specified in the quick start guide, so there’s no need to be intimidated.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/5d54d0bd-0f52-4618-bcaf-1d782eb16543/image.png" alt="" /></p>
+
+<h1 id="3-production">3. Production</h1>
+<p>Now that everything is complete, let’s navigate to my service by entering the URL in the address bar.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/55fa2bfd-e6da-4ccc-82d4-f8a224258599/image.png" alt="" /></p>
+
+<p>Don’t be surprised… since this is just a functionality test, the design is terrible.</p>
+
+<p>Now, when you click the login button, my app will send an authentication request to Entra ID.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/38a203e4-322a-44d4-95d3-e4f118243b67/image.png" alt="" /></p>
+
+<p>It will be redirected to the following URL. It behaves as recorded in my code.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://login.microsoftonline.com/eb7e08b5-829e-4167-83db-38255426634f/oauth2/v2.0/authorize?client_id=e6977480-bdc5-409e-9158-42339833936d&amp;redirect_uri=https://app.cake.run.place/login&amp;response_type=code&amp;scope=openid%20profile&amp;state=oTmwwF
+</code></pre></div></div>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/33729b5c-0ac6-4bcf-9ce3-42b797132bae/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/de313716-a0e7-4bae-ac09-88fe52ff8eed/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/b4683381-f6a7-476a-981a-81dec7c0161e/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/5adbdc74-54b2-46c4-9467-5b306d754467/image.png" alt="" /></p>
+
+<p>Second surprise.. This is a logged in page.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/181546a7-b490-4615-945f-b2563c35ac1c/image.png" alt="" /></p>
+
+<h1 id="4-conclusion">4. Conclusion</h1>
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/8221d10b-e9e9-4beb-bdfc-afd1aba66f8e/image.png" alt="" /></p>
+
+<p>Authentication, when you think about it, is actually quite simple. From the perspective of providing a service, since I’m only offering my service, it’s natural that a query to another organization is necessary.</p>
+
+<p>I may have rushed through the writing, so the content might be a bit lacking, but I ask for your understanding even though this isn’t a detailed guide.</p>
+
+<p>I’ll make the GitHub repository public once the certificate expires.</p>
+
+<h1 id="github">Github</h1>
+<p>https://github.com/leeyosebi/appCake/tree/main/src/main/resources/keystore</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-03-02T00:00:00+09:00">March 2, 2025</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/Hybrid-Authentication-Methods-ADFS-PTA-PHS-SAML-OAuth2.0/" class="pagination--pager" title="Hybrid authentication methods adfs:pta:phs saml:oauth2.0">Previous</a>
+    
+    
+      <a href="/Multiple-Domain-Support-for-Federating-with-Microsoft-Entra-ID/" class="pagination--pager" title="Multiple domain support for federating with microsoft entra id">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/IIS-ARR-Configuration-with-ExSvr/" rel="permalink">Iis arr configuration with exsvr
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I wi...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Checking-Public-SSL-Certificate/" rel="permalink">Checking public ssl certificate
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
+To do this, I suggest the two options below.
+In ...</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Exchange-Hybrid-EWS-Dedicated-Hybrid-app/" rel="permalink">[exchange hybrid] ews → dedicated hybrid app
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Overview
+Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two docu...</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

@@ -3,8 +3,8 @@
 # ==========================
 
 # Gemfile 에 minimal-mistakes-jekyll 이 들어있으므로 theme 방식 사용
-theme                  : "minimal-mistakes-jekyll"
-# remote_theme         : "mmistakes/minimal-mistakes"  # GitHub Pages에서 remote_theme 쓸 때 사용
+#theme                  : "minimal-mistakes-jekyll"
+remote_theme         : "mmistakes/minimal-mistakes"  # GitHub Pages에서 remote_theme 쓸 때 사용
 minimal_mistakes_skin  : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # ==========================

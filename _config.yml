@@ -1,86 +1,48 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your entire site, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# `jekyll serve`. If you change this file, please restart the server process.
-
+# ==========================
 # Theme Settings
-#
-# Review documentation to determine if you should use `theme` or `remote_theme`
-# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
+# ==========================
 
-# theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# Gemfile 에 minimal-mistakes-jekyll 이 들어있으므로 theme 방식 사용
+theme                  : "minimal-mistakes-jekyll"
+# remote_theme         : "mmistakes/minimal-mistakes"  # GitHub Pages에서 remote_theme 쓸 때 사용
+minimal_mistakes_skin  : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+# ==========================
 # Site Settings
-locale                   : "en-US"
-rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Site Title"
-title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-breadcrumbs              : # true, false (default)
-words_per_minute         : 200
-enable_copy_code_button  : # true, false (default)
-copyright                : # "copyright" name, defaults to site.title
-copyright_url            : # "copyright" URL, defaults to site.url
+# ==========================
+
+locale                 : "en"      # 사이트 기본 언어
+title                  : "JosephLee Blog"
+title_separator        : "-"
+# subtitle               : "Cloud · M365 · Notes"
+name                   : "Joseph Lee"
+description            : "Engineering Blog by Joseph Lee"
+url                    : "https://eelhpesoj.github.io"   # Joseph님 GitHub Pages 도메인
+baseurl                : ""                              # 사용자 페이지면 빈 값
+repository             : "https://github.com/eelhpesoj/eelhpesoj.github.io"   # GitHub username/repo-name
+teaser                 : # "/assets/images/500x300.png"
+logo                   : # "/assets/images/logo.png"
+masthead_title         : "eeLphesoJ"    # 상단 좌측에 보일 타이틀 (공백 " "이면 표시 안 함)
+breadcrumbs            : true          # 페이지 상단에 breadcrumb 사용
+words_per_minute       : 200
+enable_copy_code_button: true          # 코드블록 복사 버튼
+
+copyright              : "Joseph Lee"
+copyright_url          : "https://eelhpesoj.github.io"
+
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
-  disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
-  discourse:
-    server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
-  facebook:
-    # https://developers.facebook.com/docs/plugins/comments
-    appid                :
-    num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
-  utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
-  giscus:
-    repo_id              : # Shown during giscus setup at https://giscus.app
-    category_name        : # Full text name of the category
-    category_id          : # Shown during giscus setup at https://giscus.app
-    discussion_term      : # "pathname" (default), "url", "title", "og:title"
-    reactions_enabled    : # '1' for enabled (default), '0' for disabled
-    theme                : # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
-    strict               : # 1 for enabled, 0 for disabled (default)
-    input_position       : # "top", "bottom" # The comment input box will be placed above or below the comments
-    emit_metadata        : # 1 for enabled, 0 for disabled (default) # https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#imetadatamessage
-    lang                 : # "en" (default)
-    lazy                 : # true, false # Loading of the comments will be deferred until the user scrolls near the comments container.
-  staticman:
-    branch               : # "master"
-    endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
-reCaptcha:
-  siteKey                :
-  secret                 :
+  provider             : # "giscus", "utterances" 등 나중에 원하시면 설정
+
 atom_feed:
-  path                   : # blank (default) uses feed.xml
-  hide                   : # true, false (default)
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
-search_provider          : # lunr (default), algolia, google
+  path                 : # 기본값 사용
+  hide                 : false
+
+search                 : true          # 상단 검색 켜기
+search_full_content    : false
+search_provider        : lunr
 lunr:
-  search_within_pages    : # true, false (default)
-algolia:
-  application_id         : # YOUR_APPLICATION_ID
-  index_name             : # YOUR_INDEX_NAME
-  search_only_api_key    : # YOUR_SEARCH_ONLY_API_KEY
-  powered_by             : # true (default), false
-google:
-  search_engine_id       : # YOUR_SEARCH_ENGINE_ID
-  instant_search         : # false (default), true
+  search_within_pages  : true
+
 # SEO Related
 google_site_verification :
 bing_site_verification   :
@@ -88,81 +50,69 @@ naver_site_verification  :
 yandex_site_verification :
 baidu_site_verification  :
 
-# Social Sharing
+# ==========================
+# Social Sharing / Profiles
+# ==========================
+
 twitter:
-  username               :
+  username             :
 facebook:
-  username               :
-  app_id                 :
-  publisher              :
-og_image                 : # Open Graph/Twitter default site image
-# For specifying social profiles
-# - https://developers.google.com/structured-data/customize/social-profiles
+  username             :
+  app_id               :
+  publisher            :
+og_image               :
+
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
-
-# Analytics
-analytics:
-  provider               : # false (default), "google", "google-universal", "google-gtag", "custom"
-  google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
-
-
-# Site Author
-author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  type                 : "Person"
+  name                 : "Joseph Lee"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      # url: "mailto:your.name@email.com"
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+    - "https://github.com/leeyose"
+    # 필요하면 LinkedIn, Blog 등 추가
 
+# ==========================
+# Analytics
+# ==========================
+
+analytics:
+  provider             : false
+  google:
+    tracking_id        :
+    anonymize_ip       :
+
+# ==========================
+# Site Author
+# ==========================
+
+author:
+  name           : "Joseph Lee"
+  avatar         : # "/assets/images/bio-photo.jpg"
+  bio            : "Cloud & M365 Engineer. I write about infrastructure, identity, and automation."
+  location       : "Seoul, Korea"
+  email          :
+  links:
+    - label      : "GitHub"
+      icon       : "fab fa-fw fa-github"
+      url        : "https://github.com/leeyose"
+    - label      : "Website"
+      icon       : "fas fa-fw fa-link"
+      url        : "https://eelhpesoj.github.io"
+    # 필요하면 Email, X, LinkedIn 등 추가
+
+# ==========================
 # Site Footer
+# ==========================
+
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
-  since: "2013"
+    - label      : "GitHub"
+      icon       : "fab fa-fw fa-github"
+      url        : "https://github.com/leeyose"
+  since          : "2025"
 
-
+# ==========================
 # Reading Files
+# ==========================
+
 include:
   - .htaccess
   - _pages
@@ -192,73 +142,76 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
+  - /docs
+  - /test
 keep_files:
   - .git
   - .svn
 encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
-
+# ==========================
 # Conversion
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
+# ==========================
 
+markdown           : kramdown
+highlighter        : rouge
+lsi                : false
+excerpt_separator  : "\n\n"
+incremental        : false
 
-# Markdown Processing
 kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
+  input            : GFM
+  hard_wrap        : false
+  auto_ids         : true
+  footnote_nr      : 1
+  entity_output    : as_char
+  toc_levels       : 1..6
+  smart_quotes     : lsquo,rsquo,ldquo,rdquo
+  enable_coderay   : false
 
-
+# ==========================
 # Sass/SCSS
+# ==========================
+
 sass:
-  sass_dir: _sass
-  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  sass_dir         : _sass
+  style            : compressed
 
-
+# ==========================
 # Outputting
-permalink: /:categories/:title/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# ==========================
 
+permalink          : /:categories/:title/
+timezone           : "Asia/Seoul"
 
-# Pagination with jekyll-paginate
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+# ==========================
+# Pagination
+# ==========================
 
-# Pagination with jekyll-paginate-v2
-# See https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
-#   for configuration details
+paginate           : 5
+paginate_path      : /page:num/
+
 pagination:
-  # Set enabled to true to use paginate v2
-  # enabled: true
-  debug: false
-  collection: 'posts'
-  per_page: 10
-  permalink: '/page/:num/'
-  title: ':title - page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-  category: 'posts'
-  tag: ''
-  locale: ''
+  debug            : false
+  collection       : 'posts'
+  per_page         : 10
+  permalink        : '/page/:num/'
+  title            : ':title - page :num'
+  limit            : 0
+  sort_field       : 'date'
+  sort_reverse     : true
+  category         : 'posts'
+  tag              : ''
+  locale           : ''
   trail:
-    before: 2
-    after: 2
+    before         : 2
+    after          : 2
 
+# ==========================
+# Plugins
+# ==========================
 
-# Plugins (previously gems:)
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -266,7 +219,6 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
-# mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
@@ -274,54 +226,38 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
 
-
+# ==========================
 # Archives
-#  Type
-#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
-#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path>/my-awesome-category/index.html ~> path: /
+# ==========================
+
 category_archive:
-  type: liquid
-  path: /categories/
+  type             : liquid
+  path             : /categories/
 tag_archive:
-  type: liquid
-  path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+  type             : liquid
+  path             : /tags/
 
-
+# ==========================
 # HTML Compression
-# - https://jch.penibelst.de/
+# ==========================
+
 compress_html:
-  clippings: all
+  clippings        : all
   ignore:
-    envs: development
+    envs           : development
 
-
+# ==========================
 # Defaults
+# ==========================
+
 defaults:
-  # _posts
   - scope:
-      path: ""
-      type: posts
+      path         : ""
+      type         : posts
     values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
+      layout       : single
+      author_profile : true
+      read_time    : true
+      comments     : # true
+      share        : true
+      related      : true

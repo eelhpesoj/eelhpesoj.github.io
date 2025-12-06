@@ -12,7 +12,7 @@ minimal_mistakes_skin  : "default" # "air", "aqua", "contrast", "dark", "dirt", 
 # ==========================
 
 locale                 : "en"      # 사이트 기본 언어
-title                  : "JosephLee Blog"
+title                  : "Joseph Lee Blog"
 title_separator        : "-"
 # subtitle               : "Cloud · M365 · Notes"
 name                   : "Joseph Lee"

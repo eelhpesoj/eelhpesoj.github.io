@@ -31,7 +31,13 @@ copyright              : "Joseph Lee"
 copyright_url          : "https://eelhpesoj.github.io"
 
 comments:
-  provider             : # "giscus", "utterances" 등 나중에 원하시면 설정
+  provider             : "utterances"
+  utterances:
+    repo                : "eelhpesoj/eelhpesoj.github.io"
+    issue_term         : "pathname"
+    label              : "💬 comment"
+    theme              : "github-light"
+  
 
 atom_feed:
   path                 : # 기본값 사용
@@ -93,21 +99,19 @@ author:
     - label      : "GitHub"
       icon       : "fab fa-fw fa-github"
       url        : "https://github.com/eelhpesoj/eelhpesoj.github.io"
-    - label      : "Website"
-      icon       : "fas fa-fw fa-link"
-      url        : "https://eelhpesoj.github.io"
+
+    - label      : "LinkedIn"
+      icon       : "fab fa-fw fa-linkedin"
+      url        : "https://www.linkedin.com/in/joseph-lee-870660260/"
+
     # 필요하면 Email, X, LinkedIn 등 추가
 
 # ==========================
 # Site Footer
 # ==========================
 
-footer:
-  links:
-    - label      : "GitHub"
-      icon       : "fab fa-fw fa-github"
-      url        : "https://github.com/leeyose"
-  since          : "2025"
+
+
 
 # ==========================
 # Reading Files
@@ -258,6 +262,6 @@ defaults:
       layout       : single
       author_profile : true
       read_time    : true
-      comments     : # true
+      comments     : true
       share        : true
       related      : true

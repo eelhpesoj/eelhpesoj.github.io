@@ -1,0 +1,637 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.3 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Iis arr configuration with exsvr - JosephLee Blog</title>
+<meta name="description" content="Overview For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25. In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server. So, here is the a diagram which shows you the architecture of the LAB for this post.">
+
+
+  <meta name="author" content="Joseph Lee">
+  
+  <meta property="article:author" content="Joseph Lee">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="JosephLee Blog">
+<meta property="og:title" content="Iis arr configuration with exsvr">
+<meta property="og:url" content="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/">
+
+
+  <meta property="og:description" content="Overview For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25. In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server. So, here is the a diagram which shows you the architecture of the LAB for this post.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2025-12-06T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="JosephLee Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          JosephLee Blog
+          
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Iis arr configuration with exsvr</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/favicon/favicon-96x96.png" alt="Joseph Lee" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Joseph Lee</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>To the full stack Engineer</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/eelhpesoj/eelhpesoj.github.io" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/joseph-lee-870660260/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Iis arr configuration with exsvr">
+    <meta itemprop="description" content="OverviewFor the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server.So, here is the a diagram which shows you the architecture of the LAB for this post.">
+    <meta itemprop="datePublished" content="2025-12-06T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/" itemprop="url">Iis arr configuration with exsvr
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="overview">Overview</h1>
+<p>For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
+In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server.
+So, here is the a diagram which shows you the architecture of the LAB for this post.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/d5574dd0-1f1c-4a79-b3e2-99de7a7f8930/image.png" alt="" />
+Make sure those server located in DMZ have to use two NIC obviously for the internet and private.</p>
+
+<p>ref) 
+Configuration IIS ARR for exchange server:</p>
+<ul>
+  <li>https://techcommunity.microsoft.com/blog/exchange/part-1-reverse-proxy-for-exchange-server-2013-using-iis-arr/592526</li>
+  <li>https://www.youtube.com/watch?v=d6mqaHkGb-E</li>
+</ul>
+
+<h1 id="0-index">0. Index</h1>
+<ol>
+  <li>
+    <p>IIS Proxy ARR
+1.1 Basic settings
+1.2 Server Farms
+1.3 URL Rewrite rules</p>
+  </li>
+  <li>
+    <p>Logs</p>
+  </li>
+  <li>
+    <p>Warning</p>
+  </li>
+  <li>
+    <p>Test</p>
+  </li>
+</ol>
+
+<h1 id="1-iis-proxy-arr">1. IIS Proxy ARR</h1>
+<p>I will skip the install steps..</p>
+<h2 id="11-basic-settings">1.1 Basic settings</h2>
+
+<p>First of all, we need to install the exchange server’s public ssl certificate on the ARR server.
+And go to “IIS manager &gt; Sites &gt; Default Web Site &gt; Bindings &gt; https &gt; Edit”.
+From here, you should assign the public ssl certificate with https.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/022605a2-dbb7-43e4-bc4e-1f0115e69542/image.png" alt="" /></p>
+
+<p>Second, Go to the Home &gt; Application Request Routing Cache.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/3fadf0f4-8371-4f52-afde-73a62a01f900/image.png" alt="" />
+go to server proxy settings.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/af6b625b-cfc0-4913-adc9-b72cbf3f225c/image.png" alt="" />
+Check “Enable proxy”.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/c950b2c9-487d-4ec8-9349-53574ee0e012/image.png" alt="" /></p>
+
+<p>and lastly, create new server farms.</p>
+
+<h2 id="12-server-farms">1.2 Server Farms</h2>
+<p>Once you created the server farms, you have few options there.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/e07244f1-e34d-4290-8f7c-e2ff7a256303/image.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>Caching, uncheck “Enable disk cache” and apply.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/590289e9-0f64-4dba-9092-428986797109/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Health Test, enter your external exchange server https://FQDN/owa/healthcheck.htm
+<img src="https://velog.velcdn.com/images/leeyosebi/post/a1a1e079-184b-4f6b-8dbb-bca632bcc861/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/18dd9014-7682-4516-92c9-f3aa516e2451/image.png" alt="" />
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ba37bb41-369a-4dc0-b46e-65145223efb2/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Monitoring and Management, once your health test have passed, your server will be available and Healthy.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/081cb61f-2423-48f6-8d53-8e89f1f6c910/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Proxy, Set as following image.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/fce50836-6914-43b6-bc75-f8dbad8ede8f/image.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Routing Rules, uncheck both options.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/0d05596d-22ec-4889-a743-f2b35258f155/image.png" alt="" /></p>
+  </li>
+</ul>
+
+<h2 id="13-url-rewrite-rules">1.3 URL Rewrite rules</h2>
+<p>Now, this is the important part in the whole configuration.</p>
+
+<p>From the Routing rules in the server farms, go to URL Rewrite.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/2bc0d813-fa66-4c5b-bc76-aa389a65b713/image.png" alt="" /></p>
+
+<p>I already add the URL Rewrite rule here. Let’s take a look for the details.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ccbef07d-1448-4408-b1bc-f5d74c0eb716/image.png" alt="" /></p>
+
+<p>If the request URL matches <em>(all urls), check the two conditions: is it https? and is the host matches with the pattern(</em>.all.run.place)?
+<img src="https://velog.velcdn.com/images/leeyosebi/post/21a64581-95d2-43ad-a0b8-628a14e41408/image.png" alt="" /></p>
+
+<p>If the prerequisites meets, the requests are redirected to the server farm with the https.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/6a45ca6b-37c1-41fa-b7ce-8b6418274c09/image.png" alt="" /></p>
+
+<h1 id="2-logs">2. Logs</h1>
+<p>All the logs are in this path:</p>
+<ul>
+  <li>C:\inethub\logs\LogFiles\W3SVC1</li>
+</ul>
+
+<p>e.g.
+<img src="https://velog.velcdn.com/images/leeyosebi/post/ddf1fb97-4ed3-4993-8bdf-62d5be0831a7/image.png" alt="" /></p>
+
+<h1 id="3-warning">3. Warning</h1>
+<p>If the inbound rule is not match exactly with the requested URL, you will encounter 500 error like below.
+This is quite tricky if you address this kind of LB.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/bd29df82-0c2f-4516-81af-b3f61ca98e77/image.png" alt="" /></p>
+
+<h1 id="4-test">4. Test</h1>
+
+<p>Do the test for the exchange server services.</p>
+
+<p>https://testconnectivity.microsoft.com/tests/exchange</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/9d8f849a-66dd-4043-99f6-7a5d99e893a5/image.png" alt="" /></p>
+
+<h1 id="result">Result</h1>
+<p>This is so customisable so it’s too difficult to handle…
+Good luck.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=Iis+arr+configuration+with+exsvr%20http%3A%2F%2Flocalhost%3A4000%2FIIS-ARR-Configuration-with-ExSvr%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FIIS-ARR-Configuration-with-ExSvr%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/IIS-ARR-Configuration-with-ExSvr/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=Iis+arr+configuration+with+exsvr%20http%3A%2F%2Flocalhost%3A4000%2FIIS-ARR-Configuration-with-ExSvr%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" class="pagination--pager" title="Event id 1074 on winsvr 2022 standard evaluation">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+      
+        <p>
+          Comments are configured with provider: <strong>utterances</strong>,
+          but are disabled in non-production environments.
+        </p>
+      
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/Event-ID-1074-on-WinSvr-2022-Standard-Evaluation/" rel="permalink">Event id 1074 on winsvr 2022 standard evaluation
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Related post:
+
+  https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2025 <a href="https://eelhpesoj.github.io">Joseph Lee</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    <script>
+  'use strict';
+
+  (function() {
+    var commentContainer = document.querySelector('#utterances-comments');
+
+    if (!commentContainer) {
+      return;
+    }
+
+    var script = document.createElement('script');
+    script.setAttribute('src', 'https://utteranc.es/client.js');
+    script.setAttribute('repo', 'https://github.com/eelhpesoj/eelhpesoj.github.io');
+    script.setAttribute('issue-term', 'pathname');
+    script.setAttribute('label', '💬 comment');
+    script.setAttribute('theme', 'github-light');
+    script.setAttribute('crossorigin', 'anonymous');
+
+    commentContainer.appendChild(script);
+  })();
+</script>
+
+  
+
+
+
+
+  </body>
+</html>

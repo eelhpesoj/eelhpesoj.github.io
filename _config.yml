@@ -19,7 +19,7 @@ name                   : "Joseph Lee"
 description            : "Engineering Blog by Joseph Lee"
 url                    : "https://eelhpesoj.github.io"   # Joseph님 GitHub Pages 도메인
 baseurl                : ""                              # 사용자 페이지면 빈 값
-repository             : "https://github.com/eelhpesoj/eelhpesoj.github.io"   # GitHub username/repo-name
+repository             : "eelhpesoj/eelhpesoj.github.io"   # GitHub username/repo-name
 teaser                 : # "/assets/images/500x300.png"
 logo                   : # "/assets/images/logo.png"
 masthead_title         : ""    # 상단 좌측에 보일 타이틀 (공백 " "이면 표시 안 함)

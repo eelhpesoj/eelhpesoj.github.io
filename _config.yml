@@ -22,7 +22,7 @@ baseurl                : ""                              # 사용자 페이지�
 repository             : "https://github.com/eelhpesoj/eelhpesoj.github.io"   # GitHub username/repo-name
 teaser                 : # "/assets/images/500x300.png"
 logo                   : # "/assets/images/logo.png"
-masthead_title         : "eeLphesoJ"    # 상단 좌측에 보일 타이틀 (공백 " "이면 표시 안 함)
+masthead_title         : ""    # 상단 좌측에 보일 타이틀 (공백 " "이면 표시 안 함)
 breadcrumbs            : true          # 페이지 상단에 breadcrumb 사용
 words_per_minute       : 200
 enable_copy_code_button: true          # 코드블록 복사 버튼
@@ -85,14 +85,14 @@ analytics:
 
 author:
   name           : "Joseph Lee"
-  avatar         : # "/assets/images/bio-photo.jpg"
-  bio            : "Cloud & M365 Engineer. I write about infrastructure, identity, and automation."
+  avatar         : "favicon/favicon-96x96.png"
+  bio            : "To the full stack Engineer"
   location       : "Seoul, Korea"
   email          :
   links:
     - label      : "GitHub"
       icon       : "fab fa-fw fa-github"
-      url        : "https://github.com/leeyose"
+      url        : "https://github.com/eelhpesoj/eelhpesoj.github.io"
     - label      : "Website"
       icon       : "fas fa-fw fa-link"
       url        : "https://eelhpesoj.github.io"

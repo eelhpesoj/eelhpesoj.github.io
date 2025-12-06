@@ -33,7 +33,7 @@ copyright_url          : "https://eelhpesoj.github.io"
 comments:
   provider             : "utterances"
   utterances:
-    repo                : "https://github.com/eelhpesoj/eelhpesoj.github.io"
+    repo                : "eelhpesoj/eelhpesoj.github.io"
     issue_term         : "pathname"
     label              : "💬 comment"
     theme              : "github-light"

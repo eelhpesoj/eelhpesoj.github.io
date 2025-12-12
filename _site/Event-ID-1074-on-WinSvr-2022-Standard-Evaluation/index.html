@@ -328,7 +328,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-list"></i> On this page</h4></header>
-              
+              <ul class="toc__menu"><li><a href="#0-overview">0. Overview</a></li><li><a href="#1-what-i-encounter">1. What I encounter</a></li><li><a href="#2-event-logs-from-hyper-v-host">2. Event logs from Hyper-V host</a></li><li><a href="#3-event-logs-from-service-host">3. Event logs from Service host</a></li><li><a href="#4-os-design">4. OS Design</a></li><li><a href="#5-workaround">5. Workaround</a></li></ul>
             </nav>
           </aside>
         
@@ -337,13 +337,29 @@
   <li>https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr</li>
 </ul>
 
+<h1 id="0-overview">0. Overview</h1>
+
 <p>Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can’t be last. and this is really annoying when I need to test. This post contains what I was trying to know what’s going on this.</p>
 
+<p>[Index]</p>
+<ol>
+  <li>What I encounter</li>
+  <li>Event logs from Hyper-V host</li>
+  <li>Event logs from Service host</li>
+  <li>OS Design</li>
+  <li>Workaround</li>
+</ol>
+
+<h1 id="1-what-i-encounter">1. What I encounter</h1>
 <p>Mail service is unavailable:
 <img src="https://velog.velcdn.com/images/leeyosebi/post/4eebb8ba-7e76-431d-813b-221b74d6b77b/image.png" alt="" /></p>
 
+<h1 id="2-event-logs-from-hyper-v-host">2. Event logs from Hyper-V host</h1>
+
 <p>From the hyper-v host’s “Event Viewer → Applications and Services Logs → Microsoft → Windows → Hyper-V-Worker → Admin”, the server has been terminated. But no reason can be found.
 <img src="https://velog.velcdn.com/images/leeyosebi/post/0024dbf7-86b5-4bfa-8ade-20b9c9464a00/image.png" alt="" /></p>
+
+<h1 id="3-event-logs-from-service-host">3. Event logs from Service host</h1>
 
 <p>Let’s moving forward to the VM’s event logs. I check the event viewer of the VM’s “Windows Logs &gt; System” and filter the events 1074 which can shows me the shuting down logs.
 <img src="https://velog.velcdn.com/images/leeyosebi/post/1e961fda-aa50-4ff3-bd6b-d75985d91335/image.png" alt="" /></p>
@@ -362,6 +378,8 @@ I’ve never seen this before..</p>
 <p>Well, I have set this up with this ISO. It’s Standard Evaluation.
 <img src="https://velog.velcdn.com/images/leeyosebi/post/12d53e18-a129-40fe-8737-f25986bb765a/image.png" alt="" /></p>
 
+<h1 id="4-os-design">4. OS Design</h1>
+
 <p>In result, I found this is the originally architecture of the OS.
 Referrence:</p>
 <ul>
@@ -369,6 +387,33 @@ Referrence:</p>
   <li>https://woshub.com/stop-windows-auto-shutdown-every-hour/
 <img src="https://velog.velcdn.com/images/leeyosebi/post/c69da4d5-bd93-49ab-adcf-a9f956d27762/image.png" alt="" /></li>
 </ul>
+
+<h1 id="5-workaround">5. Workaround</h1>
+<p>Here is the command that you can use for the Lab environment.</p>
+
+<p>Step 1:
+Execute this command from the administrative cmd</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>slmgr.vbs /dli
+</code></pre></div></div>
+<p>You can specify the license status of the OS. It says “grace time expired”.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/2244e754-2d18-44f1-951b-3bbfeb6f005f/image.png" alt="" /></p>
+
+<p>Step 2:
+Execute this command to extend the license status.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>slmgr.vbs /rearm
+</code></pre></div></div>
+
+<p>Step 3:
+Restart the machine.</p>
+
+<p>Step 4:
+Check the license status using the first command.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>slmgr.vbs /dli
+</code></pre></div></div>
+<p>Now, we have 10 days remaining.</p>
+
+<p><img src="https://velog.velcdn.com/images/leeyosebi/post/4b9cb719-be5b-46e2-8baf-5376b47f7c2a/image.png" alt="" /></p>
 
         
       </section>
@@ -389,10 +434,10 @@ Referrence:</p>
       
   <nav class="pagination">
     
-      <a href="/Checking-Public-SSL-Certificate/" class="pagination--pager" title="Checking public ssl certificate">Previous</a>
+      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Previous</a>
     
     
-      <a href="/IIS-ARR-Configuration-with-ExSvr/" class="pagination--pager" title="Iis arr configuration with exsvr">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -439,7 +484,7 @@ Referrence:</p>
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2025-12-06T00:00:00+09:00">December 6, 2025</time>
+        <time datetime="2025-11-25T00:00:00+09:00">November 25, 2025</time>
       </span>
     
 
@@ -452,7 +497,7 @@ Referrence:</p>
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          1 minute read
         
       </span>
     

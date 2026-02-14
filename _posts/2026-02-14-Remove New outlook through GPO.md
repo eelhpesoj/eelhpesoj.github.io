@@ -49,7 +49,8 @@ I just configured it as system context, the most high previlaged one.
 
 And here is the thing.
 Go to action tab. and edit.
-![](https://github.com/user-attachments/assets/afad2ffd-94ad-4240-b0ba-52ef976886fc)
+![](https://github.com/user-attachments/assets/a1b5e3a2-639d-4efd-a470-d609c1f10c15)
+
 
 Set those two value as below.
 ![](https://github.com/user-attachments/assets/bc9fa470-a599-4e9d-a6ba-951b86f82608)

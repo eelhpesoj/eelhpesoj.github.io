@@ -54,6 +54,7 @@ Go to action tab. and edit.
 
 Set those two value as below.
 ![](https://github.com/user-attachments/assets/bc9fa470-a599-4e9d-a6ba-951b86f82608)
+
 Program/script:
 ```
 C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe

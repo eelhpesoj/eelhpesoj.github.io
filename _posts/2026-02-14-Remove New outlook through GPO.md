@@ -19,7 +19,7 @@ The script should be accessed from \\{domain name}\netlogon
 In this case, I create the script in "C:\Windows\SYSVOL\sysvol\all.run.local\scripts".
 and the script name is rmNewOutlook.ps1.
 
-[](https://github.com/eelhpesoj/Powershell/blob/master/AD/rmNewOutlook.ps1)
+https://github.com/eelhpesoj/Powershell/blob/master/AD/rmNewOutlook.ps1
 
 ```shell
 $getNewOutlook = Get-AppPackage Microsoft.OutlookForWindows -AllUsers -ErrorAction SilentlyContinue

@@ -2,6 +2,7 @@
 In this post, I will share how to create Custom Ribbon AddIn to Outlook Classic.
 Hope this demo can help you!
 
+Project repository: [](https://github.com/eelhpesoj/OutlookAddIn1)
 
 [Index]
 1. Installation Visual Studio

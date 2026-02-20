@@ -165,6 +165,7 @@ Now, open the outlook classic.
 ![](https://velog.velcdn.com/images/leeyosebi/post/81d07b92-fc30-4911-b81a-f53f25f589bf/image.png)
 
 You can see the addin
+![](https://velog.velcdn.com/images/leeyosebi/post/b9ff007a-b360-409c-aac8-322cc796243e/image.png)
 ![](https://velog.velcdn.com/images/leeyosebi/post/7bafe08d-60f9-4ef8-9e54-5e063579b2cb/image.png)
 
 And you can see the addin list from "Files > Options"

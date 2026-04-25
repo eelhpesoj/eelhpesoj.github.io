@@ -301,10 +301,12 @@ Note that PSSO Extension will sync both of your password of M365 account and loc
 After set up, you can check the device status from the company portal.
 <img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/e7492fb7-280d-4876-8c69-70f0253c665d" />
 
-## Test office 365 apps if psso works
-Let's see if psso works for m365 apps
-<img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/dda408c6-36af-4a67-9f95-2d059f4a505c" />
+## TroubleShoot Checkpoint
+We can use help menu from the Company portal
+<img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/9a0f50c1-f542-4b55-8f5d-9db5cb5f1eae" />
 
+And you can get the dianostics log let deep dive this logs another post
+<img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/638a21a8-3b24-4dab-99fd-c6c64ec0bda3" />
 
 
 

@@ -113,22 +113,24 @@ To make sure PSSO configuration and its status, execute "app-sso platform -s"
 This output will let you know the status of "Device Configuration, Login Configuration, User Configuration"
 and here is a sample output
 ```txt
-Time: 2026-04-25 09:03:41 +0000
+Last login: Sat Apr 25 02:36:33 on ttys000
+tester@testers-Virtual-Machine ~ % app-sso platform -s
+Time: 2026-04-25 09:41:29 +0000
 
 Device Configuration:
  {
-  "_deviceEncryptionKeyData" : "cOWoWq4pXq4/UaJwPK3TvHVm4OvgOEazqXXO4hsbtlA=",
-  "_deviceSigningKeyData" : "6fGrW1oRRH2NYpiF8l9Jt2d7XL8r2pw5cCs9ucllfNo=",
+  "_deviceEncryptionKeyData" : "6z5mkV8fKeztgA4Bd7BOm+hYs3AE/+S8fxc7J2dPecQ=",
+  "_deviceSigningKeyData" : "po/3cekNwhVYtrLTc0LKXAZ3FC5670e+D1V/TKg5uWY=",
   "allowDeviceIdentifiersInAttestation" : false,
-  "authGracePeriodStart" : "2026-04-25T08:53:33Z",
+  "authGracePeriodStart" : "2026-04-25T09:13:31Z",
   "authorizationEnabled" : false,
-  "created" : "2026-04-25T09:03:41Z",
+  "created" : "2026-04-25T09:41:29Z",
   "createUsersEnabled" : false,
-  "deviceSigningCertificate" : "MIIDNzCCAh-gAwIBAgIQ9MKckfP92YVCmVKm8emb-jANBgkqhkiG9w0BAQsFADB4MXYwEQYKCZImiZPyLGQBGRYDbmV0MBUGCgmSJomT8ixkARkWB3dpbmRvd3MwHQYDVQQDExZNUy1Pcmdhbml6YXRpb24tQWNjZXNzMCsGA1UECxMkODJkYmFjYTQtM2U4MS00NmNhLTljNzMtMDk1MGMxZWFjYTk3MB4XDTI2MDQyNTA4MjQyNloXDTM2MDQyNTA4NTQyNlowLzEtMCsGA1UEAxMkNmE4MjYzN2UtNjkxMC00Y2U2LTllMjgtOTMxYWUzMmNlYjNlMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEDiJLalEIKmA55X7WFp8Yiq9ADtfiMLyCmhvp-iISgxK-fARpcWVVvBx-FUGaeAEV1WE3lZVtzpAir9zYfEnQOqOB0DCBzTAMBgNVHRMBAf8EAjAAMBYGA1UdJQEB_wQMMAoGCCsGAQUFBwMCMA4GA1UdDwEB_wQEAwIHgDAiBgsqhkiG9xQBBYIcAgQTBIEQfmOCahBp5kyeKJMa4yzrPjAiBgsqhkiG9xQBBYIcAwQTBIEQJCeb4Dr-EU-UXhPnHaEpIjAiBgsqhkiG9xQBBYIcBQQTBIEQ5nDeDTD0n0SLzvTQqeyipDAUBgsqhkiG9xQBBYIcCAQFBIECTkEwEwYLKoZIhvcUAQWCHAcEBASBATEwDQYJKoZIhvcNAQELBQADggEBAAX5_l96aeFk8nARqw7UqT7YLt4xkGU1PPp5Sg3EKYy-eG0MXZbeX5AUUYYWjo19kotutmig0HpqRNnKEZYZUkc8Ghajzoh3dHz7lrd40W-07-j97eVpDyqBRWkfBE0ZC8YQn14gETQmE5Tte2zE-RtJH1n1UJ7vfs4-aHH7E5FPncd4ewpst2YORJIbzxfUzUTpTqti2FbbkxeJgtVZgiYfA9Z_T4SiXo2ToJNGnkSFxur59QN1_2C4rTAwzHaRIeb-MwhPVhVtkqFxV4l7Ad_wIdNSI6tXMyj3bREJYGrIInbrt7yPjTcnrZmZBa7KlkxR7EkWn9Po5faXbjvXkfA",
+  "deviceSigningCertificate" : "MIIDNzCCAh-gAwIBAgIQ-RF0Foqs67ZNF45tBOy8BzANBgkqhkiG9w0BAQsFADB4MXYwEQYKCZImiZPyLGQBGRYDbmV0MBUGCgmSJomT8ixkARkWB3dpbmRvd3MwHQYDVQQDExZNUy1Pcmdhbml6YXRpb24tQWNjZXNzMCsGA1UECxMkODJkYmFjYTQtM2U4MS00NmNhLTljNzMtMDk1MGMxZWFjYTk3MB4XDTI2MDQyNTA4NDM0MloXDTM2MDQyNTA5MTM0MlowLzEtMCsGA1UEAxMkMzhkOTQxMzItZTkwYS00ZTlkLWJmZGMtYTUyNjMzZWQyNzcyMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEIYuOR06dvJsa4QAzja0_tEnFhBzbqxNZ8cTaV8sVeWwT6hWV6GO-iaOgH0CN2FLDzWz3knu2CFUfrt5UL2YsWaOB0DCBzTAMBgNVHRMBAf8EAjAAMBYGA1UdJQEB_wQMMAoGCCsGAQUFBwMCMA4GA1UdDwEB_wQEAwIHgDAiBgsqhkiG9xQBBYIcAgQTBIEQMkHZOArpnU6_3KUmM-0ncjAiBgsqhkiG9xQBBYIcAwQTBIEQJCeb4Dr-EU-UXhPnHaEpIjAiBgsqhkiG9xQBBYIcBQQTBIEQ5nDeDTD0n0SLzvTQqeyipDAUBgsqhkiG9xQBBYIcCAQFBIECTkEwEwYLKoZIhvcUAQWCHAcEBASBATEwDQYJKoZIhvcNAQELBQADggEBABCqhO9_NOYcvEm3rqYEyeglFHm0wzdUUELurpF5J4Lojj-_vAr_wB55KED1UXvJB732I1kuaTIhh07KRVdvY3glkuJ5DgYS8BAEgrB43L-PrGorxCkQJ96ThiC4RunyouzKw0obdYfA8X-6NPFHep6T1SDhLUqnVM6-r-ampNd55qNo7yZlVS3OhKt4MFBln0rMtI8Tff7C4ylNdbDjKNelPus4_llXZfXrSFT9_57psEC2QY3ZYAAV7Rgwm6nKaxyTDWUgdEykBYR9HpTQyGQ0LdASUoWMrAgGC11HD20rl2pj8buzv6ayZDD24e8hg1L3zq4lUEuxgCe_pdvf9B0",
   "encryptionAlgorithm" : "ECDHE-A256GCM",
   "extensionIdentifier" : "com.microsoft.CompanyPortalMac.ssoextension",
   "fileVaultPolicy" : "AttemptAuthentication (1)",
-  "lastEncryptionKeyChange" : "2026-04-25T08:46:12Z",
+  "lastEncryptionKeyChange" : "2026-04-25T09:13:22Z",
   "loginFrequency" : 64800,
   "loginPolicy" : "None (0)",
   "loginType" : "POLoginTypePassword (1)",
@@ -157,7 +159,7 @@ Login Configuration:
   "additionalScopes" : "aza urn:aad:tb:update:prt/.default profile offline_access openid",
   "audience" : "login.microsoftonline.com",
   "clientID" : "29d9ed98-a469-4536-ade2-f981bc1d605e",
-  "created" : "2026-04-25T09:03:41Z",
+  "created" : "2026-04-25T09:41:29Z",
   "customKeyExchangeRequestBodyClaims" : {
     "aud" : "https://login.microsoftonline.com/0dde70e6-f430-449f-8bce-f4d0a9eca2a4/getkeydata"
   },
@@ -210,7 +212,7 @@ Login Configuration:
     "x-client-Ver" : "2.8.2"
   },
   "customRequestJWTParameterName" : "request",
-  "deviceContext" : "W9Hd21SqAlu7fZQo4ckJO6kB0X0RULTTgrkIpQtuoMg=",
+  "deviceContext" : "2aEBFIpgJoBOvViM4Cfk9phNdqFteXzdonJX0+4LveM=",
   "federationMexURLKeypath" : "federation_metadata_url",
   "federationPredicate" : "account_type = 'Federated'",
   "federationRequestURN" : "urn:federation:MicrosoftOnline",
@@ -252,11 +254,11 @@ Login Configuration:
 
 User Configuration:
  {
-  "_credential" : "xiGdITdgWluBQTB0DTCR+AhBmiLibf9eXwUClOoHKpQ=",
-  "created" : "2026-04-25T09:03:41Z",
+  "_credential" : "7cUzpUejfVk0OoS1EFvLqkuUBd+Y118m97IA0NTw3NU=",
+  "created" : "2026-04-25T09:41:29Z",
   "kerberosStatus" : [
     {
-      "cacheName" : "F016800B-5C8B-4297-AAC5-326EE81F6067",
+      "cacheName" : "4653A707-6537-4F9C-A2E9-446AC612A005",
       "exchangeRequired" : false,
       "failedToConnect" : false,
       "importSuccessful" : true,
@@ -265,31 +267,32 @@ User Configuration:
       "upn" : "cake1\\@cake.run.place@KERBEROS.MICROSOFTONLINE.COM"
     }
   ],
-  "lastLoginDate" : "2026-04-25T09:00:16Z",
+  "lastLoginDate" : "2026-04-25T09:17:44Z",
   "loginType" : "POLoginTypePassword (1)",
   "pendingSigningAlgorithm" : "none",
   "signingAlgorithm" : "ES256",
   "state" : "POUserStateNormal (0)",
   "uniqueIdentifier" : "B513CE5B-6676-415C-9710-7EBCCD28644A",
-  "userDecryptionCertificate" : "MIIBljCCAT2gAwIBAgIBATAKBggqhkjOPQQDAjBBMR4wHAYDVQQDExVQbGF0Zm9ybSBTU08gLSB0ZXN0ZXIxCzAJBgNVBAYTAlVTMRIwEAYDVQQKEwlBcHBsZSBJbmMwHhcNMjYwNDI1MDkwMDE5WhcNMjcwNDI1MDkwMDE5WjBBMR4wHAYDVQQDExVQbGF0Zm9ybSBTU08gLSB0ZXN0ZXIxCzAJBgNVBAYTAlVTMRIwEAYDVQQKEwlBcHBsZSBJbmMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAASSl1iLDFc7KBLHagULy62MRb7rvKZuqWqxm7gxC7yEjGSvlOA6yIrYDs3zc17_BSX6FYbAXNXbHK_YqB71adCNoyYwJDASBgNVHRMBAf8ECDAGAQH_AgEAMA4GA1UdDwEB_wQEAwIAADAKBggqhkjOPQQDAgNHADBEAiB3uBFpYqz6B2IXhpWDw--gcZ3pO7OGVE8U4XQVqaAW9QIgcanfXtoYbzheTYRXM_bw3PjFSKO7hnFxBsaDw9U39ws",
-  "userDecryptionContext" : "5LNcPGFBScU1/ejysFLgPBMcovPmz1OL3wQhZcc7VIs=",
-  "userDecryptionKeyHash" : "EC49216A179C9DBD5777CCEBC55EE7C870678A41",
+  "userDecryptionCertificate" : "MIIBlzCCAT2gAwIBAgIBATAKBggqhkjOPQQDAjBBMR4wHAYDVQQDExVQbGF0Zm9ybSBTU08gLSB0ZXN0ZXIxCzAJBgNVBAYTAlVTMRIwEAYDVQQKEwlBcHBsZSBJbmMwHhcNMjYwNDI1MDkxNDM3WhcNMjcwNDI1MDkxNDM3WjBBMR4wHAYDVQQDExVQbGF0Zm9ybSBTU08gLSB0ZXN0ZXIxCzAJBgNVBAYTAlVTMRIwEAYDVQQKEwlBcHBsZSBJbmMwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARhO9vwHm74pyJw0fD_omIfc74ekxWhMee32MndGVs9kBRXRj7YMinZfdlxXeQX1C5N-0YAe4ONuae2yoJXQ1aXoyYwJDASBgNVHRMBAf8ECDAGAQH_AgEAMA4GA1UdDwEB_wQEAwIAADAKBggqhkjOPQQDAgNIADBFAiAHdY9Fw-FqMKQZSsQbXacZ9M57RblqZbFqoWLJrQSdSwIhAPE-dov7MyD4lSNQYMApDT-bb5574HifTXbwYNFMruBx",
+  "userDecryptionContext" : "iu2/q7Nh1I7wr3m5iHYurFp5fRdsPJ0UUmtf032pfYE=",
+  "userDecryptionKeyHash" : "99E116E28CAF59E9BBE83349A0A2AC96E4A48968",
   "userLoginConfiguration" : {
-    "created" : "2026-04-25T09:03:41Z",
+    "created" : "2026-04-25T09:41:29Z",
     "loginUserName" : "c***@cake.run.place"
   },
-  "userUnlockCertificate" : "MIICjjCCAjOgAwIBAgIIPcTpaMrBlJgwCgYIKoZIzj0EAwIwgboxgbcwgbQGA1UEAx6BrABNAFMAIABQAGwAYQB0AGYAbwByAG0AIABLAGUAeQAgAEEAYwBjAGUAcwBzACAALQAgAGMAYQBrAGUAMQBAAGMAYQBrAGUALgByAHUAbgAuAHAAbABhAGMAZQAgAC0AIABbAGUAMAA5AGIAMgA3ADIANAAtAGYAZQAzAGEALQA0AGYAMQAxAC0AOQA0ADUAZQAtADEAMwBlADcAMQBkAGEAMQAyADkAMgAyAF0wHhcNMjYwNDI1MDkwMDE5WhcNMzYwNDI1MDkwMDE5WjCBujGBtzCBtAYDVQQDHoGsAE0AUwAgAFAAbABhAHQAZgBvAHIAbQAgAEsAZQB5ACAAQQBjAGMAZQBzAHMAIAAtACAAYwBhAGsAZQAxAEAAYwBhAGsAZQAuAHIAdQBuAC4AcABsAGEAYwBlACAALQAgAFsAZQAwADkAYgAyADcAMgA0AC0AZgBlADMAYQAtADQAZgAxADEALQA5ADQANQBlAC0AMQAzAGUANwAxAGQAYQAxADIAOQAyADIAXTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABK_LifDeVecznB-HUDGlG2c9Xaxs_fxUP2l-rld_1_57YxzHDUVuEVISH1Jr8pPsyJxzNCXplgRrArtFMf6yH_yjITAfMB0GA1UdDgQWBBTcl2HIMQ8WEsOqtcVC87JNmk10QzAKBggqhkjOPQQDAgNJADBGAiEAgcpQHMN3x1i9k-2ZOn2d7S1MVrMKQ5YJ2PbUwpKHXWcCIQDJvpJ_6NGPpwQ8imWC6noMWwwC9YO3cFLXzvbPiXW3GA",
-  "userUnlockData" : "8hfvQrmU7XuAiA+UT7O8N10wG7FjDM4vWyrJSKZcSc4=",
-  "userUnlockHash" : "DC9761C8310F1612C3AAB5C542F3B24D9A4D7443",
+  "userUnlockCertificate" : "MIICjTCCAjSgAwIBAgIJAJxOlmdAMTZ8MAoGCCqGSM49BAMCMIG6MYG3MIG0BgNVBAMegawATQBTACAAUABsAGEAdABmAG8AcgBtACAASwBlAHkAIABBAGMAYwBlAHMAcwAgAC0AIABjAGEAawBlADEAQABjAGEAawBlAC4AcgB1AG4ALgBwAGwAYQBjAGUAIAAtACAAWwBlADAAOQBiADIANwAyADQALQBmAGUAMwBhAC0ANABmADEAMQAtADkANAA1AGUALQAxADMAZQA3ADEAZABhADEAMgA5ADIAMgBdMB4XDTI2MDQyNTA5MTQzNloXDTM2MDQyNTA5MTQzNlowgboxgbcwgbQGA1UEAx6BrABNAFMAIABQAGwAYQB0AGYAbwByAG0AIABLAGUAeQAgAEEAYwBjAGUAcwBzACAALQAgAGMAYQBrAGUAMQBAAGMAYQBrAGUALgByAHUAbgAuAHAAbABhAGMAZQAgAC0AIABbAGUAMAA5AGIAMgA3ADIANAAtAGYAZQAzAGEALQA0AGYAMQAxAC0AOQA0ADUAZQAtADEAMwBlADcAMQBkAGEAMQAyADkAMgAyAF0wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAS14AjMWL_o9Q1SAi6S9Cyu0rIPiC3sJs35RmsHmFLCAJgPFalRDTqtqtULGwXLFDdJKdDo5NMDcdYmlvhJem_goyEwHzAdBgNVHQ4EFgQU00-U-H2EtorjEXG7mNNBNAZ5cQkwCgYIKoZIzj0EAwIDRwAwRAIgfF_16ZQcxtQAA9rf3ncwX0YzT8D1HtVHJtwhZpPMO84CIEGFZsZCthGXKFF22mcK8CmUqGXPzGxNZsNfKUPL8CiQ",
+  "userUnlockData" : "gVlNbvCjQY83O47jrP/qsSqb655JwEa3UHBwly7FX4M=",
+  "userUnlockHash" : "D34F94F87D84B68AE31171BB98D3413406797109",
   "version" : 1
 }
 
 SSO Tokens:
 Received:
-2026-04-25T09:00:16Z
+2026-04-25T09:17:44Z
 Expiration:
-2026-05-09T09:00:15Z (Not Expired)
+2026-05-09T09:17:43Z (Not Expired)
 
+tester@testers-Virtual-Machine ~ % 
 ```
 
 ## Complete Company portal setup

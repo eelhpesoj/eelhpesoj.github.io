@@ -52,5 +52,6 @@ Back to the last step of the UTM, set the IPSW and give storage mount it.
 <img width="1012" height="764" alt="image" src="https://github.com/user-attachments/assets/abfbc1bc-f7cb-4342-88e7-ebdcf05ad5db" />
 
 You're all set to boot the VM.
-<img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/7d286ce8-1a15-42ce-b9dc-1bfe857b2ae1" />
+<img width="1310" height="1117" alt="image" src="https://github.com/user-attachments/assets/52a7782d-e5f8-4283-ade5-36ab97dc24f1" />
+
 

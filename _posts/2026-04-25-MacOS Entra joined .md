@@ -304,6 +304,10 @@ Note that PSSO Extension will sync both of your password of M365 account and loc
 After set up, you can check the device status from the company portal.
 <img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/e7492fb7-280d-4876-8c69-70f0253c665d" />
 
++ Intune detects this device as a virtual machine.
+<img width="696" height="352" alt="image" src="https://github.com/user-attachments/assets/11865f21-781f-4c3b-a37a-acce3b2c47fd" />
+
+
 ## TroubleShoot Checkpoint
 We can use help menu from the Company portal
 <img width="1012" height="813" alt="image" src="https://github.com/user-attachments/assets/9a0f50c1-f542-4b55-8f5d-9db5cb5f1eae" />

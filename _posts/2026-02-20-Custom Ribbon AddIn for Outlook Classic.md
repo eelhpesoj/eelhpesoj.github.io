@@ -72,6 +72,7 @@ On the Ribbon1, right click and select Properties.
 And select the Ribbon type as "Microsoft.Outlook.Explorer" which means the custom ribbon will be located in the what I called "home" in the outlook. The default ribbon when you open the outlook.
 You can also set the ribbon only when you compose email or something elsewhere. Please search it from the Microsoft document.
 - <https://learn.microsoft.com/en-us/visualstudio/vsto/customizing-a-ribbon-for-outlook?view=visualstudio&tabs=csharp>
+
 <img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/4193f0af-f0a2-44db-a271-8fe646c438ba" />
 
 Set a tab name

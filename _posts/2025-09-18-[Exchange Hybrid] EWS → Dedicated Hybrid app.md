@@ -6,14 +6,15 @@
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two documents from Microsoft.
 
 - Refer1:
-https://learn.microsoft.com/en-us/exchange/hybrid-deployment/deploy-dedicated-hybrid-app#service-principal-clean-up-mode
+<https://learn.microsoft.com/en-us/exchange/hybrid-deployment/deploy-dedicated-hybrid-app#service-principal-clean-up-mode>
 - Refer2:
-https://techcommunity.microsoft.com/blog/exchange/dedicated-hybrid-app-temporary-enforcements-new-hcw-and-possible-hybrid-function/4440682
+<https://techcommunity.microsoft.com/blog/exchange/dedicated-hybrid-app-temporary-enforcements-new-hcw-and-possible-hybrid-function/4440682>
 
 First up first, take a look at the prerequisites
 1. Classic Full or Modern Full hybrid configuration needed
 2. Exchange server version required as shown in the table
-![](https://velog.velcdn.com/images/leeyosebi/post/4724fb2e-d607-4c26-b546-78f354b87c04/image.png)
+<img width="943" height="693" alt="image" src="https://github.com/user-attachments/assets/99185897-ceee-4b10-ab9f-fd026f02e557" />
+
 
 # 0. Index
 1. HU
@@ -25,14 +26,16 @@ First up first, take a look at the prerequisites
 
 # 1. HU
 1. Check the Exchange version
-![](https://velog.velcdn.com/images/leeyosebi/post/fde8500b-c818-4d7d-aa9d-5aec0418d7be/image.png)
+<img width="1125" height="594" alt="image" src="https://github.com/user-attachments/assets/1e35828f-2a44-47fa-a536-d824b35b373d" />
+
 
 2. Update if you need. If you have already CU15, Click the link below to update with the April 2025 HU
-- https://support.microsoft.com/en-us/topic/hotfix-update-for-exchange-server-2019-cu15-april-18-2025-kb5050672-b46af510-ede4-4eab-b2ba-940d2f00e04d
-![](https://velog.velcdn.com/images/leeyosebi/post/95cb6053-ce7b-4be1-8d72-234f06c4965a/image.png)
+- <https://support.microsoft.com/en-us/topic/hotfix-update-for-exchange-server-2019-cu15-april-18-2025-kb5050672-b46af510-ede4-4eab-b2ba-940d2f00e04d>
+<img width="814" height="322" alt="image" src="https://github.com/user-attachments/assets/c60baea9-6405-42b9-9d11-fb8831127330" />
+
 
 - Download:
-https://www.microsoft.com/en-us/download/details.aspx?id=108144
+<https://www.microsoft.com/en-us/download/details.aspx?id=108144>
 
 # 2. Run HCW to create Dedicated hybrid app
 
@@ -40,19 +43,22 @@ https://www.microsoft.com/en-us/download/details.aspx?id=108144
 - https://aka.ms/hybridwizard
 
 2. Configure whatever you want but make sure to consent with the grant administrative prevelidge.
-![](https://velog.velcdn.com/images/leeyosebi/post/c8a926bc-14b1-45c8-8c96-81af36d77a1a/image.png)
+<img width="800" height="628" alt="image" src="https://github.com/user-attachments/assets/d4ba53c0-e365-4553-a195-b6c91a870789" />
+
 
 3. After configuration completed, go to your enterprise application from the Entra ID to check if the application created successfully.
-![](https://velog.velcdn.com/images/leeyosebi/post/8da06e82-551d-47ba-8f6c-9ce82d006e1b/image.png)
+<img width="800" height="387" alt="image" src="https://github.com/user-attachments/assets/41014922-bd64-484b-80e3-82fc126f03ee" />
+
 
 # 3. Cleanup the Service Principal Cleanup Mode
 
 1. Go to here and download the script
-- https://microsoft.github.io/CSS-Exchange/Hybrid/ConfigureExchangeHybridApplication/
-![](https://velog.velcdn.com/images/leeyosebi/post/ea30dc96-eb33-4ac5-bf58-ea22a26f710a/image.png)
+- <https://microsoft.github.io/CSS-Exchange/Hybrid/ConfigureExchangeHybridApplication/>
+<img width="792" height="286" alt="image" src="https://github.com/user-attachments/assets/763d1489-5c9c-4920-8b37-26ae962eea91" />
+
 
 - Download Script:
-https://github.com/microsoft/CSS-Exchange/releases/latest/download/ConfigureExchangeHybridApplication.ps1
+<https://github.com/microsoft/CSS-Exchange/releases/latest/download/ConfigureExchangeHybridApplication.ps1>
 
 2. To cleanup the certificate from the 1st party service principal keycredentials, execute this from your EMS(Exchange Management Shell)
 ```shell
@@ -60,30 +66,38 @@ https://github.com/microsoft/CSS-Exchange/releases/latest/download/ConfigureExch
 ```
 
 3. Result will be like:
-![](https://velog.velcdn.com/images/leeyosebi/post/183ed5a7-b04b-4887-bd52-ca39650923b2/image.png)
+<img width="1385" height="188" alt="image" src="https://github.com/user-attachments/assets/9d1b078d-dd6a-4b44-8542-a711fddf5b6a" />
+
 
 # 4. Setting override
 To enable dedicated hybrid app feature, execute this:
-![](https://velog.velcdn.com/images/leeyosebi/post/eb9415c3-757d-44ed-9240-56280c1a054f/image.png)
+<img width="938" height="589" alt="image" src="https://github.com/user-attachments/assets/0da22689-4635-4153-abb2-91850434fce8" />
+
 
 ```shell
 New-SettingOverride -Name "EnableExchangeHybrid3PAppFeature" -Component "Global" -Section "ExchangeOnpremAsThirdPartyAppId" -Parameters @("Enabled=true") -Reason "Enable dedicated Exchange hybrid app feature"
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/e774bed0-d99c-4e48-a40f-fd06f7863c5f/image.png)
+<img width="1474" height="742" alt="image" src="https://github.com/user-attachments/assets/a8cef1c2-f80d-4f71-bd61-e2bc06b30fbc" />
+
 ```shell
 Get-ExchangeDiagnosticInfo -Process Microsoft.Exchange.Directory.TopologyService -Component VariantConfiguration -Argument Refresh | fl
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/0cc454b2-1a14-4c0f-842a-abcc71b9faa4/image.png)
+<img width="2262" height="1578" alt="image" src="https://github.com/user-attachments/assets/ef744df5-203c-4f9f-b25b-ab55bcab0a3a" />
+
 
 
 # 5. Verify application
 
 ## Application properties
 1. From Entra ID > App registration > Certificates & Secrets, you can see the OAuth certificate which obviously from the Exchange server
-![](https://velog.velcdn.com/images/leeyosebi/post/fc5c23ec-ca6d-4808-b8bb-e3fdbe81932a/image.png)
+<img width="3304" height="1614" alt="image" src="https://github.com/user-attachments/assets/c607194d-6d5c-4eb9-b72c-b1306d849e91" />
+
 
 2. Granted to use Office 365 Exchange Online which just as we configured from HCW
-![](https://velog.velcdn.com/images/leeyosebi/post/645da288-2eb1-40b9-8f36-0414479188d5/image.png)
+
+
+
+
 
 ## Application logs
 1. Create a new schedule from onboard mailbox(Cake01@cake.run.place)

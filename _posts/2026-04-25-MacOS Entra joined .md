@@ -14,7 +14,7 @@ Let's crack on with the post!
 # 1. PSSO concept
 Please refer this documents:
 
-[](https://learn.microsoft.com/en-us/entra/identity/devices/device-join-macos-platform-single-sign-on?tabs=password)
+<https://learn.microsoft.com/en-us/entra/identity/devices/device-join-macos-platform-single-sign-on?tabs=password>
 [](https://learn.microsoft.com/en-us/entra/identity/devices/device-join-microsoft-entra-company-portal?tabs=password)
 [](https://support.apple.com/guide/deployment/platform-sso-for-macos-dep7bbb05313/web)
 

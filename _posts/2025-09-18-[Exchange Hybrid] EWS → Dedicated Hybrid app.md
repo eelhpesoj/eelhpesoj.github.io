@@ -95,34 +95,40 @@ Get-ExchangeDiagnosticInfo -Process Microsoft.Exchange.Directory.TopologyService
 
 2. Granted to use Office 365 Exchange Online which just as we configured from HCW
 
-
-
+<img width="3240" height="902" alt="image" src="https://github.com/user-attachments/assets/c0c0fd1f-5eed-4700-b903-5acdb03a77b2" />
 
 
 ## Application logs
 1. Create a new schedule from onboard mailbox(Cake01@cake.run.place)
-![](https://velog.velcdn.com/images/leeyosebi/post/52f43024-4de6-4dfe-83d9-3c1739551d20/image.png)
+<img width="2736" height="1580" alt="image" src="https://github.com/user-attachments/assets/eb2e4469-b49c-4c85-9030-91a9cd916e51" />
+
 
 2. Query the schedule from on-premises mailbox(Cake02@cake.run.place)
-![](https://velog.velcdn.com/images/leeyosebi/post/b81e10eb-8a50-4356-97b0-b1b367affb16/image.png)
+<img width="1966" height="1676" alt="image" src="https://github.com/user-attachments/assets/1bb97225-0adb-42b3-bc08-4ee80f2ae147" />
+
 I just retrive the cake01's schedule arround 20:20.
 
 3. Let's see the logs. Go 'Entra ID > Signin logs > Service Principal'
-![](https://velog.velcdn.com/images/leeyosebi/post/4a0e77bd-0343-45b2-98af-d739e14db905/image.png)
+<img width="3152" height="1716" alt="image" src="https://github.com/user-attachments/assets/997fde38-d33a-4bb5-a529-c433e6b523dd" />
+
 It shown as '2025-09-18T11:16:52Z' and it is '2025-09-18 20:16:52 (KST)'
 
 4. Logs
 - The Dedicated hybrid app was trying to access to Exchange online
-![](https://velog.velcdn.com/images/leeyosebi/post/091f77e4-2e0f-4721-84eb-fb403381054d/image.png)
+<img width="1872" height="1780" alt="image" src="https://github.com/user-attachments/assets/0778d8c8-4935-4ee4-8c05-f5860dcf26a2" />
+
 - From the exchange server IP address is shown
-![](https://velog.velcdn.com/images/leeyosebi/post/6d80c9cf-5d8b-4bb1-8248-c1bf97ffaecb/image.png)
+<img width="1872" height="1780" alt="image" src="https://github.com/user-attachments/assets/e52f81e6-0622-41f4-be9c-3c5b303e5924" />
+
 
 So, the configuration looks good.
 
 # 6. NOTICE!
 You need to uncheck 'Oauth, Intra Organisation Connector and Organisation Relationship' from now on.. if not, you have to do all of this procedure again from the start..
-![](https://velog.velcdn.com/images/leeyosebi/post/0ce1129e-488f-488f-8058-d119a4eae84c/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/f3add643-ea37-4653-b44b-733226d4d283/image.png)
+<img width="1602" height="1262" alt="image" src="https://github.com/user-attachments/assets/3a3d94a4-e1c1-4190-bc8d-67a07cc2bf21" />
+
+<img width="1702" height="1024" alt="image" src="https://github.com/user-attachments/assets/e3e38b60-868c-46c3-bcb5-f75ffe960fd8" />
+
 
 
 

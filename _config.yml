@@ -279,3 +279,4 @@ defaults:
       toc_label: "On this page"
       toc_sticky: true
       toc_icon: "list"
+      classes: wide

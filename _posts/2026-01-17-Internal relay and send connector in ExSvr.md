@@ -6,8 +6,10 @@ In this case, how can we route the messages?
 There are so many architect for solutions. But I want to focus on the simple feature of the ExSvr.
 
 Here is a As-is and To-be:
-![](https://velog.velcdn.com/images/leeyosebi/post/8b4353ea-d307-4c1d-81be-769e2212459b/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/6d854180-72d8-4928-9525-ed8fbe588833/image.png)
+<img width="1006" height="1040" alt="image" src="https://github.com/user-attachments/assets/05be9cba-6977-4cdf-87f6-f53a2d23760f" />
+
+<img width="2532" height="1548" alt="image" src="https://github.com/user-attachments/assets/c33bba7f-8d00-48e2-b0dd-9f53ec753c3a" />
+
 
 
 So, the point here is you have to change the domain type from authoritative to Internal relay.
@@ -22,8 +24,8 @@ Let's find out what's should be done.
 
 # 1. Domain types in Accepted domain
 ref)
-- https://learn.microsoft.com/en-us/exchange/mail-flow/accepted-domains/accepted-domains#recipient-lookup-in-accepted-domains
-- https://learn.microsoft.com/en-us/exchange/mail-flow/accepted-domains/accepted-domain-procedures
+- <https://learn.microsoft.com/en-us/exchange/mail-flow/accepted-domains/accepted-domains#recipient-lookup-in-accepted-domains>
+- <https://learn.microsoft.com/en-us/exchange/mail-flow/accepted-domains/accepted-domain-procedures>
 
 We can create the domain name space which define how the exchange server transport message delivery.
 
@@ -34,30 +36,37 @@ We have to go with Internal relay at this time.
 
 If we set the domain as internal relay, this means, "Some recipients in the internal relay domain might exist in the Exchange organization."
 
-![](https://velog.velcdn.com/images/leeyosebi/post/c21f5181-0bf3-40ac-9488-59cd44489b8c/image.png)
+<img width="1644" height="1482" alt="image" src="https://github.com/user-attachments/assets/ee88f251-50c6-408a-b458-510fe27f7cc7" />
+
 
 
 
 # 2. Send connector
 From the microsoft document, the internal relay domain can be used with sedn connector to source the recipients.
-![](https://velog.velcdn.com/images/leeyosebi/post/157b1bcf-7ddb-4382-a89b-0dd101fa25b9/image.png)
+<img width="1584" height="718" alt="image" src="https://github.com/user-attachments/assets/6f44b0b5-7356-4eb1-8dbd-690a80e9629d" />
 
 
-![](https://velog.velcdn.com/images/leeyosebi/post/537796c2-a71d-4552-af31-73610118ef3e/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/5a869e23-a0e4-442d-8efa-3f6b2f088a02/image.png)
+
+<img width="1744" height="1514" alt="image" src="https://github.com/user-attachments/assets/6744b4ad-35ac-4bc3-905d-f8d76b2b5706" />
+
+<img width="1262" height="804" alt="image" src="https://github.com/user-attachments/assets/1e395e1a-cc6b-499a-b21d-0e7577db95d6" />
+
 
 
 # 3. Result
 Cakeadmin sends a message to cake3@all.run.place and alladmin@all.run.place.
 We can check from the message header from each delivered messages.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/b575ff1b-ea90-4ce0-b395-9285e85efde7/image.png)
+<img width="1648" height="290" alt="image" src="https://github.com/user-attachments/assets/69f5cc81-1ac5-434c-a7b6-4ebece8fadae" />
+
 
 from cake3@all.run.place:
-![](https://velog.velcdn.com/images/leeyosebi/post/62de8b4d-a4ef-40b8-bbe3-46bce74c441f/image.png)
+<img width="1648" height="290" alt="image" src="https://github.com/user-attachments/assets/8f0ec950-de6b-46e7-bbd8-994d4df89852" />
+
 
 from alladmin@all.run.place:
-![](https://velog.velcdn.com/images/leeyosebi/post/aa37073b-9dae-48c7-8351-dccd35170b70/image.png)
+<img width="1654" height="490" alt="image" src="https://github.com/user-attachments/assets/c9853dcf-bec7-4f12-8dc0-a094c05f1fb2" />
+
 
 
 Hope this can help you guys!

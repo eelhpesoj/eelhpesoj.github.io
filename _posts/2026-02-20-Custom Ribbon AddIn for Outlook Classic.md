@@ -3,7 +3,7 @@ In this post, I will share how to create Custom Ribbon AddIn to Outlook Classic.
 Hope this demo can help you!
 
 Project repository: 
-https://github.com/eelhpesoj/OutlookAddIn1
+- <https://github.com/eelhpesoj/OutlookAddIn1>
 https://github.com/user-attachments/assets/a85031ab-6d2d-449a-a93c-92115001b8c2
 
 [Index]
@@ -19,7 +19,7 @@ You don't need a enterprise version or something.
 Community version is totaly fine.
 
 Download installer: 
-https://visualstudio.microsoft.com/vs/community/
+- <https://visualstudio.microsoft.com/vs/community/>
 
 Install "Visual Studio Community 2026"
 ![](https://velog.velcdn.com/images/leeyosebi/post/70971819-dd02-476e-b2cf-7d0647c1c48b/image.png)
@@ -65,7 +65,7 @@ On the Ribbon1, right click and select Properties.
 
 And select the Ribbon type as "Microsoft.Outlook.Explorer" which means the custom ribbon will be located in the what I called "home" in the outlook. The default ribbon when you open the outlook.
 You can also set the ribbon only when you compose email or something elsewhere. Please search it from the Microsoft document.
-https://learn.microsoft.com/en-us/visualstudio/vsto/customizing-a-ribbon-for-outlook?view=visualstudio&tabs=csharp
+- <https://learn.microsoft.com/en-us/visualstudio/vsto/customizing-a-ribbon-for-outlook?view=visualstudio&tabs=csharp>
 ![](https://velog.velcdn.com/images/leeyosebi/post/7c4127f9-2409-41b6-b893-612825ade414/image.png)
 
 Set a tab name

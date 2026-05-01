@@ -7,3 +7,29 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+
+
+
+// 레이아웃 비율 조정
+.sidebar {
+  @include breakpoint($large) {
+    width: 18%;
+  }
+
+  @include breakpoint($x-large) {
+    width: 16%;
+  }
+}
+
+.page {
+  @include breakpoint($large) {
+    width: 82%;
+    padding-inline-end: 18%;
+  }
+
+  @include breakpoint($x-large) {
+    width: 84%;
+    padding-inline-end: 16%;
+  }
+}

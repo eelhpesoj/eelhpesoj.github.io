@@ -4,7 +4,8 @@ Hope this demo can help you!
 
 Project repository: 
 - <https://github.com/eelhpesoj/OutlookAddIn1>
-https://github.com/user-attachments/assets/a85031ab-6d2d-449a-a93c-92115001b8c2
+<img width="596" height="406" alt="image" src="https://github.com/user-attachments/assets/6acc413f-9ff9-44a6-a46c-0519f5383862" />
+
 
 [Index]
 1. Installation Visual Studio

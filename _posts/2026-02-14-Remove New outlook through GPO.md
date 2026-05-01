@@ -42,18 +42,23 @@ else {
 # 2. Create GPO
 
 Find "scheduled task" from computer configuration. and create the task.
-![](https://github.com/user-attachments/assets/16dffc45-1a44-4f81-9c53-f0881ad7a550)
+<img width="874" height="564" alt="image" src="https://github.com/user-attachments/assets/8101223e-458f-4d7e-90ae-8d86dbfdd473" />
+
 
 I just configured it as system context, the most high previlaged one.
-![](https://github.com/user-attachments/assets/09f484f2-f807-40a8-8eda-ba3d1e7cf87e)
+<img width="631" height="486" alt="image" src="https://github.com/user-attachments/assets/e65c4bb5-952c-40a0-8a63-7a0cfdb3b10b" />
+
 
 And here is the thing.
 Go to action tab. and edit.
-![](https://github.com/user-attachments/assets/a1b5e3a2-639d-4efd-a470-d609c1f10c15)
+<img width="631" height="486" alt="image" src="https://github.com/user-attachments/assets/22a36ff8-affa-4b32-b194-007e98f5d538" />
+
 
 
 Set those two value as below.
-![](https://github.com/user-attachments/assets/bc9fa470-a599-4e9d-a6ba-951b86f82608)
+
+<img width="403" height="422" alt="image" src="https://github.com/user-attachments/assets/407979c3-223b-4ac6-b1be-bfb0b9ca2176" />
+
 
 Program/script:
 ```

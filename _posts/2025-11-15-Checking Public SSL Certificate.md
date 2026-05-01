@@ -19,20 +19,26 @@ In this post, I will use my exchange server certificate issued to "mail.cake.run
 
 # 1. Using browser
 ## 1.1 Chrome
-![](https://velog.velcdn.com/images/leeyosebi/post/2f2f5e16-121e-4de6-bfef-0f199b22b943/image.png)
+<img width="387" height="319" alt="image" src="https://github.com/user-attachments/assets/e13c2ec6-4c21-4cb6-b746-4e74e373e6a7" />
 
-![](https://velog.velcdn.com/images/leeyosebi/post/9f4367e0-d2eb-4ac2-99fd-27c0ab136e0b/image.png)
 
-![](https://velog.velcdn.com/images/leeyosebi/post/2808e04e-34a6-4a80-b025-91a633de2860/image.png)
+<img width="358" height="296" alt="image" src="https://github.com/user-attachments/assets/e03077ef-0374-4b71-bdf4-202e3a02e1ff" />
+
+
+<img width="540" height="666" alt="image" src="https://github.com/user-attachments/assets/962ec4b5-7c03-4786-8353-9b458b9dff1d" />
+
 
 
 ## 1.2 Edge
 
-![](https://velog.velcdn.com/images/leeyosebi/post/5d8cb3f1-2ae7-415f-ae63-92021630ac62/image.png)
+<img width="412" height="284" alt="image" src="https://github.com/user-attachments/assets/c4a0b5dc-8b3b-4882-8051-2f45afe2ebca" />
 
-![](https://velog.velcdn.com/images/leeyosebi/post/92a840bd-98e9-405e-93ec-ea6b8b157199/image.png)
 
-![](https://velog.velcdn.com/images/leeyosebi/post/d8e0aaec-84ab-4a14-bf02-67968173b32e/image.png)
+<img width="425" height="285" alt="image" src="https://github.com/user-attachments/assets/5f0188fc-db77-4462-98f7-e81db31098ac" />
+
+
+<img width="549" height="676" alt="image" src="https://github.com/user-attachments/assets/b42bdb96-4e0c-49f8-8146-7f9a6d4ea84c" />
+
 
 # 2. Using command
 ## 2.1 Curl
@@ -41,7 +47,8 @@ Just simply execute this command from the terminal.
 curl -v https://mail.cake.run.place
 ```
 e.g.,
-![](https://velog.velcdn.com/images/leeyosebi/post/f958e431-a437-418f-921b-df99355f72a5/image.png)
+<img width="981" height="1062" alt="image" src="https://github.com/user-attachments/assets/46e96bf9-9120-45df-97da-e76a8c68b090" />
+
 
 
 ## 2.2 OpenSSL
@@ -52,7 +59,8 @@ openssl s_client -connect mail.cake.run.place:443 </dev/null 2>/dev/null \
 ```
 
 e.g.,
-![](https://velog.velcdn.com/images/leeyosebi/post/824e6d88-b6ba-4389-a8ec-bd87300324fa/image.png)
+<img width="911" height="160" alt="image" src="https://github.com/user-attachments/assets/6f6df760-6e85-4ec8-8a6f-d7671ad6581b" />
+
 
 ## 2.3 PowerShell
 
@@ -66,12 +74,13 @@ $request.ServicePoint.Certificate.Issuer
 ```
 
 e.g.,
-![](https://velog.velcdn.com/images/leeyosebi/post/1b726dc8-e043-4d61-a9bd-942bc15b0d4b/image.png)
+<img width="1602" height="467" alt="image" src="https://github.com/user-attachments/assets/31474c62-f501-4c16-9848-614182609809" />
+
 
 - Ref: Requirements for AIP
-https://learn.microsoft.com/en-us/purview/rights-management-requirements#firewalls-and-network-infrastructure
+<https://learn.microsoft.com/en-us/purview/rights-management-requirements#firewalls-and-network-infrastructure>
 - Ref: HttpWebRequest Class
-https://learn.microsoft.com/en-us/dotnet/api/system.net.httpwebrequest?view=net-9.0
+<https://learn.microsoft.com/en-us/dotnet/api/system.net.httpwebrequest?view=net-9.0>
 
 
 2. More Classic way
@@ -92,16 +101,17 @@ $ssl.Close()
 ```
 
 e.g.,
-![](https://velog.velcdn.com/images/leeyosebi/post/f2b311ab-92ed-40ad-bddb-3a24589977f3/image.png)
+<img width="1774" height="626" alt="image" src="https://github.com/user-attachments/assets/0fcfb69b-fa72-414c-b267-d84f8bcf857b" />
+
 
 - Ref: TcpClient Class
-https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient?view=net-9.0
+<https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient?view=net-9.0>
 - Ref: SslStream Class
-https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream?view=net-9.0
+<https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream?view=net-9.0>
 - Ref:SslStream.AuthenticateAsClient Method
-https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream.authenticateasclient?view=net-8.0
+<https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream.authenticateasclient?view=net-8.0>
 - Ref: X509Certificate2 Class
-https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2?view=net-9.0
+<https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2?view=net-9.0>
 
 # Result
 For the AIP or entra id hybrid joined devices, you should bypass some urls from the ssl inspection. Or you might struggle to troubleshoot to resolve it.

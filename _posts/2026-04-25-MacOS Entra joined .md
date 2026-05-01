@@ -20,7 +20,7 @@ Please refer this documents:
 
 # 2. Intune policy configuration
 I just follow the configuration from the document below.
-https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/configure-platform-sso-macos
+- <https://learn.microsoft.com/en-us/intune/device-configuration/settings-catalog/configure-platform-sso-macos>
 
 <img width="544" height="887" alt="image" src="https://github.com/user-attachments/assets/c3fc0160-9934-45e6-9623-5993f331077b" />
 

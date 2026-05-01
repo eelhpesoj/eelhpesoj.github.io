@@ -1,68 +1,27 @@
 {% if paginator.total_pages > 1 %}
 <nav class="pagination">
-  {% assign paginate_path_last = site.paginate_path | split: '/' | last %}
-  {% assign first_page_path = paginator.first_page_path | default: site.paginate_path | replace: paginate_path_last, '' | replace: '//', '/' | relative_url %}
-  <ul>
-    {% comment %} Previous {% endcomment %}
-    {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-        <li><a href="{{ first_page_path }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a></li>
-      {% else %}
-        <li><a href="{{ site.paginate_path | replace: ':num', paginator.previous_page | replace: '//', '/' | relative_url }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</a></li>
-      {% endif %}
+
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination--pager">Previous</a>
+  {% else %}
+    <span class="pagination--pager disabled">Previous</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <span class="pagination--pager current">{{ page }}</span>
+    {% elsif page == 1 %}
+      <a href="{{ '/' | relative_url }}" class="pagination--pager">{{ page }}</a>
     {% else %}
-      <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</span></a></li>
+      <a href="{{ site.paginate_path | replace: ':num', page | relative_url }}" class="pagination--pager">{{ page }}</a>
     {% endif %}
+  {% endfor %}
 
-    {% comment %} 페이지 번호 — 윈도우: 현재 기준 앞뒤 2개, 항상 1과 마지막 페이지 표시 {% endcomment %}
-    {% assign window = 2 %}
-    {% assign total = paginator.total_pages %}
-    {% assign current = paginator.page %}
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="pagination--pager">Next</a>
+  {% else %}
+    <span class="pagination--pager disabled">Next</span>
+  {% endif %}
 
-    {% for i in (1..total) %}
-      {% assign diff = current | minus: i %}
-      {% if diff < 0 %}{% assign diff = 0 | minus: diff %}{% endif %}
-
-      {% assign show = false %}
-      {% if i == 1 %}{% assign show = true %}{% endif %}
-      {% if i == total %}{% assign show = true %}{% endif %}
-      {% if diff <= window %}{% assign show = true %}{% endif %}
-
-      {% if show %}
-        {% comment %} 앞 gap → ... {% endcomment %}
-        {% if i == 1 %}
-          {% assign next_i = 2 %}
-        {% else %}
-          {% assign next_i = i %}
-        {% endif %}
-        {% assign prev_show_end = current | minus: window %}
-        {% if i > 2 and i == prev_show_end %}
-          <li><a href="#" class="disabled">&hellip;</a></li>
-        {% endif %}
-
-        {% if i == current %}
-          <li><a href="#" class="disabled current">{{ i }}</a></li>
-        {% elsif i == 1 %}
-          <li><a href="{{ first_page_path }}">{{ i }}</a></li>
-        {% else %}
-          <li><a href="{{ site.paginate_path | replace: ':num', i | replace: '//', '/' | relative_url }}">{{ i }}</a></li>
-        {% endif %}
-
-        {% comment %} 뒤 gap → ... {% endcomment %}
-        {% assign next_show_start = current | plus: window | plus: 1 %}
-        {% if i == total | minus: 1 and next_show_start < total %}
-          <li><a href="#" class="disabled">&hellip;</a></li>
-        {% endif %}
-
-      {% endif %}
-    {% endfor %}
-
-    {% comment %} Next {% endcomment %}
-    {% if paginator.next_page %}
-      <li><a href="{{ site.paginate_path | replace: ':num', paginator.next_page | replace: '//', '/' | relative_url }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</a></li>
-    {% else %}
-      <li><a href="#" class="disabled"><span aria-hidden="true">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</span></a></li>
-    {% endif %}
-  </ul>
 </nav>
 {% endif %}

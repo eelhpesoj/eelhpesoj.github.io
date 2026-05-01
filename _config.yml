@@ -103,13 +103,13 @@ author:
 
     - label      : "LinkedIn"
       icon       : "fab fa-fw fa-linkedin"
-      url        : "https://www.linkedin.com/in/joseph-lee-870660260/"
+      url        : "https://www.linkedin.com/in/eelhpesoj"
 
     - label      : "Contact Me: Joseph Lee"
       icon       : "fas fa-fw fa-envelope"
-      url        : "mailto:leeyosebi@gmail.com"
+      url        : "mailto:eelhpesoj@outlook.com"
 
-    - label      : "Request Us: Engineering team"
+    - label      : "Engineer team: Dobbineer"
       icon       : "fas fa-fw fa-envelope"
       url        : "mailto:dobbineer@gmail.com"
 

@@ -9,7 +9,8 @@ So, I was looking for collegues. Because this Hackerthon required team of three 
 And while brainstorming, we thought it might be interesting to control company facilities such as lights and air conditioning with Copilot.
 
 Here is the architecture:
-![](https://velog.velcdn.com/images/leeyosebi/post/35ed10c3-661b-4bda-ae11-c5bf4c6465ac/image.png)
+<img width="1769" height="964" alt="image" src="https://github.com/user-attachments/assets/cc25f27b-2f7f-4bb6-b607-822ae0a36ee0" />
+
 From the previews I set up, in this post I’m only presenting the light bulb.
 
 # 1. Bulb control(Yeelight)
@@ -19,9 +20,10 @@ From the previews I set up, in this post I’m only presenting the light bulb.
 
 ## 2. Discover the Bulb and control using python module
 Yeelight Python documentation:
-https://yeelight.readthedocs.io/en/latest/
+<https://yeelight.readthedocs.io/en/latest/>
 
 - You can use this command to discover any IoT bulbs in your LAN. You can specify the Bulb's IP address.
+
 ```python
 # Import module
 from yeelight import discover_bulbs, Bulb
@@ -31,6 +33,7 @@ bulbs = discover_bulbs()
 ```
 
 - Turn on/off based on the bulb's status from its property.
+
 ```python
 # Get properties
 bulb = Bulb("ip: x.x.x.x, port: 55443")
@@ -53,7 +56,7 @@ elif getLightStatus == 'off':
 Based on the document below, you can control with its IP address using TCP socket connection.
  
 Yeelight specification:
-https://www.yeelight.com/download/Yeelight_Inter-Operation_Spec.pdf
+<https://www.yeelight.com/download/Yeelight_Inter-Operation_Spec.pdf>
 
 ```shell
 telnet <Bulb's IP address> 55443
@@ -153,10 +156,12 @@ sudo pfctl -e
 
 # 3. Prepare Azure fn and Copilot studio
 Create the azure fn and upload the powershell script aboave.
-![](https://velog.velcdn.com/images/leeyosebi/post/e05fe348-d927-47d5-997f-efffd82d9a07/image.png)
+<img width="1912" height="1044" alt="image" src="https://github.com/user-attachments/assets/7c544378-8a93-4004-ae4b-c7480d048f6b" />
+
 And go to copilot studio and call the azure fn powershell script when the keyword input from the agent's prompt.
-![](https://velog.velcdn.com/images/leeyosebi/post/bfec0ef6-9a93-4c89-971e-59772a9c6a92/image.png)
+<img width="860" height="990" alt="image" src="https://github.com/user-attachments/assets/1d870448-36d2-4d3d-a6bb-26b1b3398cb0" />
+
 
 # Result
 You can check if the prompt works. See my linked in post.
-https://www.linkedin.com/posts/joseph-lee-870660260_%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-iot-%EC%9E%A5%EB%B9%84%EB%93%A4%EC%9D%84-%EC%A0%9C%EC%96%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EC%95%88%EC%9D%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A4%91%EC%9E%85%EB%8B%88%EB%8B%A4-activity-7367912344322002944-t3Gv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEArMtQBdLNrlmK8q6Pj3csifHuOJc_7yyo
+<https://www.linkedin.com/posts/joseph-lee-870660260_%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%B4%EC%84%9C-iot-%EC%9E%A5%EB%B9%84%EB%93%A4%EC%9D%84-%EC%A0%9C%EC%96%B4%ED%95%98%EB%8A%94-%EB%B0%A9%EC%95%88%EC%9D%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%A4%91%EC%9E%85%EB%8B%88%EB%8B%A4-activity-7367912344322002944-t3Gv?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEArMtQBdLNrlmK8q6Pj3csifHuOJc_7yyo>

@@ -15,7 +15,7 @@ So, this post will let you led how to create a VM runs mac os.
 
 # 1. Download UTM application
 Go to the link to get the UTM for mac.
-https://mac.getutm.app/ ![](https://mac.getutm.app/)
+[https://ipsw.me/](https://ipsw.me/)
 
 <img width="1208" height="640" alt="Screenshot 2026-04-25 at 16 13 15" src="https://github.com/user-attachments/assets/f5c32906-8ac7-403d-8977-0f47619da2f0" />
 

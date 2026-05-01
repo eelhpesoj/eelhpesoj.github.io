@@ -4,6 +4,7 @@ Hope this demo can help you!
 
 Project repository: 
 - <https://github.com/eelhpesoj/OutlookAddIn1>
+
 <img width="596" height="406" alt="image" src="https://github.com/user-attachments/assets/6acc413f-9ff9-44a6-a46c-0519f5383862" />
 
 
@@ -23,70 +24,75 @@ Download installer:
 - <https://visualstudio.microsoft.com/vs/community/>
 
 Install "Visual Studio Community 2026"
-![](https://velog.velcdn.com/images/leeyosebi/post/70971819-dd02-476e-b2cf-7d0647c1c48b/image.png)
+<img width="1894" height="892" alt="image" src="https://github.com/user-attachments/assets/5fc783c2-1fe8-40f6-a436-1a6c25771155" />
+
 
 Select "Microsoft 365 development"
-![](https://velog.velcdn.com/images/leeyosebi/post/cfcdfb8c-483f-4b03-bfe2-387e7c7b5ff7/image.png)
+<img width="1894" height="892" alt="image" src="https://github.com/user-attachments/assets/06deee4d-441e-4451-a0ec-d3985ae62e11" />
 
-![](https://velog.velcdn.com/images/leeyosebi/post/c54fe2a0-408d-4edb-ae5f-073d08241ec5/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/b66c46f0-dde7-438d-9600-89b80b9686f2" />
+
 
 Launch it when it's done
-![](https://velog.velcdn.com/images/leeyosebi/post/f7dd8254-fec5-4229-9a56-0696816ac8c7/image.png)
+<img width="1894" height="896" alt="image" src="https://github.com/user-attachments/assets/d442c48f-62da-4331-b40a-bf2598927856" />
 
 Sign in. Recommended to use github.
-![](https://velog.velcdn.com/images/leeyosebi/post/b2402ba9-65f1-4a67-b300-d9f231110720/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/8ef3d143-9bcf-47fe-a2b6-858226177343" />
 
-![](https://velog.velcdn.com/images/leeyosebi/post/e2121ccd-9272-455e-ac5e-1686697b8824/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/258dd4e6-c452-4ab8-80b5-2d0b8da3b526" />
 
 
 
 # 2. Create project and Add-in setup
 Create new project
-![](https://velog.velcdn.com/images/leeyosebi/post/553a7424-5414-467b-ba54-dcb666f51c8b/image.png)
+<img width="1894" height="896" alt="image" src="https://github.com/user-attachments/assets/8965948e-0286-4644-927c-53f964a6e34d" />
+
 
 Search "outlook" and select "Outlook VSTO Add-ins"
-![](https://velog.velcdn.com/images/leeyosebi/post/7f8ddb9d-c031-4b89-80ee-31c2d963ddaa/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/377277e2-0113-40dd-94ad-5640abe75be7" />
+
 
 Create
-![](https://velog.velcdn.com/images/leeyosebi/post/d058bf51-edad-4778-9f5a-da66e73bab0a/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/0ff65e67-5090-41c5-9f1e-a3b8270ab93a" />
 
 From the top of the project name, right click and add New item.
-![](https://velog.velcdn.com/images/leeyosebi/post/6f88b7f5-462f-4abf-9992-296759290d2e/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/9bf77105-01f5-46ff-a82d-ba08483c3b42" />
 
 Show all templates
-![](https://velog.velcdn.com/images/leeyosebi/post/2f705e11-e321-4d07-a444-5534633065b9/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/80edce29-8254-49a0-9d50-13cfa4c295bd" />
 
 Find Ribbon(Visual Designer)
-![](https://velog.velcdn.com/images/leeyosebi/post/607fdb42-8b99-4056-a211-507b6478ce32/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/83096313-9530-4bc5-a67b-822e93b7a49c" />
 
 Once you add new item with the template, you can see the similar one with the outlook ribbon.
 This is a visual editor as the template describes.
 On the Ribbon1, right click and select Properties.
-![](https://velog.velcdn.com/images/leeyosebi/post/6203f086-2285-4c63-b447-e41d81f4af5d/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/71e4ddd3-daf3-4e0d-bc3a-cbc58e37b621" />
 
 And select the Ribbon type as "Microsoft.Outlook.Explorer" which means the custom ribbon will be located in the what I called "home" in the outlook. The default ribbon when you open the outlook.
 You can also set the ribbon only when you compose email or something elsewhere. Please search it from the Microsoft document.
 - <https://learn.microsoft.com/en-us/visualstudio/vsto/customizing-a-ribbon-for-outlook?view=visualstudio&tabs=csharp>
-![](https://velog.velcdn.com/images/leeyosebi/post/7c4127f9-2409-41b6-b893-612825ade414/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/4193f0af-f0a2-44db-a271-8fe646c438ba" />
 
 Set a tab name
-![](https://velog.velcdn.com/images/leeyosebi/post/65ab6c29-b013-4471-9be2-0d37427d01c6/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/008fcab7-407f-41fb-a0dc-9a42ad4597b9" />
 
 Set a group name
-![](https://velog.velcdn.com/images/leeyosebi/post/2e650606-4358-4cf4-94c4-0819760dfdd0/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/6ea50f8c-a72f-42cf-9873-218a64d5d2ef" />
 
 From the "veiw", open the "tool box"
-![](https://velog.velcdn.com/images/leeyosebi/post/e2609aa2-d46d-45cb-897f-d35b1356ff2d/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/6c0a3fe6-ac3d-40ee-b399-8fd2f148bfea" />
 
 Drag "button" and drop to the "Help?(group)"
-![](https://velog.velcdn.com/images/leeyosebi/post/d465cf50-72ae-4cad-8b3b-fad3b6ce337e/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/45cbf620-21e5-4c8b-9275-58a7ea3282db" />
 
 Customize the button. Set the image and button name.
-![](https://velog.velcdn.com/images/leeyosebi/post/c5ced9c5-58d7-441e-b80b-7d0fb4fbac89/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/ed48c668-5414-4db3-8792-2cc9c210a498" />
 
 If you double click the button, you can define the action.
 In this case, I will just open the website using the system default browser.
-![](https://velog.velcdn.com/images/leeyosebi/post/fd0f872b-a776-49bd-884e-c0436d6a7114/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/09871a42-62d0-489a-bd1a-ab21407973f8" />
+
 Here is the whole code:
 ````csharp
 //Ribbon1.cs
@@ -131,50 +137,52 @@ And you can start a debug if this ribbon is ready to publish or not. Press F5 or
 
 # 3. Debug and Publish
 The classic outlook will be launched automatically and the temp .dll file addin.
-![](https://velog.velcdn.com/images/leeyosebi/post/3b125f31-5451-4a09-9bf7-617af7f14a9a/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/4059f8a9-6e63-4c6b-a9aa-5e359b16e383" />
 
 You can see the addin we created. If the button works nomally and looks fine, close the outlook. and the debug mode will be terminated automatically as well.
-![](https://velog.velcdn.com/images/leeyosebi/post/613ffe05-d759-4c19-a659-095c7e7cf604/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/354ee90c-f145-41f3-9d53-953c3163a060" />
 
 And go back to the Visual Studio. From the top of the project name, right click and select "Publish".
-![](https://velog.velcdn.com/images/leeyosebi/post/000e925e-7c36-4762-af59-d7df6f0b35a6/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/735c1ce5-42aa-46f8-9987-d1f17c0913bd" />
 
 Browse where you want to pulish the installation file.
-![](https://velog.velcdn.com/images/leeyosebi/post/4f0cf75a-e92b-4385-9495-3f6557ffe389/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/75380a45-cee6-4228-b4c4-13cea6b1ac85" />
 
 Select the last option
-![](https://velog.velcdn.com/images/leeyosebi/post/67c60561-6ce3-46f3-a644-6d4682a1bf94/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/683d288e-5c2a-4447-ba81-afd25b12fffb" />
 
 Click finish 
-![](https://velog.velcdn.com/images/leeyosebi/post/a8e1af5f-0a10-4ce1-880a-6c76c3a35976/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/49c9c57f-c1c8-456d-89ef-ab0d76c0ecbc" />
 
 # 4. Install and Results
 When you finisth the publish, you can get the three things as shown in the image.
 To install the custom addin, those three files has to located in the same directory.
 And execute the "setup.exe".
-![](https://velog.velcdn.com/images/leeyosebi/post/e2bf980c-77af-481e-86f2-70d56f7d5fa5/image.png)
+<img width="615" height="108" alt="image" src="https://github.com/user-attachments/assets/f0649285-0392-47d9-94ab-8916b908c002" />
 
 We didn't sign the installation file, you may encounter that this is not a trusted publisher. But still you can proceed.
-![](https://velog.velcdn.com/images/leeyosebi/post/4312e4fa-7338-4b79-b590-9eb89fb5e3b7/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/38eeddd5-a737-45f2-9e1a-e6e8ce9a1ab7" />
 
-![](https://velog.velcdn.com/images/leeyosebi/post/838371c0-713f-49d1-a963-66837c8096e3/image.png)
+<img width="1894" height="894" alt="image" src="https://github.com/user-attachments/assets/34445dc6-3822-4fbd-a0c0-fddb635c0675" />
 
 After the installation has done successfully, you can check from the "Programm and features".
-![](https://velog.velcdn.com/images/leeyosebi/post/8eba50f0-5f65-48b4-9dfa-7d6419be3adb/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/717a5b50-b4b4-492c-bdd4-1ac30e625da7" />
 
 Now, open the outlook classic.
-![](https://velog.velcdn.com/images/leeyosebi/post/81d07b92-fc30-4911-b81a-f53f25f589bf/image.png)
+<img width="1894" height="895" alt="image" src="https://github.com/user-attachments/assets/babf1201-9593-4186-b7af-52aed9da0200" />
 
 You can see the addin
 
-![](https://velog.velcdn.com/images/leeyosebi/post/b9ff007a-b360-409c-aac8-322cc796243e/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/7bafe08d-60f9-4ef8-9e54-5e063579b2cb/image.png)
+<img width="401" height="249" alt="image" src="https://github.com/user-attachments/assets/f1e5354f-4cd0-47a6-bf83-e830fcc681da" />
+
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/e351ef4e-7078-41cb-bf0e-be2813a8cc54" />
 
 And you can see the addin list from "Files > Options"
-![](https://velog.velcdn.com/images/leeyosebi/post/981b2fc2-ee09-415a-b269-9c5aac0bc4d8/image.png)
+<img width="1894" height="896" alt="image" src="https://github.com/user-attachments/assets/b2e7bd35-12c2-4fac-bab7-8273e25db6f5" />
 
 Customize Ribbon as well
-![](https://velog.velcdn.com/images/leeyosebi/post/eb8909d8-47f8-4055-a2f0-f99749ce05d5/image.png)
+<img width="1894" height="893" alt="image" src="https://github.com/user-attachments/assets/2b9cecd4-83b3-434f-8d71-898520a5ce40" />
+
 
 So, this is it.
 This whole process is just a demo, maybe you can set the URL as you want like internal private website like or anything.

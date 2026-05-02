@@ -1,10 +1,13 @@
 ---
-title: "Understanding Digital Signing with PKI"
+title: "Understanding Digital Signing"
 ---
 
 # 0. Overview
 You've probably seen a message like "This software is from a trusted publisher" — or the opposite, a Windows Defender warning that says "This file has no digital signature." The mechanism behind both of those is **code signing**.
 The fastest way to understand code signing is to compare it with HTTPS, which most developers are already familiar with. Both use a public/private key pair, but they use those keys in opposite directions — and that difference is everything.
+
+Related post: <https://eelhpesoj.github.io/AD-CA-Setup-&-Sign-intune-PowerShell-Script/>
+Ref: <https://learn.microsoft.com/ko-kr/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537361(v=vs.85)>
  
 
 [Index]

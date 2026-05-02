@@ -1,5 +1,7 @@
 ---
 title: "Add-AzureADGroupMember"
+categories:
+  - Entra ID
 ---
 
 ### 1. 요약:

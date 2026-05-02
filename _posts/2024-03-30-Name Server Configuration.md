@@ -1,5 +1,9 @@
 ---
 title: "Name Server Configuration"
+categories:
+  - On-Premises
+  - DNS
+  - Network
 ---
 
 # Summary

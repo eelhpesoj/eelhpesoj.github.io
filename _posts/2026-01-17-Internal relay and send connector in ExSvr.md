@@ -2,7 +2,7 @@
 title: "Internal relay and send connector in ExSvr"
 categories:
   - On-Premises
-  - Exchange
+  - Exchange Server
 ---
 
 # 0. Overview

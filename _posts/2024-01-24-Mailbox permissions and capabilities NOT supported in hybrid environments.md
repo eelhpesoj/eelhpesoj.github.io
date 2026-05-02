@@ -1,5 +1,10 @@
 ---
 title: "Mailbox permissions and capabilities NOT supported in hybrid environments"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Entra ID Connect
 ---
 
 

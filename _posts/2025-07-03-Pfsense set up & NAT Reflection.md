@@ -1,5 +1,8 @@
 ---
 title: "Pfsense set up & NAT Reflection"
+categories:
+  - On-Premises
+  - Network
 ---
 
 # 0. Summary

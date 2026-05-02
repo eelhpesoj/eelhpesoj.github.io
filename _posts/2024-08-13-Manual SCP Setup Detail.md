@@ -3,38 +3,50 @@
 
 To give you more specific details of:
 
-https://velog.io/@leeyosebi/Manual-SCP-Setup
+<https://eelhpesoj.github.io/Manual-SCP-Setup/>
 
 # 1. SCP configuration maunally
 ## 1. Create new container
 1. Run ADSI Edit
-![](https://velog.velcdn.com/images/leeyosebi/post/20b28f3c-c073-45c0-9922-bf8a4a060d67/image.png)
+<img width="669" height="183" alt="image" src="https://github.com/user-attachments/assets/7bd64759-b799-4194-8e40-ff85470879ff" />
+
 2. Connect to configuration
-![](https://velog.velcdn.com/images/leeyosebi/post/374efef9-3ccd-49cd-be0c-79b14f075e31/image.png)
+<img width="382" height="388" alt="image" src="https://github.com/user-attachments/assets/714312f6-dda8-448b-82b7-c5a89ca7ff0b" />
+
 3. Create New object under the Services
-![](https://velog.velcdn.com/images/leeyosebi/post/868aba27-bee5-465c-ba70-f91948540f87/image.png)
+<img width="483" height="281" alt="image" src="https://github.com/user-attachments/assets/f0cebd2c-612d-4d91-904d-d2615e33342a" />
+
 4. The class should be 'container'
-![](https://velog.velcdn.com/images/leeyosebi/post/20480536-49e3-4160-9e5f-be938ff8d3cf/image.png)
+<img width="439" height="380" alt="image" src="https://github.com/user-attachments/assets/3afe0567-c379-478c-8486-e05ab1a13d09" />
+
 5. Set value as 'Device Registration Configuration'
-![](https://velog.velcdn.com/images/leeyosebi/post/1506cf22-8e53-4a2e-bef7-c981e6bc796b/image.png)
+<img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/ef513bef-d064-4f12-8598-b4eb905fba41" />
+
 6. Click Finish
-![](https://velog.velcdn.com/images/leeyosebi/post/db2a08b5-e2a4-407e-b50c-7a4e8576ca60/image.png)
+<img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/629ac470-12a0-49dc-a44c-9632f463c0de" />
+
 ## 2. Create Service Connection Point
 1. Create new object under the 'Device Registration Configuration'
-![](https://velog.velcdn.com/images/leeyosebi/post/7cfece7b-6abf-49c6-bff6-05929fa1c21e/image.png)
+<img width="579" height="281" alt="image" src="https://github.com/user-attachments/assets/b6d17805-3121-40a4-8e0b-acbc52fac580" />
+
 2. The class should be 'serviceConnectionPoint'
-![](https://velog.velcdn.com/images/leeyosebi/post/50ab5941-299b-4bff-ac56-af1291e8b7c2/image.png)
+<img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/a2d03bbb-7d24-4dff-b3fd-c25958576e6a" />
+
 3. Set value as '62a0ff2e-97b9-4513-943f-0d221bd30080'
-![](https://velog.velcdn.com/images/leeyosebi/post/ff629b78-6d05-4219-81dd-c6d95655f5c8/image.png)
+<img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/9a0fa722-5d5e-428f-908d-e8a548a72fd7" />
+
 4. Set more attributes
-![](https://velog.velcdn.com/images/leeyosebi/post/e0c5f8a6-85c3-4f19-b6ae-4e92419403bb/image.png)
+<img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/70c709a6-a5a2-478e-9d77-d76414e99b4f" />
+
 5. Configure just like this
-![](https://velog.velcdn.com/images/leeyosebi/post/716e214d-c1f8-4663-b06e-a0f3f770e953/image.png)
+<img width="402" height="457" alt="image" src="https://github.com/user-attachments/assets/f931aeef-efd0-48e3-850f-cef09ed06f33" />
+
 **[note]**
 azureADName is the domain name enrolled to your tenant.
 azureADId is the tenant GUID.
 6. Click 'Finish'
-![](https://velog.velcdn.com/images/leeyosebi/post/3b196c44-a695-4fc5-a2ab-0aa3d89c6fe0/image.png)
+<img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/4a723b13-abc2-455c-b2af-53d638972792" />
+
 
 ## Check using Powershell
 ```shell
@@ -43,7 +55,8 @@ $scp = New-Object System.DirectoryServices.DirectoryEntry
 $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,$ConfigurationPartition"
 $scp.Keywords
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/460ade81-5722-4b84-8e1f-2396d6035188/image.png)
+<img width="816" height="607" alt="image" src="https://github.com/user-attachments/assets/52763101-af2e-4d9c-bffb-0827b9923565" />
+
 
 # 2. Intune Auto Enrollment
 If you deploy service connection point, you might also need to enroll the devices to the Intune automatically.
@@ -51,38 +64,51 @@ So the steps below is to make GPO and link it to the device OU to enroll the dev
 
 ## 1. Preparation
 1. Download the latest admx
-![](https://velog.velcdn.com/images/leeyosebi/post/c149ab2e-155f-4478-bae5-be70c9c5f1f6/image.png)
+<img width="1920" height="904" alt="image" src="https://github.com/user-attachments/assets/1422a6f2-25ed-4e74-9d66-1c8ffd403803" />
+
 2. Install it
-![](https://velog.velcdn.com/images/leeyosebi/post/0dbb5513-728c-46bf-b559-961d598f5b02/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/5c275f07-3406-443a-8cb1-de595b875c8d/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/54686442-1a35-4dc2-acb7-d45e98c32281/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/b686e263-e1ce-4f24-bf7a-e01ac63e2b23/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/1263fc17-bf82-4be4-bf5b-d22f7511c42a/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/26158c8e-6d42-4d67-824f-aa9735a2b23c/image.png)
+<img width="114" height="208" alt="image" src="https://github.com/user-attachments/assets/221896c6-3222-4c49-938c-638b28c6eff6" />
+
+<img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/516c57af-878b-4c62-b155-d085cf3eb049" />
+
+<img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/9725aa6f-be39-46c0-b643-c6356762ef15" />
+
+<img width="573" height="450" alt="image" src="https://github.com/user-attachments/assets/c1acc5fd-7968-429b-bef5-7972e97c7360" />
+
+<img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/f0eec0d3-1615-4bd6-88b0-cbf8f431e717" />
+
+<img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/6a3a92b9-7a40-4448-b73b-ca27359578d9" />
+
 3. Go to the following path and copy all items right here.
 ```
 C:\Program Files (x86)\Microsoft Group Policy\Windows 11 October 2023 Update (23H2)\PolicyDefinitions
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/5988a4c3-b3d1-401e-a3c2-bd0df66f1146/image.png)
+<img width="809" height="635" alt="image" src="https://github.com/user-attachments/assets/dd3a7822-80f6-4b73-8818-4ee970c9eb40" />
+
 
 4. Go to the following path and pate here.
 ```
 C:\Windows\SYSVOL\sysvol\cake.run.local\Policies\PolicyDefinitions
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/3fc40423-c370-49f1-888d-b2248b5e5991/image.png)
+<img width="791" height="635" alt="image" src="https://github.com/user-attachments/assets/9c1c1db6-157d-484c-91a0-bec49f9d733f" />
+
 
 ## 2. Create GPO
 1. Run Group Policy Management and create new GPO.
-![](https://velog.velcdn.com/images/leeyosebi/post/e79b2430-3da5-4efd-a8d4-885584255b84/image.png)
+<img width="413" height="181" alt="image" src="https://github.com/user-attachments/assets/cb54ac12-841b-42cf-9e01-a082e9375a10" />
+
 2. Edit it.
-![](https://velog.velcdn.com/images/leeyosebi/post/d69b56c6-d61a-4778-9a2d-79b5e4718572/image.png)
+<img width="280" height="95" alt="image" src="https://github.com/user-attachments/assets/28bbedc6-165a-4cae-ae60-beb45c48d1b7" />
+
 3. Got to the following path and configure 'Enable automatic MDM enrollment using default Azure AD credentials'
 ```
 Computer Configuration > policies > administrative templates > Windows components > MDM
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/8e12a1d5-98cf-4d3d-923e-360c34c8c8a8/image.png)
+<img width="789" height="567" alt="image" src="https://github.com/user-attachments/assets/35a4860b-447e-449d-9bf5-9c2946b1c8c5" />
+
 4. Configure just like this
-![](https://velog.velcdn.com/images/leeyosebi/post/41dbc52d-8920-4d8c-9dd9-0dd4113c4bcd/image.png)
+<img width="688" height="638" alt="image" src="https://github.com/user-attachments/assets/64e90c4b-cf49-4db3-a259-e96fa425d097" />
+
 ## Client side
 Client might need to execute the command:
 ```shell

@@ -1,5 +1,8 @@
 ---
 title: "Event ID 1074 on WinSvr 2022 Standard Evaluation"
+categories:
+  - On-Premises
+  - Windows Server
 ---
 
 

@@ -1,5 +1,8 @@
 ---
 title: "[JAVA] Number Guessing Game with Package"
+categories:
+  - Programming
+  - Java
 ---
 
 # Source Code

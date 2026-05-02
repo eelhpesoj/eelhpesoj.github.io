@@ -5,7 +5,8 @@
 When you are trying to set up the AIP label, you can see the 'Groups & sites' checkbox is disabled.
 In this posts, we will find out how to enable is feature.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/022a1a91-2599-4634-a7d5-b8b92d4a8685/image.png)
+<img width="1872" height="921" alt="image" src="https://github.com/user-attachments/assets/4a629236-e8ea-4ff4-92d9-a406b1c5e305" />
+
 
 
 ---
@@ -47,7 +48,7 @@ $Setting = $Template.CreateDirectorySetting()
 $Setting[“EnableMIPLabels”] = “True”
 ```
 ### 4. Reference
-- https://msftcompliance.com/blog/enabling-container-level-sensitivity-labelling-in-microsoft-365/
-- https://prairiedeveloper.com/2021/10/enable-sensitivity-labels-in-microsoft-365-groups-and-sharepoint-sites/
-- https://myronhelgering.com/how-to-enable-sensitivity-labels-for-microsoft-365-groups-sharepoint-sites-and-microsoft-teams/
+- <https://msftcompliance.com/blog/enabling-container-level-sensitivity-labelling-in-microsoft-365/>
+- <https://prairiedeveloper.com/2021/10/enable-sensitivity-labels-in-microsoft-365-groups-and-sharepoint-sites/>
+- <https://myronhelgering.com/how-to-enable-sensitivity-labels-for-microsoft-365-groups-sharepoint-sites-and-microsoft-teams/>
 

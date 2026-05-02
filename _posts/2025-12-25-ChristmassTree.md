@@ -1,5 +1,8 @@
 ---
 title: "ChristmassTree"
+categories:
+  - Programming
+  - Python
 ---
 
 

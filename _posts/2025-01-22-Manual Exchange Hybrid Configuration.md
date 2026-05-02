@@ -1,5 +1,12 @@
 ---
 title: "Manual Exchange Hybrid Configuration"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Exchange hybrid
+  - Programming
+  - PowerShell
 ---
 # 0. Summary
 This document contains the manual for Exchange Hybrid Configuration in environments where the Hybrid Configuration Wizard (HCW) cannot be run.

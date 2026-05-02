@@ -1,4 +1,5 @@
 ---
+title: "Manual SCP Setup"
 ---
 
 ### 1. 요약

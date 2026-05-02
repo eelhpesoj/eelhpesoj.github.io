@@ -1,3 +1,7 @@
+---
+Subject: MacOS Entra joined
+---
+
 # 0. Overview
 In this post, we will learn how to make the mac device "Microsoft Entra joined"
 The result would be like:

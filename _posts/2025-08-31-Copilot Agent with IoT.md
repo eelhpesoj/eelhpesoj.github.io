@@ -1,5 +1,8 @@
 ---
 title: "Copilot Agent with IoT"
+categories:
+  - Copilot
+  - Copilot Agent
 ---
 
 # Overview

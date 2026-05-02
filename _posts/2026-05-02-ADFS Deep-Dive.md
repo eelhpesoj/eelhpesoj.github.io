@@ -47,4 +47,10 @@ If the Domain users shows their valid TGT to the ADFS, The ADFS issues SAML Toke
 # 3. How ADFS Federate Identity from DC
 So if domain users access to their <https://office.com> and try to login, the process would be like:
 
-User > trying log in to <https://office.com> > Redirected to <https://sts.ADFS_FQDN> > Enter user credentials > Check the availability with DC(TGT) > ADFS issues its pre configured token issuing rules associated with the service > ADFS present to the token to the users and the service > Service let the users allow to sign in
+1. A user trying log in to <https://office.com>
+2. Redirected to <https://sts.ADFS_FQDN>
+3. Enter user credentials
+4. Check the availability with DC(TGT)
+5. ADFS issues its pre configured token issuing rules associated with the service
+6. ADFS present to the token to the users and the service
+7. Service let the users allow to sign in

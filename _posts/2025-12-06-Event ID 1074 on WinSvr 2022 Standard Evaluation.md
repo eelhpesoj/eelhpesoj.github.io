@@ -1,3 +1,8 @@
+---
+title: "Event ID 1074 on WinSvr 2022 Standard Evaluation"
+---
+
+
 Related post:
 - https://velog.io/@leeyosebi/IIS-ARR-Configuration-with-ExSvr
 

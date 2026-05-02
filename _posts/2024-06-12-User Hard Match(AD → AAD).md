@@ -1,5 +1,9 @@
 ---
 title: "User Hard Match(AD → AAD)"
+categories:
+  - On-Premises
+  - Entra ID Connect
+  - AD
 ---
 
 # Summary

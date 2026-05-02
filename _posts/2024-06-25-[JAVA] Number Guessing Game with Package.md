@@ -1,4 +1,5 @@
 ---
+title: "[JAVA] Number Guessing Game with Package"
 ---
 
 # Source Code

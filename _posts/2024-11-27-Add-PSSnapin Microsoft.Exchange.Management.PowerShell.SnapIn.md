@@ -12,7 +12,8 @@ But it's too uncomfortable for me to use in following reasons:
 
 
 # 1. Exchange Management Shell
-![](https://velog.velcdn.com/images/leeyosebi/post/6a38f8e0-3994-4b45-a899-4a876e75d279/image.png)
+<img width="980" height="513" alt="image" src="https://github.com/user-attachments/assets/b540eb4f-6127-412c-a9f7-aa804782932e" />
+
 
 It's good but too simple and basic.
 
@@ -32,13 +33,15 @@ Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn
 # 3. Example for the Usage
 No comment. This is way better and you are an idiot if you don't use this snapin.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/23309ea7-2e72-4e62-9944-7fa6ece9f303/image.png)
+<img width="1567" height="886" alt="image" src="https://github.com/user-attachments/assets/9562777f-2ccd-4f55-b33d-bfc0e4a9d350" />
 
-![](https://velog.velcdn.com/images/leeyosebi/post/d4e8e0dc-fc2a-4372-b123-c0a0eb240a28/image.png)
+
+<img width="1567" height="886" alt="image" src="https://github.com/user-attachments/assets/0409d8a5-007e-4610-ae18-c56f80803c5c" />
+
 
 
 
 
 
 # 4. MS Documentation
-https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/add-pssnapin?view=powershell-5.1
+<https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/add-pssnapin?view=powershell-5.1>

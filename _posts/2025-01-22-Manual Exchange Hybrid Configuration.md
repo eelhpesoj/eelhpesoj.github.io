@@ -11,16 +11,19 @@ The log location is:
 
 And open the text document.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/e3a3bb47-4e56-4589-ba3f-a20501fc996b/image.png)
+<img width="481" height="146" alt="image" src="https://github.com/user-attachments/assets/832ac2e5-934b-4c32-af0e-eda590e2b6f4" />
 
-https://learn.microsoft.com/en-us/exchange/hybrid-configuration-wizard#hybrid-deployment-configuration-changes
+
+<https://learn.microsoft.com/en-us/exchange/hybrid-configuration-wizard#hybrid-deployment-configuration-changes>
 
 # 2. Filter the log to include only entries containing 'cmdlet'
 Filter the log to show entries containing 'cmdlet'.
-![](https://velog.velcdn.com/images/leeyosebi/post/7cc74a93-973a-4f44-83ec-6babee7c199e/image.png)
+<img width="1843" height="898" alt="image" src="https://github.com/user-attachments/assets/7e12a62f-a15b-411a-95ba-47dad574d88d" />
+
 
 And separate it as Session=OnPremises and Session=tenant
-![](https://velog.velcdn.com/images/leeyosebi/post/f3b17a23-9605-416e-bd81-f5b1001bd84c/image.png)
+<img width="1871" height="1040" alt="image" src="https://github.com/user-attachments/assets/892186ac-5fba-4bfe-bd3a-645b3bf6c711" />
+
 
 So that's all. You are good to go.
 Edit the following commands properly.
@@ -30,7 +33,7 @@ Edit the following commands properly.
 Organized the PowerShell commands in sequential order.
 I create a random guid here. 
 The guid is actually configured automatically by the HCW. But in this manual configuration I just assigned temporary.
-https://github.com/leeyosebi/Powershell/blob/master/ExchangeServer/Exchange%20Hybrid.ps1
+<https://github.com/leeyosebi/Powershell/blob/master/ExchangeServer/Exchange%20Hybrid.ps1>
 
 
 ```shell
@@ -105,23 +108,31 @@ Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn
 
 # Validation
 1. Migration batches are working
-![](https://velog.velcdn.com/images/leeyosebi/post/3f2afba8-3133-46a4-8d95-df95cef387e9/image.png)
+<img width="1399" height="633" alt="image" src="https://github.com/user-attachments/assets/7f5617a6-0c5a-4172-997e-6cb6045c6422" />
+
 2. ECP
-![](https://velog.velcdn.com/images/leeyosebi/post/7b5eb044-3dcf-4781-96fd-276e91175c96/image.png)
+<img width="704" height="429" alt="image" src="https://github.com/user-attachments/assets/6932f24f-44b6-4e01-91ca-5dd958d7818b" />
+
 3. Login
-![](https://velog.velcdn.com/images/leeyosebi/post/dd0bb1d3-1d65-419a-8a18-edb5bd7dcb64/image.png)
+<img width="1641" height="905" alt="image" src="https://github.com/user-attachments/assets/545e7b79-e6e2-492f-b478-d93966d46716" />
+
 
 # Mail Test
 1. Internet → Exchange server(Centralised) → EXO(Onboarded mail box)
 Exchange server has been recieved and send to the external
-![](https://velog.velcdn.com/images/leeyosebi/post/310f37f6-d307-4ee3-9f93-b6428124949b/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/d18eab7d-b2f3-461c-86bb-07cf5b54d146/image.png)
+<img width="991" height="220" alt="image" src="https://github.com/user-attachments/assets/fe3fab25-bbe3-473d-8d73-0a7aa476e1b6" />
+
+<img width="976" height="448" alt="image" src="https://github.com/user-attachments/assets/de62aa64-031a-47f2-9500-9ac46cbc455c" />
+
 Because of the Hybrid Centralised configuration, all emails are routed through the exchange server. Following message header indicates that the internet mail is routed by the exchange server.
-![](https://velog.velcdn.com/images/leeyosebi/post/c298ce89-038a-4ca7-92b7-33d239c8b1fe/image.png)
+<img width="1955" height="998" alt="image" src="https://github.com/user-attachments/assets/6e5126da-dfad-42a1-9574-3dbc0c3b1046" />
+
 
 2. EXO → Exchange server
-![](https://velog.velcdn.com/images/leeyosebi/post/87e97450-7304-4381-b834-a1d0d11240f8/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/c224013a-6db8-4b69-9044-199c156f655b/image.png)
+<img width="975" height="534" alt="image" src="https://github.com/user-attachments/assets/efba143a-ddef-43fa-a8c9-5bd8fbc1cadb" />
+
+<img width="884" height="692" alt="image" src="https://github.com/user-attachments/assets/f16ed4a7-4e59-4473-bfbd-ac103472cdc1" />
+
 
 # You should match Certificate name
 ## EXO Inbound connector name!
@@ -131,12 +142,15 @@ Well, I've been searching on it. I feel it's a authenticating issues because the
 So I take a look at the exchange online connectors, and I found the certificate name is different with the CN.
 Actually, I just thought it might be working. As far as wilcard certificate concerned, there is no issues whatever I enter 'cakeparty.kro.kr' or '*.cakeparty.kro.kr'.
 But as you can see below, it should be exactly same as the CN.
-![](https://velog.velcdn.com/images/leeyosebi/post/67cf4acc-6144-4b5d-8081-365f500e0444/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/abed0112-4c31-4079-983d-de0b9fbe0919/image.png)
+<img width="652" height="866" alt="image" src="https://github.com/user-attachments/assets/155bc0e6-bcb5-4fde-9342-e5321c6e31b2" />
+
+<img width="1089" height="1256" alt="image" src="https://github.com/user-attachments/assets/b9c2e7e2-8aaf-4431-bfb1-5424bf12d27d" />
+
 
 # After all..
 So this is it!
 But in the end, Microsoft recommands to execute the HCW.
 They are not recommands these manual configuration.
-![](https://velog.velcdn.com/images/leeyosebi/post/eb57a7ad-73bc-416b-9b15-11e0380089b8/image.jpeg)
+
+
 

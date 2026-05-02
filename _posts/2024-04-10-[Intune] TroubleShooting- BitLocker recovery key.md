@@ -1,5 +1,9 @@
 ---
 title: "[Intune] TroubleShooting- BitLocker recovery key"
+categories:
+  - Endpoint
+  - Intune
+  - Security
 ---
 
 # Summary

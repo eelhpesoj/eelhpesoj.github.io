@@ -9,7 +9,8 @@ One of the clients was using the AAD model initially but later configured AADC a
 Consequently, there arose a situation where all the information from the existing AAD accounts needed to be hard-matched with AD accounts. 
 
 This document covers the method for accomplishing that.
-![](https://velog.velcdn.com/images/leeyosebi/post/51447968-4a92-4b86-8a2e-2c8284fbff20/image.png)
+<img width="720" height="829" alt="image" src="https://github.com/user-attachments/assets/ad80a711-30d3-4c1f-9d26-3ae45ad785e9" />
+
 
 
 # Prerequisite knowledge of the task
@@ -32,11 +33,13 @@ The account, whtpqUser01@whtpq.com is only exsisting on the AAD.
 
 The other account, whtpqUser04@whtpq.com is synced from on-prem AD server.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/47b42640-60e8-4b4a-99e7-1f0062a213b9/image.png)
+<img width="906" height="569" alt="image" src="https://github.com/user-attachments/assets/72d7ac0a-3117-4ab2-a202-14283bc493b9" />
+
 
 And if you convert from the objectGUID to the ImmutableId, you can identified it is identical.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/268974f4-bc50-4e14-bb86-8746eea178e8/image.png)
+<img width="413" height="558" alt="image" src="https://github.com/user-attachments/assets/ae26fedb-bb3d-40b5-b9fc-03441f7a7833" />
+
 
 Let's see if it is true to use the code below.
 ```shell
@@ -45,7 +48,8 @@ $immutableID = [Convert]::ToBase64String([guid]::New($whtpqUser04ObjectGUID).ToB
 # Print the ImmutableID
 Write-Host "ImmutableID:" $immutableID
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/2d33f3e7-5de4-4a0e-8e3a-f9ad215dcc65/image.png)
+<img width="1018" height="544" alt="image" src="https://github.com/user-attachments/assets/53c64204-1a1b-4fff-a062-e47851d61ae8" />
+
 The converted objectGUID equal to ImmutableId when we checked earlier using Get-MsolUser command.
 
 # Process of the Task
@@ -70,5 +74,5 @@ Therefore, there is a less chances regarding the change of the UPN.
 If so, all the endusers have to do is just logout and login.
 
 # Reference
-https://blog.limcm.kr/202
-https://www.easy365manager.com/how-to-convert-immutableid-to-objectguid-and-back/
+<https://blog.limcm.kr/202>
+<https://www.easy365manager.com/how-to-convert-immutableid-to-objectguid-and-back/>

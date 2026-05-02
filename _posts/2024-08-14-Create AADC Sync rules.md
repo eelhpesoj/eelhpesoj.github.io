@@ -1,5 +1,8 @@
 ---
 title: "Create AADC Sync rules"
+categories:
+  - On-Premises
+  - Entra ID Connect
 ---
 
 

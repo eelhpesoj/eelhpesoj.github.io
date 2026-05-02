@@ -27,4 +27,4 @@ Import-Module ActiveDirectory
 $AllUsers = Get-ADUser -filter {cn -like "*"} -Properties *
 $AllUsers | select displayname,UserPrincipalName,EmailAddress | export-csv -Encoding UTF8 <로컬 파일 경로>.csv 
 ```
-[https://github.com/leeyosebi/Powershell/blob/master/ExportADUsers.ps1](https://github.com/leeyosebi/Powershell/blob/master/ExportADUsers.ps1)
+<https://github.com/leeyosebi/Powershell/blob/master/ExportADUsers.ps1>

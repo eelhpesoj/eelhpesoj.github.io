@@ -113,3 +113,44 @@ search: false
 .home-category-sidebar .toc header h4 {
   color: #ffffff;
 }
+
+
+/* Category nav font size and color */
+.home-category-sidebar .nav__list,
+.home-category-sidebar .nav__items,
+.home-category-sidebar .toc__menu {
+  font-size: 0.85rem;
+}
+
+/* Parent category: IDENTITY, SECURITY */
+.home-category-sidebar .nav__sub-title,
+.home-category-sidebar .toc__menu > li > a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.75;
+  letter-spacing: 0.04em;
+}
+
+/* Child category: Entra ID, ADFS, PKI */
+.home-category-sidebar .nav__items a,
+.home-category-sidebar .toc__menu li ul li a {
+  font-size: 0.85rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Hover */
+.home-category-sidebar a:hover {
+  color: #a78bfa;
+  opacity: 1;
+}
+
+/* Reduce spacing */
+.home-category-sidebar .nav__items {
+  margin-bottom: 1rem;
+}
+
+.home-category-sidebar .nav__items li {
+  margin: 0.25rem 0;
+}

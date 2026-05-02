@@ -8,7 +8,8 @@ This is a attempt to understand one of the concepts of device deployment on M365
 ---
 ### 1. Concept
 **Microsoft Entra hybrid join** means Joined to on-premises AD and Microsoft Entra ID requiring organizational account to sign in to the device.
-![](https://velog.velcdn.com/images/leeyosebi/post/6271b5c7-db36-4f1b-b385-598f3061ebeb/image.png)
+<img width="603" height="502" alt="image" src="https://github.com/user-attachments/assets/96ed7ad0-ff94-4f14-8c17-5c0b6bf6847f" />
+
 
 In short, This device will be managed by on-premises AD and Microsoft Entra ID(formerly known as Azure AD).
 
@@ -33,5 +34,5 @@ By employing this method, users can perform SSO for both cloud and on-premises r
 
 
 ### 4. Reference
-https://learn.microsoft.com/en-us/entra/identity/devices/concept-hybrid-join
-https://learn.microsoft.com/en-us/entra/identity/devices/how-to-hybrid-join
+<https://learn.microsoft.com/en-us/entra/identity/devices/concept-hybrid-join>
+<https://learn.microsoft.com/en-us/entra/identity/devices/how-to-hybrid-join>

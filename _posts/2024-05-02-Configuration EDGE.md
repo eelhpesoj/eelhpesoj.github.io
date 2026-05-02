@@ -1,5 +1,8 @@
 ---
 title: "Configuration EDGE"
+categories:
+  - On-Premises
+  - Exchange
 ---
 
 # Summary

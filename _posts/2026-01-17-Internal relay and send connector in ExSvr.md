@@ -1,3 +1,7 @@
+---
+title: "Internal relay and send connector in ExSvr"
+---
+
 # 0. Overview
 
 In many business cases, the company has two mail organisation with the same domain.

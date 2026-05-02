@@ -1,4 +1,5 @@
 ---
+title: "Manual SCP Setup Detail"
 ---
 
 To give you more specific details of:

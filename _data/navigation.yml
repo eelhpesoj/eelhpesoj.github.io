@@ -10,25 +10,3 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-
-
-# sidebar category nav
-category:
-  - title: "Security"
-    children:
-      - title: "PKI & Certificates"
-        url: /categories/#pki
-      - title: "Digital Signing"
-        url: /categories/#digital-signing
-
-  - title: "Microsoft"
-    children:
-      - title: "ADFS"
-        url: /categories/#adfs
-      - title: "Entra ID"
-        url: /categories/#entra
-
-  - title: "Lab / Infra"
-    children:
-      - title: "Virtualization"
-        url: /categories/#virtualization

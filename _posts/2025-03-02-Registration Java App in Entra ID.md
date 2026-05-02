@@ -10,10 +10,12 @@ In this post, I will demonstrate how to register a simple Java app with the Entr
 
 I'll start by creating the app's logo. I just enlarged an emoji.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/bf63433a-5e69-42b0-94f7-06c4f8dedb51/image.png)
+<img width="128" height="129" alt="image" src="https://github.com/user-attachments/assets/0f065597-eebe-44aa-b968-11549fcd3727" />
+
 
 In Entra ID, you create a custom app. If you go to the "Quick Start" tab of app registration, you'll see that there are many SDKs available for developing apps in various languages.
-![](https://velog.velcdn.com/images/leeyosebi/post/069967dc-8c91-47f2-9b0b-080dfacbb024/image.png)
+<img width="3584" height="2190" alt="image" src="https://github.com/user-attachments/assets/84c892ad-a3b0-4c4c-89bf-1d4e94924cab" />
+
 
 I'm somewhat familiar with Java, so I downloaded the SDK and tested it using IntelliJ. One thing to be particularly careful about is changing the app's client ID (the identifier assigned to my app in Entra ID), the tenant ID, and the client secret ID in the `application.properties` file under the `src` directory. These values are used by my app to send requests to the IdP, which is Entra ID.
 
@@ -118,42 +120,52 @@ I navigate to the directory where the .jar file is located on the Ubuntu server 
 ```shell
 sudo java -jar <yourFileName>.jar
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/a2ea0ec6-5bcf-408c-a149-32d05fa47f9c/image.png)
+<img width="1784" height="2170" alt="image" src="https://github.com/user-attachments/assets/5f508a0a-924f-47f3-816f-6f833ff0c845" />
+
 
 # 2. SetUp Entra ID side
 When my app requests authentication from Entra ID, a login page will be displayed to the user. After Entra ID identifies the user, it must send a signal to my app indicating that the authentication was successful, so I can provide the service. The redirect URL is where this signal is received. 
 
 I’ll set up the following URLs. These URLs are specified in the quick start guide, so there’s no need to be intimidated.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/5d54d0bd-0f52-4618-bcaf-1d782eb16543/image.png)
+<img width="2388" height="2190" alt="image" src="https://github.com/user-attachments/assets/40f870d9-e3d8-4fbd-92ea-8574eca55bfe" />
+
 
 
 # 3. Production
 Now that everything is complete, let’s navigate to my service by entering the URL in the address bar.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/55fa2bfd-e6da-4ccc-82d4-f8a224258599/image.png)
+<img width="656" height="338" alt="image" src="https://github.com/user-attachments/assets/7bb7b0aa-4f1e-424d-a892-b4a28d6aacba" />
+
 
 Don't be surprised... since this is just a functionality test, the design is terrible. 
 
 Now, when you click the login button, my app will send an authentication request to Entra ID.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/38a203e4-322a-44d4-95d3-e4f118243b67/image.png)
+<img width="1564" height="1438" alt="image" src="https://github.com/user-attachments/assets/c3e360a7-369f-423c-8e82-69a24b7dffc5" />
+
 
 It will be redirected to the following URL. It behaves as recorded in my code.
 ```
 https://login.microsoftonline.com/eb7e08b5-829e-4167-83db-38255426634f/oauth2/v2.0/authorize?client_id=e6977480-bdc5-409e-9158-42339833936d&redirect_uri=https://app.cake.run.place/login&response_type=code&scope=openid%20profile&state=oTmwwF
 ```
 
-![](https://velog.velcdn.com/images/leeyosebi/post/33729b5c-0ac6-4bcf-9ce3-42b797132bae/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/de313716-a0e7-4bae-ac09-88fe52ff8eed/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/b4683381-f6a7-476a-981a-81dec7c0161e/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/5adbdc74-54b2-46c4-9467-5b306d754467/image.png)
+<img width="1564" height="1438" alt="image" src="https://github.com/user-attachments/assets/e78b6f40-771f-49da-8ebe-5740f2e8d72e" />
+
+<img width="1564" height="1438" alt="image" src="https://github.com/user-attachments/assets/f38b9568-efc2-4c6d-bf97-6b33ecc1d551" />
+
+<img width="1564" height="1438" alt="image" src="https://github.com/user-attachments/assets/282fe03d-78ec-4cde-85dd-41fd0b8ecbf3" />
+
+<img width="1564" height="1438" alt="image" src="https://github.com/user-attachments/assets/ee0f73e4-ce5f-498c-8524-b6c07c8bfdee" />
+
 
 Second surprise.. This is a logged in page.
-![](https://velog.velcdn.com/images/leeyosebi/post/181546a7-b490-4615-945f-b2563c35ac1c/image.png)
+<img width="1564" height="1438" alt="image" src="https://github.com/user-attachments/assets/c52572d5-e731-47f3-bb15-4cc8bad82b25" />
+
 
 # 4. Conclusion
-![](https://velog.velcdn.com/images/leeyosebi/post/8221d10b-e9e9-4beb-bdfc-afd1aba66f8e/image.png)
+<img width="2388" height="2190" alt="image" src="https://github.com/user-attachments/assets/47311ff9-2e03-41a6-b248-cea240684ccb" />
+
 
 
 Authentication, when you think about it, is actually quite simple. From the perspective of providing a service, since I’m only offering my service, it’s natural that a query to another organization is necessary.
@@ -163,4 +175,4 @@ I may have rushed through the writing, so the content might be a bit lacking, bu
 I’ll make the GitHub repository public once the certificate expires.
 
 # Github
-https://github.com/leeyosebi/appCake/tree/main/src/main/resources/keystore
+<https://github.com/leeyosebi/appCake/tree/main/src/main/resources/keystore>

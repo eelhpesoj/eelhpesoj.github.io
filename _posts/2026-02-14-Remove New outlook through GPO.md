@@ -1,5 +1,8 @@
 ---
 title: "Remove New outlook through GPO"
+categories:
+  - GPO
+  - On-Premises
 ---
 
 # 0. Overview

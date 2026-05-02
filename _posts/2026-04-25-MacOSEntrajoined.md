@@ -1,5 +1,5 @@
 ---
-title: "MacOS Entra joined"
+title: "MacOS Entra joined with PSSO"
 ---
 
 

@@ -25,15 +25,22 @@ layout: archive
     {% include paginator.html %}
   </div>
 
-  <aside class="home-category-sidebar">
-    <h3>Categories</h3>
-
-    {% for category in site.categories %}
-      <a href="{{ site.baseurl }}/categories/#{{ category[0] | slugify }}">
-        {{ category[0] }}
-        <span>{{ category[1].size }}</span>
-      </a>
-    {% endfor %}
+  <aside class="sidebar__right">
+    <nav class="toc">
+      <header>
+        <h4>Categories</h4>
+      </header>
+  
+      <ul class="toc__menu">
+        {% for category in site.categories %}
+          <li>
+            <a href="{{ site.baseurl }}/categories/#{{ category[0] | slugify }}">
+              {{ category[0] }} ({{ category[1].size }})
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
   </aside>
 
 </div>

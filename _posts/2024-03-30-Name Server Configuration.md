@@ -21,29 +21,38 @@ This is an article about configuration of the name server who wants to set up no
 Enroll your on-prem name server's name on the domain hosting service.
 Most of the case, your name server would be like this:
 ns1.your domain, ns2.your domain
-![](https://velog.velcdn.com/images/leeyosebi/post/6bdc1913-e86e-44dc-8355-10559d8b55a3/image.png)
+<img width="1920" height="904" alt="image" src="https://github.com/user-attachments/assets/1e25a35e-1280-40cf-ad30-739c6c0ff79b" />
+
 ## 2.Configure the On-premises name server
 ### 1. Change your hostname
 Run(Windows key + R) → type sysdm.cpl
 Check your Full computer name and click the Change button in the middle.
-![](https://velog.velcdn.com/images/leeyosebi/post/801a72c1-2958-412e-9224-595356b96eae/image.png)
+<img width="408" height="470" alt="image" src="https://github.com/user-attachments/assets/036c120c-b641-4626-b41b-db7c9cde81d2" />
+
 Click more
-![](https://velog.velcdn.com/images/leeyosebi/post/68df1b9d-5aeb-4eac-90b9-951d18ce412b/image.png)
+<img width="324" height="393" alt="image" src="https://github.com/user-attachments/assets/cf7bf116-f78d-4d1c-b185-81e87ecc5c61" />
+
 You don't need to join to the any DC(AD). Just change Primary DNS suffix of your computer.
-![](https://velog.velcdn.com/images/leeyosebi/post/7f8fd085-b470-4a02-a453-816712404e13/image.png)
+<img width="394" height="237" alt="image" src="https://github.com/user-attachments/assets/d280f15d-779b-4357-8902-b34bdc6b4878" />
+
 
 ### 2. Make your IP as a static IP address
-![](https://velog.velcdn.com/images/leeyosebi/post/75e4a997-c866-43e1-a98b-4743f2400037/image.png)
+<img width="402" height="454" alt="image" src="https://github.com/user-attachments/assets/4b49c14e-db68-49b2-a721-0a8607bca5a5" />
+
 
 ### 3. Install DNS server role
-![](https://velog.velcdn.com/images/leeyosebi/post/61b8d6a7-6172-446a-b486-304a300eb3b7/image.png)
+<img width="589" height="560" alt="image" src="https://github.com/user-attachments/assets/5fbb1cae-ec11-425d-9f48-4c2abcf93f8f" />
+
 
 ### 4. Once the server role installed, create a new zone. and add IP address.
-![](https://velog.velcdn.com/images/leeyosebi/post/21f4bd38-3126-4d2b-84c2-40ec9c04ebb2/image.png)
+<img width="755" height="530" alt="image" src="https://github.com/user-attachments/assets/7e38f533-ada9-416d-8800-149eb86a17fa" />
+
 
 ## 3. Configure the network device
 You should open the port 53.
 And also set NAT configuration public and private IP address so that any client can find through the internet.
-![](https://velog.velcdn.com/images/leeyosebi/post/5a03d1ad-a251-42c5-9ab2-8790a9862f71/image.png)
+<img width="797" height="429" alt="image" src="https://github.com/user-attachments/assets/809ef5cc-4865-42b1-991a-c170e397c5d6" />
+
 ## 4. Result
-![](https://velog.velcdn.com/images/leeyosebi/post/42ddef4b-e3bb-4cd1-b1e4-40fb5da00109/image.png)
+<img width="753" height="816" alt="image" src="https://github.com/user-attachments/assets/9b43b390-7f82-4506-b7e6-88a1ebcd8a3c" />
+

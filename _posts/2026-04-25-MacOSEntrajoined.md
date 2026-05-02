@@ -1,5 +1,8 @@
 ---
 title: "MacOS Entra joined with PSSO"
+categories:
+  - MacOS
+  - Intune
 ---
 
 

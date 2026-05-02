@@ -1,5 +1,9 @@
 ---
 title: "delete Cloud Custom Domain Name"
+categories:
+  - Entra ID
+  - Programming
+  - PowerShell
 ---
 <https://github.com/leeyosebi/Powershell/blob/master/deleteCloudCustomDomainName.ps1>
 

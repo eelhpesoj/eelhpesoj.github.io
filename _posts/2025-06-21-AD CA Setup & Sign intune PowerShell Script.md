@@ -1,5 +1,10 @@
 ---
 title: "AD CA Setup & Sign intune PowerShell Script"
+categories:
+  - On-Premises
+  - Security
+  - Intune
+  - PKI
 ---
 
 # 0. Overview

@@ -1,4 +1,5 @@
 ---
+title: "Registration Java App in Entra ID"
 ---
 
 # 0. Introduction

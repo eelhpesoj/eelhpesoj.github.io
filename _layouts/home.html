@@ -24,7 +24,16 @@ layout: archive
 
     {% include paginator.html %}
   </div>
+<aside class="home-category-sidebar">
+  <nav class="toc">
+    <header>
+      <h4>Categories</h4>
+    </header>
 
+    {% include nav_list nav="category" %}
+  </nav>
+</aside>
+  <!---
   <aside class="home-category-sidebar">
     <nav class="toc">
       <header>
@@ -42,5 +51,5 @@ layout: archive
       </ul>
     </nav>
   </aside>
-
+--->
 </div>

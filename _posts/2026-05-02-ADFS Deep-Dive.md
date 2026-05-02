@@ -3,7 +3,7 @@ title: "ADFS Deep-Dive"
 ---
 
 # 0. Overview
-This Post is just a introduce the techcommunity post from Microsoft.
+This post is just a introduce the techcommunity post from Microsoft.
 Please refer the link below:
 - <https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/adfs-deep-dive-comparing-ws-fed-saml-and-oauth/257584>
 

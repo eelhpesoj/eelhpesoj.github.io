@@ -1,5 +1,9 @@
 ---
 title: "Manual SCP Setup Detail"
+categories:
+  - On-Premises
+  - Entra ID Connect
+  - AD
 ---
 
 To give you more specific details of:

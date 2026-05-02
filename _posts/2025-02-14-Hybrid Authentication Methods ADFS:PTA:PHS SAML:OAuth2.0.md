@@ -1,5 +1,9 @@
 ---
 title: "Hybrid Authentication Methods ADFS:PTA:PHS SAML:OAuth2.0"
+categories:
+  - On-Premises
+  - Entra ID Connect
+  - Security
 ---
 
 # 0. Summary

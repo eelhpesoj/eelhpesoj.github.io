@@ -1,6 +1,6 @@
 ---
 ---
-[https://github.com/leeyosebi/Powershell/blob/master/deleteCloudCustomDomainName.ps1](https://github.com/leeyosebi/Powershell/blob/master/deleteCloudCustomDomainName.ps1)
+<https://github.com/leeyosebi/Powershell/blob/master/deleteCloudCustomDomainName.ps1>
 
 ```shell
 # Tenant 에서 로그인 계정의 UPN 도메인을 tenantname.onmicrosoft.com 으로 변경

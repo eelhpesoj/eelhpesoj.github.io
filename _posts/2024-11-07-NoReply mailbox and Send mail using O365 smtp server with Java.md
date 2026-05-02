@@ -1,5 +1,12 @@
 ---
 title: "NoReply mailbox and Send mail using O365 smtp server with Java"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Exchange hybrid
+  - Programming
+  - PowerShell
 ---
 
 # 0. Summary

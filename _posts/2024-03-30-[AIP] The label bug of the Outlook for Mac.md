@@ -1,5 +1,10 @@
 ---
 title: "[AIP] The label bug of the Outlook for Mac"
+categories:
+  - Security
+  - AIP
+  - Endpoint
+  - Office apps
 ---
 
 # [AIP] The label bug of the Outlook for Mac

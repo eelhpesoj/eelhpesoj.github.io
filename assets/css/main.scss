@@ -50,3 +50,13 @@ search: false
 .sidebar.sticky {
   opacity: 1 !important;
 }
+
+::selection {
+  background: #3F5573;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #3F5573;
+  color: #ffffff;
+}

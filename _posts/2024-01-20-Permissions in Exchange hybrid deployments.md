@@ -1,5 +1,10 @@
 ---
 title: "Permissions in Exchange hybrid deployments"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Entra ID Connect
 ---
 
 

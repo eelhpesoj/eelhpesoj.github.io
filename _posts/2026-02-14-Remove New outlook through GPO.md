@@ -1,3 +1,7 @@
+---
+title: "Remove New outlook through GPO"
+---
+
 # 0. Overview
 
 One of my clients, obviously IT admin, wants to remove New Outlook from the domain joined computers.

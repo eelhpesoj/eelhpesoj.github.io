@@ -1,4 +1,5 @@
 ---
+title: "Transferring a Domain from Another Tenant"
 ---
 
 다른 테넌트에 등록된 도메인을 새 테넌트로 가져오려면 몇가지 확인 후 작업이 필요하다.

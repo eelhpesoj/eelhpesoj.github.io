@@ -279,6 +279,6 @@ defaults:
       toc_label    : "On this page"
       toc_sticky   : true
       toc_icon     : "list"
-      sidebar:
-        nav: "category"
+#      sidebar:
+#        nav: "category"
 #      classes      : wide

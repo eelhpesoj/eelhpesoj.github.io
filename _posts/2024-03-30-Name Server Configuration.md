@@ -1,4 +1,5 @@
 ---
+title: "Name Server Configuration"
 ---
 
 # Summary

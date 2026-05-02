@@ -2,26 +2,29 @@
 ---
 
 # Source Code
-https://github.com/leeyosebi/veryFirst
+<https://github.com/leeyosebi/veryFirst>
 
 
 # How to make the Package
 First up, you need to change directory where the source exsist.
-![](https://velog.velcdn.com/images/leeyosebi/post/1af8c5be-c54b-4c2d-9a19-62a593111f86/image.png)
+<img width="1956" height="1096" alt="image" src="https://github.com/user-attachments/assets/27352222-f7ff-4588-b10e-3f78a9b51ea2" />
+
 
 ## 1.Compile(.class file creation)
 
 ```shell
 javac NumberGuessingGame.java
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/155ffdef-2738-4f0e-a30a-f8336436f987/image.png)
+<img width="1956" height="1096" alt="image" src="https://github.com/user-attachments/assets/3507ad32-b81e-45b9-a1bd-06fa6c345cb5" />
+
 
 
 ## 2. Check if it's working
 ```shell
 java NumberGuessingGame
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/c9950181-97ac-42b8-ab8f-c458f5856a59/image.png)
+<img width="1432" height="746" alt="image" src="https://github.com/user-attachments/assets/0908773c-d472-416a-bd4c-b2500b6d2b8e" />
+
 
 
 ## 3. Create TXT in the source directory
@@ -30,8 +33,10 @@ You should add a blank line
 Main-Class: NumberGuessingGame
  
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/cf5c96cc-ab45-410a-94a9-f7614b9fc7f6/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/3e972803-4d86-4016-929c-9de8eae22a2d/image.png)
+<img width="1372" height="534" alt="image" src="https://github.com/user-attachments/assets/9a80d42d-949e-4b08-ac47-fe950fec0af3" />
+
+<img width="1956" height="1096" alt="image" src="https://github.com/user-attachments/assets/be71642a-e0a2-45b4-8423-bfd6da9b3a17" />
+
 
 
 
@@ -39,21 +44,26 @@ Main-Class: NumberGuessingGame
 ```shell
 jar cfm NumberGuessingGame.jar manifest.txt *.class
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/f39dd3ae-9591-4d37-ab92-88708ad215b1/image.png)
+<img width="1956" height="1096" alt="image" src="https://github.com/user-attachments/assets/05a4eb84-f720-4ecb-8dec-c391f824da8e" />
+
 
 ## 5. Execute the .jar file to check it's working
 ```shell
 java -jar NumberGuessingGame.jar
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/024d68e1-3051-4f4b-9349-4c5c48859de0/image.png)
+<img width="1544" height="780" alt="image" src="https://github.com/user-attachments/assets/7bfe55e8-c686-4600-87cd-4b5898abb1f0" />
+
 
 ## 6. Create .dmg file(Installation package file)
 ```shell
 jpackage --name NumberGuessingGame --input . --main-jar NumberGuessingGame.jar --main-class NumberGuessingGame
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/a230b662-8ac4-422c-9955-d44616e702a0/image.png)
-![](https://velog.velcdn.com/images/leeyosebi/post/85bd6380-1c23-433c-aceb-8188391d8c87/image.png)
+<img width="1460" height="998" alt="image" src="https://github.com/user-attachments/assets/8753dc3c-9b9e-405a-a8f9-a180874dc6e2" />
+
+<img width="1384" height="818" alt="image" src="https://github.com/user-attachments/assets/29184bf5-cbcd-4304-82fb-45ec41cc20b7" />
+
 
 ## #. Whole Command
-![](https://velog.velcdn.com/images/leeyosebi/post/279c05f9-aa6d-4467-bca6-82d7767bef81/image.png)
+<img width="1454" height="386" alt="image" src="https://github.com/user-attachments/assets/a5520ee9-7e96-4d6b-a0fc-72260ea6d3fd" />
+
 

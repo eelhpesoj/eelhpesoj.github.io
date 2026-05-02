@@ -1,5 +1,7 @@
 ---
 title: "Authentication and Authorization"
+categories:
+  - Security
 ---
 
 # 0. Summary

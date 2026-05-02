@@ -1,4 +1,5 @@
 ---
+title: "UnifiedGroup, DistributionGroup"
 ---
 
 Azure AD(Active Directory)에서 Distribution Group과 Unified Group(또는 Office 365 그룹)은 다른 목적과 기능을 가지고 있다.

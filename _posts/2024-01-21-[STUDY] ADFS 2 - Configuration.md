@@ -1,5 +1,5 @@
 ---
-
+title: "[STUDY] ADFS 2 - Configuration"
 ---
 
 ### 요약

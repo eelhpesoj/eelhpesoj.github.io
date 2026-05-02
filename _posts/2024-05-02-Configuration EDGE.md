@@ -8,7 +8,8 @@ In this document, we will go without Edge subscription.
 ---
 # Overall Design
 
-![](https://velog.velcdn.com/images/leeyosebi/post/556c95c1-37f9-4282-8ddd-00433fcdfd3e/image.png)
+<img width="1416" height="1434" alt="image" src="https://github.com/user-attachments/assets/ea6f964f-0f16-40ff-aa89-a73c852f7fd0" />
+
 
 The public IP address is not displayed in the document.
 
@@ -18,55 +19,74 @@ The public IP address is not displayed in the document.
 ## 1. Edge Server preparation
 ### 1. Changing hostname
 1. Change host name
-![](https://velog.velcdn.com/images/leeyosebi/post/a6168d77-dee8-4b18-a487-95f5af3faf56/image.png)
+<img width="650" height="786" alt="image" src="https://github.com/user-attachments/assets/7edee22d-6253-4528-bba9-34634e708528" />
+
 2. Click 'More' and add domain suffix
-![](https://velog.velcdn.com/images/leeyosebi/post/785dd441-ff48-44c5-8589-88b62db738f8/image.png)
+<img width="790" height="476" alt="image" src="https://github.com/user-attachments/assets/47f0f465-d619-4296-a060-2bd932553d2e" />
+
 3. Click 'OK' and restart
-![](https://velog.velcdn.com/images/leeyosebi/post/32ed25c4-ce29-4815-8796-fe36f3e076cc/image.png)
+<img width="650" height="786" alt="image" src="https://github.com/user-attachments/assets/891fb7db-b9bd-4cec-a8b2-46f620058df8" />
+
 ### 2. Proceeding installation
 1. Check Edge Transport role when you proceed installation
-![](https://velog.velcdn.com/images/leeyosebi/post/c68a5d85-2f42-45e9-a999-2d6a6e0c3817/image.png)
+<img width="1602" height="1400" alt="image" src="https://github.com/user-attachments/assets/ec2e1654-cd5b-4155-941d-80da802e1db4" />
+
 2. The prerequisite is '**.NET Framework 4.8**' and 
 '**Visual C++ 2012 Redistributable Package**'.
-![](https://velog.velcdn.com/images/leeyosebi/post/73d8d8b0-18da-4cee-bb57-d7e2a31ee795/image.png)
+<img width="1602" height="1400" alt="image" src="https://github.com/user-attachments/assets/6257cd6a-e350-4943-96ea-56c59e744ff0" />
+
 3. Click install
-![](https://velog.velcdn.com/images/leeyosebi/post/61e9ef79-3e45-45cf-be93-c80165d3f87a/image.png)
+<img width="1602" height="1400" alt="image" src="https://github.com/user-attachments/assets/9ae33cea-37e4-4d3e-a72f-de29d0123a61" />
+
 4. Set up progress
-![](https://velog.velcdn.com/images/leeyosebi/post/3632bd33-365a-4d5f-bcaa-aa36e78f91f2/image.png)
+<img width="1602" height="1400" alt="image" src="https://github.com/user-attachments/assets/07a4c3ca-76fc-4676-9ab8-3e3572a48e61" />
+
 When the set up completed, you can check these two application are recented added
-![](https://velog.velcdn.com/images/leeyosebi/post/da68b2f5-99b5-4678-8cad-f0bc06cb1629/image.png)
+<img width="462" height="216" alt="image" src="https://github.com/user-attachments/assets/e2cb1b2a-4e1f-49a9-92a0-0ba8de867b38" />
+
 
 ### 3. Changing queue directory(Optional)
 1. Stop '**Microsoft Exchange Transport**'
-![](https://velog.velcdn.com/images/leeyosebi/post/313f71e0-0e76-4a0e-b4be-c6b126352556/image.png)
+<img width="806" height="287" alt="image" src="https://github.com/user-attachments/assets/4ca5d847-f6f9-4487-8c22-945b4da4f9bf" />
+
 
 2. Open this file using this command on the 'run'
 ```
 Notepad %ExchangeInstallPath%Bin\EdgeTransport.exe.config 
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/b801d4ec-e41f-4907-9aa7-db85d264b7c4/image.png)
+<img width="830" height="462" alt="image" src="https://github.com/user-attachments/assets/652b36d6-bfdf-452f-bd40-049e9cd881ef" />
+
 3. Change '**QueueDatabasePath**', '**QueueDatabaseLoggingPath**'
 I recommend seperate this path as other drive.
 
 3.1 Create new disk if you need.
-![](https://velog.velcdn.com/images/leeyosebi/post/b3e78eec-e294-434d-83cf-0e4858e6404b/image.png)
+<img width="1506" height="1194" alt="image" src="https://github.com/user-attachments/assets/b5086e77-6ca9-4f4a-b0a9-c91432effb9a" />
+
 3.2 Enter the amount of space to shrink in MB
-![](https://velog.velcdn.com/images/leeyosebi/post/3e7e4135-18fe-4676-bdfe-7077368585ff/image.png)
+<img width="902" height="612" alt="image" src="https://github.com/user-attachments/assets/f9f328fd-e8e4-4be0-a1e3-047ca44f2014" />
+
 3.3 After shrink, allocate **New Simple Volume**
-![](https://velog.velcdn.com/images/leeyosebi/post/e3ae6ab4-f724-4567-ae67-08b1b1e8d060/image.png)
+<img width="478" height="356" alt="image" src="https://github.com/user-attachments/assets/b87ad801-01e4-43ed-956d-0ffe3a8cd8f1" />
+
 3.4 Assign drive letter properly
-![](https://velog.velcdn.com/images/leeyosebi/post/4595a332-fd7f-4760-8410-054746e79b2c/image.png)
+<img width="998" height="786" alt="image" src="https://github.com/user-attachments/assets/14506d4a-6f33-4c2f-aed2-a2403eaebb07" />
+
 3.5 The new volum has been created
-![](https://velog.velcdn.com/images/leeyosebi/post/7fde36a3-aae4-45e0-8628-c6d12cc38697/image.png)
+<img width="442" height="184" alt="image" src="https://github.com/user-attachments/assets/e5d41bf9-50c2-44c2-9b2a-24e00fa9094e" />
+
 4. Set the both path as '**D:\Queue\QueueDB**'
 As-Is
-![](https://velog.velcdn.com/images/leeyosebi/post/9d4564a0-203d-4b23-9e91-1cfec0af89df/image.png)
+<img width="2008" height="236" alt="image" src="https://github.com/user-attachments/assets/dce595be-4755-4ae8-8e9e-5145ed3133ac" />
+
 To-Be
-![](https://velog.velcdn.com/images/leeyosebi/post/0e28953f-ad33-46f8-a04f-19e98d877cae/image.png)
+<img width="1122" height="238" alt="image" src="https://github.com/user-attachments/assets/d5a02683-92a8-4a56-93ff-abd6ec108688" />
+
 5. Start '**Microsoft Exchange Transport**' again
-![](https://velog.velcdn.com/images/leeyosebi/post/2f60425f-0d7d-4ef9-b0d6-1f186a837952/image.png)
+<img width="1082" height="410" alt="image" src="https://github.com/user-attachments/assets/2cc5ed4b-7919-4626-a31b-ff2cccb3f5b3" />
+
 6. The Queue DB location has changed
-![](https://velog.velcdn.com/images/leeyosebi/post/6f9d7194-5049-441d-b611-50ac0a0f51f8/image.png)
+<img width="1054" height="664" alt="image" src="https://github.com/user-attachments/assets/267b1c9f-0382-4c8d-882a-8f3370871a2c" />
+
 
 
 ### 4. Changing Log directory(Optional)
@@ -82,16 +102,19 @@ Get-Transportservice|Set-TransportService -ConnectivityLogPath "$path\edge\Conne
 Get-TransportService|Set-TransportService -IntraOrgConnectorProtocolLoggingLevel Verbose
 ```
 In the shell
-![](https://velog.velcdn.com/images/leeyosebi/post/c427cf72-5058-4908-a9fa-fbdbc17a8c12/image.png)
+<img width="3544" height="236" alt="image" src="https://github.com/user-attachments/assets/abdfc3cb-6d8e-4173-9268-db0921f16cec" />
+
+
 2. After execute the command, you can check the '**ExchangeLogs**' in the 'D:\'
-![](https://velog.velcdn.com/images/leeyosebi/post/9dd90abf-ab90-4236-ad42-655adfdcb153/image.png)
+<img width="566" height="266" alt="image" src="https://github.com/user-attachments/assets/3eacb4c2-cb42-41c0-a5a8-e000af740549" />
 
 
 ### 5. Specify the internal SMTP servers
 ```shell
 Set-TransportConfig -InternalSMTPServers @{Add="<ip address1>","<ip address2>"...}
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/4cc23bae-21d2-40dc-8981-86290eb3e92c/image.png)
+<img width="1650" height="232" alt="image" src="https://github.com/user-attachments/assets/909c0fcd-97d2-40e0-bf58-89824a783ee9" />
+
 
 
 ### 6. Binding Public Certificate on the SMTP Service
@@ -99,7 +122,8 @@ If you use public ssl certificate, you should bind the certificate on the SMTP s
 ```shell
 Enable-ExchangeCertificate -Thumbprint <Thumbprint> -Services SMTP
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/5cf4f651-f871-4924-9938-1542aa22b2b4/image.png)
+<img width="1342" height="286" alt="image" src="https://github.com/user-attachments/assets/2bdd058f-d1fd-4dcf-87ee-126acaff150b" />
+
 
 
 ## 2. Set up Inbound flow on Edge
@@ -108,14 +132,16 @@ Before we start though, we will configure '**External → Edge → Exchange**'
 ```shell
 New-AcceptedDomain -Name whtpq.com -DomainName whtpq.com
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/b8888b46-1766-4403-ab1c-21165f52e683/image.png)
+<img width="2428" height="176" alt="image" src="https://github.com/user-attachments/assets/b7dd60f5-6097-41d7-a65e-c5a11d455ddc" />
+
 Now, the EDGE can receive from external mails regarding to '**whtpq.com**' domain
 : Exteranl → Edge
 ### 2. Send Connector
 ```shell
 New-SendConnector -Name "To whtpq.com" -AddressSpaces whtpq.com -SmartHosts 10.10.4.41
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/7ba7a96a-e5b6-44c6-a9ee-58ed1057d366/image.png)
+<img width="1780" height="168" alt="image" src="https://github.com/user-attachments/assets/1134beca-47b1-4915-b340-1ac72a93db0c" />
+
 Now, the EDGE can send mails to the whtpq.com Exchange server(10.10.4.41)
 : External → Edge → Exchange
 
@@ -124,34 +150,43 @@ We will configure this flow:
 Exchange → Edge → External 
 ### 1. Create Send Connector on the Exchange server side(Exchange → Edge)
 1. Set the name and the type would be 'Custom'
-![](https://velog.velcdn.com/images/leeyosebi/post/cd0f5fdf-8cd2-4df3-b76a-a1ff12a742e7/image.png)
+<img width="1400" height="1224" alt="image" src="https://github.com/user-attachments/assets/ce7f38a3-a39e-4dfb-aca8-69ab5c457b62" />
+
 2. Route mail through smart hosts(edge, 10.10.4.44)
-![](https://velog.velcdn.com/images/leeyosebi/post/b4ea0e79-39e6-40c9-9a95-40e1060bfc3f/image.png)
+<img width="1400" height="1224" alt="image" src="https://github.com/user-attachments/assets/0964ddda-9f73-4322-9908-2e1b021367b4" />
+
 3. None for authentication
-![](https://velog.velcdn.com/images/leeyosebi/post/c20f1868-2c67-4b28-b70f-421c25f220b9/image.png)
+<img width="1400" height="1224" alt="image" src="https://github.com/user-attachments/assets/5bd94a86-0c56-426e-aeb1-573ac74e4b53" />
+
 4. Set the domain as *
-![](https://velog.velcdn.com/images/leeyosebi/post/4cf4236c-0df2-4dc1-8d82-1e37bd98108e/image.png)
+<img width="1400" height="1224" alt="image" src="https://github.com/user-attachments/assets/1d0c7d0d-1c48-4e48-90ac-4abd0c53b0fe" />
+
 5. Add source server
-![](https://velog.velcdn.com/images/leeyosebi/post/dc46c2f6-742b-4d08-867b-af3cc18ec6f1/image.png)
+<img width="1400" height="1224" alt="image" src="https://github.com/user-attachments/assets/27c0b044-2b5c-4899-8723-7b58df97b205" />
+
 6. Disable other connector which route to the internet directly
-![](https://velog.velcdn.com/images/leeyosebi/post/37e7722e-26f6-4489-8b64-1ec9c8fe6e8f/image.png)
+<img width="688" height="188" alt="image" src="https://github.com/user-attachments/assets/b890d2c7-356c-42b1-a1ca-cebfa6e2808b" />
+
 ### 2. Create Receive Connector on the Edge server side(Exchange → Edge)
 1. New receive connector
 ```shell
 New-ReceiveConnector -Name "From whtpq.com" -Bindings 0.0.0.0:25  -RemoteIPRanges 10.10.4.41-10.10.4.42 
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/dba66d5a-f6e3-448e-b540-653d14ce17cb/image.png)
+<img width="2060" height="176" alt="image" src="https://github.com/user-attachments/assets/f0e38807-927c-4cbf-8dc3-24a4a6ae8c71" />
+
 2. Add permission to the new receive connector
 ```shell
 Get-ReceiveConnector -Identity "whtpqEDGE\From whtpq.com"|Add-ADPermission -User "NT AUTHORITY\ANONYMOUS LOGON" -ExtendedRights "Ms-Exch-SMTP-Accept-Any-Recipient"
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/52f0f8ff-cfef-4020-b9dc-b69ab5bc9f6b/image.png)
+<img width="3014" height="166" alt="image" src="https://github.com/user-attachments/assets/f42fc790-9160-4d82-9a4d-3db143a10cbb" />
+
 ### 3. Create Send Connector on the Edge server side(Edge → External)
 1. New send connector
 ```shell
 New-SendConnector -Name "To External" -Internet -AddressSpaces *
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/e018983c-020c-42a6-9761-1ae1a833d62b/image.png)
+<img width="1436" height="170" alt="image" src="https://github.com/user-attachments/assets/853953fe-f790-45c2-a93b-ef06acaf58c8" />
+
 2. Logging send/receive connector(Oprional)
 ```shell
 Get-ReceiveConnector|Set-ReceiveConnector -ProtocolLoggingLevel Verbose
@@ -160,18 +195,22 @@ Get-SendConnector|Set-SendConnector -ProtocolLoggingLevel Verbose
 ## 4. Check the meesage header if it's working or not
 ### 1. whtpqsuperuser@whtpq.com → leeyosebi@naver.com
 1. MessageTrackingLog
-![](https://velog.velcdn.com/images/leeyosebi/post/ac03d524-a74d-4453-964a-be825dfc60a0/image.png)
+<img width="1724" height="1088" alt="image" src="https://github.com/user-attachments/assets/efc95997-af3a-48a4-b8ba-810193fa528d" />
+
 2. Queue
-![](https://velog.velcdn.com/images/leeyosebi/post/26238cc5-8d71-4d44-87e6-11d5b5501291/image.png)
+<img width="1768" height="214" alt="image" src="https://github.com/user-attachments/assets/cf0eb7bb-d0dc-43f3-8869-087744f3a1d4" />
+
+
 3. Message Header
-![](https://velog.velcdn.com/images/leeyosebi/post/11d18e23-5250-44e3-bf92-55eaa306a562/image.png)
+<img width="2136" height="978" alt="image" src="https://github.com/user-attachments/assets/64de2f63-b050-49b0-b09c-070298a23cc5" />
+
 
 ### 2. leeyosebi@naver.com → whtpqsuperuser@whtpq.com
-1. 
+1. /*image is missing*/
 
 
 
 # Reference
-- https://learn.microsoft.com/en-us/exchange/architecture/edge-transport-servers/edge-transport-servers?view=exchserver-2019
-- https://learn.microsoft.com/en-us/exchange/mail-flow/queues/relocate-queue-database?view=exchserver-2019
-- https://learn.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/antispam-on-mailbox-servers?view=exchserver-2019#step-3-specify-the-internal-smtp-servers-in-your-organization
+- <https://learn.microsoft.com/en-us/exchange/architecture/edge-transport-servers/edge-transport-servers?view=exchserver-2019>
+- <https://learn.microsoft.com/en-us/exchange/mail-flow/queues/relocate-queue-database?view=exchserver-2019>
+- <https://learn.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/antispam-on-mailbox-servers?view=exchserver-2019#step-3-specify-the-internal-smtp-servers-in-your-organization>

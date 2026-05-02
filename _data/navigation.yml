@@ -11,7 +11,9 @@ main:
   # - title: "Sitemap"
   #   url: /sitemap/
 
-  category:
+
+# sidebar category nav
+category:
   - title: "Security"
     children:
       - title: "PKI & Certificates"

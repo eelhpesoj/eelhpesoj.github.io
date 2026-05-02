@@ -1,5 +1,8 @@
 ---
 title: "Multiple Domain Support for Federating with Microsoft Entra ID"
+categories:
+  - On-Premises
+  - Entra ID Connect
 ---
 
 # 0. Index

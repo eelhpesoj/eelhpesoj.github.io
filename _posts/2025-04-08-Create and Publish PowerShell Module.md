@@ -1,5 +1,8 @@
 ---
 title: "Create and Publish PowerShell Module"
+categories:
+  - Programming
+  - PowerShell
 ---
 
 

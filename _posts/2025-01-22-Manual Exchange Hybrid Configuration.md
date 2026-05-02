@@ -1,4 +1,5 @@
 ---
+title: "Manual Exchange Hybrid Configuration"
 ---
 # 0. Summary
 This document contains the manual for Exchange Hybrid Configuration in environments where the Hybrid Configuration Wizard (HCW) cannot be run.

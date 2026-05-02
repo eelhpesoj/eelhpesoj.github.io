@@ -12,21 +12,18 @@ main:
   #   url: /sitemap/
 
 category:
-  - title: "Identity"
+  - title: "Microsoft 365 / Cloud"
     children:
       - title: "Entra ID"
         url: /categories/#entra-id
-      - title: "ADFS"
-        url: /categories/#adfs
-      - title: "Entra Connect"
+      - title: "Entra ID Connect"
         url: /categories/#entra-id-connect
-
-  - title: "Security"
-    children:
-      - title: "PKI"
-        url: /categories/#pki
-      - title: "AIP"
-        url: /categories/#aip
+      - title: "Microsoft Entra hybrid joined"
+        url: /categories/#microsoft-entra-hybrid-joined
+      - title: "Copilot"
+        url: /categories/#copilot
+      - title: "Copilot Agent"
+        url: /categories/#copilot-agent
 
   - title: "Exchange"
     children:
@@ -34,19 +31,54 @@ category:
         url: /categories/#exchange-server
       - title: "Exchange Online"
         url: /categories/#exchange-online
-      - title: "Exchange Hybrid"
+      - title: "Exchange hybrid"
         url: /categories/#exchange-hybrid
 
-  - title: "Endpoint"
+  - title: "Identity / Security"
+    children:
+      - title: "Security"
+        url: /categories/#security
+      - title: "ADFS"
+        url: /categories/#adfs
+      - title: "PKI"
+        url: /categories/#pki
+      - title: "AIP"
+        url: /categories/#aip
+
+  - title: "Endpoint / Infrastructure"
     children:
       - title: "Intune"
         url: /categories/#intune
-      - title: "macOS PSSO"
-        url: /categories/#microsoft-entra-hybrid-joined
+      - title: "Endpoint"
+        url: /categories/#endpoint
+      - title: "On-Premises"
+        url: /categories/#on-premises
+      - title: "AD"
+        url: /categories/#ad
+      - title: "GPO"
+        url: /categories/#gpo
+      - title: "DNS"
+        url: /categories/#dns
+      - title: "Network"
+        url: /categories/#network
+      - title: "IIS Server"
+        url: /categories/#iis-server
+      - title: "Windows Server"
+        url: /categories/#windows-server
+      - title: "MacOS"
+        url: /categories/#macos
+      - title: "VM"
+        url: /categories/#vm
 
   - title: "Programming"
     children:
       - title: "PowerShell"
         url: /categories/#powershell
+      - title: "Programming"
+        url: /categories/#programming
       - title: "Java"
         url: /categories/#java
+      - title: "Python"
+        url: /categories/#python
+      - title: "Csharp"
+        url: /categories/#csharp

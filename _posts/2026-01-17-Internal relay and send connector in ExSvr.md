@@ -1,5 +1,8 @@
 ---
 title: "Internal relay and send connector in ExSvr"
+categories:
+  - On-Premises
+  - Exchange
 ---
 
 # 0. Overview

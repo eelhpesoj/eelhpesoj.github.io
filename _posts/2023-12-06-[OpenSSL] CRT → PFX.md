@@ -1,5 +1,9 @@
 ---
 title: "[OpenSSL] CRT → PFX"
+categories:
+  - Programming
+  - Security
+  - PKI
 ---
 
 

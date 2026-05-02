@@ -1,5 +1,9 @@
 ---
 title: "Manual SCP Setup"
+categories:
+  - On-Premises
+  - Entra ID Connect
+  - Microsoft Entra hybrid joined
 ---
 
 ### 1. 요약

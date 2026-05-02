@@ -1,5 +1,5 @@
 ---
-title: "Understanding Digital Certificates"
+title: "Understanding PKI and Digital Certificates"
 ---
 
 

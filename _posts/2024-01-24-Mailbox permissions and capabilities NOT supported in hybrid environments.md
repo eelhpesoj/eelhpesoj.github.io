@@ -1,4 +1,5 @@
 ---
+title: "Mailbox permissions and capabilities NOT supported in hybrid environments"
 ---
 
 

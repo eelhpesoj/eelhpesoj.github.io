@@ -1,5 +1,8 @@
 ---
 title: "Checking Public SSL Certificate"
+categories:
+  - Security
+  - Network
 ---
 
 # Overview

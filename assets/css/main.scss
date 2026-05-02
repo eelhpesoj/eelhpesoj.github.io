@@ -119,13 +119,13 @@ search: false
 .home-category-sidebar .nav__list,
 .home-category-sidebar .nav__items,
 .home-category-sidebar .toc__menu {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 /* Parent category: IDENTITY, SECURITY */
 .home-category-sidebar .nav__sub-title,
 .home-category-sidebar .toc__menu > li > a {
-  font-size: 0.55rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #ffffff;
   opacity: 1;
@@ -135,7 +135,7 @@ search: false
 /* Child category: Entra ID, ADFS, PKI */
 .home-category-sidebar .nav__items a,
 .home-category-sidebar .toc__menu li ul li a {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: #ffffff;
   opacity: 1;
   padding-left: 0.75rem;

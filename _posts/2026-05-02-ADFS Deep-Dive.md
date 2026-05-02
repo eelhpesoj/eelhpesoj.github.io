@@ -1,5 +1,8 @@
 ---
 title: "ADFS Deep-Dive"
+categories:
+  - On-Premises
+  - ADFS
 ---
 
 # 0. Overview

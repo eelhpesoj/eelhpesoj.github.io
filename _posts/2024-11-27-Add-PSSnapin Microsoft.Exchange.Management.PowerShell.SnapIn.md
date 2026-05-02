@@ -1,5 +1,12 @@
 ---
 title: "Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Exchange hybrid
+  - Programming
+  - PowerShell
 ---
 
 

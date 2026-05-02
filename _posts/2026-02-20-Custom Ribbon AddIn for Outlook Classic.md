@@ -1,5 +1,8 @@
 ---
 title: "Custom Ribbon AddIn for Outlook Classic"
+categories:
+  - Programming
+  - Csharp
 ---
 
 # 0. Overview

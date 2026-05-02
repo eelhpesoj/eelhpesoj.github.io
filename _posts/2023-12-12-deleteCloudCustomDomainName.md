@@ -1,4 +1,5 @@
 ---
+title: "delete Cloud Custom Domain Name"
 ---
 <https://github.com/leeyosebi/Powershell/blob/master/deleteCloudCustomDomainName.ps1>
 

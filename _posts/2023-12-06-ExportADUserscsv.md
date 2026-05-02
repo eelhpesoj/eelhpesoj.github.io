@@ -1,5 +1,10 @@
 ---
 title: "Export AD Users to csv"
+categories:
+  - On-Premises
+  - Programming
+  - PowerShell
+  - AD
 ---
 
 ### 1. 요약:

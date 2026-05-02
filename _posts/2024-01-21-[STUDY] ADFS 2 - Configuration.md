@@ -1,5 +1,8 @@
 ---
 title: "[STUDY] ADFS 2 - Configuration"
+categories:
+  - On-Premises
+  - ADFS
 ---
 
 ### 요약

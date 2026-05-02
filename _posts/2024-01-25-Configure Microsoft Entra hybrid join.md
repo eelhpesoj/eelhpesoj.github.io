@@ -1,5 +1,8 @@
 ---
 title: "Configure Microsoft Entra hybrid join"
+categories:
+  - Endpoint
+  - Microsoft Entra hybrid joined
 ---
 
 

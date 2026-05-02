@@ -4,7 +4,8 @@
 # 0. Summary
 Imagine when we visit a company. At the front of the company, you will meet a security in the desk and they will check if you can enter here or not. Specifically, they will check you are on the visitor list and you are actually the same person on the visitor list.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/d481da3c-5683-4f3f-9759-39414099983e/image.png)
+<img width="463" height="478" alt="image" src="https://github.com/user-attachments/assets/090759c5-262e-4b2e-920b-4bff6b4ffb50" />
+
 
 After they finished to check, they will give you a visitor's card to enter some places where only allowed for the visitors. You can't access some places where only allowed to the employees. You don't have any permissions for some offices and floors.
 

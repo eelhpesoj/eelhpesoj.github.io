@@ -1,5 +1,8 @@
 ---
 title: "[STUDY] ADFS 1 - Architecture"
+categories:
+  - On-Premises
+  - ADFS
 ---
 
 ### 개요

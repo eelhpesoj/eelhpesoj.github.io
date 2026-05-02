@@ -1,3 +1,7 @@
+---
+title: "Custom Ribbon AddIn for Outlook Classic"
+---
+
 # 0. Overview
 In this post, I will share how to create Custom Ribbon AddIn to Outlook Classic.
 Hope this demo can help you!

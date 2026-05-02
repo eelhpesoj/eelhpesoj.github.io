@@ -1,5 +1,7 @@
 ---
 title: "[Intune] Screen saver auto deployment"
+categories:
+  - Intune
 ---
 
 # 1. Introduction

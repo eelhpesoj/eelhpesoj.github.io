@@ -27,5 +27,6 @@ Start-ADSyncCycle -PolicyType Delta
 ```
 
 ### 4. 참고:
-https://learn.microsoft.com/en-us/exchange/permissions
-![](https://velog.velcdn.com/images/leeyosebi/post/0a45b411-582b-409b-91a5-23530a819f6c/image.png)
+<https://learn.microsoft.com/en-us/exchange/permissions>
+<img width="1762" height="1256" alt="image" src="https://github.com/user-attachments/assets/f980e555-de51-4b58-b339-d92305548c07" />
+

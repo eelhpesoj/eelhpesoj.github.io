@@ -33,3 +33,13 @@ search: false
     padding-inline-end: 16%;
   }
 }
+
+/* On this page 제목 */
+.toc__title {
+  color: #ffffff !important;
+}
+
+/* 현재 페이지 번호 */
+.pagination .current {
+  color: #ffffff !important;
+}

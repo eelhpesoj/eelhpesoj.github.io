@@ -65,7 +65,6 @@ PKI defines:
 
 Think of PKI as the **international treaty** that makes passports work across borders. No single country invented it — it's a shared system of agreed rules.
 
----
 
 # 3. X.509 — The Certificate Standard
 
@@ -90,7 +89,6 @@ Common file formats:
 | `.key` | Private key |
 | `.pfx` / `.p12` | Certificate + private key bundled (PKCS#12) |
 
----
 
 # 4. Root CA and the Chain of Trust
 
@@ -114,7 +112,6 @@ Returning to the passport analogy: the Root CA is the Ministry of Foreign Affair
 
 When a browser or OS validates a certificate, it walks up this chain until it reaches a trusted Root CA. If the chain is intact and the Root CA is trusted, the certificate is trusted.
 
----
 
 # 5. PKCS — Public Key Cryptography Standards
 
@@ -136,7 +133,6 @@ PKCS#12 is what you get at the end of the process if you need to carry both the 
 
 Back to the passport analogy: PKCS is the **set of official forms and procedures** — the application form (PKCS#10), the booklet format (PKCS#12), the stamping protocol (PKCS#1).
 
----
 
 # 6. CMS — Cryptographic Message Syntax
 
@@ -153,7 +149,6 @@ CMS evolved from PKCS#7, and the two terms are sometimes used interchangeably, t
 
 Think of CMS as the **diplomatic envelope** — a standardized container that carries the passport (certificate), the stamp (signature), and the document (content) all together in a way that any recipient can verify.
 
----
 
 # 7. CSP — Cryptographic Service Provider
 
@@ -167,7 +162,6 @@ The private key itself never leaves the CSP. You hand the CSP data to sign, and 
 
 In the passport analogy: the CSP is **border control**. It's the system that performs the actual verification at the point of use — checking that the document is valid, that the signature matches, and that the key used to produce it is trusted.
 
----
 
 # 8. How It All Fits Together
 
@@ -180,7 +174,6 @@ Here's the full lifecycle of a certificate, mapped to both the technical terms a
 5. **Distribute the certificate** — bundled with your software, website, or script (you carry your passport when you travel)
 6. **Client verifies at runtime via CSP** — the OS validates the chain of trust and checks the signature (border control scans your passport and checks it against the database)
 
----
 
 # 9. Summary
 

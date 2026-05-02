@@ -1,5 +1,8 @@
 ---
 title: "How To create Mac VM"
+categories:
+  - MacOS
+  - VM
 ---
 
 # 0. Overview

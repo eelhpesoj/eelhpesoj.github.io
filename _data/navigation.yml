@@ -10,3 +10,43 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+
+category:
+  - title: "Identity"
+    children:
+      - title: "Entra ID"
+        url: /categories/#entra-id
+      - title: "ADFS"
+        url: /categories/#adfs
+      - title: "Entra Connect"
+        url: /categories/#entra-id-connect
+
+  - title: "Security"
+    children:
+      - title: "PKI"
+        url: /categories/#pki
+      - title: "AIP"
+        url: /categories/#aip
+
+  - title: "Exchange"
+    children:
+      - title: "Exchange Server"
+        url: /categories/#exchange-server
+      - title: "Exchange Online"
+        url: /categories/#exchange-online
+      - title: "Exchange Hybrid"
+        url: /categories/#exchange-hybrid
+
+  - title: "Endpoint"
+    children:
+      - title: "Intune"
+        url: /categories/#intune
+      - title: "macOS PSSO"
+        url: /categories/#microsoft-entra-hybrid-joined
+
+  - title: "Programming"
+    children:
+      - title: "PowerShell"
+        url: /categories/#powershell
+      - title: "Java"
+        url: /categories/#java

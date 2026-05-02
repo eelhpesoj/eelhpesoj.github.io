@@ -1,5 +1,10 @@
 ---
 title: "[Trouble Shooting] Exchange Hybrid Centralized"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Exchange hybrid
 ---
 
 # Issue 

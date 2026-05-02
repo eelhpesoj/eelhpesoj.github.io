@@ -9,7 +9,7 @@ Please refer the link below:
 
 [Index]
 
-1. ADFS with Kerberos
+1. DC with Kerveros
 2. Modern Web Authentication
 3. How ADFS Federate Identity from DC
 

@@ -2,7 +2,7 @@
 title: "Configuration Exchange Server DAG"
 categories:
   - On-Premises
-  - Exchange
+  - Exchange Server
 ---
 
 # Summary

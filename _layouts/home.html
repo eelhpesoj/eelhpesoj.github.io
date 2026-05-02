@@ -6,15 +6,27 @@ layout: archive
 
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+<div style="display: flex; gap: 2rem; align-items: flex-start;">
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html entries=posts type=entries_layout %}
+  <!-- 기존 포스트 목록 그대로 -->
+  <div style="flex: 1;">
+    {% if paginator %}
+      {% assign posts = paginator.posts %}
+    {% else %}
+      {% assign posts = site.posts %}
+    {% endif %}
+
+    {% assign entries_layout = page.entries_layout | default: 'list' %}
+    <div class="entries-{{ entries_layout }}">
+      {% include documents-collection.html entries=posts type=entries_layout %}
+    </div>
+
+    {% include paginator.html %}
+  </div>
+
+  <!-- 오른쪽 카테고리 -->
+  <aside style="width: 200px; flex-shrink: 0; position: sticky; top: 2rem;">
+    {% include nav_list nav="category" %}
+  </aside>
+
 </div>
-
-{% include paginator.html %}

@@ -1,4 +1,5 @@
 ---
+title: "[Intune] Scripts and remediations- Deleting user folder"
 ---
 
 # Summary

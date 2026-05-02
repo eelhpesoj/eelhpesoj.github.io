@@ -67,12 +67,15 @@ search: false
 // 카테고리 디자인
 .home-with-category {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-columns: minmax(0, 720px) 200px;
   gap: 4rem;
   align-items: start;
+  width: max-content;
+  max-width: none;
 }
 
 .home-post-list {
+  width: 720px;
   min-width: 0;
 }
 
@@ -86,6 +89,11 @@ search: false
 @media (max-width: 1024px) {
   .home-with-category {
     display: block;
+    width: 100%;
+  }
+
+  .home-post-list {
+    width: 100%;
   }
 
   .home-category-sidebar {

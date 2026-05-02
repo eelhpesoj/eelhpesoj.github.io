@@ -1,5 +1,8 @@
 ---
 title: "Hybrid Identity Required Ports and Protocols"
+categories:
+  - On-Premises
+  - Entra ID Connect
 ---
 
 ### Summary

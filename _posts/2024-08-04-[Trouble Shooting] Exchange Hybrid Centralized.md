@@ -40,10 +40,12 @@ Although it should have been obvious that the Connector would work, we could hav
 # Reference
 
 1. centralized mail transport enabled
-![](https://velog.velcdn.com/images/leeyosebi/post/ca1c5bd9-4436-40d3-bb3c-752a4ccfb2c0/image.png)
+<img width="690" height="532" alt="image" src="https://github.com/user-attachments/assets/74d5cc5a-c7e8-44c8-9ad7-74478a07afdd" />
+
 
 2. centralized mail transport disabled (default configuration)
-![](https://velog.velcdn.com/images/leeyosebi/post/66caafaa-bc7d-484b-86d9-c2af73b4cd8d/image.png)
+<img width="690" height="532" alt="image" src="https://github.com/user-attachments/assets/4c0c6ad2-e79b-4e75-a2a5-06c437375605" />
+
 
 3. Document:
-https://learn.microsoft.com/en-us/exchange/transport-routing
+<https://learn.microsoft.com/en-us/exchange/transport-routing>

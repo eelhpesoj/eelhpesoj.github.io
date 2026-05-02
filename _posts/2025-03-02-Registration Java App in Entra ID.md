@@ -1,5 +1,9 @@
 ---
 title: "Registration Java App in Entra ID"
+categories:
+  - Security
+  - Programming
+  - Java
 ---
 
 # 0. Introduction

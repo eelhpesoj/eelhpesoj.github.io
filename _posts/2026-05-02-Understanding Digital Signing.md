@@ -1,5 +1,8 @@
 ---
 title: "Understanding Digital Signing"
+categories:
+  - Security
+  - PKI
 ---
 
 # 0. Overview

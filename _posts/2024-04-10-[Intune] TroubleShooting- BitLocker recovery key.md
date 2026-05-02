@@ -4,7 +4,8 @@
 # Summary
 One of my client request to reslove this error.
 He was facing this error since he had changed his password.
-![](https://velog.velcdn.com/images/leeyosebi/post/d70f42d3-3df0-4e94-b7f3-d6b1153e7e56/image.png)
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ac226527-9aa2-4723-8cc5-a83597286c16" />
+
 
 ---
 
@@ -17,16 +18,19 @@ Use this command.
 C:\WINDOWS\system32> manage-bde.exe -off C:
 C:\WINDOWS\system32> manage-bde.exe -status
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/a4d77574-3be1-46fa-9480-c3b9a06d2e3e/image.png)
+<img width="624" height="483" alt="image" src="https://github.com/user-attachments/assets/a4c4ae0f-e58e-4434-84ab-7ae989d605cc" />
+
 
 3. Keep checking the Conversion Status until it Fully Decrypted
 ```
 C:\WINDOWS\system32> manage-bde.exe -status
 ```
-![](https://velog.velcdn.com/images/leeyosebi/post/9cfdbb4b-db56-4df0-bb44-6cc144fbc75c/image.png)
+<img width="613" height="354" alt="image" src="https://github.com/user-attachments/assets/e53be495-d5c7-4fb0-97fe-f4be3300c891" />
+
 
 4. Click 'Sync' button under the company account which was controlly by intune.
-![](https://velog.velcdn.com/images/leeyosebi/post/d6f4ef65-d99f-4804-a853-5a03e3b7bdda/image.png)
+<img width="893" height="696" alt="image" src="https://github.com/user-attachments/assets/204f090b-fd25-4d1e-938a-71a45bac96d7" />
+
 
 5. Once you click 'Sync' button, check the disk encryption status.
 The encryption is starting by the intune policy.

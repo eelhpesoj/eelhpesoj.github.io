@@ -1,5 +1,9 @@
 ---
 title: "IIS ARR Configuration with ExSvr"
+categories:
+  - On-Premises
+  - Exchange Server
+  - IIS Server
 ---
 
 

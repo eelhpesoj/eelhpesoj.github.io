@@ -9,20 +9,24 @@ In this post, I will cover the prerequisite of the Microsoft Entra Connect(Forme
 
 ### 1. Overview
 
-![](https://velog.velcdn.com/images/leeyosebi/post/ba76ffdb-ee2f-4c73-abc3-5c2d7b97fa33/image.png)
+<img width="1858" height="1034" alt="image" src="https://github.com/user-attachments/assets/ffc95f64-6ec4-4949-afb9-2cff7d5705be" />
+
 
 This is the overal design but note that 'On-premises Active Directory and Azure AD Connect Server'
-![](https://velog.velcdn.com/images/leeyosebi/post/70ee2913-a3e2-4e59-bd6b-890c2326bebf/image.png)
+<img width="576" height="238" alt="image" src="https://github.com/user-attachments/assets/9df6aafc-9b88-40f3-886a-66665b4eebc5" />
+
 
 ### 2. Microsoft Entra Connect and On-premises AD
 This section describes the ports and protocols that are required for communication between the Microsoft Entra Connect server and on-premises AD.
 
-![](https://velog.velcdn.com/images/leeyosebi/post/6c9afb07-3631-42c3-b471-f039e233c965/image.png)
+<img width="859" height="573" alt="image" src="https://github.com/user-attachments/assets/46c633bd-0ad3-4eaf-8f15-11662b02ba17" />
+
 
 ### 3. If you don't allow those ports and protocols..
 You will encounter following issues.
 Example:
-![](https://velog.velcdn.com/images/leeyosebi/post/c4dfeeaf-2314-4503-969f-fe521d3c1ae9/image.png)
+<img width="970" height="690" alt="image" src="https://github.com/user-attachments/assets/db300c3f-6564-4a13-9220-58ffe6e1c9db" />
+
 389 Ports error.
 
 Test with this powershell on the Microsoft Entra Connect server
@@ -36,4 +40,4 @@ Test-Netconnection 'IP address' -Port 389
 ```
 
 ### Reference
-https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-ports
+<https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/reference-connect-ports>

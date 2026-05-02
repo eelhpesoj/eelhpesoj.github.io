@@ -1,5 +1,7 @@
 ---
 title: "Enabling Sensitivity Labels(AIP) for Groups & Sites"
+categories:
+  - AIP
 ---
 
 ### Summary

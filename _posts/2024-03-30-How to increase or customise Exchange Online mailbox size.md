@@ -1,5 +1,8 @@
 ---
 title: "How to increase or customise Exchange Online mailbox size"
+categories:
+  - On-Premises
+  - Exchange Online
 ---
 
 # Summary

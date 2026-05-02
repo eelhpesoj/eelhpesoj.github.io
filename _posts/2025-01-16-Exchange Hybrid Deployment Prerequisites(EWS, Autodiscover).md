@@ -1,5 +1,12 @@
 ---
 title: "Exchange Hybrid Deployment Prerequisites(EWS, Autodiscover)"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Exchange hybrid
+  - Programming
+  - PowerShell
 ---
 
 # 0. Summary

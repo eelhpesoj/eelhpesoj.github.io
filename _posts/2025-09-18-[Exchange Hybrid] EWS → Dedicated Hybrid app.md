@@ -1,5 +1,10 @@
 ---
 title: "[Exchange Hybrid] EWS → Dedicated Hybrid app"
+categories:
+  - On-Premises
+  - Exchange Server
+  - Exchange Online
+  - Exchange hybrid
 ---
 
 

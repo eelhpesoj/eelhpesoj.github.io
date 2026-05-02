@@ -66,34 +66,21 @@ search: false
 
 // 카테고리 디자인
 .home-with-category {
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 4rem;
+  align-items: start;
 }
 
 .home-post-list {
-  flex: 1;
   min-width: 0;
 }
 
 .home-category-sidebar {
-  width: 220px;
-  flex-shrink: 0;
+  width: 200px;
   position: sticky;
-  top: 2rem;
-}
-
-.home-category-sidebar h3 {
-  margin-top: 0;
-  font-size: 1rem;
-}
-
-.home-category-sidebar a {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.45rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  text-decoration: none;
+  top: 2em;
+  margin-top: 2.2rem;
 }
 
 @media (max-width: 1024px) {
@@ -107,4 +94,3 @@ search: false
     margin-top: 2rem;
   }
 }
-

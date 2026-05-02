@@ -51,6 +51,8 @@ search: false
   opacity: 1 !important;
 }
 
+
+// 테스트 드래그 색 조정
 ::selection {
   background: #3F5573;
   color: #ffffff;
@@ -60,3 +62,49 @@ search: false
   background: #3F5573;
   color: #ffffff;
 }
+
+
+// 카테고리 디자인
+.home-with-category {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.home-post-list {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-category-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 2rem;
+}
+
+.home-category-sidebar h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.home-category-sidebar a {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .home-with-category {
+    display: block;
+  }
+
+  .home-category-sidebar {
+    width: 100%;
+    position: static;
+    margin-top: 2rem;
+  }
+}
+

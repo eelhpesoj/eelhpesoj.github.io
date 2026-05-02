@@ -12,15 +12,19 @@ See below.
 ---
 
 ### Outlook Web
-![](https://velog.velcdn.com/images/leeyosebi/post/19661008-2b4f-4468-a74b-71bd49e00135/image.png)
+<img width="1488" height="837" alt="image" src="https://github.com/user-attachments/assets/76838e48-5ea6-4a75-a1c1-fdc4e16b8000" />
+
 
 ### Outlook App
-![](https://velog.velcdn.com/images/leeyosebi/post/d7bdbb48-5db1-4385-b4ff-8a596720eaf1/image.png)
+<img width="1488" height="837" alt="image" src="https://github.com/user-attachments/assets/7cedba53-dd63-486e-9d4e-0e0e592424e9" />
+
 
 ### Outlook App(Legacy)
-![](https://velog.velcdn.com/images/leeyosebi/post/3b690f96-a504-42c4-b68a-b77eccace6d8/image.png)
+<img width="1488" height="837" alt="image" src="https://github.com/user-attachments/assets/89e90410-d4f1-4197-8524-6afba18360f5" />
+
 
 ### Reference
-https://learn.microsoft.com/en-us/officeupdates/release-notes-office-for-mac#march-14-2023
-![](https://velog.velcdn.com/images/leeyosebi/post/2a01d66f-a9f8-4c5e-9d7e-63c5c8e5916f/image.png)
+<https://learn.microsoft.com/en-us/officeupdates/release-notes-office-for-mac#march-14-2023>
+<img width="1299" height="1000" alt="image" src="https://github.com/user-attachments/assets/89fd6eb2-4de9-493b-8603-c1a80804ba13" />
+
 Well it says it has been updated. But it dosen't mean the legacy version.

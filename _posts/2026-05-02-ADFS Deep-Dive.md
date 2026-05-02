@@ -48,7 +48,7 @@ If the Domain users shows their valid TGT to the ADFS, The ADFS issues SAML Toke
 So if domain users access to their <https://office.com> and try to login, the process would be like:
 
 1. A user trying log in to <https://office.com>
-2. Redirected to <https://sts.ADFS_FQDN>
+2. Redirected to <https://ADFS_FQDN>
 3. Enter user credentials
 4. Check the availability with DC(TGT)
 5. ADFS issues its pre configured token issuing rules associated with the service

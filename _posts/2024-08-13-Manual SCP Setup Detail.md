@@ -4,6 +4,7 @@ categories:
   - On-Premises
   - Entra ID Connect
   - AD
+  - Microsoft Entra hybrid joined
 ---
 
 To give you more specific details of:

@@ -1,5 +1,8 @@
 ---
 title: "Understanding PKI and Digital Certificates"
+categories:
+  - Security
+  - PKI
 ---
 
 

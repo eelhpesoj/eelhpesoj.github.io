@@ -9,9 +9,32 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 
-
-
 // 레이아웃 비율 조정
+.sidebar {
+  @include breakpoint($large) {
+    width: 18%;
+  }
+
+  @include breakpoint($x-large) {
+    width: 16%;
+  }
+}
+
+.page {
+  @include breakpoint($large) {
+    width: 82%;
+    padding-inline-start: 2rem; // 왼쪽 프로필과 본문 간격
+    padding-inline-end: 20%;    // 본문과 TOC 간격/TOC 공간
+  }
+
+  @include breakpoint($x-large) {
+    width: 84%;
+    padding-inline-start: 2rem;
+    padding-inline-end: 18%;
+  }
+}
+
+/*/ 레이아웃 비율 조정
 .sidebar {
   @include breakpoint($large) {
     width: 18%;
@@ -34,10 +57,9 @@ search: false
   }
 }
 
-/* On this page 제목 */
-.nav__title {
-  color: #1f1f1f !important;
-}
+
+*/
+
 
 /* 현재 페이지 번호 */
 .pagination .current {
@@ -174,7 +196,10 @@ a:hover {
 
 
 
-
+/* On this page 제목 */
+.nav__title {
+  color: #1f1f1f !important;
+}
 
 
 // TOC hover 색상 고정
@@ -230,15 +255,4 @@ a:hover {
 .layout--single .page {
   max-width: 1600px !important;  // 1400~1800 추천
   margin: 0 auto !important;
-}
-
-
-
-/* 본문은 유지하고, 좌우 사이드 영역만 간격 벌리기 */
-.sidebar {
-  margin-right: 3rem !important;
-}
-
-.sidebar__right {
-  margin-left: 3rem !important;
 }

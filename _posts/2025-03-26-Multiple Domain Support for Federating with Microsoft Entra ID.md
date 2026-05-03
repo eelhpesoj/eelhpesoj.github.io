@@ -136,7 +136,8 @@ I have no idea what's going on this add new Top-Level domain scenario..
 
 <img width="859" height="502" alt="image" src="https://github.com/user-attachments/assets/e74f4149-6560-47ee-952d-f86eaf3d406a" />
 
-
+Use "Get-MgDomainFederationConfiguration".
+refer this: <https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdomainfederationconfiguration?view=graph-powershell-1.0>
 
 
 

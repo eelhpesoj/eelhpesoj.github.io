@@ -205,3 +205,25 @@ a:hover {
 .nav__title svg {
   display: none !important;
 }
+
+
+
+/* ===== TOC 디자인 정리 ===== */
+
+/* 박스 제거 */
+.toc {
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+}
+
+/* 제목 정렬 */
+.toc .nav__title {
+  padding-left: 0 !important;
+}
+
+/* 리스트도 맞춤 
+.toc__menu {
+  padding-left: 0 !important;
+}
+*/

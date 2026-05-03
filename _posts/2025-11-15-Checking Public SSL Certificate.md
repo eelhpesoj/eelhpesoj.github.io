@@ -5,21 +5,11 @@ categories:
   - Network
 ---
 
-# Overview
+# 0. Overview
 Most of the cases, we need to check the ssl stream if the connection is funtioning properly or not.
 To do this, I suggest the two options below.
 In this post, I will use my exchange server certificate issued to "mail.cake.run.place"
 
-
-
-# 0. Index
-1. Using browser
-1.1. Chrome
-1.2 Edge
-2. Using command
-2.1 Curl
-2.2 OpenSSL
-2.3 PowerShell
 
 # 1. Using browser
 ## 1.1 Chrome

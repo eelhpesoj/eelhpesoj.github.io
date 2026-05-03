@@ -14,11 +14,6 @@ I thought the mac os never have been provide a their installer like iso but some
 
 So, this post will let you led how to create a VM runs mac os.
 
-[Index]
-
-1. Download UTM application
-2. Download IPSW
-3. Create VM
 
 # 1. Download UTM application
 Go to the link to get the UTM for mac.

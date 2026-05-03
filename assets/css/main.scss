@@ -330,6 +330,6 @@ a:hover {
 /* 메인 페이지 Recent posts 시작 위치 보정 */
 .layout--archive .archive {
   @include breakpoint($large) {
-    margin-top: -2.5rem;
+    margin-top: -5rem;
   }
 }

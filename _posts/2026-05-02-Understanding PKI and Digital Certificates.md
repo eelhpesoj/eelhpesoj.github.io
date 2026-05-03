@@ -6,7 +6,7 @@ categories:
 ---
 
 
-# Overview
+# 0. Overview
 
 Before we talk about code signing or HTTPS, there's a foundational layer worth understanding: the certificate ecosystem itself. Terms like PKI, X.509, Root CA, PKCS, CMS, and CSP appear constantly in security documentation, yet rarely get explained together in a way that shows how they relate to each other.
 

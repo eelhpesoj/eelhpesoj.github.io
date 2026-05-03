@@ -16,6 +16,7 @@ To give you more specific details of:
 
 1. Run ADSI Edit
     <img width="669" height="183" alt="image" src="https://github.com/user-attachments/assets/7bd64759-b799-4194-8e40-ff85470879ff" />
+    ![](https://github.com/user-attachments/assets/7bd64759-b799-4194-8e40-ff85470879ff)
 2. Connect to configuration
     <img width="382" height="388" alt="image" src="https://github.com/user-attachments/assets/714312f6-dda8-448b-82b7-c5a89ca7ff0b" />
 

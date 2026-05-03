@@ -12,17 +12,6 @@ Before we talk about code signing or HTTPS, there's a foundational layer worth u
 
 This post maps out that ecosystem — and uses the analogy of a passport to make it concrete.
 
-[Index]
-1. The Big Picture — Think of a Passport
-2. PKI — Public Key Infrastructure
-3. X.509 — The Certificate Standard
-4. Root CA and the Chain of Trust
-5. PKCS — Public Key Cryptography Standards
-6. CMS — Cryptographic Message Syntax
-7. CSP — Cryptographic Service Provider
-8. How It All Fits Together
-9. Summary
-
 
 # 1. The Big Picture — Think of a Passport
 

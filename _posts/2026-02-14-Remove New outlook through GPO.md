@@ -12,12 +12,6 @@ So, I suggest to use GPO which removes it by scheduled powershell script.
 Let's figure it out together.
 
 
-[Index]
-1. Script
-2. Create GPO
-3. Result
-
-
 # 1. Script
 First up first, you need to create the script.
 The script should be located in "C:\Windows\SYSVOL\sysvol\{domain name}\scripts"

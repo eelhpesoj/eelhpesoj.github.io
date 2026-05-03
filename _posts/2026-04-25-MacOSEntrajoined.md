@@ -115,7 +115,7 @@ And it's done!
 To make sure PSSO configuration and its status, execute "app-sso platform -s"
 This output will let you know the status of "Device Configuration, Login Configuration, User Configuration"
 and here is a sample output
-```txt
+```shell
 Last login: Sat Apr 25 02:36:33 on ttys000
 tester@testers-Virtual-Machine ~ % app-sso platform -s
 Time: 2026-04-25 09:41:29 +0000

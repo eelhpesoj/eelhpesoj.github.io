@@ -47,9 +47,10 @@ To give you more specific details of:
 7. Configure just like this
 <img width="402" height="457" alt="image" src="https://github.com/user-attachments/assets/f931aeef-efd0-48e3-850f-cef09ed06f33" />
 
-**[note]**
-azureADName is the domain name enrolled to your tenant.
-azureADId is the tenant GUID.
+> **[note]**
+> azureADName is the domain name enrolled to your tenant.
+> azureADId is the tenant GUID.
+
 6. Click 'Finish'
 <img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/4a723b13-abc2-455c-b2af-53d638972792" />
 
@@ -74,15 +75,10 @@ So the steps below is to make GPO and link it to the device OU to enroll the dev
 
 2. Install it
 <img width="114" height="208" alt="image" src="https://github.com/user-attachments/assets/221896c6-3222-4c49-938c-638b28c6eff6" />
-
 <img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/516c57af-878b-4c62-b155-d085cf3eb049" />
-
 <img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/9725aa6f-be39-46c0-b643-c6356762ef15" />
-
 <img width="573" height="450" alt="image" src="https://github.com/user-attachments/assets/c1acc5fd-7968-429b-bef5-7972e97c7360" />
-
 <img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/f0eec0d3-1615-4bd6-88b0-cbf8f431e717" />
-
 <img width="573" height="448" alt="image" src="https://github.com/user-attachments/assets/6a3a92b9-7a40-4448-b73b-ca27359578d9" />
 
 3. Go to the following path and copy all items right here.

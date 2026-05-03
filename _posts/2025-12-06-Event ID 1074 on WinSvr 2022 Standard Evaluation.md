@@ -13,14 +13,6 @@ Related post:
 
 Well, Since I set up the ARR on IIS and ExSvr, the VM has been shuting down almost every hours. So the mail service can't be last. and this is really annoying when I need to test. This post contains what I was trying to know what's going on this.
 
-[Index]
-1. What I encounter
-2. Event logs from Hyper-V host
-3. Event logs from Service host
-4. OS Design
-5. Workaround
-
-
 
 # 1. What I encounter
 Mail service is unavailable:

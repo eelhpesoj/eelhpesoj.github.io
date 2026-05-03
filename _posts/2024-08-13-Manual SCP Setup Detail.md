@@ -33,7 +33,8 @@ To give you more specific details of:
 
 ## 2. Create Service Connection Point
 1. Create new object under the 'Device Registration Configuration'
-<img width="579" height="281" alt="image" src="https://github.com/user-attachments/assets/b6d17805-3121-40a4-8e0b-acbc52fac580" />
+<!--img width="579" height="281" alt="image" src="https://github.com/user-attachments/assets/b6d17805-3121-40a4-8e0b-acbc52fac580" /-->
+<img alt="image" src="https://github.com/user-attachments/assets/b6d17805-3121-40a4-8e0b-acbc52fac580" />
 
 2. The class should be 'serviceConnectionPoint'
 <img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/a2d03bbb-7d24-4dff-b3fd-c25958576e6a" />

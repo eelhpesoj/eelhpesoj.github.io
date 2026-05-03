@@ -155,3 +155,14 @@ search: false
 .home-category-sidebar .nav__items li {
   margin: 0.25rem 0;
 }
+
+
+
+/* 모든 링크 밑줄 제거 */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}

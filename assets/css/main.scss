@@ -177,16 +177,11 @@ a:hover {
 
 
 
-/* TOC hover 색상 고정 
-.toc a,
-.toc a:visited,
-.toc a:hover,
-.toc a:focus,
-.toc a:active {
+/* TOC hover 색상 고정 */ 
+.toc a:hover {
   color: #ffffff !important;
-  text-decoration: none !important;
 }
-*/
+
 
 /* On this page 제목은 검정 유지 */
 .toc .nav__title,

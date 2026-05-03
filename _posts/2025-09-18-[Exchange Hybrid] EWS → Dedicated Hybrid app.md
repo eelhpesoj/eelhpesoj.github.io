@@ -8,7 +8,7 @@ categories:
 ---
 
 
-# Overview
+# 0. Overview
 Dear all, this post will provide you an idea to go through retirement of EWS from exchange online. All of this content from refer following two documents from Microsoft.
 
 - Refer1:
@@ -21,14 +21,6 @@ First up first, take a look at the prerequisites
 2. Exchange server version required as shown in the table
 <img width="943" height="693" alt="image" src="https://github.com/user-attachments/assets/99185897-ceee-4b10-ab9f-fd026f02e557" />
 
-
-# 0. Index
-1. HU
-2. Run HCW to create Dedicated hybrid app
-3. Cleanup the Service Principal Cleanup Mode
-4. Setting override
-5. Verify application
-6. NOTICE!
 
 # 1. HU
 1. Check the Exchange version

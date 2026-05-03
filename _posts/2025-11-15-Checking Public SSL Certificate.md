@@ -99,12 +99,16 @@ e.g.,
 
 
 - Ref: TcpClient Class
+  
   <https://learn.microsoft.com/en-us/dotnet/api/system.net.sockets.tcpclient?view=net-9.0>
 - Ref: SslStream Class
+  
   <https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream?view=net-9.0>
 - Ref:SslStream.AuthenticateAsClient Method
+  
   <https://learn.microsoft.com/en-us/dotnet/api/system.net.security.sslstream.authenticateasclient?view=net-8.0>
 - Ref: X509Certificate2 Class
+  
   <https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate2?view=net-9.0>
 
 # Result

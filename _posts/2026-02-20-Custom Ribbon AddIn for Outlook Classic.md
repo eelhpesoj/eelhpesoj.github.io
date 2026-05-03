@@ -15,12 +15,6 @@ Project repository:
 <img width="596" height="406" alt="image" src="https://github.com/user-attachments/assets/6acc413f-9ff9-44a6-a46c-0519f5383862" />
 
 
-[Index]
-1. Installation Visual Studio
-2. Create project and Add-in setup
-3. Debug and Publish
-4. Install and Results
-
 
 # 1. Installation Visual Studio
 First up first, you need a visual studio.

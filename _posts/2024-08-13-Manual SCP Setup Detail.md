@@ -16,6 +16,7 @@ To give you more specific details of:
 
 1. Run ADSI Edit
     ![](https://github.com/user-attachments/assets/7bd64759-b799-4194-8e40-ff85470879ff)
+
 2. Connect to configuration
     ![](https://github.com/user-attachments/assets/714312f6-dda8-448b-82b7-c5a89ca7ff0b)
 

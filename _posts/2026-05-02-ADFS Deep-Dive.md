@@ -10,11 +10,6 @@ This post is just a introduce the techcommunity post from Microsoft.
 Please refer the link below:
 - <https://techcommunity.microsoft.com/blog/coreinfrastructureandsecurityblog/adfs-deep-dive-comparing-ws-fed-saml-and-oauth/257584>
 
-[Index]
-
-1. DC with Kerberos
-2. Modern Web Authentication
-3. How ADFS Federate Identity from DC
 
 # 1. DC with Kerberos
 If you have read the post on the very top of this page, DC(Domain Controller) typically uses Kerberos authentication method.

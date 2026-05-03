@@ -12,11 +12,11 @@ Please refer the link below:
 
 [Index]
 
-1. DC with Kerveros
+1. DC with Kerberos
 2. Modern Web Authentication
 3. How ADFS Federate Identity from DC
 
-# 1. DC with Kerveros
+# 1. DC with Kerberos
 If you have read the post on the very top of this page, DC(Domain Controller) typically uses Kerberos authentication method.
 Kerberos is issuing TGT to the authenticated identites, obviousely accounts created from the DC.
 For example, The users get the TGT from the DC when they logon their "Domain Joined PCs".

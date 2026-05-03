@@ -326,9 +326,7 @@ a:hover {
 */
 
 
-/* 메인 페이지 Recent posts 시작 위치 보정 */
-.layout--archive .archive {
-  @include breakpoint($large) {
-    margin-top: -60rem;
-  }
+/* 홈 페이지에서만 프로필 위치 조정 */
+.layout--archive .sidebar {
+  margin-top: 3rem; /* 숫자 조절하면서 맞춰보기 */
 }

@@ -7,7 +7,7 @@ categories:
 ---
 
 
-# Overview
+# 0. Overview
 For the exchange server, almote every clients will need to seperate the network traffic with 443 and 25.
 In this case, they need reverse proxy. I will use IIS ARR(Application request routing) service as an proxy server.
 So, here is the a diagram which shows you the architecture of the LAB for this post.
@@ -21,18 +21,6 @@ Configuration IIS ARR for exchange server:
 - <https://techcommunity.microsoft.com/blog/exchange/part-1-reverse-proxy-for-exchange-server-2013-using-iis-arr/592526>
 - <https://www.youtube.com/watch?v=d6mqaHkGb-E>
 
-
-# 0. Index
-1. IIS Proxy ARR
-1.1 Basic settings
-1.2 Server Farms
-1.3 URL Rewrite rules
-
-2. Logs
-
-3. Warning
-
-4. Test
 
 # 1. IIS Proxy ARR
 I will skip the install steps..

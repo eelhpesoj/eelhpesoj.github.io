@@ -327,6 +327,6 @@ a:hover {
 
 
 /* 홈 페이지에서만 프로필 위치 조정 */
-.layout--archive .sidebar {
+.layout--home .sidebar.sticky {
   margin-top: 30rem !important;
 }

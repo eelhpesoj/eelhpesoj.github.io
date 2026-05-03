@@ -22,13 +22,13 @@ search: false
 
 .page {
   @include breakpoint($large) {
-    width: 84%;
+    width: 82%;
     padding-inline-start: 4rem; // 왼쪽 프로필과 본문 간격
     padding-inline-end: 25%;    // 본문과 TOC 간격/TOC 공간
   }
 
   @include breakpoint($x-large) {
-    width: 86%;
+    width: 84%;
     padding-inline-start: 4rem;
     padding-inline-end: 20%;
   }

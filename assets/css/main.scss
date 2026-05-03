@@ -224,8 +224,10 @@ a:hover {
 */
 
 
-/* 본문 최대 폭 확장 */
-#main {
-  padding-left: 3rem;
-  padding-right: 3rem;
+/* 전체 wrapper 확장 (핵심) */
+.initial-content,
+.layout--single,
+.layout--single .page {
+  max-width: 1600px !important;  // 1400~1800 추천
+  margin: 0 auto !important;
 }

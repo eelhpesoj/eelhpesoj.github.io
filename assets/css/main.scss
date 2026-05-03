@@ -177,18 +177,25 @@ a:hover {
 
 
 
-/* TOC hover 색상 고정 */ 
+/* TOC hover 색상 고정
 .toc a:hover {
   color: #1f1f1f !important;
 }
 
+*/
 
-/* On this page 제목은 검정 유지 */
+/* TOC hover 시 글자색 고정 (핵심) */
+.toc li:hover > a {
+  color: #1f1f1f !important;
+}
+
+
+/* On this page 제목은 검정 유지 
 .toc .nav__title,
 .toc .nav__title:hover {
   color: #1f1f1f !important;
 }
-
+*/
 
 
 

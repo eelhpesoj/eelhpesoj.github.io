@@ -10,27 +10,28 @@ search: false
 
 
 // 레이아웃 비율 조정
+// 레이아웃 비율 조정
 .sidebar {
   @include breakpoint($large) {
-    width: 18%;
+    width: 16%;
   }
 
   @include breakpoint($x-large) {
-    width: 16%;
+    width: 14%;
   }
 }
 
 .page {
   @include breakpoint($large) {
-    width: 82%;
-    padding-inline-start: 4rem; // 왼쪽 프로필과 본문 간격
-    padding-inline-end: 25%;    // 본문과 TOC 간격/TOC 공간
+    width: 84%;
+    padding-inline-start: 2rem;
+    padding-inline-end: 26%;
   }
 
   @include breakpoint($x-large) {
-    width: 84%;
-    padding-inline-start: 4rem;
-    padding-inline-end: 20%;
+    width: 86%;
+    padding-inline-start: 2rem;
+    padding-inline-end: 24%;
   }
 }
 

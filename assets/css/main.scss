@@ -166,3 +166,39 @@ a {
 a:hover {
   text-decoration: none !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* TOC hover 색상 고정 */
+.toc a,
+.toc a:visited,
+.toc a:hover,
+.toc a:focus,
+.toc a:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* On this page 제목은 검정 유지 */
+.toc .nav__title,
+.toc .nav__title:hover {
+  color: #1f1f1f !important;
+}
+
+
+
+
+/* On this page 햄버거 아이콘 제거 */
+.nav__title::before,
+.nav__title i,
+.nav__title svg {
+  display: none !important;
+}

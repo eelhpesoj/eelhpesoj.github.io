@@ -25,13 +25,13 @@ search: false
   @include breakpoint($large) {
     width: 84%;
     padding-inline-start: 2rem;
-    padding-inline-end: 11%;
+    padding-inline-end: 9%;
   }
 
   @include breakpoint($x-large) {
     width: 86%;
     padding-inline-start: 2rem;
-    padding-inline-end: 9%;
+    padding-inline-end: 7%;
   }
 }
 

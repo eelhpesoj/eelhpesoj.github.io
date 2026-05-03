@@ -231,3 +231,14 @@ a:hover {
   max-width: 1600px !important;  // 1400~1800 추천
   margin: 0 auto !important;
 }
+
+
+
+/* 본문은 유지하고, 좌우 사이드 영역만 간격 벌리기 */
+.sidebar {
+  margin-right: 3rem !important;
+}
+
+.sidebar__right {
+  margin-left: 3rem !important;
+}

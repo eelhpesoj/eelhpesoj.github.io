@@ -46,10 +46,9 @@ To give you more specific details of:
 
 7. Configure just like this
 <img width="402" height="457" alt="image" src="https://github.com/user-attachments/assets/f931aeef-efd0-48e3-850f-cef09ed06f33" />
-
-> **[note]**
-> azureADName is the domain name enrolled to your tenant.
-> azureADId is the tenant GUID.
+    > **[note]**
+    > azureADName is the domain name enrolled to your tenant.
+    > azureADId is the tenant GUID.
 
 6. Click 'Finish'
 <img width="439" height="378" alt="image" src="https://github.com/user-attachments/assets/4a723b13-abc2-455c-b2af-53d638972792" />

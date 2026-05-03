@@ -11,15 +11,7 @@ The fastest way to understand code signing is to compare it with HTTPS, which mo
 
 - Related post: <https://eelhpesoj.github.io/AD-CA-Setup-&-Sign-intune-PowerShell-Script/>
 - Ref: <https://learn.microsoft.com/ko-kr/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537361(v=vs.85)>
- 
 
-[Index]
-
-1. HTTPS — "Only You Should Be Able to Read This"
-2. Code Signing — "This Code Is Mine, and It Hasn't Been Touched"
-3. HTTPS vs Code Signing — Side by Side
-4. PowerShell Script Signing
-5. Summary
 
 
 # 1. HTTPS — "Only You Should Be Able to Read This"

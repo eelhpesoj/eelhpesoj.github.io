@@ -13,11 +13,6 @@ The result would be like:
 
 Let's crack on with the post!
 
-[Index]
-
-1. PSSO concept
-2. Intune policy configuration
-3. Deployment from the endpoint
 
 # 1. PSSO concept
 Please refer this documents:

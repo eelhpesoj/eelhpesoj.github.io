@@ -9,11 +9,16 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 
+.masthead__inner-wrap {
+  margin-left: -1rem;
+}
+
 // 레이아웃 비율 조정
 // 레이아웃 비율 조정
 .sidebar {
   @include breakpoint($large) {
     width: 16%;
+    margin-left: -1rem;
   }
 
   @include breakpoint($x-large) {

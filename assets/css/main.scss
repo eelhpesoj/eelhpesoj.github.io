@@ -328,5 +328,5 @@ a:hover {
 
 /* 홈 페이지에서만 프로필 위치 조정 */
 .layout--archive .sidebar {
-  margin-top: 30rem; /* 숫자 조절하면서 맞춰보기 */
+  margin-top: 30rem !important;
 }

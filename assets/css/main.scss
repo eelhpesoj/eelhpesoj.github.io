@@ -8,7 +8,11 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 
-
+/* 전체 좌측 기준선 통일 */
+.masthead__inner-wrap,
+.initial-content {
+  padding-left: 1rem !important;
+}
 
 
 // 레이아웃 비율 조정
@@ -253,10 +257,11 @@ a:hover {
 */
 
 
-/* 전체 wrapper 확장 (핵심) */
+/* 전체 wrapper 확장 (핵심) 
 .initial-content,
 .layout--single,
 .layout--single .page {
   max-width: 1600px !important;  // 1400~1800 추천
   margin: 0 auto !important;
 }
+*/

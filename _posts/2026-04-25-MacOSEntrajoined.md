@@ -28,6 +28,7 @@ I just follow the configuration from the document below.
 <img width="544" height="887" alt="image" src="https://github.com/user-attachments/assets/c3fc0160-9934-45e6-9623-5993f331077b" />
 
 Plus, I also create compliance policy to meet the "Default Device Compliance Policy" which requires assigning a one compliance policy at least.
+
 <img width="548" height="343" alt="image" src="https://github.com/user-attachments/assets/0b101af9-5ea2-4403-8b81-e6cfa158ff57" />
 
 

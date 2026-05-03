@@ -23,12 +23,6 @@ So, the point here is you have to change the domain type from authoritative to I
 Let's find out what's should be done.
 
 
-[Index]
-1. Domain types in Accepted domain
-2. Send connector
-3. Result
-
-
 # 1. Domain types in Accepted domain
 ref)
 - <https://learn.microsoft.com/en-us/exchange/mail-flow/accepted-domains/accepted-domains#recipient-lookup-in-accepted-domains>

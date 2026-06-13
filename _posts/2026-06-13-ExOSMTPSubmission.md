@@ -12,7 +12,7 @@ categories:
 This post is addressing the follow up of the previous post:<https://eelhpesoj.github.io/on-premises/exchange%20server/exchange%20online/exchange%20hybrid/programming/powershell/NoReply-mailbox-and-Send-mail-using-O365-smtp-server-with-Java/>
 We will mainly focus on the STARTTLS and Submission feature of Exchange online SMTP server.
 
-# 1. STARTTLS
+# 1. STARTTLS procedure check with openssl
 First, we have to use STARTTLS when we try to connect smtp server which is smtp.office365.com:587.
 We can use openssl command. Please refer this:<https://docs.openssl.org/3.0/man1/openssl-s_client/>
 ```shell
@@ -31,13 +31,14 @@ And the process would be like:
 9. subject: anything
 10. anything (body)
 11. type '.' to end
+
 <img width="1717" height="1012" alt="image" src="https://github.com/user-attachments/assets/a49cb098-d079-4473-a487-e5b123af1113" />
 
 As you can see here, SMTP Submission and the AUTH LOGIN should be placed in TLS session. You can not do this in just 25 connection with the SMTP server.
 And one thing you have to know is TLS1.2 required. Not 1.0 or 1.1.
 Openssl is use TLS1.2 automatically so it is working properly, but if you use customed application to submit this whole thing, you should set TLS1.2.
 
-# 2. PowerShell Test
+# 2. TLS error check with PowerShell(.NET application)
 If TLS1.2 is not enabled, you get the error like this. and the application developed with .NET, you can exactly the same error on your console.
 <img width="1876" height="899" alt="image" src="https://github.com/user-attachments/assets/43fb742d-8a9d-4fbd-855d-6d89ad234fa5" />
 ```shell

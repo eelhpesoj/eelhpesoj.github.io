@@ -26,7 +26,7 @@ Go to the website, and download it with the blue button.
 Button link: <https://aka.ms/SaRA_EnterpriseVersionFiles>
 <img width="1022" height="378" alt="image" src="https://github.com/user-attachments/assets/a9713edf-015f-4831-a64d-f72ded2d1fcd" />
 
-# 3. Officescrubber
+# 3. OfficeScrubber
 This one is what I get from the other bloggers. and it works really..
 <https://github.com/eelhpesoj/eelhpesoj.github.io/raw/refs/heads/main/download/OfficeScrubber.zip>
 

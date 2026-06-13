@@ -86,8 +86,11 @@ Openssl is use TLS1.2 automatically so it is working properly, but if you use cu
 # 2. TLS error check with PowerShell(.NET application)
 If TLS1.2 is not enabled, you get the error like this. and the application developed with .NET, you can exactly the same error on your console.
 <img width="1920" height="1152" alt="image" src="https://github.com/user-attachments/assets/32c654b6-0913-40e4-ba32-d7a43e516abf" />
-You should use TLS1.2 or higher.
+
+You should use TLS1.2 or higher. and the email has been sent successfully.
 <img width="1920" height="1152" alt="image" src="https://github.com/user-attachments/assets/4a5a7b33-59f5-4280-a930-5971e9de2844" />
+
+admin recieved message from 'shared1'
 <img width="1548" height="767" alt="image" src="https://github.com/user-attachments/assets/38e5aca9-33b9-4303-b97a-9c5aa8678aca" />
 
 Here is the whole script:

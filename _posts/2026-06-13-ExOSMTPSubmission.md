@@ -143,4 +143,19 @@ finally {
 ```
 
 # 3. TLS error check with Java
+Refer this code: <https://github.com/eelhpesoj/SendEmailO365Java>
+
+And first of all, I selected TLS1.1 for a test to see how the console give an error.
+It says "protocol is disabled or cipher suites are inappropriate". It's quite similar to .NET console message.
+<img width="1920" height="1152" alt="image" src="https://github.com/user-attachments/assets/f4e4a8ad-26d9-4749-a3d6-b1594b6b5cf5" />
+
+And let me change the version 1.2, the output says "Email sent successfully to admin@m365x40633190.onmicrosoft.com"
+<img width="1920" height="1152" alt="image" src="https://github.com/user-attachments/assets/5bfa102c-260d-45f2-9726-bbaab847b212" />
+
+admin recieved message from 'shared1'
+<img width="1526" height="831" alt="image" src="https://github.com/user-attachments/assets/07556de5-6b84-4af7-97db-1a95257f5647" />
+
+# 4. Summary
+There is so many error cases regarding about the SMTP submission on your applications, but we have take a look a tiny part of it especially TLS versions.
+Hope this can help you to investigate your error or further.
 

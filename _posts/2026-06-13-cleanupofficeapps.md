@@ -18,8 +18,8 @@ Just go to this website and click the blue button and let it do the work.
 
 <img width="1041" height="630" alt="image" src="https://github.com/user-attachments/assets/89ba8eda-8e30-4921-a779-af48d3d81d86" />
 
-# 2. Get help, Commandline version
-You can use commandline version to remove office.
+# 2. Get help, Command line version
+You can use command line version to remove office.
 Go to the website, and download it with the blue button.
 <https://learn.microsoft.com/en-us/troubleshoot/microsoft-365/admin/miscellaneous/get-help-office-uninstall>
 

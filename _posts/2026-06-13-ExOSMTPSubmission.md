@@ -159,3 +159,5 @@ admin recieved message from 'shared1'
 There is so many error cases regarding about the SMTP submission on your applications, but we have take a look a tiny part of it especially TLS versions.
 Hope this can help you to investigate your error or further.
 
+ref)<https://learn.microsoft.com/en-us/purview/technical-reference-details-about-encryption#deprecations>
+

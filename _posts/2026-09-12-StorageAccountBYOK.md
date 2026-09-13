@@ -72,6 +72,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 <img width="1342" height="270" alt="image" src="https://github.com/user-attachments/assets/973e7d4d-3636-4b59-937f-2ec316442759" />
 
 # 3. Check validation
+
 1. KeySource
 ```powershell
 $account = Get-AzStorageAccount `

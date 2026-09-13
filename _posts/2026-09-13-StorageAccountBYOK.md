@@ -15,7 +15,7 @@ In this post, we will briefly take a look how to set the BYOK in Azure Storage.
 This is just a LAB, so I will not address the HSM here.
 
 # 1. Create Storage Account
-1. From the resource group, create a new storage account. 
+From the resource group, create a new storage account. 
 <img width="853" height="803" alt="image" src="https://github.com/user-attachments/assets/d3ce72f1-f405-4a9d-aaa9-b826e16f9695" />
 
 # 2. Use a user-assigned managed identity to authorize access
